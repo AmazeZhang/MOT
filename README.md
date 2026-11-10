@@ -6,6 +6,8 @@
 
 ## 阅读顺序
 
+准备去服务器安装时，直接从 [服务器环境配置指南](服务器环境配置指南.md) 开始：按步骤安装、运行 GPU 验收并保存反馈信息。
+
 1. [实验手册总览](docs/experiment_handbook/00_overview.md)：当前需求、优先级和每阶段交付物。
 2. [验证路线与实验矩阵](docs/experiment_handbook/01_validation_plan.md)：先验证什么、如何对照、何时继续或调整。
 3. [服务器与环境配置](docs/experiment_handbook/02_environment.md)：硬件盘点、候选版本、安装和验收步骤。
