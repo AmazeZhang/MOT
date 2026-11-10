@@ -1,0 +1,58 @@
+detector_id: ocsort_yolox_dance_bb2f686_b8d1
+status: single_train_sequence_baseline_validation
+dataset: DanceTrack
+split: train
+sequence: dancetrack0027
+frames: [1, 403]
+detector:
+  code_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  input_size: [800, 1440]
+  precision: fp32
+  confidence: 0.1
+  nms_iou: 0.7
+  inference_seconds: 12.334384882822633
+cache:
+  logical_path: cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0027_full.csv
+  sha256: 81e29bdfbbae5255d3ac9628fba0ee1311f4d356a03be56a5c25e80172cc1564
+  schema: [frame, det_id, x1, y1, x2, y2, score, class_id]
+  frame_origin: 1
+  coordinate_space: original_image_pixels_xyxy_continuous
+  detections: 3431
+  empty_detection_frames: 0
+tracker:
+  code_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  tracker_rows: 3082
+cache_replay:
+  direct_vs_replay_frame_and_id_equal: true
+  direct_vs_replay_max_abs_xyxy_error: 0.0000025993617782660294
+  tolerance: 0.00001
+  independent_replays: 3
+  independent_replays_byte_identical: true
+  replay_output_sha256: a9d82dbc5e53c4b03a0e57d78c88ee7d53a01e0ab8ec4daf135f4ba04d5022a1
+evaluation:
+  scope: complete dancetrack0027 train sequence, frames 1-403
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  HOTA: 68.453
+  DetA: 81.052
+  AssA: 57.916
+  MOTA: 88.273
+  IDF1: 72.284
+  IDSW: 13
+  tracker_detections: 3082
+  gt_detections: 3445
+  status: single_train_sequence_pipeline_validation_not_a_research_result
+run:
+  id: g1_ocsort_baseline_dancetrack0027_full_20261110
+  logical_path: runs/g1_ocsort_baseline_dancetrack0027_full_20261110
+visual_validation:
+  frames: [1, 100, 200, 300, 403]
+  overlays: GT green, fixed detections yellow, tracker red
+  coordinate_alignment: PASS
+  note: sampled overlays show no global shift or duplicate resize

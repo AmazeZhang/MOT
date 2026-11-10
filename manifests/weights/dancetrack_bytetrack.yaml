@@ -1,0 +1,37 @@
+name: DanceTrack ByteTrack/YOLOX detector checkpoint
+source:
+  provider: huggingface
+  repo_id: noahcao/dancetrack_models
+  repo_type: model
+  revision: 6487fc12a2fe13db44506592324cea83270f5812
+  remote_file: bytetrack_models/bytetrack_model.pth.tar
+  repository_license: CC-BY-4.0
+file:
+  size_bytes: 792835731
+  sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+checkpoint:
+  top_level_keys: [model, optimizer, start_epoch]
+  model_tensor_count: 894
+  strict_load_oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  strict_load_status: PASS
+provenance:
+  oc_sort_documented_name: bytetrack_dance_model.pth.tar
+  author_mirror_name: bytetrack_model.pth.tar
+  official_google_drive:
+    folder_id: 1LnhZVJlpufUnWuObZASIN1KwfhuvT_a8
+    file_id: 1Lox1HIT_HOOsPk6nKXuIwg46cap_S27t
+    file_name: ocsort_dance_model.pth.tar
+    size_bytes: 792835731
+    sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  google_drive_equivalence: byte_identical
+  equivalence_checks:
+    - equal_file_size
+    - equal_sha256
+    - cmp_byte_identical
+    - equal_checkpoint_keys
+    - 894_model_tensors_exactly_equal
+  training_split_statement: official GET_STARTED documents training on DanceTrack train set; checkpoint has no embedded data manifest
+  training_scope_status: supported_by_upstream_documentation_not_checkpoint_self_attested
+usage_policy:
+  engineering_smoke_test: allowed
+  formal_val_claim: allowed_with_exact_hash_and_upstream_training_scope_caveat

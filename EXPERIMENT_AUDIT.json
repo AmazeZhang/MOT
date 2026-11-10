@@ -1,0 +1,38 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "REVIEW_UNAVAILABLE",
+  "reason_code": "reviewer_usage_limit",
+  "summary": "The fresh same-family semantic reviewer hit a usage limit; deterministic artifact checks completed but do not substitute for semantic review.",
+  "audited_input_hashes": {
+    "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/summary.json": "sha256:ea6eea869603cd55f40f66f530ac9469074b08e7ac3222d5cd367f96092cb61a",
+    "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/evaluation/baseline/pedestrian_summary.txt": "sha256:c3c139b7563c3095656aff17616b9b9fd99f9ce37579d06ca0c511402226e913",
+    "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/evaluation/baseline/pedestrian_detailed.csv": "sha256:40529ddb7c6b9ef12b048db74a9e3cd3fa6ab2d4870119d558fee6de9e3b1a3a",
+    "/media/imc/data/mot-data/runs/g1_ocsort_train_replay_validation_1e-4_20261110/summary.json": "sha256:e98fc82e0c5e17740bffb1004c21e1e8674e515260cc020877fa2407f9b4d398"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-10_run01/",
+  "agent_id": "/root/experiment_integrity_audit",
+  "verdict_id": null,
+  "executor_model": "gpt-5",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-5.6-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "unavailable",
+  "generated_at": "2026-11-10T23:24:01+08:00",
+  "date": "2026-11-10",
+  "auditor": "gpt-5.6-sol-ultra",
+  "overall_verdict": "review_unavailable",
+  "integrity_status": "unavailable",
+  "checks": {
+    "semantic_review": {"status": "error", "details": "Reviewer usage limit"},
+    "artifact_hashes": {"status": "pass", "details": "Primary run, evaluation, and replay summaries were hashed and cross-checked deterministically."},
+    "scope": {"status": "qualified", "details": "40 DanceTrack train sequences, one detector/tracker configuration; no val or new-method result."},
+    "eval_type": "real_gt_expected_semantic_review_unavailable"
+  },
+  "claims": [
+    {"id": "train_baseline_metrics", "impact": "supported_by_artifacts_semantic_review_unavailable"},
+    {"id": "replay_consistency", "impact": "supported_by_deterministic_check"},
+    {"id": "val_generalization_or_new_method", "impact": "unsupported"}
+  ]
+}

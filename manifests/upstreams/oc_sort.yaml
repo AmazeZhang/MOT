@@ -1,0 +1,27 @@
+name: OC-SORT
+repository: https://github.com/noahcao/OC_SORT.git
+commit: bb2f6867a41082558d95ab47a854a3918de7831b
+retrieved_on: 2026-11-10
+local_checkout: third_party/OC_SORT
+checkout_mode: detached
+purpose: paper-era reference baseline and DanceTrack detection/tracking pipeline
+license:
+  identifier: MIT
+  upstream_file: LICENSE
+selection:
+  paper: CVPR 2023
+  selected_commit_date: 2023-03-15
+  reason:
+    - selected after the CVPR paper update and before the 2026 Python tracker refactor
+    - the Python tracker file is unchanged from commit bdfbc98 (2022-04-27) through commit 7a390a5 (2023-07-18)
+    - current master commit 8462e7e includes the 2026 refactor and is not treated as the paper baseline
+  refactor_commit: 9ab5bd9
+dancetrack:
+  experiment: exps/example/mot/yolox_dancetrack_val.py
+  runner: tools/run_ocsort_dance.py
+  input_size: [800, 1440]
+  detector_confidence: 0.1
+  detector_nms: 0.7
+  documented_checkpoint_name: bytetrack_dance_model.pth.tar
+patches: []
+status: source_pinned_mot_det_import_checkpoint_and_smoke_passed

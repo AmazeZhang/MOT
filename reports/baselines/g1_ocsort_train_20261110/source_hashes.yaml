@@ -1,0 +1,16 @@
+run_id: g1_ocsort_train_baseline_20261110
+split: train
+sequences: 40
+frames: 41796
+primary_artifacts:
+  run_summary_json:
+    sha256: ea6eea869603cd55f40f66f530ac9469074b08e7ac3222d5cd367f96092cb61a
+  trackeval_pedestrian_summary_txt:
+    sha256: c3c139b7563c3095656aff17616b9b9fd99f9ce37579d06ca0c511402226e913
+  trackeval_pedestrian_detailed_csv:
+    sha256: 40529ddb7c6b9ef12b048db74a9e3cd3fa6ab2d4870119d558fee6de9e3b1a3a
+  replay_validation_summary_json:
+    sha256: e98fc82e0c5e17740bffb1004c21e1e8674e515260cc020877fa2407f9b4d398
+normalization:
+  trackeval_summary_snapshot: line_endings_normalized_to_lf
+  per_sequence_metrics: selected_columns_rounded_to_3_display_decimals

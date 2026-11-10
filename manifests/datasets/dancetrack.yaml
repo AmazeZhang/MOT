@@ -1,0 +1,34 @@
+dataset: DanceTrack
+source:
+  provider: huggingface
+  repo_id: noahcao/dancetrack
+  repo_type: dataset
+  revision: a0ba42ac690c41e9850a20e76a0b9450a6fb6a47
+archives:
+  train1.zip:
+    sha256: 70a66f10d8d71df94d03059fc4f966cb719e61e8e7136d2886fd6345ed1ff6dd
+  train2.zip:
+    sha256: f676e8c6ac2a2d7566f1702d588311eafd4c90cc5416bb70f36a192d1e365af4
+  val.zip:
+    sha256: 90ba30973761ce0b81a9654c11086d87537392475ac8bc666d842e645641277c
+layout:
+  train_sequences: 40
+  train_images: 41796
+  val_sequences: 25
+  val_images: 25508
+validation:
+  status: PASS
+  checked_on: 2026-11-10
+  checks:
+    - archive_integrity
+    - required_sequence_paths
+    - seqinfo_fields
+    - image_count_and_contiguous_frame_names
+    - nonempty_images
+    - sampled_image_dimensions
+    - gt_columns_and_frame_range
+    - positive_gt_box_dimensions
+    - duplicate_frame_id_pairs
+notes:
+  - train1 and train2 are merged into the logical train split.
+  - Local absolute paths and the full per-sequence report are intentionally not committed.

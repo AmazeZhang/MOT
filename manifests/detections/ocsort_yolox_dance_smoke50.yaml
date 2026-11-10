@@ -1,0 +1,43 @@
+detector_id: ocsort_yolox_dance_bb2f686_b8d1
+status: smoke_only
+dataset: DanceTrack
+split: train
+sequence: dancetrack0027
+frames: [1, 50]
+detector:
+  code_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  input_size: [800, 1440]
+  precision: fp32
+  confidence: 0.1
+  nms_iou: 0.7
+cache:
+  logical_path: cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0027_smoke50.csv
+  sha256: e4c7f424734ab8d3584ee4d3bd1249291144d95d37c9d2bc1052b25d1363f3b0
+  schema: [frame, det_id, x1, y1, x2, y2, score, class_id]
+  frame_origin: 1
+  coordinate_space: original_image_pixels_xyxy_continuous
+  detections: 333
+tracker:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+replay:
+  tracker_rows: 296
+  frame_and_id_equal: true
+  max_abs_xywh_error: 0.000005000000015797923
+  tolerance: 0.00001
+  status: PASS
+evaluation:
+  scope: dancetrack0027 frames 1-50 only
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  HOTA: 76.38
+  DetA: 81.872
+  AssA: 71.583
+  MOTA: 86.944
+  IDF1: 82.78
+  IDSW: 3
+  status: pipeline_smoke_only_not_a_research_result

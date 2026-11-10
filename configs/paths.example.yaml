@@ -1,0 +1,13 @@
+project_root_env: MOT_PROJECT_ROOT
+data_root_env: MOT_DATA_ROOT
+
+dataset:
+  name: dancetrack
+  train: datasets/dancetrack/train
+  val: datasets/dancetrack/val
+
+storage:
+  weights: weights/dancetrack
+  detection_cache: cache/detections
+  motion_cache: cache/motion
+  runs: runs

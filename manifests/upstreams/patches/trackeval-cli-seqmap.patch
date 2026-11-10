@@ -1,0 +1,15 @@
+diff --git a/scripts/run_mot_challenge.py b/scripts/run_mot_challenge.py
+index c7bcd27..14bed0f 100644
+--- a/scripts/run_mot_challenge.py
++++ b/scripts/run_mot_challenge.py
+@@ -72,6 +72,10 @@ if __name__ == '__main__':
+                 x = None
+             elif setting == 'SEQ_INFO':
+                 x = dict(zip(args[setting], [None]*len(args[setting])))
++            elif setting in ['SEQMAP_FILE', 'OUTPUT_FOLDER']:
++                if len(args[setting]) != 1:
++                    raise Exception('Command line parameter ' + setting + ' must contain exactly one path')
++                x = args[setting][0]
+             else:
+                 x = args[setting]
+             config[setting] = x

@@ -1,0 +1,28 @@
+name: TrackEval
+repository: https://github.com/JonathonLuiten/TrackEval.git
+commit: 12c8791b303e0a0b50f753af204249e622d0281a
+retrieved_on: 2026-11-10
+local_checkout: third_party/TrackEval
+purpose: official MOT HOTA, CLEAR, and Identity evaluation
+license:
+  identifier: MIT
+  upstream_file: LICENSE
+environment:
+  name: mot-eval
+  python: 3.10
+  numpy: 1.26.4
+  scipy: 1.13.1
+installation:
+  mode: editable_no_deps
+  reason: historical upstream requirements pin obsolete package versions; the MOT 2D path is validated separately
+patches:
+  - file: manifests/upstreams/patches/trackeval-numpy-compat.patch
+    scope: replace removed NumPy scalar aliases only in HOTA, Identity, and MotChallenge2DBox paths
+    changes_metric_formula: false
+  - file: manifests/upstreams/patches/trackeval-cli-seqmap.patch
+    scope: unwrap single SEQMAP_FILE and OUTPUT_FOLDER CLI paths parsed from None-valued defaults
+    changes_metric_formula: false
+optional_dependencies:
+  pycocotools: 2.0.10
+  tabulate: 0.9.0
+status: motchallenge_artificial_cases_passed
