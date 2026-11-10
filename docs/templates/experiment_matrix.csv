@@ -1,0 +1,25 @@
+planned_order,phase,run_id,model,objective,train_seed,inference_seeds,warmup_fraction,gpu_assignment,status,notes
+1,G4_confirm,regression_motion_s13,regression,motion,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+2,G4_confirm,cfm_motion_s13,cfm,motion,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+3,G4_confirm,gaussian_motion_s13,gaussian,motion,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+4,G4_confirm,gaussian_joint_s13,gaussian,joint,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+5,G4_confirm,cfm_joint_s13,cfm,joint,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+6,G4_confirm,regression_joint_s13,regression,joint,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+7,G4_confirm,mdn3_joint_s13,mdn3,joint,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+8,G4_confirm,mdn3_motion_s13,mdn3,motion,13,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+9,G4_confirm,regression_motion_s37,regression,motion,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+10,G4_confirm,cfm_joint_s37,cfm,joint,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+11,G4_confirm,gaussian_joint_s37,gaussian,joint,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+12,G4_confirm,cfm_motion_s37,cfm,motion,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+13,G4_confirm,gaussian_motion_s37,gaussian,motion,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+14,G4_confirm,mdn3_motion_s37,mdn3,motion,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+15,G4_confirm,regression_joint_s37,regression,joint,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+16,G4_confirm,mdn3_joint_s37,mdn3,joint,37,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+17,G4_confirm,regression_motion_s73,regression,motion,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+18,G4_confirm,regression_joint_s73,regression,joint,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+19,G4_confirm,cfm_motion_s73,cfm,motion,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+20,G4_confirm,gaussian_joint_s73,gaussian,joint,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+21,G4_confirm,mdn3_motion_s73,mdn3,motion,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+22,G4_confirm,mdn3_joint_s73,mdn3,joint,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+23,G4_confirm,cfm_joint_s73,cfm,joint,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
+24,G4_confirm,gaussian_motion_s73,gaussian,motion,73,101;202;303,0.2,unassigned,planned,Run only after G4 implementation acceptance; reuse earlier run only if protocol identical
