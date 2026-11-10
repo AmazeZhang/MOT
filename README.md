@@ -14,10 +14,11 @@
 4. [数据、检测缓存与评测](docs/experiment_handbook/03_data_and_evaluation.md)：官方下载、目录、划分、权重来源和 TrackEval。
 5. [实现步骤与接口约定](docs/experiment_handbook/04_implementation.md)：按依赖顺序实现的任务、验收条件和边界。
 6. [服务器反馈与协作](docs/experiment_handbook/05_server_handoff.md)：你需要反馈的信息、运行记录和后续远程协作。
+7. [研究监管与创新有效性台账](docs/research_governance/README.md)：记录每个创新主张的最近先例、实验证据、审查状态和人工决策点，供本项目与科研 agent 并行更新。
 
 可填写模板：[服务器信息](docs/templates/server_inventory.md)、[实验记录](docs/templates/experiment_record.md)、[决策记录](docs/templates/decision_record.md)、[实验清单](docs/templates/experiment_matrix.csv)。模板目前没有真实实验结果。
 
-前期依据：[2026-11-03 批判性调研](调研/FlowMatching_深入调研_2026-11-03/FlowMatching_MOT_批判性调研报告.md)、[检索核查记录](调研/FlowMatching_深入调研_2026-11-03/检索与核查记录.md)。调研中的论文 PDF、原始检索返回与代码阅读快照仅保存在本地，不随仓库分发；原始来源链接保留在报告中。
+前期依据：[2026-11-03 批判性调研](调研/FlowMatching_深入调研_2026-11-03/FlowMatching_MOT_批判性调研报告.md)、[检索核查记录](调研/FlowMatching_深入调研_2026-11-03/检索与核查记录.md)、[2026-11-10 当前实验重合审查](调研/研究监管_实验重合审查_2026-11-10/allinone.md)。调研中的论文 PDF、原始检索返回与代码阅读快照仅保存在本地，不随仓库分发；原始来源链接保留在报告中。
 
 ## 第一轮的范围
 
