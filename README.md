@@ -19,6 +19,7 @@
 9. [项目进展日志](docs/progress_log.md)：每阶段实际完成内容、验收证据、限制和下一步。
 10. [轻量实验凭证](reports/README.md)：进入 Git 的官方评测摘要、逐序列指标和产物哈希；大型原始输出仍留在数据盘。
 11. [当前研究状态总结](docs/current_status_20261112.md)：截至 2026-11-12 的主要发现、证据边界、阶段位置、产物路径和精确下一步。
+12. [已完成实验复盘与下一轮安排](docs/experiment_review_20261112.md)：判断是否继续原计划；明确先做 P1 自然闭环、暂缓概率模型矩阵，以及最小对照与决策分支。
 
 可填写模板：[服务器信息](docs/templates/server_inventory.md)、[实验记录](docs/templates/experiment_record.md)、[决策记录](docs/templates/decision_record.md)、[实验清单](docs/templates/experiment_matrix.csv)。模板目前没有真实实验结果。
 
