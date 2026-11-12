@@ -1,0 +1,4 @@
+outcome,events,gap_median,gap_mean,gap_1,gap_2,gap_3_5,gap_6_10,gap_11_30,localization_ambiguity_count,localization_ambiguity_rate,neighbor_overlap_count,neighbor_overlap_rate,boundary_proximity_count,boundary_proximity_rate,history_id_pollution_count,history_id_pollution_rate,motion_change_median
+identity_change_failure,53,2.000,3.415094,21,15,9,5,3,19,0.358491,53,1.000000,6,0.113208,51,0.962264,0.00450528136429
+success_control,112,1.000,1.839286,69,21,19,3,0,22,0.196429,112,1.000000,7,0.062500,100,0.892857,0.00363510773138
+unresolved,632,2.000,3.132911,298,118,126,58,32,354,0.560127,616,0.974684,40,0.063291,33,0.052215,0.0039049876381

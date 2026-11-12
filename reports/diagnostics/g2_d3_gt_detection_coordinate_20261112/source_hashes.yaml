@@ -1,0 +1,28 @@
+scope: DanceTrack_train_only_D3_existing_positive_detection_coordinate
+protocol:
+  path: manifests/protocols/g2_d3_gt_detection_coordinate_20261111.yaml
+  sha256: b68621e82337abc9c2663c44d06a5edf1d98487fa19533c5337d9651f08567fb
+raw_run: /media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112
+raw_files:
+  summary.json: 1cb78eb4cc6190858d98ad58ff9c87ea4a1dad33e4f28277aee2ec5694abd5aa
+  event_d3_detection_coordinate.csv: 9186fb4f0a2532e778e5150e81b87a5f6a4f5e8850775401f8f17885844f0244
+  input_hashes.json: 85d2f4f05aae954a59ece6707b5b05016e8539def81e5158d216122535ff1a21
+  runtime.json: 3b2ad54ff0f14d614fc7140a6d0c339ceaf8f914984b3976b9911e0bfc74cb47
+parent_inputs:
+  all_recovery_events.csv: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  event_candidate_contention.csv: 2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499
+  event_d2_first_association.csv: 8965bbfddff3d3c4ca6c2ec219109278feb365f7b666b751415a5bc62b26ddb1
+source_files:
+  analyze_g2_d3_detection_coordinate.py: 2699df21b7d4cabdd007082ac457a2377f631c007db786017a37ade200e9dff6
+  d3_detection_coordinate.py: 02f5ded309adb293ca4416045ac288944f9d71f9e550e8038a66fc26f1432d02
+  d2_first_association.py: 8d263b8f7528ff9a888a39a377dad7f8e71237f79e0619f08573849763c12641
+  failure_events.py: a23cc23e23d2b11a006dbbe73ceeef36c133dd79cdf1f0100926e183e9db1dec
+  upstream_ocsort.py: abc6fbfcf052acad21074225259ae34d4535bb6b085e40cd8d6bca357d653ff7
+  upstream_association.py: def9274c709c9a5650938ba7e9bb95dbbb8c69f33b61006c8aa6ea332e4415ac
+runtime:
+  python: /home/imc/anaconda3/envs/mot-det/bin/python
+  python_version: 3.10.22
+  numpy_version: 1.26.4
+  scipy_version: 1.13.0
+  CUDA_VISIBLE_DEVICES: empty_string
+  upstream_oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b

@@ -1,0 +1,16 @@
+scope: DanceTrack_train_only_D5_simultaneous_D2_D3
+protocol:
+  path: manifests/protocols/g2_d5_joint_d2_d3_20261112.yaml
+  sha256: e47a740857929815e01bdc9a3af66b4ba4cb79d52cd138af5d72ccb747adf6fd
+raw_run: /media/imc/data/mot-data/runs/g2_d5_joint_d2_d3_20261112
+raw_files:
+  summary.json: 0077bb7c071768d276534c2de5b91e87107df101496ecf0aa27065b4a61d5754
+  event_counterfactual.csv: 254347ad4ecc0fc27544115b718fc34b202ed01213d9d772bb9b0ce4cf4aefc8
+  input_hashes.json: 6f414242c5bad395caf82051dc29ad8ef4e6579c8b45d2adb66dff90911a492a
+  runtime.json: 5861b162dcfa435af57d3c3ab01b9073c44e768f9390ce0ae98b4994722046c1
+source_files:
+  analyze_g2_final_counterfactual.py: 1da60d9f3890d3bbbebe4b33207f7f1725e87134fedbdee284dc87622df2f09c
+  d2_first_association.py: 8d263b8f7528ff9a888a39a377dad7f8e71237f79e0619f08573849763c12641
+  failure_events.py: a23cc23e23d2b11a006dbbe73ceeef36c133dd79cdf1f0100926e183e9db1dec
+  upstream_ocsort.py: abc6fbfcf052acad21074225259ae34d4535bb6b085e40cd8d6bca357d653ff7
+  upstream_association.py: def9274c709c9a5650938ba7e9bb95dbbb8c69f33b61006c8aa6ea332e4415ac

@@ -1,0 +1,30 @@
+run_id: g2_train_failure_attribution_20261111
+scope: DanceTrack_train_only
+protocol:
+  path: manifests/protocols/g2_train_failure_attribution_20261111.yaml
+  sha256: a825161d9800180559012b2b2cee5117e744e8d2aac31d1e2739d01a7dee6645
+external_run_artifacts:
+  summary_json:
+    sha256: ddfa4b0e775938943ce8090f05393199d66186619d06b0b788d20adc629c1443
+  input_hashes_json:
+    sha256: 741bbfe4b72c73060f85dc4b3eb4d02decedca04b0ba54c409b78678ff5a5767
+  all_recovery_events_csv:
+    rows: 797
+    sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  sampled_events_csv:
+    rows: 40
+    sha256: ce2bc9c5dec6d66f2ff6b7c823b01549821c350250d51c31432b151fa7d5e8f6
+  sequence_summary_csv:
+    rows: 4
+    sha256: 10d3a665e9e95916a9887ee364c86d328d606d8a40e9464238f82aed0a4ffe89
+  overlay_index_csv:
+    images: 40
+    sha256: 5c9714d40485180b38f11caa6dbb226bc6cc5e1fda73c3cbaf733c0203cbd408
+visual_review:
+  generated: 40
+  rendering_spot_checked: 4
+  codex_agent_reviewed: 40
+  human_expert_reviewed: 0
+  status: agent_visual_review_complete_no_causal_labels
+  manual_review_csv_sha256: 0fd2a459a08ac67bedbee855119b95829366b3b63635eed94686b56dbba5b408
+  agent_review_summary_csv_sha256: f617561ce253bf52e7477f59ff6f26b33b151a9c49be4ddf38a174c0a848604a

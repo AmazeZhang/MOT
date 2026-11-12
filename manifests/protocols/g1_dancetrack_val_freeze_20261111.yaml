@@ -1,0 +1,72 @@
+protocol_id: g1_dancetrack_val_freeze_20261111
+status: frozen_before_val_execution
+frozen_date: 2026-11-11
+dataset: DanceTrack
+split: val
+scope:
+  sequences: 25
+  frames: 25508
+code:
+  project_commit: ead706f86ae120e45f176334e2c27ae03fa867d0
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+configuration:
+  path: configs/baselines/ocsort_dancetrack_g1.yaml
+  carried_over_from_train_without_changes: true
+  train_manifest: manifests/detections/ocsort_yolox_dance_train.yaml
+  train_manifest_sha256: bedb827b5a423957ace64a0f27ce257e8a098ac830d9c14fbd92f623afac66b6
+detector:
+  weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  precision: fp32
+  input_size: [800, 1440]
+  confidence: 0.1
+  nms_iou: 0.7
+tracker:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  empty_frame_policy: upstream_none
+replay_acceptance:
+  frame_and_id_exact: true
+  coordinate_representation: original_image_pixels_xyxy
+  absolute_tolerance_pixels: 0.0001
+evaluation:
+  adapter: MotChallenge2DBox
+  metrics: [HOTA, CLEAR, Identity]
+  matching_iou: 0.5
+  do_preproc: true
+  use_parallel: false
+  plot_curves: false
+runtime:
+  physical_gpu: 1
+  cuda_visible_devices: "1"
+  process_device: cuda:0
+  physical_gpu_0_forbidden: true
+outputs:
+  cache_root: cache/detections/ocsort_yolox_dance_bb2f686_b8d1/val
+  baseline_run: runs/g1_ocsort_val_baseline_20261111
+  replay_run: runs/g1_ocsort_val_replay_validation_1e-4_20261111
+view_and_rerun_policy:
+  val_metric_views_before_full_evaluation: 0
+  planned_full_metric_evaluations: 1
+  tune_on_val: false
+  per_sequence_parameter_selection_on_val: false
+  engineering_rerun_allowed_only_if:
+    - process_failure
+    - incomplete_or_corrupt_artifact_set
+    - evaluator_invocation_failure_before_valid_metrics
+  engineering_rerun_requirements:
+    - retain_failed_artifacts
+    - record_failure_reason
+    - keep_all_frozen_parameters_unchanged
+claims:
+  allowed_after_success:
+    - unchanged_OC_SORT_baseline_on_DanceTrack_val
+  disallowed:
+    - new_method_improvement
+    - robustness_or_generalization_beyond_DanceTrack_val
+    - val_selected_hyperparameters
+provenance_caveat: The checkpoint is documented upstream as trained on DanceTrack train, but it does not embed its own training-data manifest.

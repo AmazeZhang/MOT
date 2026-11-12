@@ -1,0 +1,31 @@
+scope: D1_v2_post_audit_association_score_margin_addendum
+protocol:
+  path: manifests/protocols/g2_d1_score_margin_addendum_20261111.yaml
+  sha256: ca0a778d82a67e6d1eaceba7e6f97d230072148e20e6d95bec8494c0296ead71
+raw_run: /media/imc/data/mot-data/runs/g2_d1_score_margin_addendum_20261111
+raw_files:
+  summary.json: e4433bc77a711db6d226a922608634d179505dfa59e52c07c0f0c6c5bcad2f80
+  event_d1_score_margins.csv: 3d450ccd55b7645514176c4f74082f8e983b65c8c9de583236588b82d8a49ac1
+  input_hashes.json: f7a960e55db382feff8ad7ea7670502167318bb7cdc7e4d34e6392bb5f4da719
+  runtime.json: 420f6c9c5248334595d1bc64f2e69cc953f7f025769f9f42d7c183a8ea03f58e
+parent_inputs:
+  all_recovery_events.csv: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  event_d1_clean_gap_history.csv: c4a6f73ef2f6bbe42cd1f363bc182edd0a94686a2e6fabb1adf9a74c702c6057
+source_files:
+  analyze_g2_d1_score_margin_addendum.py: d8b96e7588f26ee5323eba526b89d1ae97a8cbfa3854485561593792b8c76ee1
+  d1_history_correspondence.py: da32f16a411d61d645daeb2c4925b7e9317ac206826db2aa884d6628d0da4a51
+  d2_first_association.py: 8d263b8f7528ff9a888a39a377dad7f8e71237f79e0619f08573849763c12641
+  failure_events.py: a23cc23e23d2b11a006dbbe73ceeef36c133dd79cdf1f0100926e183e9db1dec
+  upstream_ocsort.py: abc6fbfcf052acad21074225259ae34d4535bb6b085e40cd8d6bca357d653ff7
+  upstream_association.py: def9274c709c9a5650938ba7e9bb95dbbb8c69f33b61006c8aa6ea332e4415ac
+seqinfo:
+  dancetrack0012: 30ce92f6852a81e3948b69f54f684d56f277c01c6f38de48e73bf4b423fb2c1b
+  dancetrack0020: 8f036eeff85028a66b31c3c1c84187c2ea87aed3aa724eb8758e65e4fc581b2d
+  dancetrack0037: e264952fdfb164eaca8ebd1fa691c0fefd602adbe571926d1c29f3ff2870bfee
+  dancetrack0044: 22f5e2e25b460545799a5e59596cdf8efe888ae1b861da70142a9b53b45a1265
+runtime:
+  python: /home/imc/anaconda3/envs/mot-det/bin/python
+  python_version: 3.10.22
+  numpy_version: 1.26.4
+  CUDA_VISIBLE_DEVICES: empty_string
+  upstream_oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b

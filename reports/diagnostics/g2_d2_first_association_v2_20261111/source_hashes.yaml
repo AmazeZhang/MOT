@@ -1,0 +1,24 @@
+run_id: g2_d2_first_association_v2_20261111
+scope: DanceTrack_train_only_privileged_D2_first_association
+protocol_v1_failed_acceptance:
+  path: manifests/protocols/g2_d2_gt_position_first_association_20261111.yaml
+  sha256: 70ff73a0bd237935205c04a6509da50f83231ea1cdfa3e09f2c23ee88de1d4ed
+protocol_v2:
+  path: manifests/protocols/g2_d2_gt_position_first_association_v2_20261111.yaml
+  sha256: 4f193c6ae3f3049a48c7a5ac4fec7a725a82dba1dc50f6092f1a0409d9776923
+inputs:
+  parent_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  contention_events_sha256: 2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499
+external_run_artifacts:
+  summary_json:
+    sha256: 103830ea8cad1e88ed5f319fb609f9146832471db8b6086b5cea5548fc1462db
+  input_hashes_json:
+    sha256: ca028961b22e3076048e40898706d0deb4a8bba8495855d4887af0d939b79b00
+  event_d2_first_association_csv:
+    rows: 165
+    sha256: 8965bbfddff3d3c4ca6c2ec219109278feb365f7b666b751415a5bc62b26ddb1
+  baseline_replay_files: 4
+replay_contract:
+  frame_and_track_ID_exact: true
+  max_abs_XYXY_error: 0.00000800000003664536
+  tolerance: 0.0001

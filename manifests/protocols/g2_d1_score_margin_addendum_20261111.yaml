@@ -1,0 +1,66 @@
+protocol_id: g2_d1_score_margin_addendum_20261111
+status: frozen_before_addendum_execution_after_integrity_audit
+frozen_at: 2026-11-11
+purpose: complete_the_total_association_score_margin_measurement_omitted_from_D1_v2_output
+parent:
+  protocol: manifests/protocols/g2_d1_clean_gap_history_v2_20261111.yaml
+  protocol_sha256: a3cd7c82c47cc7dd30b0199f7c0fea5dd6e2a8a613282ab2b84ef8ccc266fcca
+  raw_event_table: /media/imc/data/mot-data/runs/g2_d1_clean_gap_history_v2_20261111/event_d1_clean_gap_history.csv
+  raw_event_table_sha256: c4a6f73ef2f6bbe42cd1f363bc182edd0a94686a2e6fabb1adf9a74c702c6057
+  integrity_verdict: WARN_same_family_provisional
+  disclosed_deviation: parent_protocol_promised_score_margins_but_parent_output_only_saved_IoU_coordinate_and_pair_changes
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences: [dancetrack0012, dancetrack0020, dancetrack0037, dancetrack0044]
+  events: exactly_the_same_165_parent_D1_v2_events
+  validation_data_used: false
+reproduction_contract:
+  rerun_parent_D1_v2_intervention_without_state_writeback: true
+  assert_against_every_parent_event:
+    - baseline_positive_match
+    - D1_clean_history_positive_match
+    - recoverable
+    - harmed
+    - baseline_positive_IoU_with_absolute_tolerance_1e-12
+    - clean_history_positive_IoU_with_absolute_tolerance_1e-12
+    - prediction_XYXY_max_change_with_absolute_tolerance_1e-9
+    - association_pairs_changed
+  expected_exact_event_count: 165
+association_score:
+  definition: raw_OC_SORT_first_round_IoU_plus_velocity_direction_consistency
+  formula_source: third_party/OC_SORT/trackers/ocsort_tracker/association.py_associate
+  detection_score_weighting: upstream_unchanged
+  no_normalization_or_rescaling: true
+  first_round_final_pair_acceptance_IoU_at_least: 0.3
+  one_to_one_shortcut_adjacency_IoU_strictly_greater_than: 0.3
+measurements_per_event:
+  - baseline_intended_positive_IoU
+  - clean_intended_positive_IoU
+  - baseline_intended_positive_total_score
+  - clean_intended_positive_total_score
+  - best_other_positive_total_score_all_tracks
+  - best_eligible_other_positive_total_score
+  - intended_minus_best_other_score_margins
+  - intended_gate_eligibility_before_and_after
+  - eligible_other_track_count
+  - one_to_one_IoU_shortcut_before_and_after
+  - assigned_track_ID_before_and_after
+interpretation:
+  - pairwise_score_margin_is_descriptive_because_Hungarian_optimizes_a_global_assignment
+  - when_the_IoU_adjacency_is_one_to_one_OC_SORT_bypasses_total_scores
+  - score_margin_does_not_measure_closed_loop_recovery
+  - addendum_does_not_change_or_replace_parent_D1_v2_outcomes
+runtime_provenance_required:
+  - exact_command_argv
+  - Python_executable_and_version
+  - CUDA_VISIBLE_DEVICES
+  - analysis_script_and_helper_hashes
+  - upstream_OC_SORT_source_hashes_and_commit
+  - all_four_seqinfo_hashes
+  - GT_detection_baseline_parent_and_protocol_hashes
+compute:
+  environment: mot-det
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty
+  physical_gpu_0_forbidden: true

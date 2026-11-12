@@ -1,0 +1,70 @@
+protocol_id: g2_train_failure_attribution_20261111
+status: frozen_before_event_extraction
+frozen_at: 2026-11-11
+scope:
+  dataset: DanceTrack
+  split: train
+  validation_split_used_for_selection: false
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  selection_basis: preexisting_G1_train_low_HOTA_low_AssA_or_high_IDSW_shortlist
+inputs:
+  gt_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  tracker_root: /media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/trackers/baseline/data
+  train_manifest: manifests/detections/ocsort_yolox_dance_train.yaml
+  detector_weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+event_definition:
+  name: bounded_detection_gap_recovery
+  gt_requirement: same_GT_identity_annotated_on_every_frame_from_pre_gap_through_post_gap
+  eligible_detection_score: strictly_greater_than_0.6
+  gt_detection_matching: per_frame_one_to_one_Hungarian_max_IoU
+  gt_detection_iou_threshold: 0.5
+  gap:
+    preceding_frame_has_matched_detection: true
+    missing_frames_have_no_matched_detection: true
+    following_frame_has_matched_detection: true
+    minimum_missing_frames: 1
+    maximum_missing_frames: 30
+  endpoint_gt_tracker_matching: per_frame_one_to_one_Hungarian_max_IoU
+  endpoint_gt_tracker_iou_threshold: 0.5
+  outcome:
+    success_control: same_tracker_ID_at_both_endpoints
+    identity_change_failure: different_tracker_ID_at_endpoints
+    unresolved: tracker_not_matched_at_one_or_both_endpoints
+sampling:
+  seed: 20261111
+  strata:
+    identity_change_failure: 20
+    success_control: 20
+  selection: deterministic_Python_random_sample_after_sort_by_sequence_GT_and_frame
+  shortage_policy: retain_all_available_and_report_shortfall
+  duplicate_events: forbidden
+diagnostic_features:
+  missing_length: exact_frame_count
+  best_detection_iou_during_gap: maximum_raw_eligible_detection_IoU_to_target_GT_before_one_to_one_assignment
+  localization_ambiguity_proxy: best_detection_IoU_in_[0.1,0.5)_on_any_gap_frame
+  neighbor_overlap_proxy: maximum_target_to_other_GT_IoU_at_least_0.1_in_event_window
+  boundary_proximity_proxy: minimum_target_box_edge_distance_at_most_0.05_of_image_width_or_height
+  motion_change: maximum_center_second_difference_normalized_by_image_diagonal
+  history_id_pollution_proxy:
+    definition: post_gap_tracker_ID_was_matched_to_another_GT_in_the_previous_30_frames
+    tracker_gt_iou_threshold: 0.5
+reporting:
+  report_all_events: true
+  report_sampled_events: true
+  report_per_sequence_counts: true
+  retain_continuous_feature_values: true
+  do_not_call_overlap_occlusion_ground_truth: true
+  do_not_claim_causality_from_proxies: true
+  do_not_use_val_for_thresholds_or_selection: true
+  do_not_modify_tracker_or_report_method_improvement: true
+compute:
+  device: cpu
+  physical_gpu_0_forbidden: true
+next_gate:
+  manual_review: sampled_events_require_overlay_inspection_before_category_claims
+  privileged_diagnostics: D1_D2_D3_are_separate_future_experiments_not_part_of_this_extraction

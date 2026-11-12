@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "scope": "DanceTrack train only",
+  "sequences": [
+    "dancetrack0012",
+    "dancetrack0020",
+    "dancetrack0037",
+    "dancetrack0044"
+  ],
+  "protocol": "/home/imc/yzy/MOT/manifests/protocols/g2_train_failure_attribution_20261111.yaml",
+  "protocol_sha256": "a825161d9800180559012b2b2cee5117e744e8d2aac31d1e2739d01a7dee6645",
+  "parameters": {
+    "eligible_detection_score": "> 0.6",
+    "matching_iou": 0.5,
+    "max_gap": 30,
+    "history_window": 30,
+    "sample_seed": 20261111,
+    "sample_per_stratum": 20
+  },
+  "event_counts": {
+    "unresolved": 632,
+    "success_control": 112,
+    "identity_change_failure": 53
+  },
+  "sample_counts": {
+    "identity_change_failure": 20,
+    "success_control": 20
+  },
+  "sample_shortfall": {
+    "identity_change_failure": 0,
+    "success_control": 0
+  },
+  "proxy_counts_by_outcome": {
+    "identity_change_failure": {
+      "events": 53,
+      "localization_ambiguity_proxy": 19,
+      "neighbor_overlap_proxy": 53,
+      "boundary_proximity_proxy": 6,
+      "history_id_pollution_proxy": 51
+    },
+    "success_control": {
+      "events": 112,
+      "localization_ambiguity_proxy": 22,
+      "neighbor_overlap_proxy": 112,
+      "boundary_proximity_proxy": 7,
+      "history_id_pollution_proxy": 100
+    },
+    "unresolved": {
+      "events": 632,
+      "localization_ambiguity_proxy": 354,
+      "neighbor_overlap_proxy": 616,
+      "boundary_proximity_proxy": 40,
+      "history_id_pollution_proxy": 33
+    }
+  },
+  "sequence_summary": [
+    {
+      "sequence": "dancetrack0012",
+      "events": 168,
+      "identity_change_failure": 16,
+      "success_control": 28,
+      "unresolved": 124,
+      "gt_identities": 12,
+      "diagnostic_consecutive_match_id_changes": 20
+    },
+    {
+      "sequence": "dancetrack0020",
+      "events": 334,
+      "identity_change_failure": 12,
+      "success_control": 41,
+      "unresolved": 281,
+      "gt_identities": 40,
+      "diagnostic_consecutive_match_id_changes": 21
+    },
+    {
+      "sequence": "dancetrack0037",
+      "events": 89,
+      "identity_change_failure": 10,
+      "success_control": 18,
+      "unresolved": 61,
+      "gt_identities": 7,
+      "diagnostic_consecutive_match_id_changes": 12
+    },
+    {
+      "sequence": "dancetrack0044",
+      "events": 206,
+      "identity_change_failure": 15,
+      "success_control": 25,
+      "unresolved": 166,
+      "gt_identities": 13,
+      "diagnostic_consecutive_match_id_changes": 28
+    }
+  ],
+  "limitations": [
+    "Events and features are diagnostic proxies, not official TrackEval event labels.",
+    "GT overlap is not treated as ground-truth occlusion.",
+    "Proxy co-occurrence does not establish a causal failure mechanism.",
+    "The sampled events require visual review before category claims.",
+    "No validation data or validation metrics were used."
+  ],
+  "input_hashes_file": "input_hashes.json"
+}

@@ -1,0 +1,10 @@
+scope: DanceTrack_train_only_D1_v1_failed_operationalization
+protocol:
+  path: manifests/protocols/g2_d1_history_correspondence_20261111.yaml
+  sha256: 9ec265b63d80b9140c2de3cf378094dad71bacdc677420a220ff783dbe3870a1
+raw_run: /media/imc/data/mot-data/runs/g2_d1_history_correspondence_20261111
+raw_files:
+  summary.json: 0b594ed560c912f23eb54856246ab5aba7d7c9d0eb141c9b01df0e5d30077617
+  event_d1_history_correspondence.csv: 0f81e9b3e66afb82ceb82c6ae80d32dd504d73956d6fe51cac1439e5f09c7ae9
+  input_hashes.json: ca028961b22e3076048e40898706d0deb4a8bba8495855d4887af0d939b79b00
+interpretation_status: invalidated_by_success_control_sanity_check

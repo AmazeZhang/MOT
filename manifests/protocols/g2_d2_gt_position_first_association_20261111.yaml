@@ -1,0 +1,83 @@
+protocol_id: g2_d2_gt_position_first_association_20261111
+status: frozen_before_counterfactual_execution
+frozen_at: 2026-11-11
+diagnostic: D2_current_GT_position_hint
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  parent_events: /media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv
+  parent_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  included_outcomes: [identity_change_failure, success_control]
+  expected_events: 165
+  unresolved_parent_events_excluded: 632
+  validation_data_used: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  association_stage: first_round_only
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+baseline_replay:
+  tracker:
+    det_thresh: 0.6
+    iou_threshold: 0.3
+    association: iou_plus_velocity_direction_consistency
+    delta_t: 3
+    inertia: 0.2
+    use_byte: false
+    max_age: 30
+    min_hits: 3
+    empty_frame_policy: upstream_none
+  acceptance: replay_tracker_output_must_match_existing_G1_output_byte_for_byte
+event_mapping:
+  evaluation_frame: parent_after_frame
+  intended_history_track: parent_before_tracker_id
+  positive_detection:
+    pool: score_strictly_greater_than_0.6
+    mapping: per_frame_GT_detection_one_to_one_Hungarian_max_IoU
+    iou_threshold: 0.5
+  applicable_requirements:
+    - positive_detection_exists
+    - intended_history_track_is_alive_immediately_before_first_round_association
+counterfactual:
+  unit: one_event_independently_from_the_same_baseline_frame_state
+  privileged_change: replace_only_intended_history_track_predicted_XYXY_with_current_target_GT_XYXY
+  unchanged:
+    - detection_pool_coordinates_scores_and_order
+    - all_other_track_predictions
+    - target_track_velocity
+    - target_track_previous_observation
+    - velocity_direction_cost
+    - Hungarian_solver
+    - first_round_IoU_threshold
+    - second_round_reassociation
+    - tracker_state_and_lifecycle
+  state_writeback: false
+  simultaneous_multi_event_oracle: false
+measurements:
+  baseline_positive_match: intended_history_track_matches_positive_detection_in_baseline_first_round
+  oracle_positive_match: intended_history_track_matches_positive_detection_in_counterfactual_first_round
+  recoverable: baseline_positive_match_false_and_oracle_positive_match_true
+  harmed: baseline_positive_match_true_and_oracle_positive_match_false
+  report_non_applicable_reasons: true
+  stratify_by_parent_outcome: true
+  stratify_by_candidate_class: true
+claims:
+  supported_if_checks_pass:
+    - event_level_first_round_association_headroom_under_privileged_current_GT_position
+  unsupported:
+    - closed_loop_identity_recovery
+    - HOTA_AssA_or_IDF1_improvement
+    - deployable_motion_model_performance
+    - causal_motion_failure_label
+limitations:
+  - GT position is privileged and unavailable at inference.
+  - The oracle changes only the predicted box; retained direction cost can still affect the assignment.
+  - Counterfactuals are independent and are not written back, so downstream track state is not evaluated.
+  - D1 history correction and D3 detection-coordinate correction are not included.
+compute:
+  device: cpu
+  physical_gpu_0_forbidden: true

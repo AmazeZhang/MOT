@@ -1,0 +1,4 @@
+outcome,events,absence_only,contention_only,mixed,contains_contention,contains_contention_rate
+identity_change_failure,53,8,34,11,45,0.849057
+success_control,112,15,90,7,97,0.866071
+unresolved,632,282,261,89,350,0.553797

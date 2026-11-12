@@ -1,0 +1,9 @@
+event_id,outcome,candidate_class,D2_oracle_non_recovery,baseline_gap_updates,baseline_gap_updates_other_owner,baseline_positive_match,D1_clean_history_positive_match,recoverable,harmed,baseline_positive_iou,D1_clean_history_positive_iou,prediction_xyxy_max_abs_change,association_pairs_changed
+dancetrack0020:gt7:f29-33,success_control,mixed,False,3,3,True,False,False,True,0.6539571529461508,0.397501295760225,44.55219469141696,2
+dancetrack0020:gt9:f560-563,success_control,contention_only,False,2,2,True,False,False,True,0.7712555918649852,0.527175937554626,16.341428558606594,4
+dancetrack0037:gt0:f145-147,success_control,contention_only,False,1,1,True,False,False,True,0.5516863579302111,0.5317095973359544,21.540783174096077,2
+dancetrack0037:gt1:f243-249,success_control,contention_only,False,3,3,True,False,False,True,0.815654691327833,0.4446508379598784,44.240902203188625,2
+dancetrack0037:gt4:f135-141,success_control,mixed,False,4,4,True,False,False,True,0.6642347289510577,0.344409325674033,104.25724475791822,2
+dancetrack0037:gt5:f621-624,success_control,contention_only,False,2,2,False,True,True,False,0.629547426334846,0.5856369900090206,52.98484815864094,4
+dancetrack0037:gt6:f1200-1203,success_control,contention_only,False,2,2,True,False,False,True,0.8683941660441828,0.6825098746834386,32.62496615526186,4
+dancetrack0044:gt8:f586-591,success_control,contention_only,False,4,4,True,False,False,True,0.6935370780054783,0.20532898061380228,106.07491001709008,1

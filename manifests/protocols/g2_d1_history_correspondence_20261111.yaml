@@ -1,0 +1,98 @@
+protocol_id: g2_d1_history_correspondence_20261111
+status: frozen_before_any_D1_result
+frozen_at: 2026-11-11
+diagnostic: D1_existing_history_identity_correspondence
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  parent_events: /media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv
+  parent_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  included_outcomes: [identity_change_failure, success_control]
+  expected_events: 165
+  unresolved_parent_events_excluded: 632
+  validation_data_used: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  association_stage: first_round_only
+baseline_replay:
+  tracker:
+    det_thresh: 0.6
+    iou_threshold: 0.3
+    association: iou_plus_velocity_direction_consistency
+    delta_t: 3
+    inertia: 0.2
+    use_byte: false
+    max_age: 30
+    min_hits: 3
+    empty_frame_policy: upstream_none
+  acceptance:
+    frame_and_track_ID: exact
+    coordinate_representation: original_image_XYXY
+    absolute_tolerance: 0.0001
+event_mapping:
+  evaluation_frame: parent_after_frame
+  intended_history_track: parent_before_tracker_id
+  positive_detection:
+    pool: score_strictly_greater_than_0.6
+    mapping: per_frame_GT_detection_one_to_one_Hungarian_max_IoU
+    iou_threshold: 0.5
+history_owner_mapping:
+  source: existing_tracker_observations_before_evaluation_frame_only
+  history_window_frames: 30
+  observation_to_detection: exact_cached_box_and_score_with_numeric_tolerance_1e-7
+  detection_to_GT: per_frame_one_to_one_Hungarian_max_IoU
+  detection_to_GT_iou_threshold: 0.5
+  track_owner: GT_of_most_recent_mapped_existing_observation_in_window
+  unmapped_observations: retained_but_not_used_as_owner
+  owner_mapping_missing: reported_not_imputed
+counterfactual:
+  unit: one_event_from_the_unchanged_baseline_first_round_assignment
+  privileged_change: replace_only_the_semantic_identity_correspondence_of_the_track_receiving_the_positive_detection_with_its_mapped_history_owner
+  unchanged:
+    - all_detection_coordinates_scores_count_and_order
+    - all_track_predictions_Kalman_states_velocities_and_previous_observations
+    - all_first_round_assignment_pairs
+    - Hungarian_solver_and_thresholds
+    - second_round_reassociation
+    - tracker_state_and_lifecycle
+  state_writeback: false
+  simultaneous_multi_event_oracle: false
+applicable_requirements:
+  - positive_detection_exists_in_first_round_pool
+  - positive_detection_is_assigned_to_a_live_track_in_baseline_first_round
+  - assigned_track_has_a_mapped_history_owner_in_the_frozen_window
+measurements:
+  baseline_positive_match: assigned_track_numeric_ID_equals_parent_before_tracker_ID
+  D1_history_owner_positive_match: assigned_track_history_owner_GT_equals_target_GT
+  recoverable: baseline_positive_match_false_and_D1_history_owner_positive_match_true
+  harmed: baseline_positive_match_true_and_D1_history_owner_positive_match_false
+  report_owner_age_unique_GT_count_and_mapping_failures: true
+  report_baseline_IoU_and_total_score_margins: true
+  stratify_by_parent_outcome_candidate_class_and_D2_status: true
+claims:
+  supported_if_checks_pass:
+    - event_level_identity_correspondence_headroom_under_privileged_history_owner_relabeling
+  unsupported:
+    - corrected_motion_state_or_prediction
+    - closed_loop_identity_recovery
+    - HOTA_AssA_or_IDF1_improvement
+    - deployable_history_correction
+    - causal_history_pollution_label
+limitations:
+  - GT history ownership is privileged and unavailable at inference.
+  - D1 only relabels the semantic owner of an unchanged baseline assignment; it does not reconstruct or repair Kalman state.
+  - The latest mapped owner is a frozen operational definition, not identity ground truth for an ambiguous tracklet.
+  - Events without an assigned positive detection or mapped historical owner are non-applicable and remain counted.
+  - Counterfactuals are independent and are not written back.
+  - D2 current-position and D3 detection-coordinate interventions are not included.
+compute:
+  environment: mot-det
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty
+  physical_gpu_0_forbidden: true

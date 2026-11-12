@@ -1,0 +1,42 @@
+protocol_id: g2_candidate_contention_addendum_20261111
+status: frozen_before_per_frame_contention_extraction
+frozen_at: 2026-11-11
+analysis_type: post_G2_event_extraction_exploratory_addendum
+parent_protocol:
+  path: manifests/protocols/g2_train_failure_attribution_20261111.yaml
+  sha256: a825161d9800180559012b2b2cee5117e744e8d2aac31d1e2739d01a7dee6645
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  source_events: /media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv
+  source_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  validation_data_used: false
+definitions:
+  eligible_detection_score: strictly_greater_than_0.6
+  raw_candidate_for_target: eligible_detection_with_IoU_at_least_0.5_to_target_GT
+  parent_event_requirement: target_has_no_one_to_one_matched_detection_on_each_gap_frame
+  gap_frame_classes:
+    no_raw_candidate: no_eligible_raw_candidate_reaches_target_IoU_threshold
+    candidate_contention: raw_candidate_exists_but_target_is_unmatched_after_one_to_one_Hungarian_assignment
+  event_classes:
+    absence_only: every_gap_frame_is_no_raw_candidate
+    contention_only: every_gap_frame_is_candidate_contention
+    mixed: event_contains_both_frame_classes
+reporting:
+  preserve_all_797_parent_events: true
+  preserve_parent_outcomes: true
+  report_counts_by_parent_outcome_and_sequence: true
+  candidate_contention_is_a_matching_proxy_not_a_causal_identity_label: true
+  do_not_relabel_candidate_contention_as_detector_success: true
+  do_not_use_val_for_thresholds_or_interpretation: true
+compute:
+  device: cpu
+  physical_gpu_0_forbidden: true
+next_gate:
+  merge_with_fixed_40_event_manual_review: true
+  D1_D2_D3_remain_separate_future_privileged_diagnostics: true

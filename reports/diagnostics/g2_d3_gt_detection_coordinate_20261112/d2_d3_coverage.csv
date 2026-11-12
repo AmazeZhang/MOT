@@ -1,0 +1,8 @@
+category,failure_events
+D2_only,17
+D3_only,9
+D2_and_D3,5
+neither_newly_positive,22
+still_first_round_negative_under_both,21
+already_baseline_positive_not_newly_recovered,1
+union_D2_or_D3,31

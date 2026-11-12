@@ -1,0 +1,16 @@
+run_id: g2_candidate_contention_20261111
+scope: DanceTrack_train_only_post_extraction_addendum
+protocol:
+  path: manifests/protocols/g2_candidate_contention_addendum_20261111.yaml
+  sha256: 193caf3552f33d9399ee3721e7c02cec3d9770b060365541fc39e445f698e867
+parent_events:
+  rows: 797
+  sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+external_run_artifacts:
+  summary_json:
+    sha256: 8a6dc95c6d1dde2702fb5e1f1411b5b4a656bb25d7eab529b04d2e5d54381cce
+  input_hashes_json:
+    sha256: 47e8d4af9fe5f8a7d1f364d45003b64eda702426d1f8c6c868ccc1d47f961008
+  event_candidate_contention_csv:
+    rows: 797
+    sha256: 2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499

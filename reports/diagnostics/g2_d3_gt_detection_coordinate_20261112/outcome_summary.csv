@@ -1,0 +1,4 @@
+population,events,baseline_positive,D3_positive,recoverable,harmed,score_improved,score_unchanged,score_worsened,gate_gained,gate_lost,pair_set_changed
+identity_change_failure,53,1,15,14,0,34,0,19,2,1,17
+success_control,112,111,105,1,7,30,0,82,0,0,8
+D2_oracle_non_recovery,30,0,9,9,0,22,0,8,2,0,12

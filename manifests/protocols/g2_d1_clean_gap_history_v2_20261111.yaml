@@ -1,0 +1,103 @@
+protocol_id: g2_d1_clean_gap_history_v2_20261111
+status: frozen_before_any_v2_result_after_v1_operationalization_failure
+frozen_at: 2026-11-11
+replaces:
+  path: manifests/protocols/g2_d1_history_correspondence_20261111.yaml
+  sha256: 9ec265b63d80b9140c2de3cf378094dad71bacdc677420a220ff783dbe3870a1
+replacement_reason:
+  - v1_relabelled_the_track_from_its_latest_ambiguous_gap_detection_instead_of_correcting_the_target_history_state
+  - v1_harmed_92_of_112_success_controls_and_recovered_0_of_53_failures
+  - v1_is_retained_as_a_failed_operationalization_and_not_interpreted_as_history_pollution_evidence
+diagnostic: D1_clean_target_gap_history
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  parent_events: /media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv
+  parent_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  included_outcomes: [identity_change_failure, success_control]
+  expected_events: 165
+  unresolved_parent_events_excluded: 632
+  validation_data_used: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  association_stage: first_round_only
+baseline_replay:
+  tracker:
+    det_thresh: 0.6
+    iou_threshold: 0.3
+    association: iou_plus_velocity_direction_consistency
+    delta_t: 3
+    inertia: 0.2
+    use_byte: false
+    max_age: 30
+    min_hits: 3
+    empty_frame_policy: upstream_none
+  acceptance:
+    frame_and_track_ID: exact
+    coordinate_representation: original_image_XYXY
+    absolute_tolerance: 0.0001
+event_mapping:
+  trusted_anchor_frame: parent_before_frame_after_baseline_update
+  intended_history_track: parent_before_tracker_id
+  evaluation_frame: parent_after_frame_before_baseline_update
+  positive_detection:
+    pool: score_strictly_greater_than_0.6
+    mapping: per_frame_GT_detection_one_to_one_Hungarian_max_IoU
+    iou_threshold: 0.5
+counterfactual:
+  unit: one_event_independently_from_a_deep_copy_of_the_trusted_anchor_track
+  clean_gap_history:
+    - preserve_the_anchor_track_Kalman_state_and_existing_noisy_detection_observation
+    - on_each_parent_gap_frame_run_the_same_Kalman_predict_step
+    - update_the_clean_copy_with_None_because_the_frozen_parent_mapping_has_no_target_positive_detection_on_every_gap_frame
+    - never_feed_a_detection_mapped_to_another_GT_into_the_target_copy
+  evaluation_change:
+    - replace_only_the_intended_track_first_round_predicted_box_velocity_and_previous_observation_with_the_clean_copy_values
+  unchanged:
+    - detection_pool_coordinates_scores_count_and_order
+    - all_other_track_states_and_association_inputs
+    - OC_SORT_Kalman_model_and_parameters
+    - Hungarian_solver_and_first_round_threshold
+    - second_round_reassociation
+    - baseline_tracker_state_and_lifecycle
+  state_writeback: false
+  simultaneous_multi_event_oracle: false
+applicable_requirements:
+  - trusted_anchor_track_exists_after_parent_before_frame
+  - positive_detection_exists_at_parent_after_frame
+  - intended_history_track_is_alive_in_baseline_at_evaluation
+measurements:
+  baseline_positive_match: intended_history_track_matches_positive_detection_in_baseline_first_round
+  D1_clean_history_positive_match: intended_history_track_matches_positive_detection_with_clean_gap_history
+  recoverable: baseline_positive_match_false_and_D1_clean_history_positive_match_true
+  harmed: baseline_positive_match_true_and_D1_clean_history_positive_match_false
+  report_baseline_gap_updates_by_target_other_or_unmapped_owner: true
+  report_prediction_IoU_score_margins_and_pair_changes: true
+  stratify_by_parent_outcome_candidate_class_and_D2_status: true
+claims:
+  supported_if_checks_pass:
+    - event_level_first_round_headroom_from_preventing_wrong_identity_updates_during_the_frozen_gap
+  unsupported:
+    - full_history_decontamination_before_the_trusted_anchor
+    - closed_loop_identity_recovery
+    - HOTA_AssA_or_IDF1_improvement
+    - deployable_identity_oracle
+    - preregistered_confirmation_independent_of_v1_results
+limitations:
+  - GT-derived parent gap correspondence is privileged and unavailable at inference.
+  - V2 was designed after v1 failed its success-control sanity check and is exploratory.
+  - The clean copy receives no target detections during the frozen gap; it does not reassign ambiguous raw candidates.
+  - History before the trusted anchor remains unchanged and may already be polluted.
+  - Counterfactuals are independent and not written back, so downstream persistence is not measured.
+  - D2 current GT position and D3 detection-coordinate correction are not included.
+compute:
+  environment: mot-det
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty
+  physical_gpu_0_forbidden: true

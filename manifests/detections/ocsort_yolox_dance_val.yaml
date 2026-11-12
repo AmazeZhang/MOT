@@ -1,0 +1,120 @@
+detector_id: ocsort_yolox_dance_bb2f686_b8d1
+status: complete_val_baseline
+dataset: DanceTrack
+split: val
+sequences: 25
+frames: 25508
+freeze:
+  protocol: manifests/protocols/g1_dancetrack_val_freeze_20261111.yaml
+  protocol_sha256: 21c2336a409d61816ce5c821a4c9b10a4d104493b62db7a78c926f9d3ba0957b
+  config: configs/baselines/ocsort_dancetrack_g1.yaml
+  config_sha256: d967afa287e783b2004f6e313f76148f56ebd433b98b2a28dc5744099ef2b768
+  parameters_changed_after_freeze: false
+  full_val_metric_evaluations: 1
+  tuned_on_val: false
+detector:
+  code_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  input_size: [800, 1440]
+  precision: fp32
+  fused: false
+  confidence: 0.1
+  nms_iou: 0.7
+  physical_gpu: 1
+  cuda_visible_devices: "1"
+  process_device: cuda:0
+  inference_seconds: 758.8471905477345
+  wall_seconds: 2760.025493144989
+cache:
+  logical_root: cache/detections/ocsort_yolox_dance_bb2f686_b8d1/val
+  schema: [frame, det_id, x1, y1, x2, y2, score, class_id]
+  coordinate_space: original_image_pixels_xyxy_continuous
+  files: 25
+  bytes: 16582629
+  detections: 238084
+  empty_detection_frames: 0
+tracker:
+  code_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  empty_frame_policy: upstream_none
+  tracker_rows: 202711
+  files: 25
+  bytes: 12682155
+cache_replay:
+  status: PASS
+  sequences: 25
+  rows: 202711
+  frame_and_id_equal_for_all_sequences: true
+  coordinate_representation: original_image_pixels_xyxy
+  tolerance: 0.0001
+  max_abs_xyxy_error: 0.000032000000032894604
+  run: runs/g1_ocsort_val_replay_validation_1e-4_20261111
+  summary_sha256: 192642f5ec4c6a6a96bc4973fc89c5ba67c19ecb70aa3aa93bd446b1784893ba
+evaluation:
+  type: real_gt
+  evaluator: TrackEval MotChallenge2DBox
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  metrics: [HOTA, CLEAR, Identity]
+  iou_threshold: 0.5
+  scope: all 25 DanceTrack val sequences
+  HOTA: 52.059
+  DetA: 77.400
+  AssA: 35.130
+  MOTA: 87.265
+  IDF1: 51.623
+  IDSW: 1936
+  tracker_detections: 202711
+  gt_detections: 225148
+  summary_logical_path: runs/g1_ocsort_val_baseline_20261111/evaluation/baseline/pedestrian_summary.txt
+  summary_sha256: fef87625caba50fcc79aa14b01b156bcdf87b25aaf19889091be6097fe3645f4
+  detailed_logical_path: runs/g1_ocsort_val_baseline_20261111/evaluation/baseline/pedestrian_detailed.csv
+  detailed_sha256: e581de872e1eb4cd1b8271aa0809cb7de8db6ad53c3afe816a17b362ec8f2683
+upstream_reproduction_check:
+  source_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  source_files:
+    - third_party/OC_SORT/docs/GET_STARTED.md
+    - third_party/OC_SORT/docs/MODEL_ZOO.md
+    - third_party/OC_SORT/utils/args.py
+  documented_val_hota_range: [52.1, 52.6]
+  model_zoo:
+    HOTA: 52.1
+    IDF1: 51.6
+    AssA: 35.3
+    MOTA: 87.3
+    DetA: 77.2
+  observed_hota_within_documented_range_after_one_decimal_rounding: true
+  tracker_defaults_match: true
+  runtime_difference:
+    upstream_example: fp16_fused
+    this_run: fp32_unfused
+  conclusion: Metrics reproduce the documented val range, but the detector runtime precision/fusion path is not bitwise identical to the upstream command example.
+diagnostic_only_not_for_val_tuning:
+  lowest_hota:
+    - {sequence: dancetrack0063, HOTA: 26.734, AssA: 12.278, IDSW: 191}
+    - {sequence: dancetrack0019, HOTA: 36.111, AssA: 15.751, IDSW: 134}
+    - {sequence: dancetrack0041, HOTA: 36.166, AssA: 21.629, IDSW: 254}
+  highest_idsw:
+    - {sequence: dancetrack0041, IDSW: 254}
+    - {sequence: dancetrack0063, IDSW: 191}
+    - {sequence: dancetrack0094, IDSW: 162}
+run:
+  id: g1_ocsort_val_baseline_20261111
+  logical_path: runs/g1_ocsort_val_baseline_20261111
+  summary_sha256: 177ba117cca98325ec8351006df984f81445f3c352101ad8006f656b80b4e0c6
+claims:
+  supported:
+    - unchanged_OC_SORT_baseline_on_DanceTrack_val_under_the_frozen_protocol
+    - reproducible_fixed_detection_cache_replay
+  unsupported:
+    - new_method_improvement
+    - robustness_beyond_DanceTrack_val
+    - val_selected_hyperparameters
+limitations:
+  - This is one deterministic baseline configuration and not a seed study.
+  - Per-sequence val results are reported for transparency and must not be used for method or hyperparameter selection.
+  - The checkpoint does not embed its own training-data manifest; retain the upstream provenance caveat.

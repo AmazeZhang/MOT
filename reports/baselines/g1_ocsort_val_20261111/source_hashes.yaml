@@ -1,0 +1,19 @@
+run_id: g1_ocsort_val_baseline_20261111
+split: val
+sequences: 25
+frames: 25508
+freeze:
+  config_sha256: d967afa287e783b2004f6e313f76148f56ebd433b98b2a28dc5744099ef2b768
+  protocol_sha256: 21c2336a409d61816ce5c821a4c9b10a4d104493b62db7a78c926f9d3ba0957b
+primary_artifacts:
+  run_summary_json:
+    sha256: 177ba117cca98325ec8351006df984f81445f3c352101ad8006f656b80b4e0c6
+  trackeval_pedestrian_summary_txt:
+    sha256: fef87625caba50fcc79aa14b01b156bcdf87b25aaf19889091be6097fe3645f4
+  trackeval_pedestrian_detailed_csv:
+    sha256: e581de872e1eb4cd1b8271aa0809cb7de8db6ad53c3afe816a17b362ec8f2683
+  replay_validation_summary_json:
+    sha256: 192642f5ec4c6a6a96bc4973fc89c5ba67c19ecb70aa3aa93bd446b1784893ba
+normalization:
+  trackeval_summary_snapshot: line_endings_normalized_to_lf
+  per_sequence_metrics: selected_columns_rounded_to_3_display_decimals

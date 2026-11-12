@@ -1,6 +1,6 @@
 # 创新主张台账
 
-更新日期：2026-11-10。本表是主张级别的单一事实源；报告文案不得超过本表状态。
+更新日期：2026-11-12。本表是主张级别的单一事实源；报告文案不得超过本表状态。
 
 ## 状态定义
 
@@ -18,7 +18,7 @@
 | C1 | 运动分布比同编码器确定性回归更能改善自然缺失后的闭环关联 | 中；概率运动 MOT 已有 | TrajE、DiffMOT、DiffuTrack | 自然视频、固定检测、配对输入、多视频/种子的 AssA/HOTA/恢复差异 | G3 P1–P4；G4 motion | `NOT_SUPPORTED_BY_PROVENANCE` |
 | C2 | 关联监督必须改变生成器才能获得额外闭环收益 | 高；身份导向运动和下游导向 FM 已有 | DMMTracker、Constraint-Aware FM | joint 相对 detach/motion 的稳定配对改善；覆盖/能量分数与延迟不产生无法解释的恶化 | G4 joint/detach/direct classifier | `NOT_SUPPORTED_BY_PROVENANCE` |
 | C3 | FM 相对 Gaussian/MDN 在同延迟或同训练预算下有额外价值 | 高；FM 不自动优于轻量分布 | TrajE、MoFlow、TrajFlow、DiffMOT | 同历史编码、同数据暴露、同调参预算和延迟曲线；闭环而非只有 oracle | G3 P2/P3/P4；K/S 切片 | `NOT_SUPPORTED_BY_PROVENANCE` |
-| C4 | 当前主要错误来自运动分布不足，而不是观测偏移、检测缺失或历史 ID 污染 | 高；已有直接竞争解释 | OA-SORT、DOA-SORT | D1/D2/D3 分开诊断，自然失败/成功事件对照，影响范围和不明确映射单列 | G2 | `NOT_SUPPORTED_BY_PROVENANCE` |
+| C4 | 当前主要错误来自运动分布不足，而不是观测偏移、检测缺失或历史 ID 污染 | 高；已有直接竞争解释 | OA-SORT、DOA-SORT | D1/D2/D3 分开诊断，自然失败/成功事件对照，影响范围和不明确映射单列 | G2 D1--D5 已完成；D4 无恢复，D5 为构造性压力测试；dominance verdict=`no` | `NOT_SUPPORTED_BY_PROVENANCE` |
 | C5 | 当前最有可辩护性的贡献是梯度路径与因果式对照，不是“FM 用于 MOT” | 中；取决于后续窄检索和实验 | DiffuTrack、DMMTracker、Constraint-Aware FM | C0 继续成立，且 C2 获得支持；若 C2 失败则收缩到评价/负结果 | G4 完整机制对照 | `NOT_SUPPORTED_BY_PROVENANCE` |
 
 ## 升级与降级规则

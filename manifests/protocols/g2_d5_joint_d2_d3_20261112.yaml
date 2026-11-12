@@ -1,0 +1,80 @@
+protocol_id: g2_d5_joint_d2_d3_20261112
+status: frozen_before_any_D5_result
+frozen_at: 2026-11-12
+diagnostic: D5_simultaneous_D2_track_and_D3_detection_GT_coordinate
+scope:
+  dataset: DanceTrack
+  split: train
+  sequences: [dancetrack0012, dancetrack0020, dancetrack0037, dancetrack0044]
+  parent_events: /media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv
+  parent_events_sha256: 0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd
+  contention_events: /media/imc/data/mot-data/runs/g2_candidate_contention_20261111/event_candidate_contention.csv
+  contention_events_sha256: 2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499
+  D2_events: /media/imc/data/mot-data/runs/g2_d2_first_association_v2_20261111/event_d2_first_association.csv
+  D2_events_sha256: 8965bbfddff3d3c4ca6c2ec219109278feb365f7b666b751415a5bc62b26ddb1
+  D3_events: /media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112/event_d3_detection_coordinate.csv
+  D3_events_sha256: 9186fb4f0a2532e778e5150e81b87a5f6a4f5e8850775401f8f17885844f0244
+  included_outcomes: [identity_change_failure, success_control]
+  expected_events: 165
+  focused_failures:
+    definition: baseline_negative_and_D2_negative_and_D3_negative
+    expected_events: 21
+  validation_data_used: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  association_stage: first_round_only
+baseline:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association_score: IoU_plus_detection_score_weighted_velocity_direction_consistency
+  velocity_direction_weight: 0.2
+  delta_t: 3
+  use_byte: false
+  empty_frame_policy: upstream_none
+counterfactual:
+  unit: one_event_independently_from_the_same_baseline_frame_state
+  simultaneous_privileged_changes:
+    - replace_only_the_intended_history_track_predicted_XYXY_with_current_target_GT_XYXY
+    - replace_only_the_existing_positive_detection_XYXY_with_current_target_GT_XYXY
+  unchanged:
+    - positive_detection_score_candidate_ID_count_and_order
+    - all_other_detection_values
+    - all_other_track_predictions
+    - Kalman_states_velocities_and_previous_observations
+    - velocity_direction_cost_definition_and_weight
+    - Hungarian_solver_thresholds_and_assignment_backend
+    - second_round_reassociation
+    - baseline_tracker_state_and_lifecycle
+  state_writeback: false
+  relation_to_parents: true_simultaneous_counterfactual_not_set_union_of_D2_and_D3
+measurements:
+  primary:
+    - newly_positive_intended_track_to_positive_detection_assignments
+    - newly_negative_intended_track_to_positive_detection_assignments
+  secondary:
+    - overlap_with_separate_D2_and_D3_recovery_sets
+    - association_pair_set_changes
+    - intended_pair_IoU_direction_contribution_and_total_score
+    - intended_pair_gate_and_margin_to_best_IoU_eligible_other_track
+    - one_to_one_IoU_shortcut_usage
+  report_groups:
+    - identity_change_failure
+    - success_control
+    - focused_21_still_negative_under_separate_D2_and_D3
+acceptance:
+  expected_event_coverage: 165
+  expected_focused_event_coverage: 21
+  baseline_replay_frame_and_track_ID: exact
+  baseline_replay_original_image_XYXY_atol: 0.0001
+  baseline_event_assignments_must_match_D2_and_D3: true
+  joint_target_pair_XYXY_must_equal_GT: true
+  record_assignment_backend_and_version: true
+  atomic_output: partial_then_rename
+interpretation_limits:
+  - Both coordinate changes use privileged current-frame GT and are unavailable at inference.
+  - This is an isolated first-round diagnostic, not an achievable upper bound or closed-loop method.
+  - A positive joint result does not prove causal complementarity between D2 and D3.
+  - Event-level changes are not official HOTA, AssA, IDF1, MOTA, or persistent identity recovery.
+  - The four selected difficult train videos do not estimate population prevalence or validation performance.
+

@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "scope": "DanceTrack train only; post-extraction exploratory addendum",
+  "events": 797,
+  "protocol": "/home/imc/yzy/MOT/manifests/protocols/g2_candidate_contention_addendum_20261111.yaml",
+  "protocol_sha256": "193caf3552f33d9399ee3721e7c02cec3d9770b060365541fc39e445f698e867",
+  "parent_events": "/media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv",
+  "parent_events_sha256": "0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd",
+  "parameters": {
+    "eligible_detection_score": "> 0.6",
+    "target_iou": 0.5
+  },
+  "event_class_counts": {
+    "contention_only": 385,
+    "absence_only": 305,
+    "mixed": 107
+  },
+  "gap_frame_counts": {
+    "no_raw_candidate_frames": 1076,
+    "candidate_contention_frames": 1291
+  },
+  "event_class_by_outcome": {
+    "identity_change_failure": {
+      "contention_only": 34,
+      "mixed": 11,
+      "absence_only": 8
+    },
+    "success_control": {
+      "contention_only": 90,
+      "mixed": 7,
+      "absence_only": 15
+    },
+    "unresolved": {
+      "contention_only": 261,
+      "absence_only": 282,
+      "mixed": 89
+    }
+  },
+  "event_class_by_sequence": {
+    "dancetrack0012": {
+      "contention_only": 113,
+      "absence_only": 31,
+      "mixed": 24
+    },
+    "dancetrack0020": {
+      "absence_only": 164,
+      "mixed": 67,
+      "contention_only": 103
+    },
+    "dancetrack0037": {
+      "contention_only": 68,
+      "absence_only": 18,
+      "mixed": 3
+    },
+    "dancetrack0044": {
+      "absence_only": 92,
+      "contention_only": 101,
+      "mixed": 13
+    }
+  },
+  "limitations": [
+    "Candidate contention is defined by diagnostic GT matching and is not available to the online tracker.",
+    "A raw candidate at IoU 0.5 does not imply correct detector identity or usable association evidence.",
+    "This addendum is exploratory and uses no validation data."
+  ]
+}

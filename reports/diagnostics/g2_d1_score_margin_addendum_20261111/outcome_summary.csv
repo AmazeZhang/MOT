@@ -1,0 +1,4 @@
+population,events,score_improved,score_unchanged,score_worsened,gate_gained,gate_lost,pair_set_changed,target_gate_baseline,target_gate_clean,eligible_competitor_present,clean_margin_positive,clean_margin_negative,newly_positive_assignment
+identity_change_failure,53,11,41,1,3,0,2,43,46,53,1,52,0
+success_control,112,31,0,81,0,1,8,112,111,89,84,5,1
+D2_oracle_non_recovery,30,9,21,0,3,0,2,24,27,30,0,30,0

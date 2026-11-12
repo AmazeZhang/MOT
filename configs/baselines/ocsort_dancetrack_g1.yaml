@@ -1,0 +1,29 @@
+id: ocsort_dancetrack_g1
+method: OC-SORT
+dataset: DanceTrack
+detector:
+  upstream_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  weight_sha256: b8d1afba08f801f3fe2cb122faf3fc9af6c7856405a0da94cf91cdd5eb9b3321
+  precision: fp32
+  input_size: [800, 1440]
+  confidence: 0.1
+  nms_iou: 0.7
+tracker:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  empty_frame_policy: upstream_none
+evaluation:
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  adapter: MotChallenge2DBox
+  metrics: [HOTA, CLEAR, Identity]
+  matching_iou: 0.5
+  do_preproc: true
+runtime:
+  physical_gpu: 1
+  cuda_visible_devices: "1"
+  process_device: cuda:0
+  forbidden_physical_gpus: [0]

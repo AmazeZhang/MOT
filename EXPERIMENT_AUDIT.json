@@ -1,38 +1,123 @@
 {
   "audit_skill": "experiment-audit",
-  "verdict": "REVIEW_UNAVAILABLE",
-  "reason_code": "reviewer_usage_limit",
-  "summary": "The fresh same-family semantic reviewer hit a usage limit; deterministic artifact checks completed but do not substitute for semantic review.",
+  "verdict": "WARN_WITH_PRIOR_UNAVAILABLE",
+  "reason_code": "exploratory_scope_and_constructed_d5_geometry_prior_scopes_unavailable",
+  "summary": "D1, its addendum, D3, and the final D4/D5 diagnostics have provisional same-family WARN verdicts. D4/D5 implementation, all 15,180 result cells, 489 score matrices, 48,726 replay rows and 52 hash checks pass. D5 uses an identical-GT-pair construction and is only an assignment-consistency stress test. Earlier G1/G2 semantic review remains unavailable.",
   "audited_input_hashes": {
     "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/summary.json": "sha256:ea6eea869603cd55f40f66f530ac9469074b08e7ac3222d5cd367f96092cb61a",
     "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/evaluation/baseline/pedestrian_summary.txt": "sha256:c3c139b7563c3095656aff17616b9b9fd99f9ce37579d06ca0c511402226e913",
     "/media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/evaluation/baseline/pedestrian_detailed.csv": "sha256:40529ddb7c6b9ef12b048db74a9e3cd3fa6ab2d4870119d558fee6de9e3b1a3a",
-    "/media/imc/data/mot-data/runs/g1_ocsort_train_replay_validation_1e-4_20261110/summary.json": "sha256:e98fc82e0c5e17740bffb1004c21e1e8674e515260cc020877fa2407f9b4d398"
+    "/media/imc/data/mot-data/runs/g1_ocsort_train_replay_validation_1e-4_20261110/summary.json": "sha256:e98fc82e0c5e17740bffb1004c21e1e8674e515260cc020877fa2407f9b4d398",
+    "/media/imc/data/mot-data/runs/g1_ocsort_val_baseline_20261111/summary.json": "sha256:177ba117cca98325ec8351006df984f81445f3c352101ad8006f656b80b4e0c6",
+    "/media/imc/data/mot-data/runs/g1_ocsort_val_baseline_20261111/evaluation/baseline/pedestrian_summary.txt": "sha256:fef87625caba50fcc79aa14b01b156bcdf87b25aaf19889091be6097fe3645f4",
+    "/media/imc/data/mot-data/runs/g1_ocsort_val_baseline_20261111/evaluation/baseline/pedestrian_detailed.csv": "sha256:e581de872e1eb4cd1b8271aa0809cb7de8db6ad53c3afe816a17b362ec8f2683",
+    "/media/imc/data/mot-data/runs/g1_ocsort_val_replay_validation_1e-4_20261111/summary.json": "sha256:192642f5ec4c6a6a96bc4973fc89c5ba67c19ecb70aa3aa93bd446b1784893ba",
+    "/media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/summary.json": "sha256:ddfa4b0e775938943ce8090f05393199d66186619d06b0b788d20adc629c1443",
+    "/media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/all_recovery_events.csv": "sha256:0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd",
+    "/media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/sampled_events.csv": "sha256:ce2bc9c5dec6d66f2ff6b7c823b01549821c350250d51c31432b151fa7d5e8f6",
+    "/media/imc/data/mot-data/runs/g2_train_failure_attribution_20261111/overlays/index.csv": "sha256:5c9714d40485180b38f11caa6dbb226bc6cc5e1fda73c3cbaf733c0203cbd408",
+    "/media/imc/data/mot-data/runs/g2_candidate_contention_20261111/summary.json": "sha256:8a6dc95c6d1dde2702fb5e1f1411b5b4a656bb25d7eab529b04d2e5d54381cce",
+    "/media/imc/data/mot-data/runs/g2_candidate_contention_20261111/event_candidate_contention.csv": "sha256:2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499",
+    "/home/imc/yzy/MOT/manifests/protocols/g2_candidate_contention_addendum_20261111.yaml": "sha256:193caf3552f33d9399ee3721e7c02cec3d9770b060365541fc39e445f698e867",
+    "/home/imc/yzy/MOT/reports/diagnostics/g2_train_failure_attribution_20261111/manual_review.csv": "sha256:0fd2a459a08ac67bedbee855119b95829366b3b63635eed94686b56dbba5b408",
+    "/home/imc/yzy/MOT/manifests/protocols/g2_d2_gt_position_first_association_v2_20261111.yaml": "sha256:4f193c6ae3f3049a48c7a5ac4fec7a725a82dba1dc50f6092f1a0409d9776923",
+    "/media/imc/data/mot-data/runs/g2_d2_first_association_v2_20261111/summary.json": "sha256:103830ea8cad1e88ed5f319fb609f9146832471db8b6086b5cea5548fc1462db",
+    "/media/imc/data/mot-data/runs/g2_d2_first_association_v2_20261111/event_d2_first_association.csv": "sha256:8965bbfddff3d3c4ca6c2ec219109278feb365f7b666b751415a5bc62b26ddb1",
+    "/home/imc/yzy/MOT/manifests/protocols/g2_d1_history_correspondence_20261111.yaml": "sha256:9ec265b63d80b9140c2de3cf378094dad71bacdc677420a220ff783dbe3870a1",
+    "/media/imc/data/mot-data/runs/g2_d1_history_correspondence_20261111/summary.json": "sha256:0b594ed560c912f23eb54856246ab5aba7d7c9d0eb141c9b01df0e5d30077617",
+    "/media/imc/data/mot-data/runs/g2_d1_history_correspondence_20261111/event_d1_history_correspondence.csv": "sha256:0f81e9b3e66afb82ceb82c6ae80d32dd504d73956d6fe51cac1439e5f09c7ae9",
+    "/home/imc/yzy/MOT/manifests/protocols/g2_d1_clean_gap_history_v2_20261111.yaml": "sha256:a3cd7c82c47cc7dd30b0199f7c0fea5dd6e2a8a613282ab2b84ef8ccc266fcca",
+    "/media/imc/data/mot-data/runs/g2_d1_clean_gap_history_v2_20261111/summary.json": "sha256:b5efa53a7992a51c3343704ff1138bb3767d1b8b755c7b57d0c409f60652bc29",
+    "/media/imc/data/mot-data/runs/g2_d1_clean_gap_history_v2_20261111/event_d1_clean_gap_history.csv": "sha256:c4a6f73ef2f6bbe42cd1f363bc182edd0a94686a2e6fabb1adf9a74c702c6057"
+    ,"/home/imc/yzy/MOT/manifests/protocols/g2_d1_score_margin_addendum_20261111.yaml": "sha256:ca0a778d82a67e6d1eaceba7e6f97d230072148e20e6d95bec8494c0296ead71"
+    ,"/media/imc/data/mot-data/runs/g2_d1_score_margin_addendum_20261111/summary.json": "sha256:e4433bc77a711db6d226a922608634d179505dfa59e52c07c0f0c6c5bcad2f80"
+    ,"/media/imc/data/mot-data/runs/g2_d1_score_margin_addendum_20261111/event_d1_score_margins.csv": "sha256:3d450ccd55b7645514176c4f74082f8e983b65c8c9de583236588b82d8a49ac1"
+    ,"/media/imc/data/mot-data/runs/g2_d1_score_margin_addendum_20261111/input_hashes.json": "sha256:f7a960e55db382feff8ad7ea7670502167318bb7cdc7e4d34e6392bb5f4da719"
+    ,"/media/imc/data/mot-data/runs/g2_d1_score_margin_addendum_20261111/runtime.json": "sha256:420f6c9c5248334595d1bc64f2e69cc953f7f025769f9f42d7c183a8ea03f58e"
+    ,"/home/imc/yzy/MOT/manifests/protocols/g2_d3_gt_detection_coordinate_20261111.yaml": "sha256:b68621e82337abc9c2663c44d06a5edf1d98487fa19533c5337d9651f08567fb"
+    ,"/media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112/summary.json": "sha256:1cb78eb4cc6190858d98ad58ff9c87ea4a1dad33e4f28277aee2ec5694abd5aa"
+    ,"/media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112/event_d3_detection_coordinate.csv": "sha256:9186fb4f0a2532e778e5150e81b87a5f6a4f5e8850775401f8f17885844f0244"
+    ,"/media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112/input_hashes.json": "sha256:85d2f4f05aae954a59ece6707b5b05016e8539def81e5158d216122535ff1a21"
+    ,"/media/imc/data/mot-data/runs/g2_d3_gt_detection_coordinate_20261112/runtime.json": "sha256:3b2ad54ff0f14d614fc7140a6d0c339ceaf8f914984b3976b9911e0bfc74cb47"
+    ,"/home/imc/yzy/MOT/manifests/protocols/g2_d4_direction_cost_ablation_20261112.yaml": "sha256:ab329426deffcefcb50d38803fc78481cb03402194650041d04d34d8955dad7b"
+    ,"/media/imc/data/mot-data/runs/g2_d4_direction_cost_ablation_20261112/summary.json": "sha256:85ee95d463b1a358ab5a9c6119a5d2dda42ba8431b55edfaaefc247b9e012c08"
+    ,"/media/imc/data/mot-data/runs/g2_d4_direction_cost_ablation_20261112/event_counterfactual.csv": "sha256:1bef15a77d8abc31cc5b01e2ae8111e617d4f047d924e62f59d4b945a1205d76"
+    ,"/media/imc/data/mot-data/runs/g2_d4_direction_cost_ablation_20261112/input_hashes.json": "sha256:fb94a39117ec0a49b86d397ae9a4c2a860d57ba76caa9472e2ef8d612f965e83"
+    ,"/media/imc/data/mot-data/runs/g2_d4_direction_cost_ablation_20261112/runtime.json": "sha256:bae868b3dc68a22182b5c7456c394d1ab1511f137c9d6ac655e03c0dcc11db72"
+    ,"/home/imc/yzy/MOT/manifests/protocols/g2_d5_joint_d2_d3_20261112.yaml": "sha256:e47a740857929815e01bdc9a3af66b4ba4cb79d52cd138af5d72ccb747adf6fd"
+    ,"/media/imc/data/mot-data/runs/g2_d5_joint_d2_d3_20261112/summary.json": "sha256:0077bb7c071768d276534c2de5b91e87107df101496ecf0aa27065b4a61d5754"
+    ,"/media/imc/data/mot-data/runs/g2_d5_joint_d2_d3_20261112/event_counterfactual.csv": "sha256:254347ad4ecc0fc27544115b718fc34b202ed01213d9d772bb9b0ce4cf4aefc8"
+    ,"/media/imc/data/mot-data/runs/g2_d5_joint_d2_d3_20261112/input_hashes.json": "sha256:6f414242c5bad395caf82051dc29ad8ef4e6579c8b45d2adb66dff90911a492a"
+    ,"/media/imc/data/mot-data/runs/g2_d5_joint_d2_d3_20261112/runtime.json": "sha256:5861b162dcfa435af57d3c3ab01b9073c44e768f9390ce0ae98b4994722046c1"
   },
-  "trace_path": ".aris/traces/experiment-audit/2026-11-10_run01/",
-  "agent_id": "/root/experiment_integrity_audit",
-  "verdict_id": null,
+  "trace_path": ".aris/traces/experiment-audit/2026-11-12_run05/",
+  "agent_id": "/root/d45_experiment_integrity_audit",
+  "verdict_id": "/root/d45_experiment_integrity_audit",
   "executor_model": "gpt-5",
   "executor_family": "openai",
-  "reviewer_model": "gpt-5.6-sol",
+  "reviewer_model": "gpt-6.1-sol",
   "reviewer_family": "openai",
   "reviewer_reasoning": "ultra",
   "review_independence": "same-family",
-  "acceptance_status": "unavailable",
-  "generated_at": "2026-11-10T23:24:01+08:00",
-  "date": "2026-11-10",
-  "auditor": "gpt-5.6-sol-ultra",
-  "overall_verdict": "review_unavailable",
-  "integrity_status": "unavailable",
+  "acceptance_status": "provisional_d1_prior_unavailable",
+  "generated_at": "2026-11-11T00:00:00+08:00",
+  "deterministic_val_extension_at": "2026-11-11",
+  "deterministic_g2_extension_at": "2026-11-11",
+  "deterministic_g2_contention_extension_at": "2026-11-11",
+  "deterministic_g2_d2_extension_at": "2026-11-11",
+  "semantic_g2_d1_extension_at": "2026-11-11",
+  "semantic_g2_d1_margin_addendum_at": "2026-11-11",
+  "semantic_g2_d3_extension_at": "2026-11-12",
+  "semantic_g2_d45_extension_at": "2026-11-12",
+  "date": "2026-11-12",
+  "auditor": "gpt-6.1-sol-ultra",
+  "overall_verdict": "warn_with_prior_unavailable",
+  "integrity_status": "warn_d1_prior_unavailable",
   "checks": {
-    "semantic_review": {"status": "error", "details": "Reviewer usage limit"},
+    "semantic_review_prior_scopes": {"status": "error", "details": "Earlier reviewer usage limit; G1/G2 semantic acceptance remains unavailable."},
+    "d1_ground_truth_provenance": {"status": "pass", "details": "Real DanceTrack GT is used for explicitly privileged proxy/counterfactual mappings; no model-generated GT."},
+    "d1_score_normalization": {"status": "pass", "details": "Executed D1 path uses raw IoU and direction-consistency scores; no self-normalized active metric."},
+    "d1_result_fidelity": {"status": "warn", "details": "All counts/hashes/replays independently reproduced. The parent v2 omitted frozen total-score margins, now closed by a separately frozen/audited addendum; original parent runs still lack authenticated runtime/source metadata."},
+    "d1_dead_code": {"status": "pass", "details": "Reported helpers are called and outputs appear in raw result tables."},
+    "d1_scope": {"status": "warn", "details": "Four selected train sequences and 165 resolved events; only 12/53 failures receive a nonzero v2 history intervention; no closed-loop evaluation."},
+    "d1_eval_type": {"status": "pass", "details": "V1 is a real-GT privileged semantic ownership proxy; v2 is a real-GT privileged exploratory first-association counterfactual."},
+    "d1_margin_formula_and_normalization": {"status": "pass", "details": "Active raw IoU-plus-direction score is bitwise identical to 151,784 captured solver cost elements; no shortcut or self-normalization."},
+    "d1_margin_result_fidelity": {"status": "pass", "details": "All 165 events, 11,220 field comparisons, group counts, outcome cells, hashes, runtime provenance, and 48,726 replay rows independently reproduced."},
+    "d1_margin_scope": {"status": "warn", "details": "Post-audit supplement inherits the four-sequence train-only exploratory scope; pairwise margins are descriptive under global Hungarian."},
+    "d3_intervention_integrity": {"status": "pass", "details": "All 165 interventions replace only one existing detection XYXY with GT; scores/order/other detections/tracker state remain exact and no oracle result is written back."},
+    "d3_result_fidelity": {"status": "pass", "details": "All 6,435 cells, summary groups, D2/D3 coverage sets, 324 score matrices, 48,726 replay rows, and 40 hash/provenance checks independently reproduce."},
+    "d3_scope": {"status": "warn", "details": "Four selected train sequences and independent first-round privileged interventions; no closed-loop, combined D2+D3, causal mechanism, or official metric claim."},
+    "d45_ground_truth_and_intervention_integrity": {"status": "pass", "details": "D4 changes only direction weight; D5 changes exactly the known target track and existing positive detection XYXY to current GT. All other input bytes and serialized tracker state remain unchanged."},
+    "d45_score_and_result_fidelity": {"status": "pass", "details": "All 15,180 result cells, 489 solver matrices with 231,063 elements, 48,726 replay rows, 797 parent events, contention outputs and 52 hash checks independently reproduce with zero numeric difference."},
+    "d45_scope": {"status": "warn", "details": "Four selected train videos and 165 resolved events; D5 constructs unit target-pair IoU with identical GT geometry and is only an assignment-consistency stress test. Freeze chronology is consistent but not independently proven."},
+    "d45_eval_type": {"status": "pass", "details": "Real-GT privileged isolated first-round diagnostics, not closed-loop tracking or official metric evaluation."},
     "artifact_hashes": {"status": "pass", "details": "Primary run, evaluation, and replay summaries were hashed and cross-checked deterministically."},
-    "scope": {"status": "qualified", "details": "40 DanceTrack train sequences, one detector/tracker configuration; no val or new-method result."},
+    "scope": {"status": "qualified", "details": "G1 covers 40 DanceTrack train sequences plus a pre-frozen one-shot evaluation on 25 val sequences. G2 is an exploratory event extraction on four preselected train failure sequences; no new-method result."},
     "eval_type": "real_gt_expected_semantic_review_unavailable"
   },
   "claims": [
     {"id": "train_baseline_metrics", "impact": "supported_by_artifacts_semantic_review_unavailable"},
     {"id": "replay_consistency", "impact": "supported_by_deterministic_check"},
-    {"id": "val_generalization_or_new_method", "impact": "unsupported"}
+    {"id": "frozen_val_baseline_metrics", "impact": "supported_by_artifacts_semantic_review_unavailable"},
+    {"id": "g2_train_event_counts_and_fixed_sample", "impact": "supported_by_deterministic_check_semantic_review_unavailable"},
+    {"id": "g2_candidate_contention_decomposition", "impact": "supported_as_gt_assisted_exploratory_diagnostic"},
+    {"id": "g2_codex_visual_observations", "impact": "agent_review_only_not_human_expert_ground_truth"},
+    {"id": "g2_d2_first_association_headroom", "impact": "supported_as_privileged_event_level_counterfactual_only"},
+    {"id": "g2_d2_closed_loop_or_metric_improvement", "impact": "unsupported_no_oracle_writeback_or_trackeval"},
+    {"id": "g2_d1_v1_operationalization", "impact": "failed_semantic_relabel_sanity_check_not_tracking_harm"},
+    {"id": "g2_d1_v2_failure_recovery", "impact": "zero_new_first_round_positive_assignments_in_53_selected_failures_with_narrow_intervention_qualifier"},
+    {"id": "g2_d1_v2_control_effect", "impact": "one_new_positive_and_seven_new_negative_first_round_assignments_in_112_controls"},
+    {"id": "g2_d1_v2_d2_nonrecoveries", "impact": "zero_of_30_recovered_but_only_nine_received_nonzero_history_intervention"},
+    {"id": "g2_d1_general_history_irrelevance", "impact": "unsupported"},
+    {"id": "g2_d1_score_margin_measurement", "impact": "supported_as_exact_descriptive_addendum_all_30_d2_nonrecoveries_remain_negative"},
+    {"id": "g2_d1_score_competition_causality", "impact": "unsupported_global_Hungarian_not_decomposed_by_pairwise_margin"},
+    {"id": "g2_d3_new_first_round_assignments", "impact": "supported_14_of_53_selected_failures_with_7_of_112_control_harms"},
+    {"id": "g2_d2_d3_union", "impact": "supported_as_separate_counterfactual_set_union_31_of_53_only"},
+    {"id": "g2_d2_d3_complementary_causal_mechanisms", "impact": "unsupported"},
+    {"id": "g2_d4_direction_ablation", "impact": "supported_zero_new_failure_assignments_three_new_negative_controls_under_global_term_removal_only"},
+    {"id": "g2_d5_joint_identical_gt_pair", "impact": "supported_52_new_failure_assignments_and_one_new_control_as_privileged_assignment_consistency_stress_test_only"},
+    {"id": "g2_d5_recoverability_or_synergy", "impact": "unsupported_constructed_unit_iou_no_writeback"},
+    {"id": "g2_causal_failure_categories", "impact": "unsupported_manual_review_and_privileged_diagnostics_pending"},
+    {"id": "generalization_beyond_val_or_new_method", "impact": "unsupported"}
   ]
 }

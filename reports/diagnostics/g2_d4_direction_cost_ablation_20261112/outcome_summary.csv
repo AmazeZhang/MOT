@@ -1,0 +1,4 @@
+population,events,baseline_positive,D4_positive,newly_positive,newly_negative,pair_set_changed,score_improved,score_unchanged,score_worsened,gate_gained,gate_lost
+identity_change_failure,53,1,1,0,0,3,21,0,32,0,0
+success_control,112,111,108,0,3,7,19,0,93,0,0
+focus_still_negative_separate_D2_D3,21,0,0,0,0,1,13,0,8,0,0

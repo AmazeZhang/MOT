@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "scope": "DanceTrack train-only privileged D2 first-association counterfactual",
+  "events": 165,
+  "applicable": 165,
+  "not_applicable": 0,
+  "baseline_positive_match": 112,
+  "oracle_positive_match": 132,
+  "recoverable": 22,
+  "harmed": 2,
+  "baseline_replay_atol": 0.0001,
+  "baseline_replay_max_abs_xyxy_error": 8.00000003664536e-06,
+  "by_outcome": {
+    "identity_change_failure": {
+      "applicable": 53,
+      "baseline_positive_match": 1,
+      "oracle_positive_match": 23,
+      "recoverable": 22,
+      "harmed": 0
+    },
+    "success_control": {
+      "applicable": 112,
+      "baseline_positive_match": 111,
+      "oracle_positive_match": 109,
+      "recoverable": 0,
+      "harmed": 2
+    }
+  },
+  "by_candidate_class": {
+    "absence_only": {
+      "applicable": 23,
+      "baseline_positive_match": 16,
+      "oracle_positive_match": 19,
+      "recoverable": 3,
+      "harmed": 0
+    },
+    "contention_only": {
+      "applicable": 124,
+      "baseline_positive_match": 89,
+      "oracle_positive_match": 103,
+      "recoverable": 15,
+      "harmed": 1
+    },
+    "mixed": {
+      "applicable": 18,
+      "baseline_positive_match": 7,
+      "oracle_positive_match": 10,
+      "recoverable": 4,
+      "harmed": 1
+    }
+  },
+  "sequence_summaries": [
+    {
+      "sequence": "dancetrack0012",
+      "events": 44,
+      "applicable": 44,
+      "recoverable": 5,
+      "baseline_replay_sha256": "2f957d32e91dbc3700a9a717a215cf93ebd843eddc59fdec4ce3c7a248198c1c",
+      "baseline_reference_sha256": "55c4c6176ced6763dbeeadbbd0ea6a160b62dcd2e613811ac2c70d0162e6fbc9",
+      "status": "PASS",
+      "frame_and_track_id_exact": true,
+      "max_abs_xyxy_error": 4.0000001035878086e-06,
+      "atol": 0.0001
+    },
+    {
+      "sequence": "dancetrack0020",
+      "events": 53,
+      "applicable": 53,
+      "recoverable": 2,
+      "baseline_replay_sha256": "4eb12f1f591ea56ae0c095fa3147e9f77ea0cb3c0e53d56eeedd42cdab368e9e",
+      "baseline_reference_sha256": "ccb2f7e7c32857d43179d4eaa7dfb6bcc1b54fad84dafd7f93146c2264352cb5",
+      "status": "PASS",
+      "frame_and_track_id_exact": true,
+      "max_abs_xyxy_error": 8.00000003664536e-06,
+      "atol": 0.0001
+    },
+    {
+      "sequence": "dancetrack0037",
+      "events": 28,
+      "applicable": 28,
+      "recoverable": 7,
+      "baseline_replay_sha256": "3c61ea1166eadd569d188dc470fef12c729b638d73055afb1ba1db2f69c912bb",
+      "baseline_reference_sha256": "bd6dd47fa42afa784a72d37956ac18aa6322b9c688dabc4410837310ce5975f7",
+      "status": "PASS",
+      "frame_and_track_id_exact": true,
+      "max_abs_xyxy_error": 4.00000004674439e-06,
+      "atol": 0.0001
+    },
+    {
+      "sequence": "dancetrack0044",
+      "events": 40,
+      "applicable": 40,
+      "recoverable": 8,
+      "baseline_replay_sha256": "a941c572ebc0194c9c52050fa5acfbf93183a2a5ddf789f203d9c054fa4e8dfe",
+      "baseline_reference_sha256": "3c01cba85e92d16fba57b10e170a54d43b1b00d901986ef72c87559a8cac6dcd",
+      "status": "PASS",
+      "frame_and_track_id_exact": true,
+      "max_abs_xyxy_error": 3.999999989900971e-06,
+      "atol": 0.0001
+    }
+  ],
+  "protocol": "/home/imc/yzy/MOT/manifests/protocols/g2_d2_gt_position_first_association_v2_20261111.yaml",
+  "protocol_sha256": "4f193c6ae3f3049a48c7a5ac4fec7a725a82dba1dc50f6092f1a0409d9776923",
+  "parent_events_sha256": "0b775f91746d757f564aacf4cf3d7b0220391c509f6fb9642f77c05c4f07f4fd",
+  "contention_events_sha256": "2861bf06c2ea74cf5dca3d76be879d220e8b7710b84a3df1d80c31eba02ff499",
+  "input_hashes_file": "input_hashes.json",
+  "limitations": [
+    "GT current position is privileged and unavailable at inference.",
+    "Only independent first-round association counterfactuals are evaluated; no oracle result is written back.",
+    "No closed-loop tracker metric or method improvement is measured.",
+    "D1 history correction and D3 detection-coordinate correction are not included.",
+    "No validation data is used."
+  ]
+}
