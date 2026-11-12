@@ -1,0 +1,86 @@
+split_id: dancetrack_motion_train_dev_v1_20261112
+status: frozen_before_B0_B1_or_P1_results
+frozen_at: 2026-11-12
+dataset:
+  name: DanceTrack
+  source_split: train
+  dataset_manifest: manifests/datasets/dancetrack.yaml
+  expected_sequences: 40
+  inventory_sequence_names_sha256: 6e28a2e3bc33a85e7c86b8ffd1bc8ce462fbe98a41e2264684386f2a3df47668
+selection:
+  split_seed: 20261110
+  target_counts:
+    motion_train: 32
+    motion_dev: 8
+  diagnostic_anchor_dev:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0037
+    - dancetrack0044
+  diagnostic_anchor_reason: previously inspected difficult G2 sequences; development evidence only
+  extra_dev_algorithm: sort remaining sequence IDs by lowercase SHA256 of ASCII string "20261110:<sequence_id>" and take first four
+  extra_dev_rank_order:
+    - dancetrack0024
+    - dancetrack0053
+    - dancetrack0086
+    - dancetrack0033
+  source_group_check: no official source-group metadata available; sequence IDs are kept indivisible and exact first/middle/last-frame duplicates are checked locally
+  expected_exact_sentinel_duplicate_groups: 0
+motion_train:
+  sequence_names_sha256: 1ef076afcd1c5f7eb43ea927a3d0c748f3b20f496b97a462dec7394a084e87d2
+  sequence_count: 32
+  frame_count: 34231
+  sequences:
+    - dancetrack0001
+    - dancetrack0002
+    - dancetrack0006
+    - dancetrack0008
+    - dancetrack0015
+    - dancetrack0016
+    - dancetrack0023
+    - dancetrack0027
+    - dancetrack0029
+    - dancetrack0032
+    - dancetrack0039
+    - dancetrack0045
+    - dancetrack0049
+    - dancetrack0051
+    - dancetrack0052
+    - dancetrack0055
+    - dancetrack0057
+    - dancetrack0061
+    - dancetrack0062
+    - dancetrack0066
+    - dancetrack0068
+    - dancetrack0069
+    - dancetrack0072
+    - dancetrack0074
+    - dancetrack0075
+    - dancetrack0080
+    - dancetrack0082
+    - dancetrack0083
+    - dancetrack0087
+    - dancetrack0096
+    - dancetrack0098
+    - dancetrack0099
+motion_dev:
+  sequence_names_sha256: 43356c5f5571a9dee2bfb66a1cc860df98c50574bce2af0e2edc1bebdc39e429
+  sequence_count: 8
+  frame_count: 7565
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0024
+    - dancetrack0033
+    - dancetrack0037
+    - dancetrack0044
+    - dancetrack0053
+    - dancetrack0086
+rules:
+  - sequence membership is disjoint and exhaustive over official DanceTrack train
+  - normalization fitting and model fitting may read motion_train only
+  - motion_dev may be used for tracking-module development and stopping decisions only
+  - the four diagnostic anchors are selected difficult videos and are not unbiased confirmation evidence
+  - official DanceTrack val remains excluded from fitting and development selection
+  - sequence identity is the statistical pairing unit; frames and tracks are not independent repeats
+

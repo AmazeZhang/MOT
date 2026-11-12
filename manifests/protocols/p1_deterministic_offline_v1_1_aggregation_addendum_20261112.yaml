@@ -1,0 +1,49 @@
+addendum_id: p1_deterministic_offline_v1_1_aggregation_addendum_20261112
+status: frozen_after_comparator_integrity_stop_before_any_GO_or_NO_GO_result
+frozen_at: 2026-11-12
+parent_protocol:
+  path: manifests/protocols/p1_deterministic_offline_v1_20261112.yaml
+  sha256: 5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea
+frozen_queue_aggregate:
+  path: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/aggregate.json
+  sha256: a4cd0250dc48551dd474058dfb68dd03af9bec1c84202e2b8c4fb30eb6530bf9
+trigger:
+  original_aggregator: scripts/summarize_p1_offline.py
+  original_aggregator_sha256: f19fab96d06733963f4c003435a852970b7f46323fc8f22e47d9b85a3b3f18d5
+  stopped_before_summary_creation: true
+  error: comparator_metrics_differ_across_seeds_under_exact_Python_dictionary_equality
+  diagnosis_scope: comparator_branches_only
+  learned_metrics_inspected_before_addendum_freeze: false
+  observed_maximum_absolute_float_difference:
+    zero_delta: 0.00000000000000033306690738754696
+    constant_velocity: 0.0000000000000002220446049250313
+  differing_fields: floating_point_IoU_mean_or_median_leaves_only
+  structures_counts_and_non_float_values_equal: true
+correction:
+  comparator_float_leaf_absolute_tolerance: 0.000000000001
+  comparator_relative_tolerance: 0
+  structure_keys_list_lengths_counts_integers_strings_booleans_and_nulls: exact
+  learned_branch_policy: never_canonicalize_or_modify
+  after_validation: copy_first_seed_comparator_tree_only_to_satisfy_parent_exact_check
+  rationale: tolerance_is_3000_times_larger_than_observed_roundoff_but_far_below_any_registered_gate
+unchanged_research_gate:
+  mean_learned_macro_MSE_over_best_comparator_max: 0.98
+  every_seed_learned_macro_MSE_over_best_comparator_max: 1.0
+  mean_learned_gap_2_31_MSE_over_best_comparator_max: 0.95
+  learned_mean_macro_IoU_allowed_drop_from_best_comparator_max: 0.005
+  learned_macro_MSE_relative_seed_range_max: 0.10
+  all_criteria_required: true
+source_freeze:
+  integrity_helper:
+    path: src/mot_research/evaluation/aggregation_integrity.py
+    sha256: ae136f8a2f33612bcccbdd7686b28cc1b7dfa5d85b1530c8a657a9f6bd51a942
+  corrected_aggregator:
+    path: scripts/summarize_p1_offline_v1_1.py
+    sha256: 2ddb935ab3beba4873236918100a2a5bed55128a363435a199b2391a0665b903
+  tests:
+    path: tests/test_aggregation_integrity.py
+    sha256: c4c3f6a17f9377dcbe013819c289de254f4d413f7eaed1cd0c038a64aab40e5d
+acceptance:
+  material_comparator_difference_above_tolerance: hard_fail
+  structural_or_count_difference: hard_fail
+  all_parent_gate_thresholds_applied_once: true

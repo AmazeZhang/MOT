@@ -1,0 +1,44 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "reason_code": "qualified_offline_scope_and_chronology",
+  "summary": "Numeric integrity and the preregistered offline GO reproduce; privileged GT-aligned histories, selected dev anchors, adverse long-gap IoU, absent closed-loop metrics, and mutable chronology require qualification.",
+  "audited_input_hashes": {
+    "queue_aggregate": "sha256:a4cd0250dc48551dd474058dfb68dd03af9bec1c84202e2b8c4fb30eb6530bf9",
+    "gate_summary": "sha256:5383aff16fa6d511decf8c84c311acc0e7480aa54e55f626c551bc0e7bf0e9fc",
+    "protocol": "sha256:5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea",
+    "addendum": "sha256:773024f3e9f10f363ef03b89da07ba1425db347d97742b26698b9e09e76e890d"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-12_run06/",
+  "agent_id": "/root/p1_offline_experiment_integrity_audit",
+  "verdict_id": "/root/p1_offline_experiment_integrity_audit:retry",
+  "executor_model": "gpt-6.1-sol",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "requested_reviewer_model": "gpt-5.6-sol unavailable",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "generated_at": "2026-11-12T16:29:28+08:00",
+  "date": "2026-11-12",
+  "auditor": "gpt-6.1-sol-ultra",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Real DanceTrack GT; exact raw-target check, but histories use privileged GT correspondence."},
+    "score_normalization": {"status": "pass", "details": "Train-only fixed statistics; no prediction-statistic denominator."},
+    "result_existence": {"status": "pass", "details": "Three complete seeds; independent metrics agree within 3.33e-16."},
+    "dead_code": {"status": "pass", "details": "Formal metric and gate functions execute and appear in outputs."},
+    "scope": {"status": "warn", "details": "8 dev sequences, 4 selected anchors, GT-aligned histories, and adverse gap16-31 IoU."},
+    "aggregation_addendum": {"status": "warn", "details": "Correction is faithful; preregistration chronology cannot be independently authenticated."},
+    "eval_type": "real_gt_offline_with_gt_aligned_detector_histories"
+  },
+  "claims": [
+    {"id": "offline_gate", "impact": "supported_with_qualifiers"},
+    {"id": "natural_closed_loop_authorization", "impact": "supported"},
+    {"id": "tracking_improvement", "impact": "unsupported"},
+    {"id": "uniform_gap_improvement", "impact": "unsupported"},
+    {"id": "probabilistic_model_need", "impact": "unsupported"}
+  ]
+}

@@ -1,0 +1,69 @@
+protocol_id: p1_deterministic_overfit_smoke_20261112
+status: frozen_before_any_cuda_overfit_result
+frozen_at: 2026-11-12
+purpose: engineering-only validation of model, mask, normalization, optimizer, checkpoint, CUDA mapping, and async queue
+interpretation: not a held-out prediction result and not a tracking-method result
+inputs:
+  samples: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+  samples_sha256: d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+  samples_content_sha256: 2d5c8b35546f18d66f306f771eabb294cdca4d93f1e628fc0b946b9385aec711
+  normalization: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+  normalization_sha256: cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+  normalization_fit_group: motion_train_only
+subset:
+  population: motion_train
+  sample_count: 128
+  seed: 20261112
+  selection: ascending_SHA256_of_ASCII_seed_sequence_index_gt_id_target_frame_then_restore_source_order
+  train_and_evaluate_on_same_subset: true
+model:
+  name: DeterministicMotionGRU
+  history_length: 8
+  input_per_valid_observation:
+    - four_absolute_state_dimensions_normalized_by_motion_train_statistics
+    - log1p_target_minus_observation_frames_divided_by_fps
+  left_padding: compact_valid_observations_before_packed_GRU
+  gru_layers: 1
+  hidden_size: 64
+  head: linear_64_SiLU_linear_4
+  output: target_delta_normalized_by_motion_train_statistics
+training:
+  optimizer: Adam
+  learning_rate: 0.003
+  steps: 800
+  batch: all_128_selected_samples_each_step
+  loss: mean_squared_error_in_normalized_delta_space
+  seed: 20261112
+  deterministic_algorithms: true
+  CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+device:
+  physical_gpu: 1
+  CUDA_VISIBLE_DEVICES: "1"
+  process_device: cuda:0
+  required_visible_cuda_device_count: 1
+  physical_gpu_0_forbidden: true
+acceptance:
+  final_normalized_mse_max: 0.05
+  final_over_initial_max: 0.1
+  all_losses_finite: true
+  checkpoint_reload_prediction_max_abs_error: 0.0
+  expected_artifacts:
+    - metrics.json
+    - checkpoint.pt
+    - loss_curve.json
+    - runtime.json
+source_freeze:
+  model:
+    path: src/mot_research/models/deterministic_motion.py
+    sha256: 1d6181070f0c1d2190bdb03228fe3eb941b5800d82357bc2b3a3bc5df6c5e6d5
+  training_script:
+    path: scripts/train_p1_deterministic.py
+    sha256: f887aa51fbe19a94ade946e549b6bd98cef8b0561f66455ccd0b8de3a2cace3f
+  tests:
+    path: tests/test_deterministic_motion.py
+    sha256: b7519be3a0f11e5b7dc66de4d9f13b318644ee25eb56c4cf988da8ef38f717db
+limitations:
+  - The same tiny subset is used for fitting and evaluation by design.
+  - Passing demonstrates plumbing and sufficient capacity only.
+  - Loss values cannot support generalization, association, closed-loop, or tracking claims.
+  - The checkpoint is a disposable engineering artifact stored outside Git.

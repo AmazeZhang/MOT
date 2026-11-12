@@ -1,0 +1,35 @@
+queue_id: async_queue_smoke_20261112
+project_root: /home/imc/yzy/MOT
+queue_root: /media/imc/data/mot-data/runs
+require_clean_git: false
+git_commit: 32ec04477b25bba341d520cd5f47bae5ad1b7894
+purpose: engineering-only failure-isolation smoke; no CUDA tensor and no research metric
+jobs:
+  - job_id: pass_gpu1
+    physical_gpu: 1
+    description: expected PASS used to verify independent completion
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/queue_smoke_job.py
+      - --outcome
+      - pass
+    expected_artifacts: [metrics.json]
+  - job_id: expected_fail_gpu2
+    physical_gpu: 2
+    description: intentional FAIL used to verify preservation and aggregation exclusion
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/queue_smoke_job.py
+      - --outcome
+      - fail
+    expected_artifacts: [metrics.json]
+  - job_id: pass_gpu3
+    physical_gpu: 3
+    description: expected PASS must survive the independent GPU2 failure
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/queue_smoke_job.py
+      - --outcome
+      - pass
+    expected_artifacts: [metrics.json]
+

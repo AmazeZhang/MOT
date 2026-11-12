@@ -1,0 +1,71 @@
+protocol_id: p1_motion_samples_v1_20261112
+status: frozen_before_any_P1_sample_result
+frozen_at: 2026-11-12
+scope:
+  dataset: DanceTrack
+  source_split: train
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_manifest_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  motion_train_sequences: 32
+  motion_dev_sequences: 8
+  official_val_used: false
+detections:
+  manifest: manifests/detections/ocsort_yolox_dance_train.yaml
+  manifest_sha256: bedb827b5a423957ace64a0f27ce257e8a098ac830d9c14fbd92f623afac66b6
+  coordinate_space: original_image_pixels_xyxy_continuous
+  first_round_pool: score_strictly_greater_than_0.6
+  frame_local_detection_ID: true
+training_correspondence:
+  purpose: labels_and_training_history_construction_only
+  mapping: per_frame_GT_detection_one_to_one_Hungarian_max_IoU
+  iou_threshold: 0.5
+  GT_never_enters_online_tracker_input: true
+sample_definition:
+  target_population: every_GT_annotated_frame_satisfying_history_requirements
+  history_source: prior_GT_matched_real_detection_boxes_only
+  history_length: 8
+  minimum_history_observations: 2
+  padding: left_zero_with_explicit_valid_mask
+  history_frame_rule: every_valid_history_frame_strictly_less_than_target_frame
+  maximum_target_minus_last_observation_frames: 31
+  target: current_GT_box_state
+  current_positive_detection:
+    recorded_when_mapping_exists: true
+    absent_value: -1
+    never_included_in_history: true
+  sample_key: [sequence_id, gt_id, target_frame]
+state:
+  dimensions: [cx_over_W, cy_over_H, log_width_over_W, log_height_over_H]
+  continuous_width_height: [x2_minus_x1, y2_minus_y1]
+  target_delta: target_GT_state_minus_last_observed_detection_state
+  history_storage: normalized_absolute_states_plus_frames_and_valid_mask
+  frame_gap: target_frame_minus_last_observed_frame
+normalization:
+  fit_population: motion_train_only
+  statistics:
+    - valid_history_state_mean_and_population_std_per_dimension
+    - target_delta_mean_and_population_std_per_dimension
+  std_floor: 0.000001
+  motion_dev_rule: reuse_frozen_motion_train_statistics_without_refit
+outputs:
+  train_and_dev_npz: compressed_arrays
+  sequence_index_and_summary: json
+  normalization_statistics: json
+  input_source_hashes: json
+  atomic_directory: partial_then_rename
+acceptance:
+  unique_sample_keys: true
+  train_dev_sequence_disjoint: true
+  no_target_or_future_frame_in_history: true
+  last_history_frame_matches_frame_gap: true
+  finite_states_and_statistics: true
+  encode_decode_roundtrip_atol: 0.0000000001
+  deterministic_rebuild_required: true
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty_string
+interpretation_limits:
+  - GT is permitted for supervised target and training-only correspondence, not as an inference feature.
+  - GT-aligned detector histories differ from closed-loop self-associated tracker histories; P1 must later test that deployment gap.
+  - Sample counts and offline motion loss are not tracking improvements.
+  - Motion-dev includes four selected G2 anchors and is development evidence only.
+

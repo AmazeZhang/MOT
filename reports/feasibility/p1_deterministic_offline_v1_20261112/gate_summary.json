@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "decision": "GO_TO_NATURAL_CLOSED_LOOP",
+  "all_criteria_pass": true,
+  "seeds": [20261112, 20261113, 20261114],
+  "learned_macro_mse_by_seed": [
+    1.3809084704365229,
+    1.385514019638903,
+    1.3832291967805268
+  ],
+  "learned_macro_mse_mean": 1.3832172289519844,
+  "zero_delta_macro_mse": 1.5106702980142297,
+  "constant_velocity_macro_mse": 7.009454304865692,
+  "learned_mean_over_best_macro_mse": 0.9156314457034193,
+  "learned_gap_2_31_mse_mean": 12.047239123345612,
+  "zero_delta_gap_2_31_mse": 13.015014811585452,
+  "constant_velocity_gap_2_31_mse": 133.1579243406463,
+  "learned_mean_over_best_gap_2_31_mse": 0.9256415991645001,
+  "learned_macro_iou_mean": 0.8505008014767759,
+  "zero_delta_macro_iou": 0.843628195652792,
+  "constant_velocity_macro_iou": 0.8276258596514108,
+  "learned_minus_best_macro_iou": 0.006872605823983857,
+  "learned_macro_mse_relative_seed_range": 0.003329592132010729,
+  "sequence_mse_wins_each_seed": "8/8",
+  "gap_16_31": {
+    "sample_count": 650,
+    "learned_mean_mse_over_zero_delta": 0.9071607574186287,
+    "learned_mean_iou_minus_zero_delta": -0.008110063403898304
+  },
+  "protocol_sha256": "5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea",
+  "aggregation_addendum_sha256": "773024f3e9f10f363ef03b89da07ba1425db347d97742b26698b9e09e76e890d",
+  "raw_summary_sha256": "5383aff16fa6d511decf8c84c311acc0e7480aa54e55f626c551bc0e7bf0e9fc"
+}

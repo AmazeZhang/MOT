@@ -1,0 +1,109 @@
+protocol_id: p1_deterministic_offline_v1_20261112
+status: frozen_before_any_full_train_or_motion_dev_model_result
+frozen_at: 2026-11-12
+purpose: first held-out-within-train-split offline prediction feasibility test for the deterministic P1 model
+scope:
+  fit: DanceTrack motion-train, 32 complete sequences
+  development_evaluation: DanceTrack motion-dev, 8 complete sequences
+  official_val_used: false
+  tracking_loop_modified: false
+  statistical_pairing_unit: sequence
+inputs:
+  train_samples:
+    path: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+    sha256: d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+    content_sha256: 2d5c8b35546f18d66f306f771eabb294cdca4d93f1e628fc0b946b9385aec711
+    sample_count: 266854
+  dev_samples:
+    path: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_dev.npz
+    sha256: 763e286a7a0a17ec688a51d2279a228eea26c61269532f6a12bcb69e0c2fd5b1
+    content_sha256: e055e17ce0dc2e24bf2fd899ed24a266359aecd34f78f33d3f1ac8828e68d141
+    sample_count: 80458
+  normalization:
+    path: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+    sha256: cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+    fit_group: motion_train_only
+model:
+  implementation: DeterministicMotionGRU
+  history_length: 8
+  hidden_size: 64
+  gru_layers: 1
+  head: linear_64_SiLU_linear_4
+  input: normalized_absolute_state_plus_log1p_seconds_to_target
+  output: motion_train_normalized_target_delta
+training:
+  seeds: [20261112, 20261113, 20261114]
+  epochs: 10
+  batch_size: 4096
+  evaluation_batch_size: 8192
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  schedule: none
+  dev_early_stopping: false
+  dev_model_selection: false
+  seed_selection: false
+  loss: normalized_delta_mean_squared_error
+  deterministic_algorithms: true
+  CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+devices:
+  seed_20261112_physical_gpu: 1
+  seed_20261113_physical_gpu: 2
+  seed_20261114_physical_gpu: 3
+  process_device_each_job: cuda:0
+  physical_gpu_0_forbidden: true
+comparators:
+  zero_delta:
+    prediction: last_observed_detector_state
+  constant_velocity:
+    prediction: last_state_plus_last_two_observation_state_slope_per_frame_times_target_gap
+    state_space: normalized_center_and_log_size
+  same_samples_and_targets: true
+evaluation:
+  primary: macro_sequence_normalized_delta_mse
+  safety: macro_sequence_mean_paired_box_iou
+  gap_focus: sample_weighted_normalized_delta_mse_for_target_gap_2_to_31
+  additional:
+    - overall_sample_weighted_metrics
+    - state_dimension_MAE
+    - normalized_center_L2
+    - IoU_median_and_fraction_at_least_0.5
+    - gap_bins_1_2-3_4-7_8-15_16-31
+    - current_positive_detection_present_vs_absent
+    - per_sequence_metrics
+  saved_predictions: all_motion_dev_sample_keys_targets_and_three_method_predictions
+execution_vs_research_gate:
+  queue_job_PASS: integrity_and_artifact_completion_only
+  queue_job_PASS_does_not_mean_method_GO: true
+  aggregate_requires_all_three_distinct_seeds: true
+offline_gate:
+  all_criteria_required: true
+  mean_learned_macro_MSE_over_best_comparator_max: 0.98
+  every_seed_learned_macro_MSE_over_best_comparator_max: 1.0
+  mean_learned_gap_2_31_MSE_over_best_comparator_max: 0.95
+  learned_mean_macro_IoU_allowed_drop_from_best_comparator_max: 0.005
+  learned_macro_MSE_relative_seed_range_max: 0.10
+  pass_decision: GO_TO_NATURAL_CLOSED_LOOP
+  fail_decision: NO_GO_STOP_MODEL_EXPANSION
+  no_post_result_threshold_change: true
+source_freeze:
+  model:
+    path: src/mot_research/models/deterministic_motion.py
+    sha256: 1d6181070f0c1d2190bdb03228fe3eb941b5800d82357bc2b3a3bc5df6c5e6d5
+  evaluation:
+    path: src/mot_research/evaluation/motion_prediction.py
+    sha256: 1da8e4d4278ebdcb202b7630e90bb33b0789030ce3ddce4c5012c36ba3ec5389
+  training_script:
+    path: scripts/train_eval_p1_deterministic.py
+    sha256: e1fa51f43c86a5172d7cfa8777cb1ef79f56018ed9eb2faca3525e4d60948f2d
+  aggregation_script:
+    path: scripts/summarize_p1_offline.py
+    sha256: f19fab96d06733963f4c003435a852970b7f46323fc8f22e47d9b85a3b3f18d5
+  evaluation_tests:
+    path: tests/test_motion_prediction.py
+    sha256: 296ba69ab313edd671d4b71613bc61c77ae25452d97fd7007312dd01eff52a1a
+interpretation_limits:
+  - Motion-dev is held out from model fitting but contains four intentionally selected G2 anchors.
+  - Histories are GT-aligned detector observations, not tracker-owned closed-loop histories.
+  - Offline prediction improvement authorizes only the frozen natural closed-loop experiment.
+  - No offline result can be called HOTA, AssA, IDF1, recovery, or tracking improvement.

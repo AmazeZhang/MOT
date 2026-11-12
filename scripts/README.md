@@ -19,3 +19,12 @@
 - `analyze_g2_d1_score_margin_addendum.py`：在不改变 D1 v2 事件和结果的前提下，补记首轮正检测的原始 IoU+方向总分、竞争 track margin、门控和一对一快捷路径，并逐事件断言父结果一致。
 - `analyze_g2_d3_detection_coordinate.py`：只把已有目标正检测的 XYXY 替换为当前 GT 框，保持分数、数量、顺序和全部 track 状态不变，记录首轮恢复、副作用、门控、总分 margin 与全局配对变化。
 - `analyze_g2_final_counterfactual.py`：同一入口运行冻结的 D4 方向代价消融或 D5 同时 D2+D3 特权构造；两个模式使用独立原子输出，失败保留 `.failed/failure.json`，并登记 assignment backend/version。
+- `validate_motion_split.py`：验证冻结 motion-train/dev 清单的全集覆盖、无交集、hash 排序规则、成员哈希、GT/seqinfo 和帧数；不读取官方 val。
+- `validate_b0_b1_equivalence.py`：在冻结 motion-dev 上对比直接上游 B0、关闭研究功能的 B1 首轮关联适配器和已登记 G1 输出；要求 B0/B1 浮点逐元素一致并保留完整 provenance。
+- `experiment_queue.py`：异步启动、查询、等待与只聚合 PASS attempt；物理 GPU0 硬拒绝，每个 job 独立日志/status/原子 artifacts，失败 artifacts 保留且重试使用新 attempt。
+- `queue_smoke_job.py`：只用于队列故障隔离验收的微型作业，不创建 CUDA 张量、不产生研究指标。
+- `build_p1_motion_samples.py`：按冻结协议从 motion-train/dev、真实检测和训练 GT 构建严格在线的 P1 历史/目标样本；统计量只拟合 motion-train，原始数组与 provenance 原子落盘到数据盘。
+- `train_p1_deterministic.py`：训练最小确定性 GRU；先由异步队列执行极小子集过拟合 smoke，强制核对物理 GPU1--7 到进程 `cuda:0` 的映射、输入哈希和 checkpoint 重载，不把 smoke loss 当作方法结果。
+- `train_eval_p1_deterministic.py`：固定预算训练完整 motion-train，并在完整 motion-dev 上保存逐样本预测和 learned/零 delta/最后速度外推的分序列、分 gap 离线指标；每个 seed 只报告执行成功，研究 GO/NO-GO 由独立多 seed 聚合决定。
+- `summarize_p1_offline.py`：只在三个 seed 作业全部 PASS 后读取冻结 queue aggregate，验证无学习对照跨 seed 完全一致，并一次性应用预注册的离线 GO/NO-GO 门；不选择最佳 seed。
+- `summarize_p1_offline_v1_1.py`：原聚合器因独立进程 comparator IoU 归约存在 `1e-16` 末位差异而在结果前停止；本入口按冻结 addendum 只对 comparator 浮点叶使用 `1e-12` 绝对容差，结构/计数和 learned 分支保持严格不变。

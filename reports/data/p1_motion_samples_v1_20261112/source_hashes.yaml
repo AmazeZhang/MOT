@@ -1,0 +1,30 @@
+protocol:
+  path: manifests/protocols/p1_motion_samples_v1_20261112.yaml
+  sha256: 9348f0b551daef54492e393be787a29cbb154dfc564bbfaf9824d8b2331c3690
+split_manifest:
+  path: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+detection_manifest:
+  path: manifests/detections/ocsort_yolox_dance_train.yaml
+  sha256: bedb827b5a423957ace64a0f27ce257e8a098ac830d9c14fbd92f623afac66b6
+builder:
+  path: scripts/build_p1_motion_samples.py
+  sha256: 21c2cf947203200ac67383a5aff17798d67429d15fd8d31468f455f57ecf21ba
+sample_helper:
+  path: src/mot_research/data/motion_samples.py
+  sha256: b26e26e9c795bccb392899b0bc02714e0180c07bfd7f2144620c73afc8349d25
+sample_tests:
+  path: tests/test_motion_samples.py
+  sha256: 0c3346b355e01b1f4be2ad79fd4c5e443db817b166caa0513f8b83a776b5f6dc
+primary_raw:
+  path: /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112
+  summary_sha256: c14b4ed88e09163ca71bbde2827da9ffaed7c49d5aa20a67a24d0ee3a9813ddc
+  normalization_sha256: cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+  input_hashes_sha256: 0167027d3c239f2b1700d94dc15c6156292dc194c93607c58b2a016c9aa53562
+  runtime_sha256: 84bcbd5caa804c3cf64af0078a585e8484d2fc6d05e96bb3214d7caced9c67fa
+repeat_raw:
+  path: /media/imc/data/mot-data/runs/p1_motion_samples_v1_repeat_20261112
+  summary_sha256: c14b4ed88e09163ca71bbde2827da9ffaed7c49d5aa20a67a24d0ee3a9813ddc
+  normalization_sha256: cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+  input_hashes_sha256: 0167027d3c239f2b1700d94dc15c6156292dc194c93607c58b2a016c9aa53562
+  runtime_sha256: 80180e2664f822e9ee4c05cdada02cde95ef07ef2e2ab1e79ad8cd34c13ae01b

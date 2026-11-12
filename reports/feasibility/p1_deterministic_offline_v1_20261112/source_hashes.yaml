@@ -1,0 +1,34 @@
+protocol:
+  path: manifests/protocols/p1_deterministic_offline_v1_20261112.yaml
+  sha256: 5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea
+aggregation_addendum:
+  path: manifests/protocols/p1_deterministic_offline_v1_1_aggregation_addendum_20261112.yaml
+  sha256: 773024f3e9f10f363ef03b89da07ba1425db347d97742b26698b9e09e76e890d
+queue_config:
+  path: configs/experiments/p1_deterministic_offline_v1_20261112.yaml
+  sha256: 4e56078f5dfaaad4b7d77c80c4cae314bfc6f8a8bdf66f996a04b00553929aee
+model:
+  path: src/mot_research/models/deterministic_motion.py
+  sha256: 1d6181070f0c1d2190bdb03228fe3eb941b5800d82357bc2b3a3bc5df6c5e6d5
+evaluation:
+  path: src/mot_research/evaluation/motion_prediction.py
+  sha256: 1da8e4d4278ebdcb202b7630e90bb33b0789030ce3ddce4c5012c36ba3ec5389
+training_script:
+  path: scripts/train_eval_p1_deterministic.py
+  sha256: e1fa51f43c86a5172d7cfa8777cb1ef79f56018ed9eb2faca3525e4d60948f2d
+original_aggregator:
+  path: scripts/summarize_p1_offline.py
+  sha256: f19fab96d06733963f4c003435a852970b7f46323fc8f22e47d9b85a3b3f18d5
+corrected_aggregator:
+  path: scripts/summarize_p1_offline_v1_1.py
+  sha256: 2ddb935ab3beba4873236918100a2a5bed55128a363435a199b2391a0665b903
+aggregation_integrity:
+  path: src/mot_research/evaluation/aggregation_integrity.py
+  sha256: ae136f8a2f33612bcccbdd7686b28cc1b7dfa5d85b1530c8a657a9f6bd51a942
+raw:
+  queue_root: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112
+  queue_aggregate_sha256: a4cd0250dc48551dd474058dfb68dd03af9bec1c84202e2b8c4fb30eb6530bf9
+  gpu_inventory_at_launch_sha256: 191e14f5adff4325399f6fbbae3ee1771d25b3c52098f1f4ca5f498ed3e06442
+  summary_root: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_summary_20261112
+  summary_sha256: 5383aff16fa6d511decf8c84c311acc0e7480aa54e55f626c551bc0e7bf0e9fc
+  per_seed_projection_sha256: 46bc988193aecd5ec7c3e885582724bd72a4466147b6be43a0658ff48c6056c8

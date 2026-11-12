@@ -1,0 +1,127 @@
+queue_id: p1_deterministic_offline_v1_20261112
+project_root: /home/imc/yzy/MOT
+queue_root: /media/imc/data/mot-data/runs
+require_clean_git: false
+git_commit: 32ec04477b25bba341d520cd5f47bae5ad1b7894
+purpose: three fixed seeds for the frozen P1 offline prediction feasibility gate
+jobs:
+  - job_id: p1_seed20261112
+    physical_gpu: 1
+    description: fixed-budget full motion-train fit and complete motion-dev offline evaluation
+    environment: &environment
+      PYTHONPATH: /home/imc/yzy/MOT/src
+      CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/train_eval_p1_deterministic.py
+      - --train-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+      - --train-sha256
+      - d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+      - --dev-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_dev.npz
+      - --dev-sha256
+      - 763e286a7a0a17ec688a51d2279a228eea26c61269532f6a12bcb69e0c2fd5b1
+      - --normalization
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+      - --normalization-sha256
+      - cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+      - --protocol
+      - manifests/protocols/p1_deterministic_offline_v1_20261112.yaml
+      - --protocol-sha256
+      - 5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea
+      - --seed
+      - "20261112"
+      - --hidden-size
+      - "64"
+      - --epochs
+      - "10"
+      - --batch-size
+      - "4096"
+      - --eval-batch-size
+      - "8192"
+      - --learning-rate
+      - "0.001"
+      - --weight-decay
+      - "0.0001"
+    expected_artifacts: &artifacts
+      - metrics.json
+      - checkpoint.pt
+      - dev_predictions.npz
+      - runtime.json
+  - job_id: p1_seed20261113
+    physical_gpu: 2
+    description: fixed-budget full motion-train fit and complete motion-dev offline evaluation
+    environment: *environment
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/train_eval_p1_deterministic.py
+      - --train-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+      - --train-sha256
+      - d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+      - --dev-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_dev.npz
+      - --dev-sha256
+      - 763e286a7a0a17ec688a51d2279a228eea26c61269532f6a12bcb69e0c2fd5b1
+      - --normalization
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+      - --normalization-sha256
+      - cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+      - --protocol
+      - manifests/protocols/p1_deterministic_offline_v1_20261112.yaml
+      - --protocol-sha256
+      - 5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea
+      - --seed
+      - "20261113"
+      - --hidden-size
+      - "64"
+      - --epochs
+      - "10"
+      - --batch-size
+      - "4096"
+      - --eval-batch-size
+      - "8192"
+      - --learning-rate
+      - "0.001"
+      - --weight-decay
+      - "0.0001"
+    expected_artifacts: *artifacts
+  - job_id: p1_seed20261114
+    physical_gpu: 3
+    description: fixed-budget full motion-train fit and complete motion-dev offline evaluation
+    environment: *environment
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/train_eval_p1_deterministic.py
+      - --train-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+      - --train-sha256
+      - d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+      - --dev-samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_dev.npz
+      - --dev-sha256
+      - 763e286a7a0a17ec688a51d2279a228eea26c61269532f6a12bcb69e0c2fd5b1
+      - --normalization
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+      - --normalization-sha256
+      - cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+      - --protocol
+      - manifests/protocols/p1_deterministic_offline_v1_20261112.yaml
+      - --protocol-sha256
+      - 5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea
+      - --seed
+      - "20261114"
+      - --hidden-size
+      - "64"
+      - --epochs
+      - "10"
+      - --batch-size
+      - "4096"
+      - --eval-batch-size
+      - "8192"
+      - --learning-rate
+      - "0.001"
+      - --weight-decay
+      - "0.0001"
+    expected_artifacts: *artifacts

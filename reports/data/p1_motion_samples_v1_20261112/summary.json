@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "9348f0b551daef54492e393be787a29cbb154dfc564bbfaf9824d8b2331c3690",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "detection_manifest_sha256": "bedb827b5a423957ace64a0f27ce257e8a098ac830d9c14fbd92f623afac66b6",
+  "motion_train": {
+    "sequence_count": 32,
+    "samples": 266854,
+    "target_with_positive_detection": 261069,
+    "target_without_positive_detection": 5785,
+    "array_content_sha256": "2d5c8b35546f18d66f306f771eabb294cdca4d93f1e628fc0b946b9385aec711",
+    "npz_sha256": "d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7"
+  },
+  "motion_dev": {
+    "sequence_count": 8,
+    "samples": 80458,
+    "target_with_positive_detection": 75668,
+    "target_without_positive_detection": 4790,
+    "array_content_sha256": "e055e17ce0dc2e24bf2fd899ed24a266359aecd34f78f33d3f1ac8828e68d141",
+    "npz_sha256": "763e286a7a0a17ec688a51d2279a228eea26c61269532f6a12bcb69e0c2fd5b1"
+  },
+  "train_dev_sample_key_overlap": 0,
+  "normalization_fit_group": "motion_train",
+  "motion_dev_normalization_refit": false,
+  "state_roundtrip_max_abs_error": 2.220446049250313e-15,
+  "deterministic_repeat": {
+    "summary_equal": true,
+    "normalization_equal": true,
+    "input_hashes_equal": true,
+    "npz_sha256_equal": true,
+    "array_content_sha256_equal": true,
+    "all_arrays_equal_with_equal_nan": true
+  }
+}

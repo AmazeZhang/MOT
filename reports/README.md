@@ -8,6 +8,7 @@
 
 - `baselines/g1_ocsort_train_20261110/`：完整 DanceTrack train 诊断基线。
 - `baselines/g1_ocsort_val_20261111/`：查看指标前冻结的完整 DanceTrack val G1 参考基线。
+- `baselines/b0_b1_equivalence_motion_dev_20261112/`：冻结 motion-dev 上直接 B0 与关闭研究功能的 B1 适配器全量等价验收；float64 tracker 输出逐元素一致。
 - `diagnostics/g2_train_failure_attribution_20261111/`：4 个 train 失败序列的冻结事件定义、20+20 对照抽样、描述统计和外部审阅图索引。
 - `diagnostics/g2_candidate_contention_20261111/`：对 797 个父事件逐帧区分原始候选缺失与一对一匹配竞争的 train-only 探索性补充分解。
 - `diagnostics/g2_d2_first_association_v2_20261111/`：只替换目标 track 当前预测框的 GT 特权首轮关联反事实；不写回 tracker，也不代表闭环指标提升。
@@ -17,3 +18,7 @@
 - `diagnostics/g2_d3_gt_detection_coordinate_20261112/`：只修正已有目标正检测坐标的 D3 特权首轮反事实；失败组新增正确 14/53，对照新增正确 1、破坏 7，并报告与 D2 的交并覆盖。
 - `diagnostics/g2_d4_direction_cost_ablation_20261112/`：全局移除首轮方向项的冻结对照；失败组新增正确 0/53，成功对照破坏 3/112。
 - `diagnostics/g2_d5_joint_d2_d3_20261112/`：把已知正确 pair 两侧同时设为同一 GT 框的关联一致性压力测试；失败组新增正确 52/53，但不代表可实现恢复上界或因果协同。
+- `engineering/async_queue_smoke_20261112/`：GPU1/2/3 标签下的异步队列故障隔离验收；一个预期失败不影响两个 PASS，聚合器只读取 PASS。无 CUDA 张量、无研究指标。
+- `engineering/p1_deterministic_overfit_smoke_20261112/`：在物理 GPU1 上完成的 128 样本确定性 GRU 过拟合 smoke；验证真实 CUDA、mask、归一化和 checkpoint，不是泛化或跟踪效果。
+- `data/p1_motion_samples_v1_20261112/`：冻结 P1 严格在线 motion-train/dev 样本契约的构建与独立重复；大数组留在数据盘，只登记计数、内容哈希、来源和限制。
+- `feasibility/p1_deterministic_offline_v1_20261112/`：三 seed 完整 motion-train→motion-dev 确定性预测可行性门；五项冻结条件通过并获准进入自然闭环，同时保留长 gap IoU 退化和 provisional WARN 审计。

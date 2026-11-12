@@ -1,0 +1,16 @@
+{
+  "queue_id": "async_queue_smoke_20261112",
+  "engineering_smoke_only": true,
+  "complete": false,
+  "passed_job_count": 2,
+  "required_job_count": 3,
+  "passed_jobs": [
+    {"job_id": "pass_gpu1", "physical_gpu": 1, "attempt": "attempt_001"},
+    {"job_id": "pass_gpu3", "physical_gpu": 3, "attempt": "attempt_001"}
+  ],
+  "missing_or_failed_jobs": [
+    {"job_id": "expected_fail_gpu2", "physical_gpu": 2, "latest_state": "FAIL"}
+  ],
+  "aggregation_policy": "newest PASS attempt per job; non-PASS artifacts excluded"
+}
+

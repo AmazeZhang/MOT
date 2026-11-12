@@ -1,0 +1,49 @@
+queue_id: p1_deterministic_overfit_smoke_20261112
+project_root: /home/imc/yzy/MOT
+queue_root: /media/imc/data/mot-data/runs
+require_clean_git: false
+git_commit: 32ec04477b25bba341d520cd5f47bae5ad1b7894
+purpose: engineering-only tiny-subset overfit; no held-out or tracking claim
+jobs:
+  - job_id: deterministic_overfit_seed20261112
+    physical_gpu: 1
+    description: validate real CUDA training, padding mask, normalization, optimizer and checkpoint reload
+    environment:
+      PYTHONPATH: /home/imc/yzy/MOT/src
+      CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+    command:
+      - /home/imc/anaconda3/envs/mot-core/bin/python
+      - scripts/train_p1_deterministic.py
+      - --samples
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/motion_train.npz
+      - --samples-sha256
+      - d1b4bf29d057c18ff98eb03a7a57f0fedfe598936542289ddf211474235016b7
+      - --normalization
+      - /media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/normalization.json
+      - --normalization-sha256
+      - cc2c0441853c11fd5cc7dbc6c604ffb4bc9d45a75ead7a2a3550b90f624a0548
+      - --protocol
+      - manifests/protocols/p1_deterministic_overfit_smoke_20261112.yaml
+      - --protocol-sha256
+      - b9c339caf5fdf29a0d0368c6917358ec1be01dcf6b6f2f7517b8372391003aa9
+      - --seed
+      - "20261112"
+      - --sample-count
+      - "128"
+      - --hidden-size
+      - "64"
+      - --steps
+      - "800"
+      - --learning-rate
+      - "0.003"
+      - --max-final-loss
+      - "0.05"
+      - --max-final-over-initial
+      - "0.1"
+      - --device
+      - cuda
+    expected_artifacts:
+      - metrics.json
+      - checkpoint.pt
+      - loss_curve.json
+      - runtime.json

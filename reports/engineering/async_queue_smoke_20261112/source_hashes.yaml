@@ -1,0 +1,14 @@
+scope: asynchronous_queue_engineering_smoke_no_CUDA_tensor
+config:
+  path: configs/experiments/async_queue_smoke_20261112.yaml
+  sha256: 0336cb77f7f8c628d6cb85edde706e556bff96b69f86a3a6d04c704bdd261c07
+source_files:
+  experiment_queue.py: ff39bdefb6acbf23e683f345471c7affbf70e8638c6eaf3cca25e281d2fe5aac
+  queue_smoke_job.py: 8b76adf452cf828aacc365596d647d4418b9eff868823334e69e722f4c79c5a9
+  async_queue.py: a2d78902e8a8c53d5e8b1dd93562a3181354c736e9f6c7e459f7e297ec693a30
+raw_run: /media/imc/data/mot-data/runs/async_queue_smoke_20261112
+raw_files:
+  aggregate.json: 4c5cc2800e39685adec894caebb58bbd5081febbfeeb565a9484f8ccffb962a8
+  gpu_inventory_at_launch.json: 191e14f5adff4325399f6fbbae3ee1771d25b3c52098f1f4ca5f498ed3e06442
+  queue_manifest.yaml: 0336cb77f7f8c628d6cb85edde706e556bff96b69f86a3a6d04c704bdd261c07
+

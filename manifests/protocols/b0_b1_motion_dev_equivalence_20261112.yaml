@@ -1,0 +1,60 @@
+protocol_id: b0_b1_motion_dev_equivalence_20261112
+status: frozen_before_any_B0_B1_equivalence_result
+frozen_at: 2026-11-12
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_manifest_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  sequence_count: 8
+  frame_count: 7565
+  official_val_used: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+tracker:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou_plus_velocity_direction_consistency
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  max_age: 30
+  min_hits: 3
+  empty_frame_policy: upstream_none
+interfaces:
+  B0: direct_upstream_OCSort_update
+  B1: FirstRoundAssociationAdapter_with_upstream_first_round_policy
+  B1_research_features_enabled: false
+  B1_scope: replace_only_module_level_first_round_associate_during_each_update
+  unchanged:
+    - detector_inputs_and_thresholds
+    - upstream_first_round_function_and_all_arguments
+    - second_round_low_score_association
+    - old_observation_rematching
+    - Kalman_prediction_update_and_ORU
+    - track_birth_death_and_output_rules
+acceptance:
+  B0_vs_B1_frame_track_ID: exact
+  B0_vs_B1_XYXY: exact_float64
+  B0_vs_registered_G1_frame_track_ID: exact
+  B1_vs_registered_G1_frame_track_ID: exact
+  registered_G1_original_image_XYXY_atol: 0.0001
+  association_calls_per_sequence: one_per_non_None_frame
+  adapter_restores_upstream_symbol_after_each_update: true
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty_string
+outputs:
+  atomic_directory: partial_then_rename
+  preserve_failure: failed_directory_with_failure_json
+  record:
+    - per_sequence_comparison
+    - B1_tracker_outputs
+    - input_and_source_hashes
+    - argv_runtime_assignment_backend_and_versions
+interpretation_limits:
+  - Passing equivalence validates the off-state research wrapper only.
+  - It does not validate P1 scores, training, learned association, or tracking improvement.
+  - Motion-dev includes four deliberately selected diagnostic anchors and is development evidence.
+

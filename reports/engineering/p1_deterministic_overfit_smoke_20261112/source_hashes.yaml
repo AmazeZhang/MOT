@@ -1,0 +1,21 @@
+protocol:
+  path: manifests/protocols/p1_deterministic_overfit_smoke_20261112.yaml
+  sha256: b9c339caf5fdf29a0d0368c6917358ec1be01dcf6b6f2f7517b8372391003aa9
+queue_config:
+  path: configs/experiments/p1_deterministic_overfit_smoke_20261112.yaml
+  sha256: d2fa57a665608079de51ed81a958e96efb30873c2c1652e575cb6c92b6f2bbcc
+model:
+  path: src/mot_research/models/deterministic_motion.py
+  sha256: 1d6181070f0c1d2190bdb03228fe3eb941b5800d82357bc2b3a3bc5df6c5e6d5
+training_script:
+  path: scripts/train_p1_deterministic.py
+  sha256: f887aa51fbe19a94ade946e549b6bd98cef8b0561f66455ccd0b8de3a2cace3f
+raw:
+  root: /media/imc/data/mot-data/runs/p1_deterministic_overfit_smoke_20261112
+  aggregate_sha256: e29a8ae738daa7a2f002f080b563414f7f7852528e03eedf2c670a7d6c3e7283
+  gpu_inventory_at_launch_sha256: 191e14f5adff4325399f6fbbae3ee1771d25b3c52098f1f4ca5f498ed3e06442
+  status_sha256: 9a11fd47eed4bbfc28d796f1851600b0144b7f4dc9840aea82ca59b43750d7c7
+  metrics_sha256: 02599760fcb4fa6f973c723d3676c0260e3097043319356983892ab26ccf060a
+  runtime_sha256: 5e0ef8a42bb1f965983c670cb7ea7f9f5c03ff11bf4042564d076e6f4153848f
+  checkpoint_sha256: e0638947d69ab72f98e43f1dc7e36f050d3e4c6379bfbbece035d966b9db2814
+  loss_curve_sha256: 889e938b8ac52f6cfafb004acf8cb44727798da019fa8b37fec93c37c9a03d92

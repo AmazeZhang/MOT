@@ -433,3 +433,120 @@
 2. 建立 B0 原始 wrapper 与 B1 研究接口，并证明关闭研究功能时逐帧/逐 ID 等价。
 3. 从一开始加入 GPU1--7 异步作业结构、GPU0 硬拒绝、独立状态/日志/checkpoint、原子结果和只聚合 PASS 作业。
 4. 运行最小确定性 P1：自然完整 dev 视频、固定检测、真实闭环写回、官方指标、gap 后身份持续性、对照副作用、延迟和简单 observation/association comparator。
+
+## 2026-11-12：冻结 motion 划分与 B0/B1 等价
+
+### 已完成
+
+- 冻结 `manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml`，SHA256 为 `dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff`。
+- 四个已检查 G2 困难视频显式作为 motion-dev anchors；从其余 36 段按 `SHA256("20261110:<sequence>")` 升序取前四段，最终 motion-train/dev 为 32/8。
+- 新增 split validator，验证 40 段全集覆盖、无交集、成员 hash、选择规则、GT/seqinfo、帧数和首/中/末帧逐字节重复。motion-train 为 34,231 帧，motion-dev 为 7,565 帧，sentinel duplicate group 为 0，官方 val 未读取。
+- 新增 `FirstRoundAssociationAdapter`：只在单次 update 内接管首轮 association，输入只读、进程内串行、`finally` 恢复上游符号；二轮、旧观测重匹配、KF/ORU 和生命周期不改。
+- 在任何等价结果产生前冻结 `b0_b1_motion_dev_equivalence_20261112.yaml`，SHA256 为 `c529f253de741b65998364477739fc463111b0b24ca401cb9767a2a6b777d171`。
+
+### 验收与产物
+
+- 全部 8 段、7,565 帧完成直接 B0 与 B1-off 独立重放，共 73,479 行 tracker 输出和 7,565 次 B1 首轮调用。
+- B0/B1 frame/track ID 精确一致，原图 float64 XYXY 逐元素完全一致；两者与登记 G1 输出的 frame/ID 精确一致，最大序列化 XYXY 误差 `7.85e-6 < 1e-4`。
+- CPU-only 运行记录空 `CUDA_VISIBLE_DEVICES`、`lap.lapjv 0.5.12` 和固定 OC-SORT commit；物理 GPU0 未使用。
+- split、adapter 和既有事件分析测试累计 `12 passed`；新增源码 `py_compile` 通过。
+- 原始运行：`/media/imc/data/mot-data/runs/b0_b1_equivalence_motion_dev_20261112/`；轻量凭证：`reports/baselines/b0_b1_equivalence_motion_dev_20261112/`。
+
+### 限制与下一步
+
+- motion-dev 中四段是刻意选择的困难诊断视频，只能作为开发证据；检测器也可能见过官方 train。正式泛化仍需锁定方法后使用官方 val。
+- 本阶段只证明 B1 关闭研究功能时不改变 B0；尚未验证 P1 模型、研究分数、训练、状态写回或指标提升。
+- 下一步建立 GPU1--7 异步运行层和失败隔离，然后登记并启动最小 P1 数据/训练 smoke test；GPU0 继续硬拒绝。
+
+## 2026-11-12：GPU1--7 异步作业层
+
+### 已完成
+
+- 新增 `src/mot_research/experiments/async_queue.py` 与 `scripts/experiment_queue.py`，提供异步 launch/status/wait/aggregate、独立 attempt、原子 JSON 状态和 artifact 哈希。
+- manifest 只接受物理 GPU1--7，GPU0 立即拒绝；同一并发批次禁止重复 GPU，job 无权自行设置 `CUDA_VISIBLE_DEVICES`。启动前保存 GPU inventory，并默认拒绝已有 compute process 的选中 GPU。
+- 每个 job 使用独立 `stdout.log`、`stderr.log`、`resolved_job.json`、`status.json` 和 `artifacts.partial`。成功原子改名为 `artifacts/`；失败保留为 `artifacts.failed/`；重试只能新建编号 attempt。
+- aggregate 只选择每个 job 最新 PASS attempt，失败、运行中和缺失 job 单列，不因部分成功伪造完整结果。
+
+### 端到端验收
+
+- 工程 smoke 同时启动 GPU1 PASS、GPU2 预期 FAIL、GPU3 PASS 三个独立进程；这些作业不创建 CUDA 张量，只核对映射与故障隔离。
+- GPU2 非零退出后，GPU1/GPU3 均独立 PASS；失败日志和 metrics 保留在 `artifacts.failed/`，两个成功结果在各自 `artifacts/`。
+- 聚合器只收录 GPU1/GPU3，并明确列出 GPU2 `latest_state=FAIL`。物理 GPU0 始终未暴露；结束快照仍为 GPU0 413 MiB/0%，GPU1--7 18 MiB/0%。
+- queue、adapter、split 与事件测试累计 `15 passed`，新增源码 `py_compile` 通过。
+- 原始运行：`/media/imc/data/mot-data/runs/async_queue_smoke_20261112/`；轻量记录：`reports/engineering/async_queue_smoke_20261112/`。
+
+### 限制与下一步
+
+- 这是调度与故障隔离验收，不代表训练稳定性、速度、显存或方法效果；GPU 标签被正确隔离，但 smoke 未申请 CUDA tensor。
+- 下一步冻结 P1 样本契约，先做数据构建/严格在线性检查和极小样本过拟合；这些通过后才用 GPU1--7 异步启动正式 seed/job。
+
+## 2026-11-12：P1 严格在线运动样本
+
+### 已完成
+
+- 在任何 P1 样本结果产生前冻结 `manifests/protocols/p1_motion_samples_v1_20261112.yaml`，SHA256 为 `9348f0b551daef54492e393be787a29cbb154dfc564bbfaf9824d8b2331c3690`。
+- 新增 `motion_samples.py` 和 `build_p1_motion_samples.py`：按帧顺序先发出目标样本、再把当前匹配检测追加到历史，确保当前/未来检测不会进入输入；每个历史来自过往 GT 匹配的真实检测框，长度 8、至少 2 个观测、最大 gap 31 帧。
+- 状态固定为 `[cx/W, cy/H, log(w/W), log(h/H)]`，监督目标为当前 GT 状态及其相对最后观测检测状态的 delta。训练对应使用 GT--检测 Hungarian IoU `>=0.5`，首轮检测池保持 score `>0.6`。
+- 规范化统计只用 32 段 motion-train 拟合，8 段 motion-dev 复用且不重新拟合；官方 DanceTrack val 未读取。
+
+### 验收与产物
+
+- motion-train 为 266,854 个样本，其中 261,069 个目标帧存在当前正检测、5,785 个不存在；motion-dev 为 80,458 个样本，其中 75,668/4,790 个分别存在/不存在当前正检测。
+- train/dev 样本键交集为 0；全部历史帧严格早于目标，至少两个有效历史，记录的 frame gap 与最后历史帧一致，状态有限且 sample key 唯一。状态编解码最大绝对误差为 `2.22e-15 < 1e-10`。
+- 两个独立原子构建目录的 summary、normalization、input hashes、NPZ SHA256 和数组内容哈希完全一致；按缺失 IoU 的 `NaN==NaN` 语义逐数组比较也完全一致。train/dev 内容哈希分别为 `2d5c8b35546f18d66f306f771eabb294cdca4d93f1e628fc0b946b9385aec711` 和 `e055e17ce0dc2e24bf2fd899ed24a266359aecd34f78f33d3f1ac8828e68d141`。
+- 新增 motion 样本、split、adapter 和 queue 相关测试共 `10 passed`；构建脚本与 helper `py_compile` 通过。两次构建均使用空 `CUDA_VISIBLE_DEVICES`，物理 GPU0 结束快照仍为 413 MiB/0%。
+- 原始目录：`/media/imc/data/mot-data/runs/p1_motion_samples_v1_20261112/` 与 `/media/imc/data/mot-data/runs/p1_motion_samples_v1_repeat_20261112/`；轻量凭证：`reports/data/p1_motion_samples_v1_20261112/`。
+
+### 限制与精确下一步
+
+- GT 只用于监督目标和训练期历史对应，但这些历史是 GT 对齐的检测观测，不是 tracker 自身闭环关联出的历史；四个 G2 困难视频还是有意选择的 dev anchors。样本数量与数据可重复性不是预测质量或跟踪提升。
+- 下一步实现最小确定性 GRU（固定输入/损失/seed），先在极小训练子集做过拟合 smoke，验证 batch、mask、归一化、checkpoint 和 GPU 队列真实 CUDA 路径；通过后才启动少量 seed 的 motion-train 训练与完整 motion-dev 离线误差/自然闭环对照。
+
+## 2026-11-12：P1 确定性 GRU 真实 CUDA 过拟合 smoke
+
+### 已完成
+
+- 新增最小 `DeterministicMotionGRU`：每个有效历史观测输入四维 motion-train 规范化状态和 `log1p((target_frame-history_frame)/fps)`，先压紧左填充有效项再送入单层 GRU，输出规范化四维 delta。
+- 新增稳定 SHA256 sample-key 子集选择、训练入口和三项单测，覆盖子集确定性、padding 值不影响输出、delta 规范化与 target state 重建。模型/P1 数据/队列相关组合测试为 `13 passed`；此前六个现有相关测试文件组合为 `19 passed`。
+- 在结果前冻结 `p1_deterministic_overfit_smoke_20261112.yaml`，SHA256 为 `b9c339caf5fdf29a0d0368c6917358ec1be01dcf6b6f2f7517b8372391003aa9`；源码、样本、规范化、128 样本选择、seed、800 步优化和 acceptance 均预先登记。
+
+### 验收与产物
+
+- 队列在物理 GPU1 启动一个独立作业，进程记录 `CUDA_VISIBLE_DEVICES=1`、`cuda:0`、单一可见设备、PyTorch 2.6.0+cu124/CUDA 12.4 和 NVIDIA GeForce RTX 4090 D；GPU0 没有暴露，结束快照仍为 413 MiB/0%。
+- 初始 normalized MSE 为 `0.7186536193`，800 步后为 `0.0001083946`，final/initial 为 `0.0001508301`；分别通过预冻结的 `<=0.05` 与 `<=0.1` 阈值。
+- checkpoint 重载后的 128 个预测与保存前最大绝对差为 0；作业 return code 0，四项预期 artifact 齐全，aggregate 为 1/1 PASS。
+- 原始队列与 checkpoint：`/media/imc/data/mot-data/runs/p1_deterministic_overfit_smoke_20261112/`；轻量凭证：`reports/engineering/p1_deterministic_overfit_smoke_20261112/`。checkpoint SHA256 为 `e0638947d69ab72f98e43f1dc7e36f050d3e4c6379bfbbece035d966b9db2814`，不进入 Git。
+
+### 限制与精确下一步
+
+- 训练和评估刻意使用同一 128 样本，这只证明实现管线和模型容量可用，不能说明 motion-dev 泛化、关联改善、闭环身份稳定或跟踪指标提升。
+- 下一步先冻结完整 motion-train 训练和 motion-dev 离线评价：少量独立 seed 分配到 GPU1--3，并与零 delta、最后速度外推等无学习 comparator 在相同样本上比较。只有 dev 误差、gap 分层和 seed 稳定性达到预注册门槛，才把预测接入 B1 做自然闭环；否则停止扩大模型。
+
+## 2026-11-12：P1 三 seed 离线预测可行性门
+
+### 冻结设计与执行
+
+- 在任何完整训练或 motion-dev 模型结果前冻结 `p1_deterministic_offline_v1_20261112.yaml`，SHA256 为 `5f918470aac7220073744d947e939ecb754cf7072756b9028168b51523057aea`。
+- 三个固定 seed `20261112/13/14` 分别使用物理 GPU1/2/3，训练完整 266,854 个 motion-train 样本 10 epoch；无 dev 早停、无最佳 checkpoint/seed 选择。GPU0 未暴露，结束快照仍为 413 MiB/0%。
+- 完整 80,458 样本 motion-dev 同时评价 learned GRU、零 delta 和最后两观测恒速度；保存逐样本预测、整体/序列/gap/当前正检测存在性指标。三个作业均 return code 0、artifact 齐全并独立 PASS。
+- 预注册门要求：平均宏 MSE 比最佳对照 `<=0.98`、每个 seed 不差于最佳对照、gap2--31 平均 MSE 比 `<=0.95`、宏 IoU 下降不超过 0.005、seed MSE 相对极差 `<=0.10`；五项必须全部通过。
+
+### 聚合停止与透明修正
+
+- 原聚合器在写 summary 前安全停止，因为它要求不同进程独立计算的 comparator 整棵 JSON 字典 bitwise 相等。定位到的差异只有 IoU mean/median 浮点叶，最大为 zero delta `3.33e-16`、恒速度 `2.22e-16`；结构、计数、非浮点字段和定义一致。
+- 在读取 learned gate 结果前冻结 `p1_deterministic_offline_v1_1_aggregation_addendum_20261112.yaml`，SHA256 为 `773024f3e9f10f363ef03b89da07ba1425db347d97742b26698b9e09e76e890d`。它只允许 comparator 浮点叶绝对误差 `<=1e-12`，结构/计数仍精确，learned 分支不改，原五项阈值不变。
+- 审计确认技术修正忠实；但“结果前未检查 learned 分支”和冻结先后只能由自记录与可变文件时间支持，无法事后独立认证，因此保留 chronology WARN。
+
+### 离线结果
+
+- 决策为 `GO_TO_NATURAL_CLOSED_LOOP`，五项条件全部通过。三个 learned 宏 MSE 为 `1.380908/1.385514/1.383229`，最佳零-delta 为 `1.510670`；均值比值 `0.915631`，三个 seed 各自在 8/8 序列上更低。
+- gap2--31 learned 平均 MSE `12.047239`，零 delta `13.015015`，比值 `0.925642`；learned 宏 IoU `0.850501`，零 delta `0.843628`，差 `+0.006873`；seed 相对极差 `0.003330`。
+- 不利分层必须保留：650 个 gap16--31 样本上，MSE 比零 delta改善约 9.28%，但三个 seed IoU 均更低，平均差 `-0.008110`。motion-dev 又以 gap1 为主（75,428/80,458），不能写成所有长 gap 一致改善。
+- 原始队列：`/media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/`；原始 summary：`/media/imc/data/mot-data/runs/p1_deterministic_offline_v1_summary_20261112/`；轻量凭证：`reports/feasibility/p1_deterministic_offline_v1_20261112/`。
+
+### 完整性审计与精确下一步
+
+- `experiment-audit` 新鲜 same-family reviewer 给出 provisional `WARN`。它独立核验 347,312 个 target state 对原始 GT 最大误差 0、40 个 GT 对归档一致、全部 80,458 个 dev 预测键/目标、50 项 provenance/artifact、120 项 GT/seqinfo/检测哈希和所有指标；独立复算最大差 `3.33e-16`，五项门全部复现。
+- WARN 原因是 GT 对齐历史、4/8 已选困难 anchor、gap16--31 IoU 退化、没有闭环官方指标和冻结 chronology 不能独立认证；不存在伪造 GT、自归一化或 phantom result 发现。
+- 当前只支持“通过冻结离线开发门并获准做自然闭环”。不支持关联/身份恢复、HOTA/AssA/IDF1、部署收益、统一长 gap 改善、正式泛化或扩展 Gaussian/MDN/FM。
+- 下一步冻结 B1 自然闭环协议：使用 tracker 自身历史、固定检测、三个 seed 全部运行；同时保留 B0 和可实现简单 comparator，评价官方 HOTA/AssA/IDF1、gap 后身份持续性、成功对照副作用和延迟。针对 gap16--31 预注册单独安全门；不选择最佳 seed。

@@ -1,0 +1,16 @@
+scope: DanceTrack_motion_dev_B0_B1_off_state_equivalence
+split:
+  path: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+protocol:
+  path: manifests/protocols/b0_b1_motion_dev_equivalence_20261112.yaml
+  sha256: c529f253de741b65998364477739fc463111b0b24ca401cb9767a2a6b777d171
+raw_run: /media/imc/data/mot-data/runs/b0_b1_equivalence_motion_dev_20261112
+raw_files:
+  summary.json: 407d51111436b66c537d63f9deefed1df58a5dfbce9f579fb1935573aac8aae0
+  input_hashes.json: 136836352a5da8c0968027230cd96f6f332effc7c4a32ff518df2e9aa2b09135
+  runtime.json: 79d54bc786be64d24e1788055518f15c0b932bb3da1faf669059953cd7c5e2a3
+source_files:
+  validate_b0_b1_equivalence.py: 64de2eb1cf9ab0928680bfaa8977dd6651bd1a36219d98d657e77f68c0b9243b
+  first_round_adapter.py: 53fd0c8a9d4c7af30bb88154536b750fdfe21d8ba8350ffe1bf4901c699af29e
+
