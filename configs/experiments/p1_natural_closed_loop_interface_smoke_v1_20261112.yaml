@@ -1,0 +1,62 @@
+queue_id: p1_natural_closed_loop_interface_smoke_v1_20261112
+project_root: /home/imc/yzy/MOT
+queue_root: /media/imc/data/mot-data/runs
+require_clean_git: false
+git_commit: 57d4aa23bcd7e11e1c3f49d8055e1508342c4523
+purpose: engineering-only natural-history learned first-round interface smoke; no research metrics
+jobs:
+  - job_id: learned_seed20261112_dancetrack0012_f1_200
+    physical_gpu: 1
+    description: fixed fragment learned P1 natural-history interface smoke
+    environment:
+      PYTHONPATH: /home/imc/yzy/MOT/src
+      CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+    command:
+      - /home/imc/anaconda3/envs/mot-det/bin/python
+      - scripts/run_p1_natural_closed_loop.py
+      - --oc-sort-root
+      - /home/imc/yzy/MOT/third_party/OC_SORT
+      - --train-root
+      - /media/imc/data/mot-data/datasets/dancetrack/train
+      - --detection-root
+      - /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+      - --split-manifest
+      - manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+      - --split-manifest-sha256
+      - dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+      - --protocol
+      - manifests/protocols/p1_natural_closed_loop_interface_smoke_v1_20261112.yaml
+      - --protocol-sha256
+      - f77a2a65f5d9a6c58915ca0debaacb47d3a8ad7983e8522aa5cc73847eb93b74
+      - --protocol-run-id
+      - learned_seed20261112_smoke
+      - --run-dir-from-job-artifact
+      - --mode
+      - learned
+      - --checkpoint
+      - /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261112/attempts/attempt_001/artifacts/checkpoint.pt
+      - --checkpoint-sha256
+      - a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a
+      - --device
+      - cuda:0
+      - --sequence
+      - dancetrack0012
+      - --start-frame
+      - "1"
+      - --end-frame
+      - "200"
+      - --history-length
+      - "8"
+      - --minimum-observations
+      - "2"
+      - --maximum-frame-gap
+      - "31"
+      - --warmup-frames
+      - "20"
+    expected_artifacts:
+      - closed_loop/summary.json
+      - closed_loop/input_hashes.json
+      - closed_loop/runtime.json
+      - closed_loop/trackers/dancetrack0012.txt
+      - closed_loop/diagnostics/dancetrack0012_summary.json
+      - closed_loop/diagnostics/dancetrack0012_association_calls.jsonl

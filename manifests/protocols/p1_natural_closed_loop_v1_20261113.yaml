@@ -1,0 +1,194 @@
+protocol_id: p1_natural_closed_loop_v1_20261113
+status: frozen_before_any_full_natural_closed_loop_candidate_output
+frozen_at: 2026-11-13
+purpose: decide whether the frozen deterministic P1 predictor improves natural closed_loop association beyond KF and simple same_interface predictors
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_manifest_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  sequences: &motion_dev
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0024
+    - dancetrack0033
+    - dancetrack0037
+    - dancetrack0044
+    - dancetrack0053
+    - dancetrack0086
+  sequence_names_sha256: 43356c5f5571a9dee2bfb66a1cc860df98c50574bce2af0e2edc1bebdc39e429
+  frame_count: 7565
+  official_val_used: false
+fixed_inputs:
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  detector_score_rule: strictly_greater_than_0.6
+  upstream_oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  common_events:
+    path: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+    sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+    count: 831
+    persistence_evaluable: 780
+    success_controls: 81
+    baseline_failures: 699
+    gap16_31_count: 17
+  registered_B0_official_combined:
+    HOTA: 50.05959888961373
+    DetA: 79.3236493202773
+    AssA: 31.662791878250317
+    IDF1: 49.55427033601159
+    IDSW: 762
+tracker:
+  det_thresh: 0.6
+  iou_threshold: 0.3
+  association: iou_plus_velocity_direction_consistency
+  delta_t: 3
+  inertia: 0.2
+  use_byte: false
+  max_age: 30
+  min_hits: 3
+history_and_intervention:
+  owner: stable_live_tracker_ID
+  source: prior_real_detection_that_updated_tracker
+  append_time: after_complete_current_frame_update
+  history_length: 8
+  minimum_observations: 2
+  maximum_frame_gap: 31
+  padding: left_zero_with_explicit_valid_mask
+  ineligible_or_invalid_action: keep_upstream_KF_first_round_box_and_count
+  changed: eligible_first_round_association_tracker_XYXY_only
+  unchanged:
+    - detector_inputs_and_thresholds
+    - KF_state_and_covariance
+    - velocity_direction_term
+    - assignment_and_gate
+    - second_round_and_old_observation_rematching
+    - track_birth_death_and_output_lifecycle
+runs:
+  b0_upstream:
+    mode: upstream
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cpu
+    checkpoint_sha256: null
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+  zero_delta:
+    mode: zero_delta
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cpu
+    checkpoint_sha256: null
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+  constant_velocity:
+    mode: constant_velocity
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cpu
+    checkpoint_sha256: null
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+  learned_seed20261112:
+    mode: learned
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cuda:0
+    checkpoint_seed: 20261112
+    checkpoint_sha256: a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+  learned_seed20261113:
+    mode: learned
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cuda:0
+    checkpoint_seed: 20261113
+    checkpoint_sha256: 00c676dbaeac2f327e784f7f2bbef790f0cdc1babcc47d0b8a18caed0302ddea
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+  learned_seed20261114:
+    mode: learned
+    sequences: *motion_dev
+    frame_range: [1, null]
+    device: cuda:0
+    checkpoint_seed: 20261114
+    checkpoint_sha256: d5a4796925bfa84aa9cbae229da503756ad0a647f7b768311194720e9e05d911
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+execution:
+  cpu_runs: [b0_upstream, zero_delta, constant_velocity]
+  learned_gpu_rule: each_job_uses_one_currently_idle_unique_physical_GPU_from_1_through_7_mapped_to_cuda_0
+  physical_gpu_0_forbidden: true
+  no_retraining: true
+  no_seed_or_checkpoint_selection: true
+  technical_retry: new_attempt_only_with_identical_protocol_inputs_and_visible_failure_record
+evaluation:
+  official_primary: [HOTA, AssA]
+  official_supporting: [DetA, IDF1, IDSW, MOTA, Frag]
+  aggregation: official_TrackEval_COMBINED_SEQ_not_mean_of_sequence_scores
+  paired_sequence_differences: required_for_all_8
+  common_event_matching_iou: 0.5
+  common_event_persistence_frames: 5
+  report_strata:
+    - sequence
+    - diagnostic_anchor_vs_non_anchor
+    - gap1
+    - gap2_3
+    - gap4_7
+    - gap8_15
+    - gap16_31
+  report_runtime:
+    warmup_frames_per_sequence: 20
+    statistic: tracker_only_p50_p95
+    detector_time_included: false
+decision_gate:
+  interpretation: development_GO_for_frozen_P1_only_not_statistical_significance_or_validation_generalization
+  all_required: true
+  official_gain:
+    comparator_pool: [b0_upstream, zero_delta, constant_velocity]
+    learned_mean_HOTA_above_best_comparator_percentage_points: 0.20
+    learned_mean_AssA_above_best_comparator_percentage_points: 0.30
+    minimum_learned_seeds_strictly_above_best_comparator_on_both_HOTA_and_AssA: 2
+    worst_learned_seed_HOTA_vs_B0_minimum_percentage_points: -0.10
+    minimum_sequences_with_positive_mean_learned_HOTA_difference_vs_B0: 5
+  detection_safety:
+    learned_mean_DetA_vs_B0_minimum_percentage_points: -0.10
+    worst_learned_seed_DetA_vs_B0_minimum_percentage_points: -0.20
+  recovery_mechanism:
+    learned_mean_additional_persistent_recoveries_vs_best_simple_predictor_minimum: 7
+    learned_mean_net_recoveries_minus_success_control_harms_minimum: 5
+    learned_mean_success_control_harms_maximum: 4
+    each_learned_seed_success_control_harms_maximum: 8
+  long_gap_observation:
+    gap16_31_events: 17
+    each_learned_seed_persistence_success_at_least_B0: true
+    learned_mean_persistence_success_at_least_best_simple_predictor: true
+    mandatory_interpretation: inconclusive_small_sample_no_general_long_gap_safety_claim
+  engineering_safety:
+    each_learned_sequence_tracker_update_p95_ms_maximum: 15.0
+    nonfinite_prediction_fallbacks_maximum_per_run: 0
+    invalid_prediction_box_fallbacks_maximum_per_run: 0
+    unresolved_plus_ambiguous_birth_fraction_maximum: 0.001
+result_reveal_and_budget:
+  complete_method_runs: 6
+  learned_training_runs: 0
+  full_motion_dev_metric_reveals: 1
+  require_all_tracker_outputs_and_hashes_before_metric_aggregation: true
+  threshold_changes_after_reveal: forbidden
+  optional_gap16_KF_fallback_in_main_result: forbidden
+  optional_gap16_KF_fallback_requires_new_secondary_protocol_before_its_output: true
+  official_val_before_method_freeze: forbidden
+branch_after_gate:
+  GO: frozen_P1_may_advance_to_small_Gaussian_comparator_without_claiming_FM_necessity
+  NO_GO_simple_predictor_wins: retain_simple_predictor_and_reassess_learning_value
+  NO_GO_offline_only: inspect_history_distribution_and_association_objective_without_dev_retraining
+  NO_GO_long_gap_only: report_scope_limit_and_optionally_preregister_secondary_KF_fallback
+  NO_GO_general: stop_model_complexity_expansion_and_reassess_research_direction

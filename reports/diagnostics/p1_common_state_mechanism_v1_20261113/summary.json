@@ -1,0 +1,26 @@
+{
+  "execution_status": "PASS",
+  "protocol_sha256": "48e431925f92212583e3182b0498122f17364b5855be0ec367f93329df11622a",
+  "event_count": 831,
+  "method_count": 6,
+  "row_count": 4986,
+  "applicable_events_per_method": 829,
+  "methods": {
+    "b0_upstream": {"target_iou_mean": 0.6250568320533305, "center_error_mean": 0.015773865744412217, "gate_eligible": 771, "immediate_positive_match": 575},
+    "zero_delta": {"target_iou_mean": 0.6081201687738204, "center_error_mean": 0.016791250241370452, "gate_eligible": 771, "immediate_positive_match": 551},
+    "constant_velocity": {"target_iou_mean": 0.5223676305886327, "center_error_mean": 0.02222004320137684, "gate_eligible": 692, "immediate_positive_match": 509},
+    "learned_seed20261112": {"target_iou_mean": 0.6172388534849667, "center_error_mean": 0.016212373641058167, "gate_eligible": 771, "immediate_positive_match": 555},
+    "learned_seed20261113": {"target_iou_mean": 0.6171717952042665, "center_error_mean": 0.01621660482834055, "gate_eligible": 774, "immediate_positive_match": 562},
+    "learned_seed20261114": {"target_iou_mean": 0.6159245670555403, "center_error_mean": 0.016265804463913482, "gate_eligible": 768, "immediate_positive_match": 559}
+  },
+  "registered_learned_disadvantage_checks": {
+    "geometry_iou": {"signed_disadvantage": -0.09441077465962511, "threshold": 0.01, "consistent_disadvantaged_seeds": 0, "triggered": false},
+    "geometry_center": {"signed_disadvantage": -0.005988448890272776, "threshold": 0.005, "consistent_disadvantaged_seeds": 0, "triggered": false},
+    "gate": {"signed_disadvantage": -0.09529553679131475, "threshold": 0.02, "consistent_disadvantaged_seeds": 0, "triggered": false},
+    "assignment": {"signed_disadvantage": -0.059911540008041664, "threshold": 0.02, "consistent_disadvantaged_seeds": 0, "triggered": false}
+  },
+  "triggered_stages": [],
+  "registered_action": "stop_learned_motion_branch",
+  "integrity": {"verdict": "WARN", "acceptance_status": "provisional"},
+  "interpretation_limit": "No registered aggregate learned disadvantage fired on common B0 state; this does not establish absence of feedback, history, lifecycle, subgroup, or other mechanisms."
+}

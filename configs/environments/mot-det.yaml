@@ -9,6 +9,7 @@ torch:
 core_packages:
   numpy: 1.26.4
   scipy: 1.13.1
+  PyYAML: 6.0.2
   opencv-python-headless: 4.10.0.84
   loguru: 0.7.3
   scikit-image: 0.24.0

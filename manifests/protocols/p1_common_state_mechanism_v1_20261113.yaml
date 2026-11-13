@@ -1,0 +1,155 @@
+protocol_id: p1_common_state_mechanism_v1_20261113
+status: frozen_before_any_full_common_state_diagnostic_output
+frozen_at: 2026-11-13
+purpose: locate why offline P1 prediction gains failed to transfer by comparing all registered predictors on identical B0 histories, live tracks, detections, direction inputs, gates, and assignment state
+
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  sequences:
+    - dancetrack0012
+    - dancetrack0020
+    - dancetrack0024
+    - dancetrack0033
+    - dancetrack0037
+    - dancetrack0044
+    - dancetrack0053
+    - dancetrack0086
+  event_population: fixed_p1_closed_loop_common_events
+  event_count: 831
+  evaluation_frame: registered_reappearance_after_frame_only
+  official_val_used: false
+
+fixed_inputs:
+  common_events:
+    path: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+    sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+  natural_closed_loop_protocol:
+    path: manifests/protocols/p1_natural_closed_loop_v1_20261113.yaml
+    sha256: 48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  detector_score_rule: strictly_greater_than_0.6
+  b0_tracker_root: /media/imc/data/mot-data/runs/p1_natural_closed_loop_v1_20261113/b0_upstream/trackers
+  closed_loop_outcomes_sha256:
+    b0_upstream: d4a5e589d786a19c27996aa36b955a1d094bace32357177e494919bf8b25771a
+    zero_delta: fc0de72368186c4c8cae20f7f7c0d26bd0cd2b2e719e2b7e0d6f230b831e306e
+    constant_velocity: b22d48d1ad808d609f622d2d5e4d7e84d76ebf1f1e303f1ad77a586c96fc52f5
+    learned_seed20261112: e3aec5b1a888379b82c272092ef436e7b156104e3b8f4b98175e4875cba2a745
+    learned_seed20261113: ed21b46363145b5128486dd69a60ddd674a91c35e7ac7fc4da409d15cf37775f
+    learned_seed20261114: afda2e84a3e47fad68c4f931ff6861ef8dad9ff2e7adaf6f5604801401012957
+  implementation_sha256:
+    script: eeb4b6aa6afab7984afef7a7577934f5ed4eb2707a3a63ae12a175981758a172
+    helper: 413bd4af5df2fd82bf21d898f09b76731f6e8a97763f1b1812b79bb4cc8a8bc7
+    natural_policy: 8b855daca23cdc41595e5c581fa42fec16adf4a5f846aab6d8f75372d6ac5a00
+
+common_state_contract:
+  state_owner: registered_B0_replay
+  history_source: B0_prior_real_detection_that_updated_tracker
+  history_append_time: after_complete_B0_frame_update
+  history_length: 8
+  minimum_observations: 2
+  maximum_frame_gap: 31
+  changed_per_method: eligible_first_round_tracker_XYXY_only
+  no_writeback: true
+  unchanged:
+    - live_tracker_set_and_stable_IDs
+    - KF_state_and_covariance
+    - fixed_detection_values_order_and_scores
+    - previous_observations
+    - velocity_direction_inputs_and_weight
+    - IoU_gate_and_Hungarian_backend
+    - second_round_and_lifecycle
+  b0_replay:
+    frame_and_track_IDs_exact: true
+    maximum_abs_xyxy_error: 0.0001
+  expected_rows: 4986
+  unique_key: [event_id, method_id]
+
+methods:
+  b0_upstream:
+    predictor: upstream_KF
+    checkpoint_sha256: null
+  zero_delta:
+    predictor: last_real_observation
+    checkpoint_sha256: null
+  constant_velocity:
+    predictor: last_two_real_observations_linear_extrapolation
+    checkpoint_sha256: null
+  learned_seed20261112:
+    predictor: frozen_deterministic_GRU
+    checkpoint_sha256: a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a
+  learned_seed20261113:
+    predictor: frozen_deterministic_GRU
+    checkpoint_sha256: 00c676dbaeac2f327e784f7f2bbef790f0cdc1babcc47d0b8a18caed0302ddea
+  learned_seed20261114:
+    predictor: frozen_deterministic_GRU
+    checkpoint_sha256: d5a4796925bfa84aa9cbae229da503756ad0a647f7b768311194720e9e05d911
+
+measurements:
+  availability:
+    - intended_B0_track_alive
+    - positive_detection_in_first_round_pool
+    - natural_history_eligible
+  geometry_against_current_GT:
+    - prediction_target_IoU
+    - center_L2_error_normalized_by_image_diagonal
+    - absolute_log_width_ratio
+    - absolute_log_height_ratio
+  association:
+    - intended_positive_IoU
+    - intended_positive_IoU_gate
+    - intended_positive_IoU_plus_direction_score
+    - best_gate_eligible_competitor_track_and_score
+    - intended_minus_best_eligible_competitor_margin
+    - positive_detection_final_first_round_owner
+    - intended_track_final_first_round_detection
+    - full_pair_set_change_vs_B0
+  strata:
+    - method
+    - sequence
+    - gap_bin
+    - diagnostic_anchor
+    - baseline_stratum
+    - joined_closed_loop_recovery_or_harm_outcome
+
+descriptive_decision_rule:
+  reference_method: constant_velocity
+  learned_aggregation: arithmetic_mean_over_all_three_fixed_seeds_without_selection
+  minimum_consistent_learned_seeds: 2
+  target_iou_disadvantage_minimum: 0.01
+  center_error_disadvantage_minimum: 0.005
+  gate_rate_disadvantage_minimum: 0.02
+  immediate_match_rate_disadvantage_minimum: 0.02
+  stage_order:
+    - geometry_iou
+    - geometry_center
+    - gate
+    - assignment
+  interpretation:
+    triggered_stage: mechanism_candidate_only_requires_event_level_review_before_any_correction
+    no_triggered_stage: stop_learned_motion_branch_because_no_registered_discriminating_mechanism
+    multiple_triggered_stages: review_earliest_stage_first_without_claiming_unique_cause
+  correction_budget:
+    maximum_future_mechanism_justified_deterministic_corrections: 1
+    correction_requires_new_frozen_protocol: true
+    correction_training_data: motion_train_only
+    gaussian_mdn_flow_matching_authorized: false
+    official_val_authorized: false
+
+execution:
+  environment: mot-det
+  device: cpu
+  CUDA_VISIBLE_DEVICES: empty
+  physical_gpu_0_forbidden: true
+  GPU_used: false
+  atomic_output_and_failure_preservation: true
+  full_result_reveals: 1
+  post_reveal_threshold_changes: forbidden
+
+limitations:
+  - This is a one-step common-B0-state diagnostic, not a new natural closed-loop method result.
+  - GT identifies the registered positive detection and scores geometry only after inputs and B0 state are fixed.
+  - Joined method closed-loop outcomes arose from method-specific histories and therefore provide descriptive, not causal, linkage.
+  - Thresholds locate a candidate stage; they do not establish a unique cause or authorize a paper claim.
+  - Motion-dev contains selected diagnostic anchors and only 17 gap16-31 events.

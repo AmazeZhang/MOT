@@ -1,0 +1,61 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-13",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "requested_reviewer_unavailable": "gpt-5.6-sol",
+  "read_only": true,
+  "trace_path": ".aris/traces/experiment-audit/2026-11-13_run02/",
+  "reason_codes": [
+    "selected_development_scope",
+    "one_step_common_B0_state",
+    "long_gap_small_sample",
+    "descriptive_noncausal_closed_loop_linkage",
+    "mutable_local_chronology"
+  ],
+  "audited_input_hashes": {
+    "protocol": "sha256:48e431925f92212583e3182b0498122f17364b5855be0ec367f93329df11622a",
+    "summary": "sha256:d2e9d4138701de0105750cf0d6e836bb5164068358ac5a0cf65df9d73b4a998c",
+    "event_method_csv": "sha256:d08df0baec806d732fa04b463d073b0d0b9bb6ac5b3954fa1249fae77354a73e",
+    "input_hashes": "sha256:5f0e4fb762aeae8bc1911f705947a3cdd3e563d41a9bf62af3d81883e82b21fc"
+  },
+  "checks": {
+    "gt_provenance": "pass",
+    "score_normalization": "pass",
+    "result_existence_and_numbers": "pass",
+    "chronology": "warn",
+    "dead_code_and_execution": "pass",
+    "no_writeback": "pass",
+    "scope": "warn",
+    "evaluation_type": "real_gt_with_disclosed_common_state_counterfactual"
+  },
+  "verification": {
+    "unique_event_method_rows": 4986,
+    "applicable_per_method": 829,
+    "nonapplicable_events": 2,
+    "summary_blocks_recomputed_exact": 54,
+    "recorded_file_hash_checks_passed": 56,
+    "source_archive_hashes_passed": 2,
+    "archive_member_byte_comparisons_passed": 16,
+    "frames_replayed": 7565,
+    "tracker_rows_reproduced_exact": 73479,
+    "csv_cells_reproduced_exact": 189468,
+    "event_bearing_state_isolation_checks": 749,
+    "input_array_isolation_checks": 2996,
+    "validated_real_history_appends": 76759,
+    "gt_reads_after_all_method_outputs_fixed": 831,
+    "active_lap_matrices_checked": 9773,
+    "active_lap_elements_bitwise_equal": 2671263,
+    "registered_checks_triggered": 0,
+    "tests_passed": 3
+  },
+  "decision": {
+    "registered_stop_policy_reproduced": true,
+    "registered_learned_disadvantage_found": false,
+    "absence_of_feedback_or_history_mechanisms_established": false
+  }
+}

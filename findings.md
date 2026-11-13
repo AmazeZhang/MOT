@@ -39,3 +39,25 @@ The exact defensible wording and missing evidence are maintained in `CLAIMS_FROM
 - D5's positive result is dominated by construction: both known pair boxes equal current GT, so intended IoU is exactly one. It is an assignment-consistency check, not evidence that two causal mechanisms are synergistic or that a deployable model can recover 52 events.
 - Fresh same-family audit reproduces all cells/matrices/replays and permits the bounded final-diagnostic stage to close with provisional `WARN`.
 - G2 is now complete. Next work is split freeze, B0/B1 equivalence and a deterministic P1 natural closed-loop pilot; Gaussian remains HOLD, MDN/FM remain NO-GO.
+
+## 2026-11-13: P1 natural closed-loop negative result
+
+- All six frozen methods completed on the same eight motion-dev sequences. The one-time aggregate is `NO_GO`; 8/16 required checks fail.
+- Mean learned HOTA/AssA is `49.270966/30.541388`, below B0 (`50.059599/31.662792`) and constant velocity (`51.056654/32.623675`). No learned seed beats constant velocity on both primary metrics.
+- Fixed-event persistence recoveries/harms are learned `19/21`, `17/20`, `17/19`, versus constant velocity `23/20`. Every learned seed has negative net recovery minus harm.
+- Five of eight sequences show positive learned-vs-B0 HOTA direction, but official combined aggregation is negative; sequence win counts cannot replace the registered combined metric.
+- The offline development success did not transfer to robust natural closed-loop association. This is the principal scientific result of P1, not a failed execution.
+- Fresh same-family audit independently reproduces all 831 events, 4,986 method-event outcomes, six official TrackEval evaluations and all gates. Verdict remains provisional `WARN` for selected scope, only 17 long-gap events and mutable chronology.
+- Constraint: retain constant velocity in every subsequent comparator set; do not advance directly to Gaussian/MDN/FM or official val.
+- Route: a bounded prospective mechanism diagnosis on identical B0 states/candidates. At most one correction is allowed if the diagnosis identifies a specific discriminating failure mechanism; otherwise stop/pivot this learned-motion direction.
+
+## 2026-11-13: P1 common-state diagnosis closes learned-motion branch
+
+- The diagnostic evaluates 831 fixed event reappearance frames with identical B0 tracker state, natural history, detections, direction term, gate and assignment backend; alternatives never write back. Coverage is 4,986 unique method-event rows, with 829 common applicable events.
+- Learned is substantially better than constant velocity on the registered aggregate one-step measurements: mean target IoU is about `0.6168` versus `0.5224`, mean center error about `0.01623` versus `0.02222`, mean gate count 771 versus 692, and mean immediate-positive count 558.7 versus 509.
+- Consequently, all four registered learned-disadvantage checks are negative and zero stages trigger. The planned mechanism needed to justify one correction was not found.
+- This does not rescue learned P1: actual natural closed loop still favors CV in HOTA/AssA and recovery/harm. The discrepancy is an inversion between common-state one-step scores and evolving closed-loop outcomes.
+- The inversion is not causal evidence for history feedback. Immediate first-round matches differ from reconnect/persistence, and the method-specific outcome join uses different evolving histories.
+- Full same-family audit reproduces all raw rows and state isolation with provisional `WARN` only for scope/chronology. Result-to-claim is `no`, route `pivot`, confidence high.
+- Constraint: do not relax thresholds, mine subgroups post hoc, train a correction, add Gaussian/MDN/FM, or use official val for this branch. Current authorized correction count is zero.
+- P1 learned-motion is closed as a development branch. Future feedback/history/lifecycle work would be a separately authorized idea with a new prospective protocol, not continuation evidence for P1.

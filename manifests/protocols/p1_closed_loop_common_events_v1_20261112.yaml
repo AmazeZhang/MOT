@@ -1,0 +1,42 @@
+protocol_id: p1_closed_loop_common_events_v1_20261112
+status: frozen_before_common_event_count_was_computed
+frozen_at: 2026-11-12
+purpose: fix a shared recovery_and_harm denominator before any full natural_closed_loop method output
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_manifest_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  sequences: all_8_motion_dev
+  official_val_used: false
+inputs:
+  ground_truth: permitted_for_offline_event_definition_only
+  detections: fixed_score_strictly_greater_than_0.6
+  tracker: registered_G1_B0_output_verified_equivalent_to_B1_off
+  candidate_method_outputs: forbidden_during_event_set_construction
+event_definition:
+  matching_iou: 0.5
+  maximum_gap: 31
+  persistence_frames: 5
+rules:
+  - require a GT-continuous segment and a matched fixed detection before the gap
+  - require one_or_more consecutive frames without a globally assigned IoU_0.5 detection
+  - require a globally assigned IoU_0.5 fixed detection at reappearance
+  - require the registered B0 tracker to be matched to the GT before the gap
+  - never define or filter events from a candidate method's output
+  - reconnect means the method's own pre-gap tracker ID is matched at reappearance
+  - persistence means that same ID is matched for five consecutive GT-visible frames starting at reappearance
+  - if five GT-visible frames do not exist before the GT segment ends then persistence is right_censored
+  - a missing method pre-gap match is a method failure on the common event rather than denominator removal
+strata:
+  gap_bins: [gap1, gap2_3, gap4_7, gap8_15, gap16_31]
+  development_selection: [diagnostic_anchor, non_anchor]
+  baseline_outcome: [success_control, recovery_failure, persistence_censored]
+outputs:
+  atomic_directory: partial_then_rename
+  records: [events_csv, summary_counts, input_and_source_hashes, runtime]
+interpretation_limits:
+  - This is a fixed diagnostic denominator and does not replace official TrackEval aggregation.
+  - Conditioning on a B0 pre-gap match is disclosed and does not make the event set unbiased.
+  - Recovery and harm counts are development evidence, not a statistical significance guarantee.

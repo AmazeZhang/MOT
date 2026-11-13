@@ -1,0 +1,119 @@
+queue_id: p1_natural_closed_loop_v1_learned_20261113
+project_root: /home/imc/yzy/MOT
+queue_root: /media/imc/data/mot-data/runs
+require_clean_git: false
+git_commit: 57d4aa23bcd7e11e1c3f49d8055e1508342c4523
+purpose: three frozen P1 checkpoints on the full eight-sequence natural closed-loop protocol
+jobs:
+  - job_id: learned_seed20261112
+    physical_gpu: 1
+    description: frozen deterministic P1 seed 20261112 natural closed-loop run
+    environment: &environment
+      PYTHONPATH: /home/imc/yzy/MOT/src
+      CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+    command:
+      - /home/imc/anaconda3/envs/mot-det/bin/python
+      - scripts/run_p1_natural_closed_loop.py
+      - --oc-sort-root
+      - /home/imc/yzy/MOT/third_party/OC_SORT
+      - --train-root
+      - /media/imc/data/mot-data/datasets/dancetrack/train
+      - --detection-root
+      - /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+      - --split-manifest
+      - manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+      - --split-manifest-sha256
+      - dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+      - --protocol
+      - manifests/protocols/p1_natural_closed_loop_v1_20261113.yaml
+      - --protocol-sha256
+      - 48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534
+      - --protocol-run-id
+      - learned_seed20261112
+      - --run-dir-from-job-artifact
+      - --mode
+      - learned
+      - --checkpoint
+      - /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261112/attempts/attempt_001/artifacts/checkpoint.pt
+      - --checkpoint-sha256
+      - a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a
+      - --device
+      - cuda:0
+    expected_artifacts: &artifacts
+      - closed_loop/summary.json
+      - closed_loop/input_hashes.json
+      - closed_loop/runtime.json
+      - closed_loop/trackers/dancetrack0012.txt
+      - closed_loop/trackers/dancetrack0020.txt
+      - closed_loop/trackers/dancetrack0024.txt
+      - closed_loop/trackers/dancetrack0033.txt
+      - closed_loop/trackers/dancetrack0037.txt
+      - closed_loop/trackers/dancetrack0044.txt
+      - closed_loop/trackers/dancetrack0053.txt
+      - closed_loop/trackers/dancetrack0086.txt
+  - job_id: learned_seed20261113
+    physical_gpu: 2
+    description: frozen deterministic P1 seed 20261113 natural closed-loop run
+    environment: *environment
+    command:
+      - /home/imc/anaconda3/envs/mot-det/bin/python
+      - scripts/run_p1_natural_closed_loop.py
+      - --oc-sort-root
+      - /home/imc/yzy/MOT/third_party/OC_SORT
+      - --train-root
+      - /media/imc/data/mot-data/datasets/dancetrack/train
+      - --detection-root
+      - /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+      - --split-manifest
+      - manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+      - --split-manifest-sha256
+      - dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+      - --protocol
+      - manifests/protocols/p1_natural_closed_loop_v1_20261113.yaml
+      - --protocol-sha256
+      - 48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534
+      - --protocol-run-id
+      - learned_seed20261113
+      - --run-dir-from-job-artifact
+      - --mode
+      - learned
+      - --checkpoint
+      - /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261113/attempts/attempt_001/artifacts/checkpoint.pt
+      - --checkpoint-sha256
+      - 00c676dbaeac2f327e784f7f2bbef790f0cdc1babcc47d0b8a18caed0302ddea
+      - --device
+      - cuda:0
+    expected_artifacts: *artifacts
+  - job_id: learned_seed20261114
+    physical_gpu: 3
+    description: frozen deterministic P1 seed 20261114 natural closed-loop run
+    environment: *environment
+    command:
+      - /home/imc/anaconda3/envs/mot-det/bin/python
+      - scripts/run_p1_natural_closed_loop.py
+      - --oc-sort-root
+      - /home/imc/yzy/MOT/third_party/OC_SORT
+      - --train-root
+      - /media/imc/data/mot-data/datasets/dancetrack/train
+      - --detection-root
+      - /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+      - --split-manifest
+      - manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+      - --split-manifest-sha256
+      - dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+      - --protocol
+      - manifests/protocols/p1_natural_closed_loop_v1_20261113.yaml
+      - --protocol-sha256
+      - 48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534
+      - --protocol-run-id
+      - learned_seed20261114
+      - --run-dir-from-job-artifact
+      - --mode
+      - learned
+      - --checkpoint
+      - /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261114/attempts/attempt_001/artifacts/checkpoint.pt
+      - --checkpoint-sha256
+      - d5a4796925bfa84aa9cbae229da503756ad0a647f7b768311194720e9e05d911
+      - --device
+      - cuda:0
+    expected_artifacts: *artifacts

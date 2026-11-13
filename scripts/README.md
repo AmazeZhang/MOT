@@ -28,3 +28,9 @@
 - `train_eval_p1_deterministic.py`：固定预算训练完整 motion-train，并在完整 motion-dev 上保存逐样本预测和 learned/零 delta/最后速度外推的分序列、分 gap 离线指标；每个 seed 只报告执行成功，研究 GO/NO-GO 由独立多 seed 聚合决定。
 - `summarize_p1_offline.py`：只在三个 seed 作业全部 PASS 后读取冻结 queue aggregate，验证无学习对照跨 seed 完全一致，并一次性应用预注册的离线 GO/NO-GO 门；不选择最佳 seed。
 - `summarize_p1_offline_v1_1.py`：原聚合器因独立进程 comparator IoU 归约存在 `1e-16` 末位差异而在结果前停止；本入口按冻结 addendum 只对 comparator 浮点叶使用 `1e-12` 绝对容差，结构/计数和 learned 分支保持严格不变。
+- `run_p1_natural_closed_loop.py`：从固定检测缓存重放自然 tracker 历史，只在首轮关联为 eligible tracker 临时替换 KF 预测框；当前观测在完整帧更新后追加，新出生检测做唯一映射，所有 fallback/覆盖率/延迟及输入哈希可见。入口本身不读 GT、不计算研究指标，先由固定 200 帧 learned smoke 验收。
+- `build_p1_closed_loop_event_set.py`：在候选方法完整输出产生前，仅用固定 GT/检测和已登记 B0 构建共同恢复事件分母；分开记录重现帧接回原 ID、连续五个 GT 可见帧保持、右删失、成功对照损伤与 B0 失败恢复，并固定 gap/anchor 分层。
+- `evaluate_p1_recovery_events.py`：在固定 831 个共同事件上评价每个完整方法输出，报告 reconnect、五帧 persistence、B0 失败恢复、成功对照损伤及序列/gap/anchor 分层；B0 自评必须精确复现登记计数。
+- `evaluate_p1_trackeval.py`：通过官方 TrackEval API 评价八段完整输出并保存详细结果；主指标读取官方 `COMBINED_SEQ`，不以分序列 HOTA 均值替代。
+- `summarize_p1_natural_closed_loop.py`：六个方法 tracker 与两类评价全部完成后，一次性应用冻结的 16 项自然闭环门；不选择最佳 seed，不修改阈值。
+- `analyze_p1_common_state_mechanism.py`：在固定 831 个事件的重新出现帧，用同一 B0 tracker 状态/自然历史/检测/方向输入旁路比较 KF、zero、恒速与三个 learned seed；逐事件记录几何、门控、竞争 margin 和首轮配对，不写回 B0，并按冻结规则决定是否存在可行动机制。

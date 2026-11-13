@@ -1,0 +1,23 @@
+{
+  "execution_status": "PASS",
+  "research_method_result": false,
+  "protocol_sha256": "ddbd280e57119aa030b99b9e8c0d893c34fd86836cde3a637b3454b3d34c47aa",
+  "successful_raw_directory": "/media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112",
+  "event_count": 831,
+  "baseline_reconnect_success": 159,
+  "persistence_evaluable": 780,
+  "baseline_persistence_success": 81,
+  "baseline_persistence_failure": 699,
+  "persistence_censored": 51,
+  "anchor_events": 604,
+  "non_anchor_events": 227,
+  "gap_bins": {
+    "gap1": 398,
+    "gap2_3": 264,
+    "gap4_7": 118,
+    "gap8_15": 34,
+    "gap16_31": 17
+  },
+  "event_csv_sha256": "25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc",
+  "raw_summary_sha256": "3550e55faf879e843a30f68f9b13c8aab8b4103882ab1fcfc235df9661e475ca"
+}

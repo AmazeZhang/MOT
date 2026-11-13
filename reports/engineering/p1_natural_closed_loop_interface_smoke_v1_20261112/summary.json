@@ -1,0 +1,39 @@
+{
+  "decision": "ENGINEERING_PASS",
+  "research_result": false,
+  "protocol_sha256": "f77a2a65f5d9a6c58915ca0debaacb47d3a8ad7983e8522aa5cc73847eb93b74",
+  "queue_id": "p1_natural_closed_loop_interface_smoke_v1_20261112",
+  "successful_attempt": "attempt_002",
+  "failed_attempts_preserved": ["attempt_001"],
+  "sequence": "dancetrack0012",
+  "frame_range": [1, 200],
+  "frames_processed": 200,
+  "association_calls": 200,
+  "tracker_rows_seen": 2560,
+  "eligible_tracker_rows": 2516,
+  "replaced_tracker_rows": 2516,
+  "fallback_tracker_rows": 44,
+  "recorded_observations": 2060,
+  "recorded_birth_observations": 17,
+  "mapped_births": 17,
+  "unresolved_births": 0,
+  "ambiguous_births": 0,
+  "nonfinite_prediction_fallbacks": 0,
+  "invalid_prediction_box_fallbacks": 0,
+  "tracker_output_rows": 1945,
+  "tracker_update_latency_ms": {
+    "warmup_frames": 20,
+    "measured_frames": 180,
+    "p50": 4.7520585,
+    "p95": 7.050203649999999,
+    "mean": 5.128115216666666
+  },
+  "device": {
+    "physical_gpu": 1,
+    "process_device": "cuda:0",
+    "name": "NVIDIA GeForce RTX 4090 D"
+  },
+  "checkpoint_sha256": "a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a",
+  "tracker_output_sha256": "9f6dd69221d49df790f1bedff3387cb196abaa78a90032dd077f492a6a46ea36",
+  "raw_summary_sha256": "f3467492094b62414f01eab7777004f41b7c6d73c3415332a58912b91dac681f"
+}

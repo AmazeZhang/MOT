@@ -1,0 +1,25 @@
+{
+  "decision": "NO_GO",
+  "protocol_sha256": "48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534",
+  "checks_passed": 8,
+  "checks_failed": 8,
+  "official_combined": {
+    "b0_upstream": {"HOTA": 50.05959888961373, "DetA": 79.3236493202773, "AssA": 31.662791878250317, "IDF1": 49.55427033601159, "IDSW": 762},
+    "zero_delta": {"HOTA": 47.66477064880485, "DetA": 79.41895953924652, "AssA": 28.677976867450823, "IDF1": 46.05251239049135, "IDSW": 879},
+    "constant_velocity": {"HOTA": 51.056654475764475, "DetA": 80.11108637164944, "AssA": 32.62367520653932, "IDF1": 49.60551057464283, "IDSW": 725},
+    "learned_seed20261112": {"HOTA": 49.052181694555436, "DetA": 79.62073175509904, "AssA": 30.296771397337153, "IDF1": 47.105215525043306, "IDSW": 763},
+    "learned_seed20261113": {"HOTA": 49.205286021378036, "DetA": 79.66927747621514, "AssA": 30.460473173453884, "IDF1": 47.6379505414579, "IDSW": 768},
+    "learned_seed20261114": {"HOTA": 49.55542949146275, "DetA": 79.74808749056425, "AssA": 30.866920796917015, "IDF1": 47.908976306687784, "IDSW": 754}
+  },
+  "learned_mean": {"HOTA": 49.27096573579874, "DetA": 79.67936557395947, "AssA": 30.541388455902688, "IDF1": 47.55071412439633},
+  "recovery": {
+    "b0_upstream": {"recoveries": 0, "harms": 0},
+    "zero_delta": {"recoveries": 22, "harms": 23},
+    "constant_velocity": {"recoveries": 23, "harms": 20},
+    "learned_seed20261112": {"recoveries": 19, "harms": 21},
+    "learned_seed20261113": {"recoveries": 17, "harms": 20},
+    "learned_seed20261114": {"recoveries": 17, "harms": 19}
+  },
+  "integrity": {"verdict": "WARN", "acceptance_status": "provisional"},
+  "result_to_claim": {"claim_supported": "no", "route": "pivot", "confidence": "high"}
+}

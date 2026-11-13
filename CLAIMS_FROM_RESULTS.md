@@ -97,3 +97,53 @@ D5 is a true simultaneous counterfactual, not the set union of D2 and D3. It set
 The D5 result is an assignment-consistency stress test with a near-tautological geometric advantage. It supports only that retained direction/global assignment do not prevent the pair under this exact privileged construction. It does not support causal D2/D3 synergy, an achievable recovery ceiling, predictability of the corrections, closed-loop persistence, learned-model benefit, official metric gains or generalization.
 
 Fresh same-family integrity review is provisional `WARN` for scope, chronology evidence and interpretation. It reproduces all result cells, solver matrices, parent/event derivations, hashes and baseline replay with no numerical correction. D4/D5 close the planned G2 diagnostic stage; C4 remains unsupported. Raw evidence: `reports/diagnostics/g2_d4_direction_cost_ablation_20261112/` and `reports/diagnostics/g2_d5_joint_d2_d3_20261112/`.
+
+## 2026-11-13: P1 natural closed-loop claim gate
+
+Verdict: **not supported** for the intended learned-motion improvement claim. The frozen six-method experiment completed successfully, but the aggregate decision is `NO_GO` with 8/16 required checks failing. A fresh same-family integrity audit is provisional `WARN`; it found no fake GT, score-normalization fraud, phantom result, dropped run, or intervention leakage.
+
+### Supported
+
+- On the selected eight-sequence DanceTrack motion-dev split, the three deterministic learned seeds have mean HOTA/AssA `49.270966/30.541388`, below B0 by `0.788633/1.121403` points and below constant velocity by `1.785689/2.082287` points.
+- Constant velocity is the strongest registered method on this split: HOTA `51.056654`, AssA `32.623675`, IDSW `725`; it nevertheless harms 20/81 B0 success controls and is not generally safe.
+- On the fixed event denominator, learned seeds recover `19/17/17` of 699 B0 persistence failures while harming `21/20/19` of 81 B0 success controls. Their recovery-minus-harm values are all negative.
+- The negative result is not an engineering failure: all runs/evaluations passed, predictions were finite and valid, and learned p95 tracker-update latency stayed below the frozen 15 ms ceiling.
+
+### Not supported
+
+- The deterministic learned predictor does not improve natural closed-loop association over B0 or the strongest simple predictor.
+- The 17 gap16--31 events all remain unsuccessful for every method; equality at zero does not establish long-gap safety.
+- The result does not justify Gaussian, MDN, Flow Matching, official-val confirmation, or claims beyond this selected development split.
+
+### Current defensible claim and route
+
+On eight selected DanceTrack motion-dev sequences with fixed detections, a deterministic GRU that passed the frozen offline prediction gate failed the preregistered natural closed-loop tracking gate, while constant velocity was stronger overall but caused material success-control harm. This shows that the offline prediction gain did not transfer to robust closed-loop identity association under the tested interface.
+
+Route: **pivot** with high confidence. Before any new motion model, run one bounded prospective mechanism diagnosis on identical B0 histories and candidate sets, retaining constant velocity as a required comparator. Compare geometric error, positive-candidate availability, gate passage, competitor rank, Hungarian assignment, and observed harms. Permit at most one mechanism-justified motion-train-only correction; otherwise stop the learned-motion branch.
+
+Raw evidence: `reports/feasibility/p1_natural_closed_loop_v1_20261113/`. Local review trace: `.aris/traces/result-to-claim/2026-11-13_run01/` (intentionally ignored).
+
+## 2026-11-13: P1 common-state mechanism stop gate
+
+Verdict: **not supported** for the intended discriminating-mechanism claim. On 831 fixed recovery events, the registered common-B0-state diagnostic did not find a stable learned disadvantage versus constant velocity in geometry IoU, center error, gate passage or immediate first-round assignment. Result-to-claim route is `pivot` with high confidence.
+
+### Supported
+
+- All six predictors share identical B0 state, natural history, detections, direction inputs, gate and assignment backend; 829 events are commonly applicable and two dead-track events are retained for every method.
+- Learned target-IoU means are `0.617239/0.617172/0.615925` versus CV `0.522368`; learned immediate-positive counts are `555/562/559` versus CV `509`.
+- The four signed registered disadvantages are `-0.094411/-0.005988/-0.095296/-0.059912`, with zero consistent disadvantaged seeds and zero triggered stages.
+- The frozen resource rule therefore stops/pivots the learned-motion branch. Currently justified deterministic corrections: zero.
+
+### Not supported
+
+- The common-state measurements do not identify why learned is worse in method-specific natural closed loop.
+- A one-step immediate positive is not reconnect, persistence or HOTA/AssA improvement. B0 has 575 immediate positives but only 158 of those reconnect.
+- The descriptive join to method-specific outcomes is not causal mediation because those methods evolved different histories and IDs.
+- No evidence authorizes a deterministic correction, Gaussian, MDN, Flow Matching or official-val confirmation.
+- No-trigger does not establish absence of feedback, history, lifecycle, subgroup or other unregistered mechanisms.
+
+### Defensible conclusion
+
+On 831 fixed recovery events from eight selected DanceTrack motion-dev sequences, none of four registered aggregate learned-versus-CV disadvantage checks triggered on the 829 common applicable B0-state events. Learned was stronger on these one-step aggregate measurements despite weaker prior natural closed-loop tracking. The diagnostic therefore did not explain the closed-loop deficit, and the frozen resource-allocation rule stops/pivots this branch.
+
+Integrity status is same-family provisional `WARN` for scope and chronology, with all numeric/no-writeback checks passing. Raw evidence: `reports/diagnostics/p1_common_state_mechanism_v1_20261113/`. Local result-to-claim trace: `.aris/traces/result-to-claim/2026-11-13_run02/`.

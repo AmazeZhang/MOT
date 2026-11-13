@@ -85,8 +85,17 @@ class FirstRoundAssociationAdapter:
         self.upstream_associate: UpstreamAssociate = ocsort_module.associate
         self.association_calls = 0
 
-    def update(self, output_results: Any, img_info: Any, img_size: Any) -> np.ndarray:
+    def update(
+        self,
+        output_results: Any,
+        img_info: Any,
+        img_size: Any,
+        *,
+        frame_id: int | None = None,
+    ) -> np.ndarray:
         """Run one upstream update with the selected first-round policy."""
+        if frame_id is not None and frame_id < 1:
+            raise ValueError("frame_id must be positive")
         with self._patch_lock:
             if self.ocsort_module.associate is not self.upstream_associate:
                 raise RuntimeError("OC-SORT associate symbol changed outside this adapter")
@@ -101,7 +110,10 @@ class FirstRoundAssociationAdapter:
             ) -> AssociationResult:
                 self.association_calls += 1
                 request = FirstRoundRequest(
-                    frame_id=int(self.tracker.frame_count),
+                    frame_id=(
+                        int(self.tracker.frame_count)
+                        if frame_id is None else int(frame_id)
+                    ),
                     call_index=self.association_calls,
                     tracker_ids=tuple(item.id + 1 for item in self.tracker.trackers),
                     detections=_readonly(detections),

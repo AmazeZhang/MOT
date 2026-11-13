@@ -1,0 +1,37 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "reason_code": "development_scope_and_mutable_chronology",
+  "summary": "NO_GO is numerically correct; no fraud or phantom result found. Scope, long-gap sample size, and mutable chronology require qualification.",
+  "audited_input_hashes": {
+    "primary_summary": "sha256:3014c4a5d8e78ce7ad839e59326f98295e72d5f6e6609cbcd66380f9c7150ecc",
+    "protocol": "sha256:48c69f27aac2da9eac6c69314a4bba1616280895cc08cd78c566ed7c7a982534",
+    "events": "sha256:25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-13_run01/",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "date": "2026-11-13",
+  "auditor": "fresh-gpt-6.1-sol-ultra",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Eight GT files match original DanceTrack archives; official TrackEval used."},
+    "score_normalization": {"status": "pass", "details": "No prediction-derived metric normalization."},
+    "result_existence": {"status": "warn", "details": "All results and numbers verified; preregistration chronology remains locally self-recorded."},
+    "dead_code": {"status": "pass", "details": "All claimed metrics execute and appear in artifacts."},
+    "scope": {"status": "warn", "details": "One selected development split; only 17 long-gap events; no official val."},
+    "eval_type": "real_gt_with_disclosed_diagnostic_proxy",
+    "intervention_integrity": {"status": "pass", "details": "First-round box-only replacement and post-update real histories verified."},
+    "decision": {"status": "pass", "details": "All 16 gates reproduced; NO_GO confirmed."}
+  },
+  "claims": [
+    {"id": "P1_NATURAL_CLOSED_LOOP_IMPROVES", "impact": "unsupported"},
+    {"id": "P1_FROZEN_GATE_NO_GO", "impact": "supported"},
+    {"id": "CONSTANT_VELOCITY_STRONG_SIMPLE_COMPARATOR", "impact": "supported_with_development_scope"},
+    {"id": "GAUSSIAN_MDN_FM_NECESSARY", "impact": "unsupported"}
+  ]
+}

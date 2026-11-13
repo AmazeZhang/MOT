@@ -1,0 +1,87 @@
+protocol_id: p1_natural_closed_loop_interface_smoke_v1_20261112
+status: frozen_before_any_natural_closed_loop_smoke_run
+frozen_at: 2026-11-12
+purpose: engineering-only validation of natural tracker histories and learned first-round box replacement
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_manifest_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  official_val_used: false
+  ground_truth_read: false
+  research_metrics_computed: false
+upstream:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  detector_cache: ocsort_yolox_dance_bb2f686_b8d1_train
+  tracker:
+    det_thresh_strictly_greater_than: 0.6
+    iou_threshold: 0.3
+    association: iou_plus_velocity_direction_consistency
+    delta_t: 3
+    inertia: 0.2
+    use_byte: false
+    max_age: 30
+    min_hits: 3
+history_contract:
+  owner: stable_live_tracker_ID
+  source: real_detector_box_that_updated_the_tracker
+  append_time: after_complete_tracker_update_for_the_frame
+  birth_observation: uniquely_match_new_KF_state_to_same_frame_high_score_detection
+  birth_ambiguity: do_not_guess_and_count_visible_fallback
+  deletion: purge_history_when_tracker_is_deleted
+  rebirth: new_tracker_ID_starts_new_history
+  current_or_future_observation_allowed: false
+  history_length: 8
+  minimum_observations: 2
+  padding: left_zero_with_explicit_valid_mask
+  maximum_target_minus_last_observation_frames: 31
+  empty_or_one_observation: retain_upstream_KF_first_round_box_and_count
+  gap_above_31: retain_upstream_KF_first_round_box_and_count
+  invalid_or_nonfinite_prediction: retain_upstream_KF_first_round_box_and_count
+intervention:
+  changed: first_round_association_tracker_XYXY_for_eligible_rows_only
+  unchanged:
+    - detector_inputs_and_thresholds
+    - KF_state_and_covariance
+    - velocity_direction_term
+    - IoU_gate_and_assignment
+    - second_round_and_old_observation_rematching
+    - lifecycle_birth_death_and_output_rules
+runs:
+  learned_seed20261112_smoke:
+    mode: learned
+    sequences: [dancetrack0012]
+    frame_range: [1, 200]
+    device: cuda:0
+    physical_gpu_rule: select_one_currently_idle_GPU_from_1_through_7_and_map_it_to_cuda_0
+    physical_gpu_0_forbidden: true
+    checkpoint_seed: 20261112
+    checkpoint_selection_reason: lowest_numbered_seed_for_engineering_only_not_model_selection
+    checkpoint_sha256: a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a
+    history_length: 8
+    minimum_observations: 2
+    maximum_frame_gap: 31
+    engineering_acceptance:
+      expected_frames_processed: 200
+      expected_association_calls: 200
+      minimum_replaced_tracker_rows: 1
+      minimum_recorded_birth_observations: 1
+      maximum_unresolved_births: 0
+      maximum_ambiguous_births: 0
+      maximum_nonfinite_prediction_fallbacks: 0
+      maximum_invalid_prediction_fallbacks: 0
+outputs:
+  atomic_directory: partial_then_rename
+  preserve_failure: failed_directory_with_failure_json
+  record:
+    - tracker_MOT_rows
+    - per_frame_eligible_replaced_and_fallback_counts
+    - history_and_birth_mapping_counts
+    - tracker_only_latency_after_20_frame_warmup
+    - device_mapping_runtime_input_and_source_hashes
+interpretation_limits:
+  - Passing this smoke validates only interface execution, time ordering, mapping, and finite outputs on one fixed fragment.
+  - It is not a tracking improvement result and must not select a checkpoint, threshold, method, or protocol gate.
+  - No HOTA, AssA, IDF1, DetA, IDSW, recovery, or harm claim may be made from this run.
+  - The fragment is from a previously selected difficult development anchor and is not confirmation evidence.
