@@ -10,6 +10,8 @@
 
 ## 状态定义
 
+2026-11-13 新候选登记（不是 C1–C5 升级）：R1“同状态成对短程回放监督的关联改动收益/损伤选择”，状态为 `NOT_SUPPORTED_BY_PROVENANCE`。目前只有 [研究路线建议](../research_route_proposal_20261113.md)，没有实现或实验。最近先例包括 Learning to Track、MARLMOT、DeconfuseTrack、Sentinel；宽泛的决策学习/置信度门控存在高重合风险，拟采用的动作和监督组合尚未完成新颖性认证。R1 是新的待选问题，不恢复已停止的 P1 或授权 FM 训练。
+
 - `ALIGNED`：表述与已核验文献或项目证据一致。
 - `OVERSTATED`：有一定证据，但表述超过证据边界。
 - `NOT_SUPPORTED_BY_PROVENANCE`：尚无真实实验或可核验来源支持，不得当作结论。
