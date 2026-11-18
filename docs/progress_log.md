@@ -817,3 +817,51 @@
 ### 精确下一步
 
 - 执行方案已写入 [决策规则对照执行草案](next_branch_decision_rule_plan_20261118.md)（2026-11-18 19:23 记录）：P0 服务器事实核查 → P1 离线重排 → P2 闭环 → P3 通道归因；其中数值门槛为草案，运行前须另写 YAML 协议并冻结。
+
+## 2026-11-18：R1 回放脚本的可复现性小修（服务器工作树）
+
+### 完成内容
+
+- 新增 `.gitattributes`，对 Git 识别的文本文件固定 LF。检查全部已跟踪工作树文件，CRLF 文件数为 0，因此无需批量改写或重新归一化。
+- 新增 `src/mot_research/analysis/runtime_record.py`：未来 R1 阶段 A/B 标签运行和阶段 B 分析在启动时记录 Git HEAD、Python 可执行文件/版本、NumPy/SciPy/FilterPy/lap/PyYAML 版本及所用源码 SHA256；输出前再次核对源码哈希，若运行中被修改则失败。标签运行还记录 OC-SORT 与适配器源码哈希。
+- 运行摘要中的峰值 RSS 改由平台保护函数提供：不支持 `resource` 的平台返回 `null`；macOS 的字节单位换算成 KiB；Linux 保持 KiB。此改动不涉及动作、标签、模型或门槛计算。
+- 旧阶段 A/B 的原始摘要和已审计结果保持原样；新字段只在后续新运行中出现。此前报告保存的脚本哈希对应当时已执行代码，不能用本次修改后的文件哈希替代。
+- 拉取远端 `d1f4e6b` 前备份本地本条日志，快进后重新追加；三个脚本、`.gitattributes`、运行记录工具及测试文件的拉取前后 SHA256 均相同。
+
+### 验证与限制
+
+- 15 项 R1 分量/标签/适配器/运行记录测试通过；模拟 `resource` 不可用、macOS 单位换算及运行中源码变更均已覆盖。三个脚本及新工具编译检查通过。
+- `git check-attr` 确认 README、Python、YAML 的 `text=auto`、`eol=lf`；已跟踪文件 CRLF 数为 0。实际 `mot-det` 环境快照可采到 Python 3.10.22 和五个关键依赖版本，并核对 12 个标签运行相关源码哈希。
+- 没有重跑研究实验或生成新研究结论；GPU0 与其他 GPU 均未使用。历史审计中的未存档分支与旧摘要 provenance 限制仍在。
+- **下一步：** 按远端新增草案先做 R2 的 P0 事实核查，不运行 tracker；依据候选分数是否已存决定 P1 能否直接离线重排。当前工程修复仍留在工作树，未创建 commit 或 push。
+
+## 2026-11-18：拉取远端决策规则草案并完成 R2 P0 事实核查
+
+### 完成内容
+
+- `git fetch` 后确认远端新增 `d1f4e6b`：`README.md`、`docs/progress_log.md` 和新建 `docs/next_branch_decision_rule_plan_20261118.md`。与本地未提交工程修复仅在进度日志的追加位置重叠；先备份该段日志，再 `git pull --ff-only origin main` 快进 `62bad22 → d1f4e6b`，最后恢复本地日志。脚本、新工具、测试和 `.gitattributes` 的拉取前后 SHA256 均保持不变。
+- 通读新增草案：新候选不是重训生成器，而是在同一运动假设集下比较 S0 点 IoU、S1 均值 IoU、S2 最大 IoU、S3 混合似然及 S4 边际感知分配；计划次序为 P0 事实核查、P1 离线重排、P2 自然闭环、P3 打分/续轨通道归因。草案门槛尚未冻结，不能直接运行。
+- 执行草案 §6 的 P0 **只读核查**，记录在 `reports/engineering/r2_recon_20261118/README.md`。旧机制诊断 CSV 为 38 列、4,986 行（831 事件 × 6 方法），只含注册目标对与最强竞争轨迹的摘要，没有完整候选分数矩阵、所有候选框或 KF 协方差，故 P1 不能从旧 CSV 直接重排；需先冻结协议并做八段 motion-dev 的 CPU 候选集重放。
+
+### 验证与限制
+
+- 旧 CSV SHA256 `d08df0baec806d732fa04b463d073b0d0b9bb6ac5b3954fa1249fae77354a73e` 与其 `summary.json` 一致；八段检测缓存逐文件 SHA256 与旧 `input_hashes.json` 一致。三份 P1 checkpoint 仍在且各自 SHA256 与旧登记一致；OC-SORT checkout 为登记的 `bb2f6867a41082558d95ab47a854a3918de7831b`。
+- 旧事件分层为 699 个 recovery failure、81 个 success control、51 个 persistence censored；831 中有 2 个 B0 目标轨迹死亡而不可评价。新协议必须分开登记总事件、各层与可评价分母，不能以 699+81 充当总数。
+- P0 只读文件和环境元数据，未启动 tracker、训练或 GPU 作业；没有产生新研究结果。远端草案中的 DiffuTrack 解释由其文献核查给出，本轮只确认新执行次序及本机输入事实，不认证创新性。
+- **下一步：** 在开始 P1 前写并冻结 R2 重放/打分协议，明确重放捕获的完整候选字段、S0–S4 公式、随机种子、分母、预算、验收与停止条件；然后才可 CPU 重放并离线重排。当前不运行 P1/P2/P3 或官方 val，本地工程修复与 P0 报告均未 commit/push。
+
+## 2026-11-18：完成 R2 P1 事件帧采集与离线规则门槛
+
+### 完成内容
+
+- 先落盘冻结 `manifests/protocols/r2_decision_rules_p1_20261118.yaml`（SHA256 `1c69a19b5a3f8429a436700aed8942afdd6f798430ffa5b7d0a2424254ccef3d`），登记 831 个固定事件、8 段 motion-dev、KF 20 样本+2 转向模式、S0–S4 精确规则、随机种子、分母和 P1/P2 门槛。执行只用 CPU，`CUDA_VISIBLE_DEVICES=''`；GPU0 及其他 GPU 均未使用。
+- 新增 `scripts/capture_r2_decision_states.py`，B0 独占轨迹状态，旁路取得 CV/三个 frozen checkpoint 的预测；捕获 749 个不同事件帧，覆盖全部 831 事件。逐视频核对 B0 回放帧/ID 与参考一致、坐标误差 ≤1e-4；全量状态与重放轨迹在 `/media/imc/data/mot-data/runs/r2_capture_p1_20261118/`。
+- 新增 `scripts/rescore_r2_decision_rules.py`，按冻结规则生成 3,745 条事件帧×变体完整候选矩阵与 20,775 条事件×变体×规则排序结果，原始数据在 `/media/imc/data/mot-data/runs/r2_rescore_p1_20261118/`。主指标为注册正检测的目标轨迹是否排首位，只是离线代理，不是匈牙利分配、闭环恢复率或 TrackEval。
+- 在 CV 主变体的 829 个可评价事件中，S1 成功 545、失败 284。S2 救回 57/伤害 38，S3 为 91/63，S4 为 64/39；三者救回均超过 10%，均在 7/8 视频有救回，但对 S1 成功事件的新增伤害为 7.0%、11.6%、7.2%，全部高于预定 2% 上限，**P1 晋级门槛 FAIL，不运行 P2**。逐视频表和解释边界写在 `reports/feasibility/r2_p1_decision_rules_20261118/README.md`。
+- 新鲜同系列 `experiment-audit` 只读复算 831/749/20,775/3,745 的覆盖、完整矩阵的获胜轨迹与门槛数字，结论 provisional `WARN`；原结果中的 `winner_margin` 与协议要求的目标 margin 不同。新增 `scripts/derive_r2_target_margin.py`，从原矩阵另存 20,775 行正确的次要 margin 至 `/media/imc/data/mot-data/runs/r2_rescore_p1_20261118_secondary_margin/`，不改原始文件或主门槛。审阅详见 `docs/audits/r2_p1_20261118/`。
+
+### 验证、限制与精确下一步
+
+- 三个新脚本编译通过；`git diff --check` 通过。独立核对 20,775 个唯一结果键、3,745 个矩阵尺寸及 B0/CV 的 S1–S4 完全一致。两次主运行记录了 Git HEAD `d1f4e6b`、Python/依赖版本及源码哈希；采集约 170 秒、评分约 81 秒。脚本运行中的源码哈希复核通过。
+- B0/CV 的 S1–S4 使用同一组 KF+转向假设，CV 点框只影响 S0；不能把 S1–S4 的变化归因给 CV。指标是基于已固定 GT 锚定事件的离线排序代理，不能推断闭环 AssA 或官方 val。协议尚未提交 Git，哈希不能独立证明落盘先于结果；峰值 RSS 与精确 CPU 核时未采集。补算 margin 是次要字段，不能改变 P1 门槛结论。
+- **下一步：** 按预定停止规则保留本次阴性晋级结果，不进行 P2 或事后调参。下一轮研究决策可评估“关联打分与续轨贡献归因”，但执行前需另立并冻结 P3 的对照协议。当前没有创建 Git commit 或 push，工作树保留供用户审阅与记录。

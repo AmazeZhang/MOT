@@ -1,0 +1,30 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-18",
+  "overall_verdict": "WARN",
+  "integrity_status": "warn",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "reviewer_backend": "codex_fresh_agent_inherited_model",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-18_run01/",
+  "checks": {
+    "gt_provenance": "PASS",
+    "score_normalization": "PASS",
+    "result_existence_and_arithmetic": "PASS",
+    "dead_code": "PASS",
+    "scope": "PASS_QUALIFIED",
+    "evaluation_type_and_secondary_metric": "WARN"
+  },
+  "gate_recalculation": {
+    "applicable": 829,
+    "S1_failures": 284,
+    "S1_successes": 545,
+    "minimum_rescued_integer": 29,
+    "maximum_harmed_integer": 10,
+    "S2": {"rescued": 57, "harmed": 38, "pass": false},
+    "S3": {"rescued": 91, "harmed": 63, "pass": false},
+    "S4": {"rescued": 64, "harmed": 39, "pass": false}
+  },
+  "warning_resolution": "Target margin was derived in a separate hash-linked addendum; the original CSV remains unchanged. Protocol chronology remains independently unproven while YAML is untracked.",
+  "claim_impact": "Qualified offline rank-proxy gate failure is supported; no closed-loop or official-validation claim is supported."
+}

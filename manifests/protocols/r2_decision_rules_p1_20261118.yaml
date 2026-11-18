@@ -1,0 +1,90 @@
+protocol_id: r2_decision_rules_p1_20261118
+status: frozen_before_r2_capture_or_rule_results
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  sequence_order: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  official_val: excluded
+events:
+  path: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+  sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+  expected_unique: 831
+  strata: {recovery_failure: 699, success_control: 81, persistence_censored: 51}
+  expected_b0_applicable: 829
+  expected_b0_dead_track: 2
+  frozen_positive_pair: [reappearance_detection_id, baseline_before_tracker_id]
+  denominator: all 831 registered events; applicability and S1-success/failure denominators reported separately per method and video
+inputs:
+  prior_hash_table: /media/imc/data/mot-data/runs/p1_common_state_mechanism_v1_20261113/input_hashes.json
+  prior_hash_table_sha256: 5f0e4fb762aeae8bc1911f705947a3cdd3e563d41a9bf62af3d81883e82b21fc
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  b0_tracker_root: /media/imc/data/mot-data/runs/p1_natural_closed_loop_v1_20261113/b0_upstream/trackers
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  tracker: {det_thresh: 0.6, iou_threshold: 0.3, asso_func: iou, delta_t: 3, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+  checkpoints:
+    learned_seed20261112: {path: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261112/attempts/attempt_001/artifacts/checkpoint.pt, sha256: a05c039ce19a4d9e5543216612e216bb0cd8b9c81507389e04aee232cd31432a}
+    learned_seed20261113: {path: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261113/attempts/attempt_001/artifacts/checkpoint.pt, sha256: 00c676dbaeac2f327e784f7f2bbef790f0cdc1babcc47d0b8a18caed0302ddea}
+    learned_seed20261114: {path: /media/imc/data/mot-data/runs/p1_deterministic_offline_v1_20261112/jobs/p1_seed20261114/attempts/attempt_001/artifacts/checkpoint.pt, sha256: d5a4796925bfa84aa9cbae229da503756ad0a647f7b768311194720e9e05d911}
+capture:
+  state_owner: B0 replay; alternatives are read-only at first-round request
+  frame_selection: exact event after_frame; save once per distinct sequence/frame with all event IDs
+  record: [detection_ids, detections_xyxy_score, tracker_ids, predicted_kf_boxes_xyxy, kf_x_after_predict, kf_P_after_predict, velocities, previous_observations, direction_weight, iou_threshold, history_observations, cv_proposal_boxes, learned_proposal_boxes, b0_matches]
+  no_gt_or_future_features: true
+  b0_replay: exact frame_and_ID, xyxy_tolerance_pixels 0.0001
+  state_isolation: tracker bytes unchanged by alternative proposal calls
+  missing_event_call: fail
+  output_root: /media/imc/data/mot-data/runs/r2_capture_p1_20261118
+hypotheses:
+  variants: [b0_upstream, constant_velocity, learned_seed20261112, learned_seed20261113, learned_seed20261114]
+  primary_variant: constant_velocity
+  kf_samples: 20
+  turn_modes: 2
+  total_hypotheses_per_track: 22
+  equal_weights: true
+  random_seed_rule: 'first 8 bytes of SHA256 ASCII "r2-p1-20261118:<sequence>:<frame_6digits>:<tracker_id>" as unsigned big-endian'
+  kf_sample_space: [cx, cy, log_area, log_aspect]
+  kf_covariance: delta method from predicted KF x/P with eigenvalue floor 1e-10; cap center std to 0.2 image dimension, log_area/log_aspect std to 1.0
+  kf_fallback: if mean or covariance invalid, repeat predicted KF box 20 times and count
+  turn_history: last three real detections from B0 history, frame-aware center velocities; rotate latest velocity by plus/minus clipped heading change per frame (absolute cap pi/4); extrapolate to t and retain last box width/height
+  turn_fallback: if fewer than three observations or near-zero velocity, repeat predicted KF box twice and count
+  learned_variant: replace only the S0 point and both turn modes with each frozen learned point; reuse identical 20 KF samples; variants are separate rows
+scoring:
+  common_eligibility: max IoU over 22 hypotheses >= 0.3, identical for S0-S4 within variant; score-only diagnostic
+  s0: IoU of variant point box and detection
+  s1: arithmetic mean IoU over all 22 hypotheses; mathematical aggregation only, not a DiffuTrack model reproduction
+  s2: maximum IoU over all 22 hypotheses
+  s3: equal-weight 22-component Gaussian kernel mixture log density in [cx/W,cy/H,log(w/W),log(h/H)]; fixed diagonal std [0.02,0.02,0.10,0.10]; logsumexp minus log(22)
+  s4: apply margin penalty to S2 scores; m_ij=min(score_ij-second_best_in_detection_row_excluding_j, score_ij-second_best_in_track_column_excluding_i); no competitor means infinite margin; adjusted=score_ij-0.2*max(0,0.05-m_ij)
+  rank_tie: lower stable tracker ID first; exact equal scores are ties but top1 success requires intended ID first by this rule
+  primary_metric: among common-eligible tracks for the registered positive detection, is intended track ranked first; missing/ineligible intended track is failure
+  secondary_metric: intended track's detection rank, score margin, and common-eligibility count; not used for gate
+  no_hungarian_or_writeback_in_p1: true
+decision:
+  comparator: S1 within the same variant and event, not B0 vs policy-specific natural closed loop
+  primary_variant: constant_velocity
+  candidate_rules: [S2, S3, S4]
+  rescue_denominator: S1 top1 failures among applicable CV event rows; include gate failures as failures, but rules cannot rescue an ineligible pair
+  harm_denominator: S1 top1 successes among applicable CV event rows
+  minimum_rescue_fraction: 0.10
+  maximum_new_harm_fraction: 0.02
+  additional_video_check: rescue_fraction_positive_in_at_least_5_of_8_videos
+  promotion: P1 is exploratory development; P2 requires all gates for at least one prelisted rule; no post-hoc threshold change
+  p2_draft_gate_if_p1_passes: {AssA_vs_S1_min_points: 0.3, DetA_vs_S1_min_points: -0.2, IDSW_vs_S1_max_increase: 0, HOTA_vs_S1_min_points: 0.0, recovery_minus_harm_vs_S1_min_events: 1}
+budget:
+  gpu_hours: 0
+  maximum_cpu_core_hours: 16
+  maximum_wall_seconds: 7200
+outputs:
+  capture_run: /media/imc/data/mot-data/runs/r2_capture_p1_20261118
+  rescore_run: /media/imc/data/mot-data/runs/r2_rescore_p1_20261118
+  no_overwrite: true
+  failed_run_kept: true
+  raw_jsonl_and_trackers: data_disk_only
+  repo_summary: reports/feasibility/r2_p1_decision_rules_20261118

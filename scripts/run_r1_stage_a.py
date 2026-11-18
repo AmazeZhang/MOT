@@ -9,7 +9,6 @@ import hashlib
 import json
 import os
 import pickle
-import resource
 import sys
 import time
 import traceback
@@ -21,6 +20,9 @@ import yaml
 
 from mot_research.analysis.failure_events import Candidate, hungarian_iou_matches, read_gt
 from mot_research.analysis.r1_components import DifferenceComponent, components, switched_result
+from mot_research.analysis.runtime_record import (
+    R1_SHARED_CODE_PATHS, peak_rss_kib, runtime_record, verify_code_unchanged,
+)
 from mot_research.tracking.first_round_adapter import FirstRoundAssociationAdapter
 from mot_research.tracking.natural_motion_policy import (
     NaturalHistoryTrackerRunner,
@@ -145,6 +147,8 @@ def parse_args():
 
 def main():
     args = parse_args()
+    repo_root = Path(__file__).resolve().parents[1]
+    provenance = runtime_record(repo_root, ("scripts/run_r1_stage_a.py",) + R1_SHARED_CODE_PATHS)
     if os.environ.get("CUDA_VISIBLE_DEVICES") != "":
         raise RuntimeError("Stage A is CPU-only; set CUDA_VISIBLE_DEVICES='' explicitly")
     protocol_bytes = args.protocol.read_bytes()
@@ -313,7 +317,7 @@ def main():
                        "right_censored_components": censored, "selected": len(selected),
                        "counts": dict(counts), "elapsed_seconds": time.monotonic() - sequence_start,
                        "parent_exact_frames": length,
-                       "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+                       "peak_rss_kib": peak_rss_kib()}
             summaries.append(summary)
             (partial / f"{sequence}.summary.json").write_text(json.dumps(summary, indent=2) + "\n")
             print(json.dumps(summary), flush=True)
@@ -326,11 +330,13 @@ def main():
             "positive_net_minimum": totals["positive_net"] >= acceptance["minimum_positive_net_for_stage_b_consideration"],
             "negative_net_minimum": totals["negative_net"] >= acceptance["minimum_negative_net_for_stage_b_consideration"],
         }
+        verify_code_unchanged(repo_root, provenance)
         final = {"status": "complete", "device": "cpu", "CUDA_VISIBLE_DEVICES": "",
-                 "physical_gpu": None, "git_commit": os.popen("git rev-parse HEAD").read().strip(),
+                 "physical_gpu": None, "git_commit": provenance["git_head"],
+                 "runtime_provenance": provenance,
                  "hashes": hashes, "sequences": summaries, "totals": dict(totals),
                  "gates": gates, "elapsed_seconds": time.monotonic() - start,
-                 "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+                 "peak_rss_kib": peak_rss_kib()}
         (partial / "summary.json").write_text(json.dumps(final, indent=2) + "\n")
         partial.rename(args.run_dir)
         print(json.dumps({"run_dir": str(args.run_dir), "totals": dict(totals), "gates": gates}), flush=True)

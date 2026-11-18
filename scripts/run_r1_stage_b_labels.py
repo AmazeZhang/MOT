@@ -11,7 +11,6 @@ import json
 import math
 import os
 import pickle
-import resource
 import sys
 import time
 import traceback
@@ -22,6 +21,9 @@ import numpy as np
 import yaml
 
 from mot_research.analysis.failure_events import pairwise_iou, read_gt
+from mot_research.analysis.runtime_record import (
+    R1_SHARED_CODE_PATHS, peak_rss_kib, runtime_record, verify_code_unchanged,
+)
 from mot_research.tracking.natural_motion_policy import NaturalHistoryTrackerRunner, TrackerDetectionHistory
 from mot_research.tracking.first_round_adapter import FirstRoundAssociationAdapter
 from run_p1_natural_closed_loop import load_cache, sha256_file
@@ -95,6 +97,11 @@ def parse_args():
 
 def main():
     args = parse_args()
+    repo_root = Path(__file__).resolve().parents[1]
+    provenance = runtime_record(
+        repo_root,
+        ("scripts/run_r1_stage_b_labels.py", "scripts/run_r1_stage_a.py") + R1_SHARED_CODE_PATHS,
+    )
     if os.environ.get("CUDA_VISIBLE_DEVICES") != "":
         raise RuntimeError("R1-B labels require CUDA_VISIBLE_DEVICES='' and CPU-only execution")
     protocol = yaml.safe_load(args.protocol.read_text())
@@ -287,7 +294,7 @@ def main():
                        "selected": len(selected), "counts": dict(counts),
                        "parent_exact_frames": length,
                        "elapsed_seconds": time.monotonic() - sequence_start,
-                       "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+                       "peak_rss_kib": peak_rss_kib()}
             all_summaries.append(summary)
             (partial / f"{sequence}.summary.json").write_text(json.dumps(summary, indent=2) + "\n")
             print(json.dumps(summary), flush=True)
@@ -296,13 +303,15 @@ def main():
         totals = Counter()
         for row in all_summaries:
             totals.update(row["counts"])
+        verify_code_unchanged(repo_root, provenance)
         final = {"status": "complete", "device": "cpu", "CUDA_VISIBLE_DEVICES": "",
                  "physical_gpu": None, "protocol_sha256": sha256_file(args.protocol),
+                 "runtime_provenance": provenance,
                  "stage_a_protocol_sha256": sha256_file(args.stage_a_protocol),
                  "split_sha256": sha256_file(args.split), "input_hashes": input_hashes,
                  "sequence_summaries": all_summaries, "totals": dict(totals),
                  "elapsed_seconds": time.monotonic() - start,
-                 "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
+                 "peak_rss_kib": peak_rss_kib()}
         (partial / "summary.json").write_text(json.dumps(final, indent=2) + "\n")
         partial.rename(args.run_dir)
         print(json.dumps({"run_dir": str(args.run_dir), "totals": dict(totals)}), flush=True)

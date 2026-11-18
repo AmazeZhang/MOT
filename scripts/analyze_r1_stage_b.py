@@ -15,6 +15,9 @@ import yaml
 from scipy.optimize import minimize
 from scipy.special import expit
 
+from mot_research.analysis.runtime_record import (
+    runtime_record, verify_code_unchanged,
+)
 from run_p1_natural_closed_loop import sha256_file
 from run_r1_stage_b_labels import FEATURE_NAMES
 
@@ -76,6 +79,13 @@ def main():
     parser.add_argument("--label-dir", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
+    repo_root = Path(__file__).resolve().parents[1]
+    provenance = runtime_record(
+        repo_root,
+        ("scripts/analyze_r1_stage_b.py", "scripts/run_r1_stage_b_labels.py",
+         "scripts/run_r1_stage_a.py", "scripts/run_p1_natural_closed_loop.py",
+         "src/mot_research/analysis/runtime_record.py"),
+    )
     if args.out.exists():
         raise FileExistsError(args.out)
     protocol = yaml.safe_load(args.protocol.read_text())
@@ -199,6 +209,7 @@ def main():
     }
     output = {
         "status": "complete", "protocol_sha256": sha256_file(args.protocol),
+        "runtime_provenance": provenance,
         "label_run_dir": str(args.label_dir.resolve()), "input_hashes": inputs,
         "fit_videos": len(fit_seq), "heldout_videos": len(heldout_seq),
         "fit_actions": len(fit_rows), "heldout_actions": len(heldout_rows),
@@ -209,6 +220,7 @@ def main():
         "stage_c_gate": {"status": "PASS" if all(checks.values()) else "FAIL", "checks": checks},
         "interpretation": "offline, fixed-budget short-horizon proxy; no online threshold or TrackEval claim",
     }
+    verify_code_unchanged(repo_root, provenance)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, indent=2) + "\n")
     print(json.dumps({"out": str(args.out), "fit_actions": len(fit_rows),
