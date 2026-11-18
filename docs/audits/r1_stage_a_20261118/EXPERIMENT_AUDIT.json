@@ -1,0 +1,29 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-18",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "reviewer_model": "inherited Codex model; exact model ID unavailable",
+  "requested_reviewer_model": "gpt-5.6-sol ultra (unavailable in this session)",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-18_run01/",
+  "audited_input_hashes": {
+    "manifests/protocols/r1_stage_a_20261118.yaml": "sha256:b698941dbbea9a34c3c9b5e6b9f3cb4952941736c143fcfb6af964f3eacd6562",
+    "scripts/run_r1_stage_a.py": "sha256:211230b228c0446588337d9068ac549f0a5cc011cd2aabb3f4819f55ae0c83d0",
+    "summary.json": "sha256:cc41ca5f804701ff909639a6db5abff56e9cb26bcb98c314e8111fa92fb42672",
+    "dancetrack0001.jsonl": "sha256:05806edbaa82a04805f436921f8cdeb82fb87e0e6991ab3536a7a8274460942d",
+    "dancetrack0072.jsonl": "sha256:546aa630c8f2aaafab8ce73c6caffd63b31aace6ffdcc9ecd9699317d08ef443",
+    "dancetrack0087.jsonl": "sha256:58c0e04905394aa7f4e60822014da44d7c946e40433c0a0b01b058314317b706",
+    "dancetrack0098.jsonl": "sha256:ca2defe913c24542b27bc47e57b8dd8b9e0b0588e56d75cbcdebd60dfb61029e"
+  },
+  "checks": {
+    "gt_provenance": {"status": "pass", "type": "real_dataset_gt"},
+    "score_normalization": {"status": "pass"},
+    "result_existence": {"status": "pass"},
+    "dead_code": {"status": "pass"},
+    "scope": {"status": "warn", "component_involved_anchor_rows": 100, "outside_only_anchor_rows": 64},
+    "eval_type": "real_gt_custom_short_horizon_proxy"
+  },
+  "claim_impact": "engineering feasibility only; no learnability, benchmark, or novelty claim"
+}

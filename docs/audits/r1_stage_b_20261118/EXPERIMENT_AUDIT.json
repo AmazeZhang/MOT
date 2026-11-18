@@ -1,0 +1,32 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-18",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "reviewer_model": "inherited Codex model; exact model ID unavailable",
+  "requested_reviewer_model": "gpt-5.6-sol ultra (unavailable in this session)",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-18_run02/",
+  "stage_c_gate": "FAIL",
+  "gate_invalidating_bug_found": false,
+  "audited_input_hashes": {
+    "manifests/protocols/r1_stage_b_20261118.yaml": "sha256:6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde",
+    "scripts/run_r1_stage_b_labels.py": "sha256:7de6b3bc3115f088174d90a16d0827a7a231c4acd16f1eaa9c7042a3ab0a3a84",
+    "scripts/analyze_r1_stage_b.py": "sha256:188dbc169cd795407237bb7e6079eb7e08f59601b284a48a9da55c3a837c3d2e",
+    "label_summary.json": "sha256:1df3ea3fd985a83e9727eb246a757bbd035e4e58f73821716404fe3589244679",
+    "analysis.json": "sha256:7376cd9446d6715af7ffacdaf0534eff9f500346dce357a0da91cc40f9481c20"
+  },
+  "checks": {
+    "gt_provenance": "pass",
+    "score_normalization": "pass",
+    "result_existence_arithmetic": "pass",
+    "dead_code": "pass",
+    "scope": "warn",
+    "eval_type": "real_gt_custom_offline_short_horizon_proxy"
+  },
+  "archived_branch_pairs_relabelled": 160,
+  "archived_branch_label_mismatches": 0,
+  "unarchived_branch_pairs": 1266,
+  "claim_impact": "Stage C gate failure supported as protocol decision; no online or official metric claim"
+}

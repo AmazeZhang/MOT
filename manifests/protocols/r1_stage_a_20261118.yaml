@@ -1,0 +1,47 @@
+protocol_id: r1_stage_a_20261118
+status: frozen_before_branch_labels
+source_split: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+selection:
+  split_rank: 'SHA256 ASCII lowercase hex of "r1-stage-a-20261118:<sequence>"; ascending'
+  fit_rank_order: [dancetrack0087, dancetrack0098, dancetrack0072, dancetrack0001, dancetrack0082, dancetrack0075, dancetrack0057, dancetrack0061, dancetrack0008, dancetrack0051, dancetrack0002, dancetrack0006, dancetrack0068, dancetrack0052, dancetrack0062, dancetrack0099, dancetrack0066, dancetrack0029, dancetrack0039, dancetrack0045, dancetrack0016, dancetrack0027, dancetrack0096, dancetrack0055]
+  calibration_rank_order: [dancetrack0074, dancetrack0032, dancetrack0069, dancetrack0015, dancetrack0023, dancetrack0080, dancetrack0049, dancetrack0083]
+  smoke_sequences: [dancetrack0087, dancetrack0098, dancetrack0072, dancetrack0001]
+  candidate_rank: 'SHA256 ASCII lowercase hex of "r1-stage-a-20261118:<sequence>:<frame_6digits>:<component_signature>"; ascending'
+  max_components_per_sequence: 50
+action:
+  baseline: upstream OC-SORT B0/KF first association
+  alternative: same-state natural-history constant-velocity proposal
+  unit: connected bipartite component of symmetric-difference edges; replace all A0 edges inside with A1 edges
+  max_changed_components_per_frame: 1
+  future_policy: upstream B0/KF
+  horizon_frames_including_intervention: 10
+  tracker: {det_thresh: 0.6, iou_threshold: 0.3, asso_func: iou, delta_t: 3, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  history_length: 8
+  minimum_observations: 2
+  maximum_frame_gap: 31
+label:
+  anchor: 'GT-to-output Hungarian IoU >= 0.5 at t-1; original tracker ID fixed'
+  window: 't through t+9; count only frames in which anchor GT is present'
+  identity_correct: 'GT matched by Hungarian IoU >= 0.5 to original t-1 tracker ID'
+  harm: 'number of anchors with fewer identity-correct visible frames than A0'
+  benefit: 'number of anchors with more identity-correct visible frames than A0'
+  net: 'sum over all anchored GT of A1 correct frames minus A0 correct frames'
+  include_component_outside_anchors: true
+  no_gt_frames: excluded from anchor denominator and reported
+  unanchored_gt: excluded from primary label and counted
+  right_censor: exclude t when t+9 exceeds sequence length and count exclusions
+  gt_use: labels only; neither candidate ranking nor tracker policy reads GT
+acceptance:
+  exact_a0_replay_all_frames: true
+  component_one_to_one_all: true
+  parent_state_unchanged_after_forks: true
+  branch_output_id_unique_per_frame: true
+  minimum_executed_for_feasibility_review: 100
+  minimum_positive_net_for_stage_b_consideration: 3
+  minimum_negative_net_for_stage_b_consideration: 3
+  interpretation: exploratory engineering gate; positive counts do not establish learnability or novelty
+budget:
+  maximum_cpu_core_hours: 32
+  maximum_gpu_hours: 0
+  maximum_wall_seconds: 7200

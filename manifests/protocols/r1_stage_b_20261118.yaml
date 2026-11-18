@@ -1,0 +1,56 @@
+protocol_id: r1_stage_b_20261118
+status: frozen_before_stage_b_labels
+stage_a_protocol_sha256: b698941dbbea9a34c3c9b5e6b9f3cb4952941736c143fcfb6af964f3eacd6562
+source_split: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+split:
+  fit_sequences: [dancetrack0087, dancetrack0098, dancetrack0072, dancetrack0001, dancetrack0082, dancetrack0075, dancetrack0057, dancetrack0061, dancetrack0008, dancetrack0051, dancetrack0002, dancetrack0006, dancetrack0068, dancetrack0052, dancetrack0062, dancetrack0099, dancetrack0066, dancetrack0029, dancetrack0039, dancetrack0045, dancetrack0016, dancetrack0027, dancetrack0096, dancetrack0055]
+  heldout_sequences: [dancetrack0074, dancetrack0032, dancetrack0069, dancetrack0015, dancetrack0023, dancetrack0080, dancetrack0049, dancetrack0083]
+  official_motion_dev_and_val: excluded
+sampling:
+  candidate_rank: 'SHA256 ASCII lowercase hex of "r1-stage-b-20261118:<sequence>:<frame_6digits>:<component_signature>"; ascending'
+  per_frame: one lowest-hash disagreement component; no GT selection
+  per_sequence_cap: 600
+  global_cap: 20000
+  horizon_including_intervention: 10
+  sequence_tail: exclude components with fewer than 10 future-inclusive frames; count separately
+  action_and_tracker_settings: identical to stage A
+  anchor: stage A GT-to-output Hungarian IoU >= 0.5 at t-1; all anchored GT included
+  direct_anchor_coverage: count anchors whose original tracker ID is involved in changed component; zero-direct-anchor actions retained and reported separately
+  labels:
+    future: 10-frame signed identity-correct count delta; harm when any anchor loses correct frames
+    immediate: frame-t signed identity-correct count delta; harm when any anchor loses correct frames
+    unanchored_gt: excluded from primary label and counted
+  audit_archive: first five selected actions by candidate hash per video retain both branches' ten-frame tracker outputs outside Git
+features:
+  source: tracker/detection/current first-round request and histories through t-1 only; no GT or future data
+  names: [component_a0_edges, component_a1_edges, component_tracker_count, component_detection_count, total_tracker_count, total_detection_count, component_mean_detection_score, component_min_detection_score, a0_mean_iou, a1_mean_iou, iou_difference, mean_history_length, mean_observation_gap]
+  normalization: training-fit sequences only; zero-variance scales set to 1
+learning:
+  models: ridge regression for signed delta plus L2 logistic harm classifier; fit separately for future and immediate labels
+  ridge_l2: 10.0
+  logistic_l2: 10.0
+  random_seed: 20261118
+  ranking_score: predicted signed delta minus predicted harm probability
+  no_hyperparameter_search: true
+evaluation:
+  type: offline fixed-budget ranking diagnostic on heldout train videos; cannot be deployed as an online threshold
+  selection_fraction_per_sequence: 0.25
+  selected_count: ceil(0.25 * all sampled candidate actions in each video); identical count for all ranking methods
+  methods: [future_linear, immediate_linear, simple_iou_difference, random_20_fixed_seeds, no_intervention, all_intervention]
+  random_seed_rule: 'SHA256 ASCII lowercase hex of "r1-stage-b-random:<seed_00_to_19>:<sequence>:<frame_6digits>:<component_signature>"'
+  outcome: sum future signed delta and harmed anchor counts on all selected actions; report also direct-anchor subset without using GT to select actions
+  per_video: report complete eight-video table; video is pairing unit
+  gates_for_considering_stage_c:
+    minimum_heldout_videos_with_candidates: 8
+    minimum_direct_anchor_actions_total: 80
+    future_minus_simple_mean_net_per_selected_action: 0.1
+    future_minus_random_mean_net_per_selected_action: 0.1
+    future_minus_immediate_mean_net_per_selected_action: 0.1
+    minimum_videos_future_beats_simple_net: 6
+    minimum_videos_future_beats_immediate_net: 6
+    require_future_harmed_anchors_no_more_than_simple: true
+  interpretation: exploratory gate; no TrackEval, no natural closed-loop benefit, no independent test claim
+budget:
+  maximum_cpu_core_hours: 32
+  maximum_wall_seconds: 7200
+  maximum_gpu_hours: 0
