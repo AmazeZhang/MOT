@@ -1,0 +1,77 @@
+protocol_id: e0_reassociation_output_chain_20261119
+status: frozen_before_e0_replay_results
+study_type: exploratory_after_p1_r1_r2_development_results
+purpose: locate the first observed break between fixed positive detection, B0 internal association, update, emitted output, and GT-anchored reconnect
+scope:
+  dataset: DanceTrack
+  source_split: train
+  research_split: motion_dev
+  sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+  split_manifest: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  split_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  official_val: excluded
+events:
+  path: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+  sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+  expected_count: 831
+  expected_strata: {recovery_failure: 699, success_control: 81, persistence_censored: 51}
+  intended_track_id: baseline_before_tracker_id
+  positive_detection_id: reappearance_detection_id
+  window: after_frame_through_after_frame_plus_5_inclusive_clipped_to_sequence_end
+  denominator: all_831; per-stage applicable denominators and censored windows reported separately
+inputs:
+  prior_input_hashes: /media/imc/data/mot-data/runs/p1_common_state_mechanism_v1_20261113/input_hashes.json
+  prior_input_hashes_sha256: 5f0e4fb762aeae8bc1911f705947a3cdd3e563d41a9bf62af3d81883e82b21fc
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  b0_tracker_root: /media/imc/data/mot-data/runs/p1_natural_closed_loop_v1_20261113/b0_upstream/trackers
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  tracker: {det_thresh: 0.6, iou_threshold: 0.3, asso_func: iou, delta_t: 3, inertia: 0.2, use_byte: false, max_age: 30, min_hits: 3}
+  input_size: [800, 1440]
+  history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+capture:
+  tracker_policy: exact_B0_first_round_association; no alternative proposals; no writeback
+  full_sequence_replay: true
+  per_window_frame_record: [frame, detection_ids_and_boxes, first_round_matches, before_track_state, after_predict_track_state, after_update_track_state, update_detection_id, update_stage_first_round_or_OCR_or_birth_or_none, output_rows, mature_before_frame, mature_after_frame]
+  mature_definition: prior_frame_was_emitted_with_hit_streak_at_least_min_hits; startup_grace_output_alone_does_not_count
+  actual_output_gate: time_since_update_less_than_1_and_hit_streak_at_least_min_hits_or_startup_frame_grace
+  input_detection_rule: score_strictly_greater_than_0.6
+  detection_mapping: exact_high_detection_xyxy_score_with_1e-4_tolerance; ambiguous_mapping_fails
+  b0_reference_check: frame_and_ID_exact; max_abs_xyxy_error_pixels 0.0001
+  state_isolation_check: no_mutation_by_capture_callback
+  missing_event_frame: fail
+  GT_during_replay: prohibited
+label:
+  gt_source: DanceTrack_train_gt_txt
+  matching: Hungarian_IoU_at_least_0.5_between_all_GT_and_all_emitted_tracker_boxes_per_frame
+  reconnect: prior_fixed_B0_ID_is_assigned_to_event_GT_on_after_frame
+  persistence: same_ID_assigned_on_after_frame_and_next_4_frames_if_GT_visible; otherwise_censored
+  first_break_categories_in_priority_order:
+    - target_track_absent_before_association
+    - positive_detection_absent_from_high_pool
+    - target_not_finally_updated_by_positive_detection
+    - target_updated_by_positive_but_not_emitted
+    - target_emitted_but_GT_not_assigned_to_target_ID
+    - no_break_reconnect
+  category_is_descriptive: true
+  secondary_flags: [first_round_positive_pair, OCR_positive_pair, target_updated_by_other_detection, positive_detection_updated_other_track, prior_mature, target_emitted, output_gate_suppressed, GT_assigned_other_ID, GT_no_output_match, first_same_ID_reemit_delay, subsequent_same_ID_loss_or_switch]
+  reconcile_known_counts_as_checks: {target_alive: 829, first_round_positive_pair: 575, reconnect_total: 159, first_round_positive_and_reconnect: 158}
+  fixed_case_selection: first_2_event_ids_by_SHA256_ASCII_per_category; selected_only_after_full_counts; examples_are_not_denominator
+stop_and_trigger:
+  engineering_fail_if: [B0_replay_mismatch, capture_mutates_tracker, missing_event, duplicate_event, GT_used_as_feature, ambiguous_detection_mapping]
+  E1_trigger: at_least_one_target_updated_by_positive_but_not_emitted_event_with_prior_mature_true
+  E1_if_not_triggered: skip_output_rule_and_report_no_applicable_instance
+  no_posthoc_threshold_tuning: true
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds: 7200
+  max_cpu_core_hours: 16
+outputs:
+  run_dir: /media/imc/data/mot-data/runs/e0_reassociation_output_chain_20261119
+  no_overwrite: true
+  failed_run_kept: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/diagnostics/e0_reassociation_output_chain_20261119/README.md

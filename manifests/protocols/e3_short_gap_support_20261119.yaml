@@ -1,0 +1,78 @@
+protocol_id: e3_short_gap_support_20261119
+status: frozen_before_fit_outputs_or_metrics
+study_type: bounded_train_only_mechanism_feasibility
+purpose: test whether short-gap spatial support can safely recover low-score mature-track outputs beyond the simple score gate
+prior_evidence:
+  e1_protocol_sha256: 0aba57b6214b45b6071cbc75d5fefda6be6425f696697b424aa23e264e00b249
+  e2_protocol_sha256: 479e2e4203ac31be867620b9a7bb1dac7fe495e90051de9dfa4265f369dc131f
+  rule_selection_note: E2_score_0.8_was_chosen_after_viewing_motion_dev_labels; E3_geometry_rule_not_evaluated_on_motion_dev
+split:
+  manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  manifest_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+  source_split: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  source_split_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  fit_sequences: 24_from_R1_stage_B_fit
+  heldout_sequences: 8_from_R1_stage_B_heldout_if_fit_gate_passes
+  motion_dev_and_official_val: excluded
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  g1_baseline_summary: /media/imc/data/mot-data/runs/g1_ocsort_train_baseline_20261110/summary.json
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  trackeval_root: third_party/TrackEval
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  tracker: {det_thresh: 0.6, max_age: 30, min_hits: 3, iou_threshold: 0.3, delta_t: 3, asso_func: iou, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  cv_history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+conditions:
+  C: CV_original_output
+  D: CV_plus_all_E1_U_eligible_extra_rows
+  E: C_plus_U_extra_rows_with_score_at_least_0.8
+  G: E_plus_low_score_U_extra_rows_with_short_gap_spatial_support
+G_rule:
+  low_score_range: '0.6 < score < 0.8'
+  gap_from_last_original_C_output_at_most_frames: 5
+  iou_current_detection_to_last_original_C_output_at_least: 0.5
+  fallback_if_no_prior_original_output: reject
+  detector_score_and_box_from_current_real_update_only: true
+  prior_output_from_same_track_ID_only: true
+  no_GT_future_or_current_GT_feature: true
+  no_tracker_feedback: true
+  no_threshold_search: true
+engineering_acceptance:
+  all_C_rows_identical_across_C_D_E_G: true
+  subset_order: C_subset_E_subset_G_subset_D
+  frame_track_ID_unique: true
+  U_generation_does_not_mutate_tracker_state: true
+  detection_cache_hash_matches_G1_record: true
+evaluation:
+  official: TrackEval_COMBINED_SEQ_and_per_sequence_HOTA_DetA_AssA_IDF1_IDSW_Frag_FP_FN
+  GT_read_only_after_outputs_complete: true
+  per_sequence_report: required
+  unit: video_not_frame_or_detection
+decision:
+  fit_gate_all_required:
+    G_minus_E_HOTA_min_percentage_points: 0.1
+    G_minus_E_AssA_min_percentage_points: 0.0
+    G_minus_E_IDF1_min_percentage_points: 0.0
+    G_minus_E_IDSW_max_count: 10
+    G_minus_E_FP_max_count: 50
+    minimum_fit_videos_G_HOTA_above_E: 16
+  if_fit_fails: stop_E3; do_not_run_heldout_or_tune_thresholds
+  if_fit_passes: run_once_on_eight_train_heldout_videos_without_changing_rule
+  heldout_interpretation: reused_train_heldout_not_independent_final_test
+  no_claim: novel_method_or_internal_association_improvement
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds_per_partition: 7200
+  max_cpu_core_hours_per_partition: 32
+outputs:
+  fit_dir: /media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119
+  heldout_dir: /media/imc/data/mot-data/runs/e3_short_gap_support_heldout_20261119
+  no_overwrite: true
+  preserve_partial_sequence_results: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/feasibility/e3_short_gap_support_20261119/README.md

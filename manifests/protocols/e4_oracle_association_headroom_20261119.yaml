@@ -1,0 +1,82 @@
+protocol_id: e4_oracle_association_headroom_20261119
+status: frozen_before_oracle_run_or_outcomes
+study_type: privileged_train_fit_local_branch_upper_bound
+purpose: decide whether correcting a missed high-score reappearance association can improve downstream identity output under fixed CV_and_E
+source:
+  e3_fit_summary: /media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119/summary.json
+  e3_fit_summary_sha256: 24aa6db797fc3eef9a52e8513624c1f9e5fa8fe7f74a2117d22d4e9ef8752507
+  e3_protocol: manifests/protocols/e3_short_gap_support_20261119.yaml
+  e3_protocol_sha256: 5bcb1ea1d12548bc253ed32deb1824cd3eb109bf80c206c256e2db94cf67a86d
+  fit_split_manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  fit_split_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+scope:
+  dataset: DanceTrack
+  split: 24_train_fit_sequences_from_R1
+  train_heldout_motion_dev_official_val: excluded
+  maximum_candidate_episodes_per_video: 50
+  selection_rank: 'ascending SHA256 ASCII of e4:<sequence>:<frame_6digits>:<gt_id>:<track_id>'
+  one_first_high_detection_reappearance_candidate_per_GT_output_gap: true
+event_definition:
+  GT_to_C_output_anchor: Hungarian_IoU_at_least_0.5_at_last_original_output
+  GT_to_high_detection_at_reappearance: Hungarian_IoU_at_least_0.5
+  gap_since_last_C_output_frames: [2, 30]
+  f_plus_4_within_sequence: true
+  target_previously_mature: original_output_with_hit_streak_at_least_3
+  target_live_at_first_round: true
+  baseline_final_update_not_with_registered_positive_detection: true
+  candidate_selection_before_baseline_failure_check: true
+intervention:
+  branch_from_same_pre_frame_CV_tracker_and_history_state: true
+  baseline_first_round: original_CV
+  oracle_first_round: remove_existing_pairs_involving_target_track_or_GT_positive_detection_then_force_their_pair
+  one_to_one: true
+  oracle_may_override_normal_IoU_gate: true
+  second_round_and_future_association: original_OC_SORT_plus_CV
+  output_policy_both_branches: E_score_at_least_0.8_for_mature_reemit
+  future_frames_after_intervention: 4
+  no_oracle_action_after_first_frame: true
+  GT_used_for_event_selection_and_forced_pair: true
+  not_deployable: true
+engineering_acceptance:
+  parent_C_and_E_replay_from_E3: exact_frame_ID_and_boxes_atol_1e-4
+  parent_state_unchanged_by_forks: true
+  baseline_branch_matches_parent_for_five_frames: true
+  oracle_target_pair_recorded_exactly_once: true
+  unique_tracker_ID_per_frame: true
+  source_hashes_and_code_unchanged_during_run: true
+evaluation:
+  primary: five_frame_target_same_ID_correct_visible_frames_delta_GT_IoU_0.5
+  secondary: all_prior_frame_GT_anchored_ID_correct_visible_frames_delta_and_harmed_other_anchors
+  diagnostic: first_frame_target_real_positive_update_and_E_output
+  report: [candidate_episodes, selected_episodes, eligible_failures, target_gain_harm_nochange, other_anchor_harm, per_video]
+  unit: video; event_windows_can_overlap_and_are_not_independent_video_replicates
+  no_official_TrackEval: independent_local_forks_are_not_one_coherent_full_sequence_tracker_output
+decision:
+  sufficient_headroom_all_required:
+    minimum_eligible_failures: 100
+    minimum_target_correct_frame_gain_per_event: 0.5
+    maximum_target_harmed_event_fraction: 0.05
+    maximum_other_anchor_harmed_event_fraction: 0.10
+    minimum_all_anchor_net_correct_frame_gain_per_event: 0.25
+  if_fail: stop_current_association_repair_branch; do_not_build_learned_method_from_this_oracle
+  if_pass: mechanism_headroom_only; design_non_oracle_information_source_and_closed_loop_test_separately
+  never_claim: deployable_method_gain_or_official_HOTA_from_local_oracle
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  tracker: {det_thresh: 0.6, max_age: 30, min_hits: 3, iou_threshold: 0.3, delta_t: 3, asso_func: iou, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  cv_history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds: 7200
+  max_cpu_core_hours: 32
+outputs:
+  run_dir: /media/imc/data/mot-data/runs/e4_oracle_association_headroom_20261119
+  no_overwrite: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/diagnostics/e4_oracle_association_headroom_20261119/README.md

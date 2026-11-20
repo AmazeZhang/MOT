@@ -1,0 +1,37 @@
+analysis_id: e5_baseline_pair_trace_addendum_20261120
+status: planned_after_first_posthoc_breakdown_before_pair_trace_run
+type: read_only_replay_addendum
+purpose: resolve whether E5 forced detections were already assigned in the normal first round and why some target positives were absent from alternative choices
+scope:
+  exact_576_E5_fit_action_events: true
+  all_24_fit_parent_sequences_replayed_to_reach_events: true
+  no_forced_actions_or_tracker_modification: true
+  no_GT_read_during_replay: true
+  heldout_motion_dev_official_val: excluded
+inputs:
+  e5_run: /media/imc/data/mot-data/runs/e5_nonoracle_appearance_local_fit_20261119
+  e5_summary_sha256: 7ec8d4dde1b2d041f100bb150abf99289386553b34093e2c5074e8762a3ebdbb
+  e5_analysis_run: /media/imc/data/mot-data/runs/e5_readonly_error_analysis_20261120
+  e5_analysis_summary_sha256: 674ddf537dfc982ea3d9bbed76ebeca6e4469c6c5c2ec698cfa7dfb376094459
+  e3_fit_trackers: /media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119/trackers
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+replay_acceptance:
+  parent_C_and_E_vs_E3: exact_frame_and_ID_boxes_atol_1e-4
+  first_round_request_high_detection_index_matches_cached_detection_ID: true
+  forced_target_and_selected_detection_identity_unchanged_from_E5_raw: true
+  no_GT_file_opened: true
+  source_and_code_hashes_recorded: true
+outputs:
+  run_dir: /media/imc/data/mot-data/runs/e5_baseline_pair_trace_addendum_20261120
+  report_addendum: reports/diagnostics/e5_error_analysis_20261120/README.md
+  no_overwrite: true
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds: 3600
+interpretation:
+  posthoc_descriptive_only: true
+  baseline_pair_ownership_is_not_a_full_causal_attribution_of_five_frame_harm: true
+  no_new_method_or_gate_from_this_addendum: true

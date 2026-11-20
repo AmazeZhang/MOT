@@ -2,6 +2,38 @@
 
 This file records what the current evidence supports before later method work is allowed to strengthen the wording.
 
+## 2026-11-19: E0–E3 output and identity claim gate
+
+Verdict: **not supported** for the proposed broad claim that mature-track re-emission plus observable risk gates form a new method that improves internal identity continuity. Fresh same-family semantic review is provisional; E0–E3 audits retain their `WARN` qualifications. See [decision record](docs/e0_e3_claim_gate_20261119.md).
+
+Supported: on selected DanceTrack train development videos and fixed detections, re-emitting previously mature tracks recovers visible rows and modestly raises TrackEval HOTA, with measurable FP/IDSW costs. E is a simple comparison baseline. E3's short-gap rule did not clear its frozen train-fit benefit/cost gate.
+
+Unsupported: internal association repair, novelty, safe identity improvement, generalization, or official validation of a method. Changes in AssA/IDF1 after output filtering are evaluation effects, not proof that the tracker chose better identities.
+
+Next evidence: only a bounded, explicitly privileged association-headroom test is warranted before choosing a new state-changing mechanism. A positive oracle result would show room for an online information source; it would not validate a deployable algorithm.
+
+## 2026-11-19: E4 conditional association headroom
+
+Verdict: **supported only as a conditional GT-privileged local counterfactual** (same-family provisional, medium overall confidence; integrity `WARN`). See [E4 claim decision](docs/e4_claim_gate_20261119.md), [report](reports/diagnostics/e4_oracle_association_headroom_20261119/README.md) and [audit](docs/audits/e4_oracle_association_headroom_20261119/EXPERIMENT_AUDIT.md).
+
+Supported: on 454 selected mature-track reappearance failures from 24 train-fit videos, forcing the GT-positive detection to the prior track once increases target same-ID output by 1,426 correct frames and all anchored identities by 1,643 correct frames over overlapping five-frame windows. The five frozen headroom checks pass.
+
+Unsupported: available online features can find those pairs; a deployable algorithm exists; full-sequence HOTA/AssA/IDF1 improves; the effect generalizes to heldout videos; a learned motion distribution or FM is justified. “Headroom” is constructive and conditional, not a proven optimal bound.
+
+Next evidence: one prelocked non-oracle appearance information test versus CV+E and a matched-budget simple geometry/score control, with a one-time train-heldout evaluation and a stop rule.
+
+## 2026-11-20: E5 fixed non-GT appearance selector
+
+Verdict: **not supported** for the proposed claim that this fixed HSV crop selector improves association correction over a matched-action geometry and score rule. The fresh same-family result-to-claim judgment is provisional; confidence is high for the fit-gate decision and the integrity audit is `WARN` for scope. See [E5 decision](docs/e5_claim_gate_20261120.md), [report](reports/feasibility/e5_nonoracle_appearance_local_20261119/README.md), and [audit](docs/audits/e5_nonoracle_appearance_local_20261119/EXPERIMENT_AUDIT.md).
+
+Supported: on 24 DanceTrack train-fit videos, 576 paired local five-frame actions yielded appearance minus geometry all-anchor correct-output frames **−6**, against the frozen requirement of at least +58; other-anchor harm events were **422 versus 420**. Both methods were worse than unchanged CV+E on this local aggregate. The fit gate failed, so the eight heldout videos were not used.
+
+Unsupported: a general claim that appearance cues are ineffective or geometry is superior; a deployable selector, full-sequence gains, official TrackEval changes, or heldout generalization. E4's GT-privileged headroom does not establish that online features can find its correct pairs.
+
+Route: stop this selector without retuning it on fit or opening heldout. Any next association hypothesis needs a materially different non-GT mechanism and a new locked protocol after read-only error analysis.
+
+Subsequent [read-only error analysis](reports/diagnostics/e5_error_analysis_20261120/README.md) found 529/576 identical selections and 414 events where both branches harmed other historical anchors. A GT-free normal first-round replay showed that chosen detections were usually already paired to another track. These posthoc diagnostics explain the risk of the tested trigger; they do not provide a new online rule or change the `no` verdict.
+
 ## 2026-11-11: G2 D2 current-position counterfactual
 
 Verdict: **partially supported**. The external review used a fresh GPT-5.6-Sol reviewer, but it is a same-family review and therefore provisional rather than independently accepted. The integrity-review verdict remains unavailable because that reviewer hit a usage limit.

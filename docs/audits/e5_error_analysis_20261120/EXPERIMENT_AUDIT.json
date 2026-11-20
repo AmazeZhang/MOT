@@ -1,0 +1,33 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-20",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "fit_only_posthoc_local_scope",
+  "summary": "All 576 E5 raw/scored/pair-trace event joins and five-frame scores reproduce; interpretation remains posthoc and fit-only.",
+  "audited_input_hashes": {
+    "/media/imc/data/mot-data/runs/e5_readonly_error_analysis_20261120/summary.json": "sha256:674ddf537dfc982ea3d9bed76ebeca6e4469c6c5c2ec698cfa7dfb376094459",
+    "/media/imc/data/mot-data/runs/e5_baseline_pair_trace_addendum_20261120/summary.json": "sha256:c3795d00fa85ab0fdae90fb2d8fc88c987bc40f1c6eb8057f88d4cddb51488f0",
+    "/media/imc/data/mot-data/runs/e5_baseline_pair_trace_addendum_20261120/joined_summary.json": "sha256:b1feb884612d188e6299ab5edb5ee7feb15e0396a697e013273648bcfd4e6fd0"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-20_run02/",
+  "agent_id": "/root/e5_error_analysis_audit",
+  "reviewer_model": "inherited GPT-6 Codex",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Real DanceTrack GT used only in scoring and posthoc joins; pair replay reads no GT."},
+    "score_normalization": {"status": "pass", "details": "Raw correct-frame counts and differences."},
+    "result_existence": {"status": "pass", "details": "24 videos, 576 unique exact joins, source hashes and five-frame scores independently reproduced."},
+    "dead_code": {"status": "pass", "details": "Analysis, replay, and join paths executed and saved results."},
+    "scope": {"status": "warn", "details": "Fit-only posthoc analysis of selected overlapping local windows; no heldout/full-sequence result."},
+    "eval_type": "real_gt_posthoc_local_diagnostic"
+  },
+  "claims": [
+    {"id": "E5_failure_breakdown_is_descriptive", "impact": "supported_with_qualification"},
+    {"id": "displacement_causes_every_five_frame_harm", "impact": "unsupported"},
+    {"id": "343_detector_misses", "impact": "unsupported"}
+  ]
+}

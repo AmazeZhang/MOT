@@ -1,0 +1,60 @@
+protocol_id: e2_reemit_guard_20261119
+status: frozen_before_E2_counterfactual_outputs_and_metrics
+study_type: exploratory_development_output_only_simple_control
+purpose: test whether two established-style observable gates reduce U's output risk
+origin:
+  e1_protocol: manifests/protocols/e1_mature_reemit_factorial_20261119.yaml
+  e1_run_summary_sha256: 28446fde6869dc980ea9f463279f7fe46a8ecc4eb45482fc66b404540a5bbae7
+  e1_eval_summary_sha256: 734759e9072010a530b2591eb44bb0e474b95131b525a3a374b611793dec01e1
+  descriptive_risk_summary_sha256: c60e27b5a5f0b78f6dd5f68723ff80b9ea23c97621f533f8c852deb377837fa7
+  risk_analysis_was_read_before_rule_selection: true
+scope:
+  dataset: DanceTrack
+  split: train_motion_dev
+  sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+  official_val: excluded
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  trackeval_root: third_party/TrackEval
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  events: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+  events_sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+conditions:
+  C: CV_original_reference_from_E1
+  D: CV_U_reference_from_E1
+  E_score08: C_plus_E1_D_extra_rows_with_detection_score_at_least_0.8
+  F_streak2: C_plus_E1_D_extra_rows_with_current_hit_streak_at_least_2
+  A_B: E1_upstream_reference_only_no_rerun
+method:
+  output_only: true
+  tracker_state_unchanged_by_construction: true
+  gate_inputs: current_detection_score_or_current_hit_streak_only
+  no_ground_truth_future_or_current_GT_in_gate: true
+  no_training_or_threshold_search: true
+  exact_original_C_rows_preserved: true
+  original_U_extra_rows_only_filtered: true
+  unique_frame_track_id: true
+  score_threshold: 0.8
+  streak_threshold: 2
+evaluation:
+  official: TrackEval_COMBINED_SEQ_and_per_sequence_HOTA_DetA_AssA_IDF1_IDSW_Frag_FP_FN
+  fixed_events: original_831_events_reconnect_and_five_frame_persistence
+  extra_proxy: Hungarian_GT_output_IoU_0.5_descriptive_not_official
+  required_comparisons: [E_score08_minus_C, E_score08_minus_D, F_streak2_minus_C, F_streak2_minus_D]
+  report_all: [HOTA, DetA, AssA, IDF1, IDSW, Frag, FP, FN, event_recovery, per_video]
+decision:
+  engineering_acceptance: exact_C_and_D_source_hashes_and_subset_outputs
+  exploratory_utility_gate: E_or_F_HOTA_above_C_and_AssA_at_least_C_and_IDF1_at_least_C_and_IDSW_below_D_and_FP_below_D
+  limitation: selected_after_viewing_same_dev_risk_labels; passing_is_not_confirmation_or_novelty
+  stop_if: neither_E_nor_F_passes_exploratory_utility_gate
+  never_claim: internal_association_improvement_or_new_method
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds: 1800
+outputs:
+  run_dir: /media/imc/data/mot-data/runs/e2_reemit_guard_20261119
+  no_overwrite: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/feasibility/e2_reemit_guard_20261119/README.md

@@ -1,0 +1,24 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-19",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "same_dev_label_informed_threshold_and_no_independent_confirmation",
+  "reviewer": "fresh Codex agent",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "agent_id": "/root/e2_integrity_audit",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-19_run01/",
+  "audited_input_hashes": {
+    "manifests/protocols/e2_reemit_guard_20261119.yaml": "sha256:479e2e4203ac31be867620b9a7bb1dac7fe495e90051de9dfa4265f369dc131f",
+    "/media/imc/data/mot-data/runs/e2_reemit_guard_20261119/summary.json": "sha256:8cad3a38720d8bb40df5c65a8fa092cc35e3356b88dab20facb30b396d80627f"
+  },
+  "checks": {
+    "gt_provenance": "PASS",
+    "score_normalization": "PASS",
+    "result_existence_and_arithmetic": "PASS",
+    "metric_execution": "PASS",
+    "scope": "WARN",
+    "evaluation_type": "official_real_gt_plus_custom_gt_diagnostics"
+  }
+}

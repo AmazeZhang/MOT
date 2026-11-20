@@ -22,3 +22,10 @@
 - `engineering/p1_deterministic_overfit_smoke_20261112/`：在物理 GPU1 上完成的 128 样本确定性 GRU 过拟合 smoke；验证真实 CUDA、mask、归一化和 checkpoint，不是泛化或跟踪效果。
 - `data/p1_motion_samples_v1_20261112/`：冻结 P1 严格在线 motion-train/dev 样本契约的构建与独立重复；大数组留在数据盘，只登记计数、内容哈希、来源和限制。
 - `feasibility/p1_deterministic_offline_v1_20261112/`：三 seed 完整 motion-train→motion-dev 确定性预测可行性门；五项冻结条件通过并获准进入自然闭环，同时保留长 gap IoU 退化和 provisional WARN 审计。
+- `diagnostics/e0_reassociation_output_chain_20261119/`：固定 831 事件的匹配、更新、输出和 GT 评价断点；424 个曾成熟输出轨迹在正检测更新后没有当帧输出。
+- `feasibility/e1_mature_reemit_factorial_20261119/`：B0/CV × 原输出/U 输出四条件探索；CV+U 有 HOTA 增益，也增加 IDSW、Frag 和 FP。
+- `feasibility/e2_reemit_guard_20261119/`：在已使用的 8 段 motion-dev 上比较分数与连续命中简单门控；同集风险标签影响阈值选择，provisional WARN。
+- `feasibility/e3_short_gap_support_20261119/`：24 段 train-fit 的低分短缺失空间补回对照；G 相对 E 的 HOTA +0.050、FP +84，未过预写门槛，留出未运行；审计记录 GT 哈希时序偏离。
+- `diagnostics/e4_oracle_association_headroom_20261119/`：24 段 train-fit 的一次 GT 特权正确配对五帧局部分支；454 个条件化错配事件、目标净增 1,426 正确帧、全锚点净增 1,643，headroom 门通过但不代表在线方法或官方完整序列指标。
+- `feasibility/e5_nonoracle_appearance_local_20261119/`：24 段 train-fit 中 576 次配平的非 GT 外观/几何五帧局部分支；外观相对几何全锚点净帧 −6、其他锚点损伤 422/420，未过 fit 门，留出未运行。
+- `diagnostics/e5_error_analysis_20261120/`：对 E5 的 47 次选择分歧、414 次共同其他锚点损伤及正常首轮配对归属做只读事后拆解；576 个事件连接复核，不构成新方法或新晋级门。

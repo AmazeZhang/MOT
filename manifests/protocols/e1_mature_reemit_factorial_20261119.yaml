@@ -1,0 +1,77 @@
+protocol_id: e1_mature_reemit_factorial_20261119
+status: frozen_before_e1_tracker_or_metric_results
+study_type: exploratory_development_full_2x2_after_E0_trigger
+purpose: test output-only mature-track reemit rule separately from B0_vs_CV first-round proposal
+trigger:
+  e0_protocol: manifests/protocols/e0_reassociation_output_chain_20261119.yaml
+  e0_required_status: PASS
+  e0_required_flag: E1_trigger_true
+scope:
+  dataset: DanceTrack
+  split: train_motion_dev
+  sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+  official_val: excluded
+events:
+  path: /media/imc/data/mot-data/runs/p1_closed_loop_common_events_v1_retry1_20261112/events.csv
+  sha256: 25c2602e9f5f2a6352b9bef3fc6ffdff0879b68016f0c06359c46b1ec867d2fc
+  total: 831
+  recovery_failure: 699
+  success_control: 81
+  persistence_censored: 51
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  prior_hashes: /media/imc/data/mot-data/runs/p1_common_state_mechanism_v1_20261113/input_hashes.json
+  prior_hashes_sha256: 5f0e4fb762aeae8bc1911f705947a3cdd3e563d41a9bf62af3d81883e82b21fc
+  b0_tracker_root: /media/imc/data/mot-data/runs/p1_natural_closed_loop_v1_20261113/b0_upstream/trackers
+  cv_tracker_root: /media/imc/data/mot-data/runs/p1_natural_closed_loop_v1_20261113/constant_velocity/trackers
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  trackeval_root: third_party/TrackEval
+  tracker: {det_thresh: 0.6, max_age: 30, min_hits: 3, iou_threshold: 0.3, delta_t: 3, asso_func: iou, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  cv_history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+conditions:
+  A: {first_round_proposal: b0_upstream_KF, output: original}
+  B: {first_round_proposal: b0_upstream_KF, output: U}
+  C: {first_round_proposal: constant_velocity, output: original}
+  D: {first_round_proposal: constant_velocity, output: U}
+U_rule:
+  eligible_only_if: [track_existed_before_current_frame, was_previously_emitted_with_hit_streak_at_least_3, current_frame_processed_real_high_detection, current_frame_hits_increased_by_1, current_frame_time_since_update_0, original_output_omitted_track]
+  action: emit_current_real_detection_xyxy_with_same_track_ID
+  new_track_confirmation: unchanged
+  association_KF_history_lifecycle: unchanged
+  output_cannot_feedback_to_tracker: true
+  no_predicted_box: true
+  no_future_or_GT_feature: true
+  no_max_age_or_association_gate_change: true
+engineering_acceptance:
+  A_and_C_replay: exact_frame_and_ID_with_reference; xyxy_max_abs_error_1e-4_pixels
+  pair_state_isolation: A_B_and_C_D_share_single_tracker_execution; U_generation_pickle_state_unchanged_each_frame
+  output_unique_track_ID_per_frame: true
+  all_new_U_outputs_mature_and_real_update: true
+  E0_trigger_verified_before_run: true
+evaluation:
+  official: TrackEval_COMBINED_SEQ_and_per_sequence_HOTA_DetA_AssA_IDF1_IDSW_Frag_FP_FN
+  fixed_event_recovery: existing_reconnect_and_five_frame_persistence_at_GT_matching_IoU_0.5
+  additional_output_TP_FP: Hungarian_GT_output_matching_IoU_0.5_all_outputs_per_frame; descriptive_not_official
+  extra: [new_output_count, first_same_ID_reemit_delay, internal_first_round_pair_counts]
+  contrasts: [B_minus_A, D_minus_C, interaction_D_minus_C_minus_B_minus_A]
+  unit: eight_paired_development_videos; event_rows_not_independent_video_replicates
+decision:
+  stop_U_if: HOTA_B_less_or_equal_A_and_HOTA_D_less_or_equal_C
+  advance_as_simple_baseline_only_if: any_of_B_or_D_has_HOTA_gain_and_same_pair_AssA_not_lower_and_IDF1_not_lower
+  always_report: [per_video_harm, FP, FN, IDSW, Frag, recovery, success_control_harm]
+  no_claim: U_cannot_fix_internal_identity_association; no_official_val_or_novelty_claim
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds: 14400
+  max_cpu_core_hours: 32
+outputs:
+  run_dir: /media/imc/data/mot-data/runs/e1_mature_reemit_factorial_20261119
+  no_overwrite: true
+  failed_run_kept: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/feasibility/e1_mature_reemit_factorial_20261119/README.md

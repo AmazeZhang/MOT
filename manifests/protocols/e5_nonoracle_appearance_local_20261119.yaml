@@ -1,0 +1,88 @@
+protocol_id: e5_nonoracle_appearance_local_20261119
+status: frozen_before_fit_labels_or_outcomes
+study_type: paired_non_GT_local_association_selection
+purpose: test whether an untrained image appearance cue selects better one-to-one repairs than a simple geometry_and_score rule
+source:
+  split_manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  split_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+  e3_fit_summary: /media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119/summary.json
+  e3_fit_summary_sha256: 24aa6db797fc3eef9a52e8513624c1f9e5fa8fe7f74a2117d22d4e9ef8752507
+  e4_summary: /media/imc/data/mot-data/runs/e4_oracle_association_headroom_20261119_retry3/summary.json
+  e4_summary_sha256: 628e979e86a0478f15f69df2a040192986d84fc0044b83b8e801bc71e772f7dd
+scope:
+  fit: 24_R1_train_fit_videos
+  heldout: 8_R1_train_heldout_videos_once_only_if_fit_gate_passes
+  motion_dev_and_official_val: excluded
+  online_candidate_definition:
+    anchor: last_original_C_output_of_same_track
+    gap_frames_inclusive: [2, 30]
+    first_spatially_eligible_frame_per_C_output_gap: true
+    high_detections: score_strictly_greater_than_0.6
+    minimum_spatially_eligible_detections: 2
+    center_distance_at_most_old_box_diagonals: 2.0
+    target_mature_and_live_at_first_round: true
+    exclude_detection_already_paired_to_target_by_normal_first_round: true
+  sample_before_GT_and_fork_eligibility:
+    rank: ascending_SHA256_ASCII_of_e5_colon_sequence_colon_frame_6digits_colon_track_id
+    cap_per_video: 30
+  all_observable_candidate_counts_reported: true
+  local_windows_can_overlap: true
+  not_a_full_sequence_closed_loop: true
+methods:
+  baseline: original_CV_plus_E_score_0.8
+  geometry_control:
+    score: max_IoU_of_current_KF_prediction_and_last_C_box_to_detection_plus_0.05_times_detection_score
+    action: replace_first_round_pair_for_selected_target_with_highest_scoring_alternative
+  appearance:
+    feature: L1_normalized_12x4x4_HSV_histogram_on_inner_70_percent_of_old_C_box_and_current_detection_crop
+    similarity: Bhattacharyya_coefficient_sum_sqrt_probability_products
+    score: similarity_plus_0.1_times_geometry_IoU_component
+    minimum_best_similarity: 0.55
+    minimum_best_minus_second_appearance_score: 0.02
+    action: replace_first_round_pair_for_same_selected_target_with_highest_scoring_alternative
+  matched_action_budget: geometry_control_acts_on_exact_same_events_where_appearance_threshold_passes
+  no_GT_in_candidate_selection_features_or_actions: true
+  one_target_per_event_one_pair_per_method: true
+  following_four_frames: original_CV_plus_E_no_more_action
+evaluation:
+  GT_read_only_after_both_actions_and_branches_are_decided: true
+  target_identity: GT_ID_matched_to_target_track_at_last_C_output_IoU_0.5_if_any
+  correct_action: forced_detection_matched_to_target_GT_at_current_frame_IoU_0.5
+  primary: paired_five_frame_all_C_anchored_ID_correct_output_delta_appearance_minus_geometry
+  secondary: paired_target_correct_frame_delta_and_harmed_other_anchors
+  report: [all_online_candidates, selected, eligible, threshold_pass, actions, disagreement, correct_wrong_unanchored, per_video, all_anchor_net, target_net, harm]
+  independent_unit: video
+  no_official_TrackEval_or_deployable_method_claim: true
+decision:
+  fit_gate_all_required:
+    minimum_paired_actions: 100
+    minimum_disagreeing_actions: 20
+    minimum_appearance_minus_geometry_all_anchor_correct_frame_gain_per_action: 0.10
+    appearance_other_anchor_harm_events_no_more_than_geometry: true
+  if_fit_fail: stop_current_appearance_selector; do_not_run_heldout_or_tune_same_fit
+  if_fit_pass: lock_same_rule_and_run_heldout_once
+  heldout_success_all_required:
+    minimum_paired_actions: 30
+    positive_appearance_minus_geometry_all_anchor_correct_frame_gain: true
+    appearance_other_anchor_harm_events_no_more_than_geometry: true
+  if_heldout_fail: stop_current_appearance_selector; do_not_tune_heldout_or_train_FM_MDN
+  if_heldout_pass: consider_separate_full_sequence_closed_loop_protocol_before_method_claim
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  oc_sort_root: third_party/OC_SORT
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  tracker: {det_thresh: 0.6, max_age: 30, min_hits: 3, iou_threshold: 0.3, delta_t: 3, asso_func: iou, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  cv_history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+budget:
+  device: cpu
+  CUDA_VISIBLE_DEVICES: ''
+  physical_gpu: null
+  max_wall_seconds_per_partition: 7200
+outputs:
+  fit_dir: /media/imc/data/mot-data/runs/e5_nonoracle_appearance_local_fit_20261119
+  heldout_dir: /media/imc/data/mot-data/runs/e5_nonoracle_appearance_local_heldout_20261119
+  no_overwrite: true
+  raw_artifacts: data_disk_only
+  repo_report: reports/feasibility/e5_nonoracle_appearance_local_20261119/README.md

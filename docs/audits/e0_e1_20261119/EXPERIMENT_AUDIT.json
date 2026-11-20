@@ -1,0 +1,38 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-19",
+  "overall_verdict": "WARN",
+  "integrity_status": "warn",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "reviewer_backend": "codex_fresh_agent_inherited_model",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-19_run01/",
+  "checks": {
+    "gt_provenance": "PASS",
+    "score_normalization": "PASS",
+    "artifact_existence_and_arithmetic": "PASS",
+    "dead_code_and_promised_output": "WARN_RESOLVED_BY_POSTHOC_ADDENDUM",
+    "scope": "WARN",
+    "evaluation_type": "PASS_QUALIFIED"
+  },
+  "e0": {
+    "events": 831,
+    "positive_update_no_output": 425,
+    "previously_mature_among_suppressed": 424,
+    "reconnect_total": 159,
+    "no_break_category": 158
+  },
+  "e1": {
+    "B_minus_A": {"HOTA": 0.4891448818840516, "AssA": -0.014223875797078733, "advance_gate": false},
+    "D_minus_C": {"HOTA": 0.477422070775404, "AssA": 0.03501419925233762, "IDF1": 0.19743975865443275, "advance_gate": true},
+    "B_extra_outputs": 2595,
+    "D_extra_outputs": 2310
+  },
+  "internal_pair_addendum": {
+    "B0_positive_pair": 575,
+    "CV_own_before_ID_applicable": 806,
+    "CV_own_positive_pair": 494,
+    "scope": "posthoc_fixed_event_descriptive_no_gate_change"
+  },
+  "claim_impact": "Supports a qualified development-set output-rule result, not generalization, internal association improvement, or novelty."
+}

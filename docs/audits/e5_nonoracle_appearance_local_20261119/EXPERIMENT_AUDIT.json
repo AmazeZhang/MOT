@@ -1,0 +1,32 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-20",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "local_fit_only_scope",
+  "summary": "Independent rescoring of all 576 raw E5 events found zero discrepancies; the fit research gate fails. The evidence is local and fit-only.",
+  "audited_input_hashes": {
+    "manifests/protocols/e5_nonoracle_appearance_local_20261119.yaml": "sha256:62b3b98f875cad1d3610bdc28f91e359edfe3b53ffc3585ec82e87ec5c8a3942",
+    "/media/imc/data/mot-data/runs/e5_nonoracle_appearance_local_fit_20261119/summary.json": "sha256:7ec8d4dde1b2d041f100bb150abf99289386553b34093e2c5074e8762a3ebdbb"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-20_run01/",
+  "agent_id": "/root/e5_experiment_integrity_audit",
+  "reviewer_model": "inherited GPT-6 Codex",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Dataset GT read only after paired branches and raw outputs are fixed."},
+    "score_normalization": {"status": "pass", "details": "Raw GT matched five-frame correct-output counts; histogram L1 normalization is only a selection feature."},
+    "result_existence": {"status": "pass", "details": "24 raw and 24 scored files, source and result hashes checked; all 576 events independently rescored with zero discrepancies."},
+    "dead_code": {"status": "pass", "details": "score_events is called and its output saved."},
+    "scope": {"status": "warn", "details": "24 fit videos, overlapping local forks; heldout and official full-sequence evaluation absent by design after failed gate."},
+    "eval_type": "real_gt_local_counterfactual"
+  },
+  "claims": [
+    {"id": "E5_locked_selector_fit_gate_failed", "impact": "supported"},
+    {"id": "appearance_generally_ineffective", "impact": "unsupported"},
+    {"id": "full_sequence_improvement", "impact": "unsupported"}
+  ]
+}

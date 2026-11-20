@@ -1,0 +1,29 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-19",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "GT_checksum_read_before_all_outputs_complete",
+  "reviewer": "fresh Codex agent",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "agent_id": "/root/e3_fit_integrity_audit",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-19_run02/",
+  "audited_input_hashes": {
+    "manifests/protocols/e3_short_gap_support_20261119.yaml": "sha256:5bcb1ea1d12548bc253ed32deb1824cd3eb109bf80c206c256e2db94cf67a86d",
+    "/media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119/summary.json": "sha256:24aa6db797fc3eef9a52e8513624c1f9e5fa8fe7f74a2117d22d4e9ef8752507"
+  },
+  "checks": {
+    "GT_provenance_and_timing": "WARN",
+    "score_normalization": "PASS",
+    "artifacts_nesting_gate": "PASS",
+    "metric_execution": "PASS",
+    "scope": "PASS_with_limits",
+    "evaluation_type": "real_gt_fit_development"
+  },
+  "gate": {
+    "fit_gate_pass": false,
+    "failed_clauses": ["G_minus_E_HOTA_min_percentage_points", "G_minus_E_FP_max_count"],
+    "heldout_run_absent": true
+  }
+}

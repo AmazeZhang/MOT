@@ -1,0 +1,25 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-19",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "conditional_fit_scope_overlapping_windows_and_unarchived_full_oracle_trajectories",
+  "reviewer": "fresh Codex agent",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "agent_id": "/root/e4_oracle_integrity_audit",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-19_run03/",
+  "audited_input_hashes": {
+    "manifests/protocols/e4_oracle_association_headroom_20261119_retry3.yaml": "sha256:1e286bee37b6fc0aec90b865f23df8aecab56f568be1218774adff2647208068",
+    "/media/imc/data/mot-data/runs/e4_oracle_association_headroom_20261119_retry3/summary.json": "sha256:628e979e86a0478f15f69df2a040192986d84fc0044b83b8e801bc71e772f7dd"
+  },
+  "checks": {
+    "GT_provenance": "PASS_privileged",
+    "score_normalization": "PASS",
+    "artifacts_and_arithmetic": "PASS",
+    "branch_behavior": "PASS_with_auditability_warning",
+    "scope": "WARN",
+    "evaluation_type": "real_GT_privileged_local_counterfactual"
+  },
+  "headroom_gate_pass": true
+}

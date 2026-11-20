@@ -906,3 +906,99 @@
 - **限制：** 本次无服务器连接、无实验重跑、无模型训练；Nature 网页后续表格访问遇登录重定向，未独立重核先前 PDF 全文数字。E0/E1 是建议，尚未冻结、实现、运行；没有新的方法有效性或新颖性结论。
 - **精确下一步：** 服务器先冻结新的探索性 E0 协议，零改动重放全部 8 段 B0，记录内部匹配、更新、输出和 GT 评价之间的断点；有输出抑制实例才执行预先冻结的 E1。合计实施预算 2–3 个工作日；CPU、`CUDA_VISIBLE_DEVICES=''`，产物留数据盘，不重启 FM/R1/R2 大矩阵。
 - **本地检查：** `git diff --check` 通过；README、最新复盘及旧草案三份文档的本地链接均可解析；复算 R1 每动作差 −0.8554、R2 净救回 19/28/25、伤害比例 6.97%/11.56%/7.16%、B0 首轮正确但未重连差额 417，与报告一致。另读取固定版本 TrackEval 源码确认 HOTA 按阈值计算。复盘形成时仅修改文档，尚未创建 commit 或 push；随后用户明确要求提交并推送本次安排更新。
+
+## 2026-11-19：同步远端并理解 E0/E1 下一轮实验
+
+- 本地工作树原本干净，`git fetch` 后确认远端仅有一项新增提交 `a6dd87d`，以 `git pull --ff-only origin main` 从 `502d7df` 快进至 `a6dd87d`。新增 `docs/experiment_review_20261119.md`，并更新 README、旧 R2 草案状态说明和进度日志。
+- 新路线聚焦“观测缺失后的内部匹配、状态更新、实际输出、GT 评价之间的断点”。先冻结探索性 E0 协议，对 8 段 motion-dev 的 B0 零改动回放覆盖 831 事件及其后至少 5 帧；逐事件记录存活、入池、首轮/最终配对、更新、输出门与 GT 对实际输出的评价。若证实存在匹配后输出抑制，再冻结并执行 E1 的 B0/CV × 原输出/成熟轨迹即时输出完整 2×2。E0/E1 建议合计 2–3 个工作日、CPU-only，`CUDA_VISIBLE_DEVICES=''`；旧 R2 P2/P3 不沿用，也不启动 FM/R1/R2 大矩阵。
+- 从数据盘原始 `event_method_mechanism.csv` 和固定 `events.csv` 独立核对：831 事件中 B0 首轮正确匹配 575 次；这 575 次中 158 次满足重连指标，另有 1 次重连不属于首轮正确匹配集合。`src/mot_research/evaluation/closed_loop_events.py` 的重连指标要求重现帧 GT 对实际输出匹配到原 ID；`third_party/OC_SORT/.../ocsort.py` 的正常更新路径默认 `min_hits=3`，输出要求当帧有更新且 `hit_streak` 达门槛（启动期例外）。这些事实只支持 E0 的候选解释，不能把 417 次差额全部归因于输出门。
+- 本轮仅同步与分析，没有冻结新协议、实现 E0/E1、重跑 tracker、运行评测或使用任何 GPU。远端新文档是执行建议，未证明新方法收益。**下一步：** 若开始实施，先把 E0 的事件分母、互斥断点分类、GT 匹配口径、零改动回放验收、固定抽样规则、预算和输出哈希写成冻结协议，再进行 B0 CPU 回放；只有 E0 观察到输出抑制实例才进入 E1。此本地补记未提交或推送。
+
+## 2026-11-19：E0 事件链路与 E1 成熟轨迹输出规则四条件实验
+
+### 已完成
+
+- 按 11 月 19 日复盘，先落盘 E0 协议 `manifests/protocols/e0_reassociation_output_chain_20261119.yaml`（SHA256 `e587c07b4aa47f8f14f6b59a3837395a397920cbb5111ad4b45ce211db03eca7`）。B0 对 8 段 motion-dev 完整零改动回放，逐段与历史轨迹帧/ID 精确一致、框误差 ≤1e-4；GT 只在回放结束后用于标签。831 事件的互斥链路类别为：目标不存活 2、正检测未入池 0、未由正检测更新 242、更新后未输出 425、输出后 GT 未分配原 ID 4、无断点重连 158；重连总数仍为 159（另 1 个事件由其他检测输出而重连）。425 个更新后未输出中 424 个曾成熟输出，达到预定 E1 触发条件。运行 `/media/imc/data/mot-data/runs/e0_reassociation_output_chain_20261119/`，轻量报告 `reports/diagnostics/e0_reassociation_output_chain_20261119/README.md`。
+- 在 E1 运行前落盘四条件协议 `manifests/protocols/e1_mature_reemit_factorial_20261119.yaml`（SHA256 `0aba57b6214b45b6071cbc75d5fefda6be6425f696697b424aa23e264e00b249`）。A/B 共用一次 B0 执行，C/D 共用一次 CV 执行；U 只为过去确认输出且当帧真实高分检测更新、原输出门省略的轨迹多发布检测框与原 ID，逐帧核对生成 U 不改变序列化轨迹状态。A/C 的 16 段输出均与历史 B0/CV 参考一致；B/D 分别新增 2,595/2,310 行。轨迹与来源 `/media/imc/data/mot-data/runs/e1_mature_reemit_factorial_20261119/`。
+- 固定版本 TrackEval 的 `COMBINED_SEQ`：A(B0 原) HOTA 50.060 / AssA 31.663 / IDF1 49.554；B(B0 U) 50.549 / 31.649 / 49.710；C(CV 原) 51.057 / 32.624 / 49.606；D(CV U) 51.534 / 32.659 / 49.803。B−A 的 HOTA +0.489、AssA −0.014，不符合继续判据；D−C 的 HOTA +0.477、AssA +0.035、IDF1 +0.197，符合“下一轮简单基线”判据。但 B−A/D−C 的 FP +343/+328、IDSW +130/+91、Frag +102/+174，必须与收益一同报告。固定事件的五帧持续成功 A/B/C/D 为 81/328/84/328；全部逐视频数字见 `reports/feasibility/e1_mature_reemit_factorial_20261119/README.md`，原始评测在 `/media/imc/data/mot-data/runs/e1_mature_reemit_factorial_20261119_eval/`。
+- 新鲜同系列 `experiment-audit` 主审阅 provisional `WARN`：主门槛、官方汇总、831/3324 行事件与参考回放均可复算，范围仅 8 段已使用的开发视频。审阅发现 E1 主运行漏存协议中的内部首轮配对辅助计数；补做只读 CV 回放及 CV 自身 ID 标签附录并经独立复核通过。固定事件 B0 首轮正配对 575/831；CV 缺失前自身 ID 有 GT 锚点 806/831，其中首轮正配对 494/806。机械比较 CV 与 B0 数字 ID 的 102/831 不是 CV 正确率。附录在 `/media/imc/data/mot-data/runs/e1_mature_reemit_factorial_20261119_internal_pairs_addendum/` 与 `/media/imc/data/mot-data/runs/e1_mature_reemit_factorial_20261119_internal_pair_labels/`，审阅记录在 `docs/audits/e0_e1_20261119/`。
+
+### 验证、限制与精确下一步
+
+- 新脚本编译检查通过；E0/E1 全部 CPU-only，`CUDA_VISIBLE_DEVICES=''`，GPU0 与其他 GPU 均未使用。E0 墙钟约 370 秒，E1 轨迹约 670 秒、评测约 30 秒；运行摘要均记录 Python/依赖/源码哈希、墙钟、CPU 时间与峰值 RSS。输出文件留数据盘，仓库只有协议、代码、轻量报告与审计。
+- E0 分类是“首断点”而非重连失败分区；不能把 425 个无输出或 575−158 的差额都解释为同一因果机制。U 不改内部配对，HOTA 增益不能声称内部关联改善；CV 的 AssA 增益仅 +0.035 点，FP/IDSW/Frag 代价明显。8 段训练内开发集已经被先前工作使用，未做官方 val、独立种子或新颖性核查。补录内部配对是事后描述，不改变冻结 E1 判据。
+- **下一步：** 保留 CV+U 作为有代价的简单强化基线。若研究下一方法，应先围绕“成熟轨迹再输出时如何降低误恢复/IDSW”做专项文献重合检查与可观察风险分析，再冻结一个最小反事实实验；不直接把 U 包装为核心创新，也不自动启动 FM/扩散/MDN 或官方 val。工作树保持未提交，未 push，供用户通过 Git 审阅记录。
+
+## 2026-11-19：E2 再输出风险分析与两个简单门控对照
+
+### 完成内容
+
+- 对 E1 已冻结的全部额外输出做行级风险分析，数据盘 `/media/imc/data/mot-data/runs/e2_reemit_risk_20261119/`。CV+U 新增 2,310 行的固定 GT IoU 0.5 代理口径为 2,061 TP/249 FP；其中 `score < 0.8` 的 1,390 行含 227 FP，`score >= 0.8` 的 920 行含 22 FP。该阈值是看过同一开发集标签后选择的，属于探索。
+- 核查 OC-SORT、Deep SORT、ByteTrack 官方实现，确认连续命中确认、置信度分层与再激活均有成熟先例；E2 不提出新方法主张。随后冻结 `manifests/protocols/e2_reemit_guard_20261119.yaml`（SHA256 `479e2e4203ac31be867620b9a7bb1dac7fe495e90051de9dfa4265f369dc131f`），只筛选 E1 CV+U 新增行：E 为分数≥0.8，F 为当前连续命中≥2，C 原行全保留，不重跑或改变 tracker 内部状态。
+- 官方 TrackEval 聚合：C 原输出 HOTA/AssA/IDF1 为 51.057/32.624/49.606，IDSW/FP 为 725/427；D 无门控为 51.534/32.659/49.803，816/755；E 分数门控为 51.356/32.688/49.761，764/469；F 连续命中门控为 51.312/32.647/49.708，774/527。E/F 均达到预写的开发集效用门：相对 C 三指标增加，相对 D IDSW/FP 减少；但 E/F 的 HOTA 低于 D，且相对 C 仍有额外 IDSW/FP。固定 831 事件五帧持续成功 C/D/E/F 为 84/328/167/89。完整逐视频和其它指标在 `reports/feasibility/e2_reemit_guard_20261119/README.md`；原始轨迹与评测在 `/media/imc/data/mot-data/runs/e2_reemit_guard_20261119/`。
+- `experiment-audit` 新鲜同系列只读审阅 provisional `WARN`：73,658 行 C 完整保留，E/F 新增 920/1,056 行与规则精确一致；官方汇总和 831 事件复算一致。警告针对同一开发集 GT 风险标签参与阈值选择、缺少独立确认，以及未提交协议的冻结时间只能由文件时间/哈希支持。审阅记录 `docs/audits/e2_reemit_guard_20261119/`，trace 在 Git 忽略的 `.aris/traces/experiment-audit/2026-11-19_run01/`。
+
+### 验证、限制与精确下一步
+
+- 两个新脚本编译通过；E2 CPU-only，`CUDA_VISIBLE_DEVICES=''`，GPU0 与所有其他 GPU 均未使用。E2 输出摘要 SHA256 `8cad3a38720d8bb40df5c65a8fa092cc35e3356b88dab20facb30b396d80627f`，风险行表 SHA256 `b8887cf3589ad29a768c8e199365e4fb3111fb54c8883346a467b9dc8de73273`。数据盘产物 11 MB + 308 KB；未复制权重或数据到 Git。`git diff --check` 通过。
+- 本轮只是一组同视频、同检测的输出门控探索；新增行 TP/FP 是自定义代理，不能与官方 FP 对号入座。不能声称内部匹配改善、阈值最优、独立验证或新颖性。E 保留为下一轮简单基线，当前 U 无门控仍有更高 HOTA；两者形成明确风险收益对照。
+- **下一步：** 停止在这 8 段上继续调输出阈值。若要继续做毕业设计方法，先用 train-fit 定义一个针对重现身份可靠性的机制和最小反事实，冻结 C/D/E 这几个强简单对照与停止门，再在未参与该规则选择的范围做确认；不自动启动大模型训练或官方 val。当前工作树保留未提交、未推送，供 Git 审阅记录。
+
+## 2026-11-19：E3 短缺失空间支持 fit 实验，未通过晋级门
+
+### 已完成
+
+- 按 E2 下一步，核对 R1 已固定的 24 段 train-fit / 8 段 train-heldout、检测缓存和 CV 回放接口；检索 ConfTrack、ByteTrack 等置信度与空间关联先例，明确本轮不是新颖性主张。先冻结 `manifests/protocols/e3_short_gap_support_20261119.yaml`，SHA256 `5bcb1ea1d12548bc253ed32deb1824cd3eb109bf80c206c256e2db94cf67a86d`，再运行 24 段 fit。规则 G 在 E 的分数≥0.8 基线外，仅补当前分数 0.6–0.8、距同 ID 上次原输出≤5 帧、检测框与上次原输出框 IoU≥0.5 的成熟轨迹；C 原输出、D 无门控 U、E 分数门控同台。所有条件共用一次 CV tracker 状态，只改变输出。
+- 24 段共 25,328 帧、C 原输出 182,933 行；D/E/G 分别新增 2,854/1,458/2,045 行。固定 TrackEval 汇总 HOTA C/D/E/G 为 59.790/60.110/60.011/60.061；AssA 为 41.218/41.286/41.282/41.285；IDF1 为 58.368/58.497/58.471/58.491；IDSW 为 928/1001/977/979；官方 FP 为 415/745/502/586。G−E HOTA +0.050 低于冻结的 +0.100 最小收益，FP +84 高于冻结的 +50 上限；尽管 21/24 段 HOTA 略升、AssA/IDF1 略增，**fit 晋级门 FAIL**。按停止规则未运行 8 段 heldout、未改阈值。逐视频表和边界见 `reports/feasibility/e3_short_gap_support_20261119/README.md`，原始产物在 `/media/imc/data/mot-data/runs/e3_short_gap_support_fit_20261119/`。
+- 新鲜 `experiment-audit` 同系列只读审阅 provisional `WARN`：源/输出哈希、96 份四条件轨迹精确嵌套、2,854 条新增行规则、官方数值与门槛均独立复算。审计发现脚本在每段输出后、全部输出完成前对 GT 文件计算 SHA256，违反冻结协议 `GT_read_only_after_outputs_complete` 的字面时间要求。没有 GT 标签解析或规则泄漏证据，但偏离必须保留；详见 `docs/audits/e3_short_gap_support_20261119/`。已执行脚本不事后改写，未来同类协议应在全部轨迹落盘后才计算 GT 哈希。
+
+### 验证、限制与精确下一步
+
+- 脚本编译通过，协议与来源哈希核对通过；fit 墙钟约 1,199 秒，CPU 核时约 0.333 小时，峰值 RSS 458,884 KiB。运行摘要 SHA256 `24aa6db797fc3eef9a52e8513624c1f9e5fa8fe7f74a2117d22d4e9ef8752507`。`CUDA_VISIBLE_DEVICES=''`，GPU0 与其他 GPU 均未使用。heldout 目录不存在；`git diff --check` 通过。
+- 24/8 划分先前用于 R1，E 的 0.8 门槛也来自已看过 GT 风险标签的 motion-dev。E3 只说明这条固定 G 规则在 fit 上未满足预写收益/代价门，不能否定所有时空证据或确认 E 的泛化。G 只改输出，不修复内部匹配；文献重合高，不可包装为毕业设计方法贡献。
+- **下一步：** 停止 E3 这一输出补回候选并保留阴性结果。下一阶段若继续研究身份问题，应围绕剩余未更新/错匹配事件定义一个直接干预关联或状态写入的最小反事实，先限定动作与先例，再冻结与 C/D/E 的对照；不要在相同 fit 上调本次阈值、启动 E3 heldout 或自动使用官方 val。工作树未提交、未推送，供用户通过 Git 审阅记录。
+
+## 2026-11-19：E0–E3 主张收缩与 E4 正确再关联特权反事实
+
+### 完成内容
+
+- 使用 `result-to-claim` 新鲜同系列审阅 E0–E3，结论 provisional `claim_supported=no`：成熟轨迹即时输出能改善开发集可见连续性与部分 HOTA，但按构造不改变内部配对；E2 的分数门控有代价，E3 的短缺失空间规则未过 fit 门。U/G 作为身份方法候选停止。决策写入 `docs/e0_e3_claim_gate_20261119.md`、`findings.md` 与 `CLAIMS_FROM_RESULTS.md`。
+- 为回答剩余错配是否有值得研究的空间，冻结 E4 GT 特权局部五帧反事实：从 E3 C 原输出与 GT 选出成熟轨迹重现缺口，每段按固定 SHA256 最多取 50 个候选；正常 CV+E 与一次强制正确一对一配对从同一预帧状态分叉，后四帧恢复原关联和 E 输出。这个动作仅用于构造性 headroom，不是可部署方法，也不产生官方完整序列 TrackEval 指标。
+- E4 首次、`retry1`、`retry2` 分别在工程验收中因 OC-SORT 原地修改共享检测数组、全局出生 ID 计数器串扰、评价锚点误用 E 而失败；各失败目录保留错误、部分进度及当时执行脚本。修复分别写入新协议，最终 `manifests/protocols/e4_oracle_association_headroom_20261119_retry3.yaml`（SHA256 `1e286bee37b6fc0aec90b865f23df8aecab56f568be1218774adff2647208068`）完整运行，未覆盖失败产物。
+- E4 retry3 覆盖 24 段 train-fit：1,903 个候选缺口、固定选中 1,073 个；617 个原回放已由正检测更新、2 个不符合成熟定义，余下 454 个有效错配事件。GT 特权配对后的五帧目标同 ID 正确输出净增 1,426 帧（每事件 +3.141），全锚点净增 1,643 帧（每事件 +3.619）；目标受损 9/454，其他锚定身份受损事件 37/454。五项预写 headroom 门均 `PASS`，完整逐视频表见 `reports/diagnostics/e4_oracle_association_headroom_20261119/README.md`。成功运行 `/media/imc/data/mot-data/runs/e4_oracle_association_headroom_20261119_retry3/`，摘要 SHA256 `628e979e86a0478f15f69df2a040192986d84fc0044b83b8e801bc71e772f7dd`。
+- `experiment-audit` 新鲜同系列 provisional `WARN`：原始事件哈希、1,903/1,073/454 分母、目标/全锚点计数、正常分支逐帧回放与门槛均复核；独立重放一个 oracle 事件吻合。454 个五帧窗口对应 2,270 次暴露、1,750 个不同视频帧，其中 387 个帧被多次使用；全部 oracle 轨迹未逐帧归档，逐项独立复算仍需重跑。审阅见 `docs/audits/e4_oracle_association_headroom_20261119/`。随后 `result-to-claim` 给出的 provisional 判定仅为条件化 GT 特权短程 headroom `yes`、信心中等，见 `docs/e4_claim_gate_20261119.md`；不能升级为在线算法、完整序列指标或新颖性。
+
+### 验证、限制与精确下一步
+
+- E4 脚本编译通过；成功运行 24 段父回放与 E3 C/E 逐帧帧号/ID 精确、框误差≤1e-4，五帧正常分支同样一致。454 个事件键唯一，24 份 JSONL 哈希与摘要相符，独立加总重得 +1,426/+1,643、9/37；`git diff --check` 通过。retry3 墙钟约 1,528 秒、CPU 核时约 0.424 小时、峰值 RSS 463,212 KiB；`CUDA_VISIBLE_DEVICES=''`，GPU0 与其他 GPU 均未使用。
+- 分母先由 GT 与 C 定义，再条件化到正常回放失败；强制配对本身读 GT，且只测相互可重叠的局部窗口。不能把 454/1,903 当自然错误率、把每事件收益外推成 HOTA、把“headroom”当数学最优上界，或推断线上可观察特征足以选对。未跑 8 段 train-heldout、motion-dev 或官方 val，也未训练新模型。
+- **下一步：** 只设计并运行一个锁定的**非 GT 信息源**实验：从当前/过去图像裁剪提取固定廉价外观表征，在全部在线可观察候选中选择至多一个一对一纠正，与 CV+E 和配平干预预算的简单 IoU/margin+检测分数规则比较；24 段 fit 定唯一阈值，8 段 train-heldout 锁定后一次评测。若留出集全锚点净收益和损伤不能胜过最强简单对照，停止身份关联候选；不在留出集反复调参，不启动 FM/MDN 或官方 val。工作树保留未提交、未推送，供用户通过 Git 审阅。
+
+## 2026-11-20：E5 非 GT 外观选择器配平实验，fit 门失败
+
+### 已完成
+
+- 按 E4 的下一步，先固定 `manifests/protocols/e5_nonoracle_appearance_local_20261119.yaml`（SHA256 `62b3b98f875cad1d3610bdc28f91e359edfe3b53ffc3585ec82e87ec5c8a3942`），再运行 `scripts/run_e5_nonoracle_appearance_local.py --partition fit`。候选只依赖原 CV 的 C 输出、检测缓存和当前/过去图像；每段按固定 SHA256 最多取 30 个首次可观察缺口。HSV 裁剪外观与简单 IoU/检测分数对照在同一事件、同一预帧状态上各强制一次一对一首轮配对，后四帧恢复 CV+E；GT 仅在全部动作及原始分支轨迹落盘后用于评分。
+- 24 段 train-fit 共有 1,515 个可观察首次缺口，固定选中 664 个；87 个未过外观门槛，1 个目标不成熟或不存活，**576 次配平动作**，其中 47 次选出不同检测。五帧全锚点净正确帧相对原 CV+E：几何 −1,317、外观 −1,323，外观−几何 **−6**；其他锚点受损事件几何 420、外观 422。目标有历史 GT 锚点 529 次，当帧有目标 GT 正检测 233 次，选中正检测几何 102、外观 99。预写 fit 门要求外观−几何每动作至少 +0.10 帧且其他锚点损伤不更多，两项均失败；动作量与分歧量门槛通过。**fit 研究门 FAIL**，按协议未运行 8 段 train-heldout、未调阈值。
+- 完整逐视频表、方法和范围见 `reports/feasibility/e5_nonoracle_appearance_local_20261119/README.md`；原始产物及两支五帧逐事件输出在 `/media/imc/data/mot-data/runs/e5_nonoracle_appearance_local_fit_20261119/`，摘要 SHA256 `7ec8d4dde1b2d041f100bb150abf99289386553b34093e2c5074e8762a3ebdbb`。新鲜同系列 `experiment-audit` provisional `WARN`：24 份原始/评分文件及来源哈希吻合，全部 576 个事件由另一套 IoU/匈牙利实现独立重算，0 处不一致；WARN 针对拟合集、重叠局部分支和无完整序列指标。审计见 `docs/audits/e5_nonoracle_appearance_local_20261119/`。`result-to-claim` 新鲜同系列审阅给当前外观优于简单规则主张 `no`，拟合门失败判定信心高；决策见 `docs/e5_claim_gate_20261120.md`、`findings.md`、`CLAIMS_FROM_RESULTS.md`。
+
+### 验证、限制与精确下一步
+
+- 执行脚本编译通过；父回放逐帧与 E3 C/E 帧/ID 一致、框误差≤1e-4。24 段原始/评分文件和运行摘要哈希通过独立审计，留出目录不存在；`git diff --check` 通过。fit 墙钟约 1,420 秒、CPU 核时约 0.395 小时、峰值 RSS 481,312 KiB。`CUDA_VISIBLE_DEVICES=''`，物理 GPU0 与其他 GPU 均未使用。
+- 只对哈希选中的 664 个可观察事件尝试分支，且动作触发由外观置信度决定；576 个窗口可重叠，不能当成独立视频重复。两条强制规则都明显伤害原 CV+E，不能据此概括所有外观特征无用、所有几何方法更优，或推断完整序列 HOTA/AssA/IDF1。E4 的 GT 特权收益不能转移为 E5 的非 GT 收益。协议落盘和运行时间有本机记录，但未提交协议无法独立证明预注册时间。审阅为同系列 provisional；通用 `evidence_check.py` 不可用。
+- **精确下一步：** 停止当前固定 HSV 选择器，不运行它的 heldout、不在同一 fit 调门槛或启动 FM/MDN。先对 47 个两规则分歧动作与双方共同损伤做只读机制分析，区分正确目标正检测是否存在、原配对是否已正确、颜色相似导致的混淆与强制动作本身的损伤；只有找到可在线观测且与当前规则实质不同的机制，才拟定新协议和新 fit 门。若没有新机制，暂停这条身份修复分支。工作树保留未提交、未推送，供用户通过 Git 审阅记录。
+
+## 2026-11-20：E5 失误只读拆解与正常首轮配对补录
+
+### 完成内容
+
+- 在查看全量事后分组前登记 `manifests/protocols/e5_readonly_error_analysis_20261120.yaml`（注明已看过一个样例行），对 E5 原始 576 个动作进行只读拆解；`scripts/analyze_e5_errors.py` 复核 E5 各段原始/评分文件哈希和汇总，并将 47 个分歧、414 个两规则均损伤其他锚点的事件索引保存在数据盘。529 次同选检测的两支五帧输出逐项相同；47 次分歧的外观−几何正确帧差为 14 次正合计 +47、13 次负合计 −53、20 次零，净 −6。
+- 为消除原始 E5 未保存首轮配对的限制，另登记 `manifests/protocols/e5_baseline_pair_trace_addendum_20261120.yaml`（SHA256 `287a29d01bf91414480dd331db9da9e75f689b9b74e6f77a3fe7c19670185e33`），用 `scripts/derive_e5_baseline_pair_trace.py` 对 24 段原 CV+E 做无 GT、无强制动作的只读重放，逐帧与 E3 C/E 的 ID/框核对，再对 576 个事件补录正常首轮配对。事后连接与标签复核脚本为 `scripts/summarize_e5_pair_trace.py`、`scripts/classify_e5_error_labels.py`。
+- 576 次中 47 次无历史目标 GT 锚点；另有 107 次锚定目标当帧不在 GT、64 次当前无 IoU≥0.5 的高分检测、125 次有重叠检测但匈牙利全局匹配分给别的 GT。故“无被分配目标正检测”的 343 次不是 343 次检测器漏检。余下 233 次有已分配正检测：正常首轮已配给目标 121、配给别的轨迹 105、未配对 7。两规则选中的检测在正常首轮已属于其他轨迹分别为几何 567/576、外观 566/576；在 414 次共同其他锚点损伤中，两个分支各有 400 次覆盖一个与检测 GT 身份的历史 C 锚点一致的原配对，交集 398、并集 402。这是动作冲突的直接证据，但不能独自解释全部五帧损益。
+- 完整表、定义、限制与下一步见 `reports/diagnostics/e5_error_analysis_20261120/README.md`。机器产物位于 `/media/imc/data/mot-data/runs/e5_readonly_error_analysis_20261120/` 和 `/media/imc/data/mot-data/runs/e5_baseline_pair_trace_addendum_20261120/`，后者原回放 `summary.json` SHA256 `c3795d00fa85ab0fdae90fb2d8fc88c987bc40f1c6eb8057f88d4cddb51488f0`、连接摘要 SHA256 `b1feb884612d188e6299ab5edb5ee7feb15e0396a697e013273648bcfd4e6fd0`。新鲜同系列 `experiment-audit` provisional `WARN`：576 个唯一事件连接、来源哈希和五帧评分独立复算一致；警告针对拟合集事后范围与因果措辞，见 `docs/audits/e5_error_analysis_20261120/`。
+
+### 验证、限制与精确下一步
+
+- 四个诊断脚本均编译通过；正常父回放 24 段逐帧与 E3 C/E 匹配，全部 576 个事件键、所选检测 ID 与保存的 E5 文件相同；独立抽样 CPU 回放核对了一例事件全部 7 个首轮请求框/分数与检测 CSV。细分标签文件 `positive_label_and_displacement_check.json` SHA256 `e8d67b290494938ad79732280cdfab7b241fd2ded61dba288eae959cf6b6ad66`。首轮补录墙钟约 1,153 秒、CPU 核时约 0.320 小时、峰值 RSS 485,052 KiB。所有执行均设 `CUDA_VISIBLE_DEVICES=''`，物理 GPU0 和其他 GPU 均未使用；E5 heldout 仍不存在。`git diff --check`、Markdown 本地链接和审计 JSON 解析通过。
+- 576 个五帧窗口可能重叠；“其他锚点受损”两支可能是不同 GT，审计在 414 次共同受损中发现 26 次受损身份集合无交集。`zip(高分 det_id, 全部缓存行)` 的索引写法假设高分行在低分行前；本轮 576 个动作帧的高分 ID 顺序均经直接 CSV 检查，261 帧含低分行且无反例；未来若换缓存需先修复此输入假设。首轮请求框只在一例独立重放中全量核对，不声称 576 次请求框都被逐项复核。GT 事后标签不能变成在线触发规则，覆盖已有正确首轮配对与五帧损伤也不等于完整因果归因。
+- **精确下一步：** E5 当前选择器和留出集继续停止；不在同一 fit 根据上述 GT 分组调阈值，不凭此启动 FM/MDN 或官方 val。当前没有已验证的在线安全触发信号，身份关联分支暂缓。若后续要继续，先从独立来源提出实质不同的可观察触发或允许拒绝动作的机制，并单独冻结新协议、简单对照和 fit 门；未来复用检测缓存代码前修复高低分行索引假设。本轮工作树保留未提交、未推送，供 Git 审阅记录。
