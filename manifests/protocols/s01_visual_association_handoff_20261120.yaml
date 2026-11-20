@@ -1,0 +1,114 @@
+protocol_id: s01_visual_association_handoff_20261120
+status: design_fixed_server_runtime_lock_required
+claim_level: engineering_and_exploratory_baselines_only
+purpose: establish a causal deep-appearance baseline before training new association methods
+execution_owner: server_agent
+research_scope:
+  training: false
+  run_old_E5_heldout: false
+  change_detector: false
+  use_GT_for_inference_or_selection: false
+  official_val_or_test: false
+  appearance_source: Deep_OC_SORT_official_DanceTrack_embedding_path
+  no_claim_of_full_Deep_OC_SORT_reproduction: true
+  motip: separate_official_inference_engineering_only
+runtime_lock:
+  must_complete_before_feature_extraction_or_tracking: true
+  missing_values_are_blocking_not_defaults: true
+  required_fields:
+    - project_commit_and_dirty_patch_sha256
+    - protocol_sha256
+    - feature_source_commit
+    - feature_weight_filename_url_sha256_training_data_status
+    - extractor_config_and_preprocessing_sha256
+    - feature_dimension_dtype_normalization
+    - input_image_and_detection_manifest_hashes
+    - selected_sequence_names_and_hash
+    - environment_versions_and_lap_backend
+    - cuda_visible_devices_physical_gpus_gpu_uuid
+    - code_hashes_and_output_root
+  motip_branch_additional_fields: [motip_commit_config_weight_sha256_training_data_status]
+  branch_independence: MOTIP_dependency_failure_does_not_block_fixed_detector_appearance_branch
+inputs:
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  detection_manifest: manifests/detections/ocsort_yolox_dance_train.yaml
+  split_manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  split_manifest_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+  allowed_sequences: split.fit_sequences_only_24_videos
+  smoke_sequence: dancetrack0027
+  smoke_frames_inclusive: [1, 200]
+  pilot_selection: first_4_of_fit_sorted_by_SHA256_ASCII_s01_20261120_colon_sequence_then_sequence
+  pilot_sequences: [dancetrack0051, dancetrack0016, dancetrack0072, dancetrack0052]
+  pilot_order_is_not_result_dependent: true
+  full_scope: all_24_fit_sequences_including_pilot
+  reused_development_data_not_independent_test: true
+baseline:
+  oc_sort_commit: bb2f6867a41082558d95ab47a854a3918de7831b
+  trackeval_commit: 12c8791b303e0a0b50f753af204249e622d0281a
+  tracker: {det_thresh: 0.6, max_age: 30, min_hits: 3, iou_threshold: 0.3, delta_t: 3, asso_func: iou, inertia: 0.2, use_byte: false}
+  input_size: [800, 1440]
+  cv_history: {length: 8, minimum_observations: 2, maximum_frame_gap: 31}
+  output_policy: E3_condition_E_CV_plus_mature_reemit_score_at_least_0.8
+  camera_motion_compensation: false
+  interpolation: false
+  appearance_in_later_rounds: false
+appearance:
+  crop_and_resize: pinned_official_extractor_not_HSV_inner_crop
+  extraction_precision: fp32
+  inference_eval_mode: true
+  cache_key: [sequence, frame, det_id]
+  cache_has: [original_xyxy, score, crop_xyxy, feature, valid, invalid_reason]
+  high_score_rule: score_strictly_greater_than_0.6
+  track_memory_update: final_actual_high_score_detection_matches_including_births_after_all_rounds
+  memory_on_miss: retain_until_track_deleted
+  memory_on_invalid_feature: skip_write
+  score_formula: IoU_plus_upstream_angle_diff_cost_plus_weight_times_cosine
+  bonus_eligible: IoU_greater_than_or_equal_to_0.3_and_both_features_valid
+  retain_upstream_fast_path_LAP_and_post_LAP_rejection: true
+  alpha_definition: old_memory_weight
+conditions:
+  G: {description: exact_existing_CV_plus_E, weight: 0.0, memory: none}
+  Z: {description: integrated_path_zero_weight, weight: 0.0, memory: ema, alpha: 0.9}
+  L: {description: last_observed_deep_feature, weight: 0.25, memory: last}
+  M: {description: EMA_deep_feature, weight: 0.25, memory: ema, alpha: 0.9}
+execution:
+  independent_tracker_memory_per_video_and_condition: true
+  no_parameter_sweep: true
+  all_conditions_required_no_best_only_reporting: true
+engineering_gates:
+  G_matches_archived_E3_E: frame_ID_exact_xyxy_absolute_tolerance_1e-4
+  Z_matches_G: first_round_pairs_final_real_matches_and_output_rows_exact
+  duplicate_cache_keys: 0
+  missing_high_detection_feature_records: 0
+  invalid_features: explicit_fallback_and_report_not_silent_drop
+  invalid_feature_fraction_above_0_01: stop_and_diagnose_extractor
+  cache_vs_direct: first_100_keys_in_sorted_sequence_frame_det_id_order_allclose_atol_1e-5_rtol_1e-4
+  no_current_frame_in_track_memory: true
+  no_duplicate_detection_assignment_per_frame: true
+  GPU0_used: false
+evaluation:
+  primary_descriptive: [HOTA, AssA, IDF1]
+  secondary: [DetA, IDSW, FP, FN, Frag, latency, memory]
+  aggregation: official_TrackEval_COMBINED_SEQ_and_per_video
+  paired_unit: video
+  include_actual_appearance_affected_frames_and_changed_matches: true
+  GT_loaded_only_after_output_and_trace_hashes_saved: true
+decision:
+  pilot_to_24_fit: engineering_gates_pass_and_resource_budget_available_regardless_of_metric_direction
+  after_24_fit: return_all_results_for_research_review_do_not_auto_train_or_expand_split
+  positive_signal: descriptive_only_requires_AssA_and_IDF1_direction_HOTA_tradeoffs_video_consistency_and_intervention_coverage
+  no_numeric_method_success_gate: this_is_a_baseline_information_probe_not_a_method_claim
+  zero_affected_frames: inconclusive_not_visual_information_failure
+budget:
+  GPU0_forbidden: true
+  feature_extraction: one_free_physical_GPU_from_1_to_7
+  tracker_replay: CPU_with_CUDA_VISIBLE_DEVICES_empty
+  maximum_total_GPU_hours: 24
+  maximum_total_CPU_core_hours: 96
+  on_exceed: save_partial_status_and_return_no_automatic_large_run
+outputs:
+  root: /media/imc/data/mot-data/runs/s01_visual_association_20261120
+  no_overwrite: true
+  repo_report: reports/feasibility/s01_visual_association_20261120/README.md
+  repo_handoff: docs/a2a/s01_server_return.md
