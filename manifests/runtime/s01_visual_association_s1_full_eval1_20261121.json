@@ -1,0 +1,1060 @@
+{
+  "run_id": "s1_full_evaluation1",
+  "scope": "all_24_train_fit_sequences_exploratory",
+  "status": "locked_before_GT_evaluation",
+  "project_commit": "7ac72619515fcd30c4dc5fe29facf5197585bcbf",
+  "protocol_sha256": "f99c994a2ab622f3e6f7b1156a1b94410ab53c1e79275aa3076e6e57700ffa5c",
+  "split_manifest_sha256": "6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde",
+  "trackeval_commit": "12c8791b303e0a0b50f753af204249e622d0281a",
+  "summary_code_sha256": "20a68e02c02c694559fc3260c80507a637c178fed4a2d7b190fca3d6372f7acf",
+  "tracking_root": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1",
+  "evaluation_root": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation1",
+  "sequences": [
+    "dancetrack0087",
+    "dancetrack0098",
+    "dancetrack0072",
+    "dancetrack0001",
+    "dancetrack0082",
+    "dancetrack0075",
+    "dancetrack0057",
+    "dancetrack0061",
+    "dancetrack0008",
+    "dancetrack0051",
+    "dancetrack0002",
+    "dancetrack0006",
+    "dancetrack0068",
+    "dancetrack0052",
+    "dancetrack0062",
+    "dancetrack0099",
+    "dancetrack0066",
+    "dancetrack0029",
+    "dancetrack0039",
+    "dancetrack0045",
+    "dancetrack0016",
+    "dancetrack0027",
+    "dancetrack0096",
+    "dancetrack0055"
+  ],
+  "tracker_trace_artifacts": [
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/trackers/G/dancetrack0087.txt",
+      "sha256": "b13c2edb674355b3c5e17f181b0726593c8fd8af81f3b33d2020f58a13ed6f03"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/traces/G/dancetrack0087.jsonl",
+      "sha256": "ff7045462d37b4dbc56a29859638dfd2a6789d408a08451581d9a50d36f0c665"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/trackers/Z/dancetrack0087.txt",
+      "sha256": "b13c2edb674355b3c5e17f181b0726593c8fd8af81f3b33d2020f58a13ed6f03"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/traces/Z/dancetrack0087.jsonl",
+      "sha256": "ba5f75d0f6b3bfa2bea6bc6d670a6403fa1d7d3f232bdd11ed8bb532e55aa744"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/trackers/L/dancetrack0087.txt",
+      "sha256": "3d2f42c2df3d582de71eedb619237ac4052d113b1bd7ac214e8bae2e6a2ef24a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/traces/L/dancetrack0087.jsonl",
+      "sha256": "7921fefc304ad3b3ffe3b91ff0e9966f6345909e7d39f903b78b939ef181292d"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/trackers/M/dancetrack0087.txt",
+      "sha256": "3748f29a51040f29bd83f0496cb45052305c6b50a8b87b7d2ab85cf63bd40268"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/traces/M/dancetrack0087.jsonl",
+      "sha256": "804caefaa79c81df5dc51014a135829dc1b99ffe6ded9a5a5530986935ae87e1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/trackers/G/dancetrack0098.txt",
+      "sha256": "f3b8ec392a3fad17e220bfbb7183eabbc229ed828ed5ec4c2ade7effa96cc789"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/traces/G/dancetrack0098.jsonl",
+      "sha256": "3a03781295e96c8de52306434fd0fe54dfaa4949d31a30ec26d7ca0f80abf190"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/trackers/Z/dancetrack0098.txt",
+      "sha256": "f3b8ec392a3fad17e220bfbb7183eabbc229ed828ed5ec4c2ade7effa96cc789"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/traces/Z/dancetrack0098.jsonl",
+      "sha256": "88410f3c48447b694b554fba3de42646b2a7e6f94c2d2f8e3a3c6b77c196be07"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/trackers/L/dancetrack0098.txt",
+      "sha256": "825edddd8411a89eacf16daa193aa5150985e348633361bbc1bb4554e005b5bf"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/traces/L/dancetrack0098.jsonl",
+      "sha256": "be5aa2488b8b6cf5afcacf1a05777cd98b59158d8ee438ccbf0fec5918db8f54"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/trackers/M/dancetrack0098.txt",
+      "sha256": "c3edd9a1159a61e6a28144be817ce85e18fa9e9d7ebd30e6353ae5c07d0c2bdf"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/traces/M/dancetrack0098.jsonl",
+      "sha256": "dc3559c0db6407e623e881c4b5b53bbecf594b21e2340208302efff7c6f83d68"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/trackers/G/dancetrack0072.txt",
+      "sha256": "7ce352f6b2262aa459b7d0e4b1bb659d4865fa388b1d0d20f927fecc9e507d40"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/traces/G/dancetrack0072.jsonl",
+      "sha256": "c7ec9996f4ebe1508981675b360fb4000acb559f94585e66f6a45cea28005aa2"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/trackers/Z/dancetrack0072.txt",
+      "sha256": "7ce352f6b2262aa459b7d0e4b1bb659d4865fa388b1d0d20f927fecc9e507d40"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/traces/Z/dancetrack0072.jsonl",
+      "sha256": "ede55ba1867de0c32c68ed441a843f65e73dce4358581337b6d49e349e8538d2"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/trackers/L/dancetrack0072.txt",
+      "sha256": "666bcf743a5de9fb1690fe190d7dd63298ede8204d71c0cd0c776dbc3c1813f5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/traces/L/dancetrack0072.jsonl",
+      "sha256": "64e8d6eb8480284a08aa8c7b0782741a96d5f7190dadc9ba8c765377655405df"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/trackers/M/dancetrack0072.txt",
+      "sha256": "767c7c6ea8133df9b34fa7fab0660e7fdc5427fb8876b60b78be22c39894218d"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/traces/M/dancetrack0072.jsonl",
+      "sha256": "b7cd976c59c4affcac23ec500c2d6548077fc05b615899f1150a34c5cd9395bf"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/trackers/G/dancetrack0001.txt",
+      "sha256": "4cd09cd75039db66347792ad458f57496e80cd3fc80b23a1541bde4981750939"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/traces/G/dancetrack0001.jsonl",
+      "sha256": "e5a037a90e06cb4208080363d3e34c9a6fa3c5ade876cd8863e0341c54804bfd"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/trackers/Z/dancetrack0001.txt",
+      "sha256": "4cd09cd75039db66347792ad458f57496e80cd3fc80b23a1541bde4981750939"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/traces/Z/dancetrack0001.jsonl",
+      "sha256": "6d6cb2e26698455b12787e9035b9d14462c111214fc8500c7105f3046b612e96"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/trackers/L/dancetrack0001.txt",
+      "sha256": "dd3ec517a7f0eb8b2458216e884bbee1ca21e65f8f743315573f6f4bcff0f9c7"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/traces/L/dancetrack0001.jsonl",
+      "sha256": "ddaf7d3b5e2c280ba72913838303cfd83066951d52ededc9436e7f3e7aa73c0a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/trackers/M/dancetrack0001.txt",
+      "sha256": "dd3ec517a7f0eb8b2458216e884bbee1ca21e65f8f743315573f6f4bcff0f9c7"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/traces/M/dancetrack0001.jsonl",
+      "sha256": "ae5eeab3d52cf812ac3b6b3de3b0029f4f0dccbbe4193d404ed4dd738cf47f6c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/trackers/G/dancetrack0082.txt",
+      "sha256": "cbbc7640a9531f220bd458e0cb3e311899120ed451a53b78dd24a5da4d0096f9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/traces/G/dancetrack0082.jsonl",
+      "sha256": "68f0dcb72f6a5c35ffdbbd50b02d67154e61285b52ee81f4469043239b5eff60"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/trackers/Z/dancetrack0082.txt",
+      "sha256": "cbbc7640a9531f220bd458e0cb3e311899120ed451a53b78dd24a5da4d0096f9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/traces/Z/dancetrack0082.jsonl",
+      "sha256": "6d5240fa808c02e2fa934009e873fd81529c72394482b018a929cd46a1306045"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/trackers/L/dancetrack0082.txt",
+      "sha256": "e41f557f4fb55f79c18350ac68cf7034bf4eef325aae000e43628d8162b5d43f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/traces/L/dancetrack0082.jsonl",
+      "sha256": "ead45df64fcf6120af7e40df8cb0a4bd6a77bad0e09d5fcea0efc2e70e10f8f3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/trackers/M/dancetrack0082.txt",
+      "sha256": "409dddb3ec7839b7276630ba2ff60ae8d9240376033e3875b6affc9a4b2fadd0"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/traces/M/dancetrack0082.jsonl",
+      "sha256": "3e13e0eed191bc63242ac8901babf0b739dda9b7b243f164309c04249ebfa137"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/trackers/G/dancetrack0075.txt",
+      "sha256": "3f6700442ad90c0bc14199c97a58e23126ec2f61e4eb6beaa6ed8122bebaa1fc"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/traces/G/dancetrack0075.jsonl",
+      "sha256": "d4b7fe7b2f0a131cc1c903091186bdcb4a763df17dc9403edc9b76c2589d90ff"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/trackers/Z/dancetrack0075.txt",
+      "sha256": "3f6700442ad90c0bc14199c97a58e23126ec2f61e4eb6beaa6ed8122bebaa1fc"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/traces/Z/dancetrack0075.jsonl",
+      "sha256": "0c27326c97a5d2148e23a23d1016417c866a9a3280575d749adf16096d39cf46"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/trackers/L/dancetrack0075.txt",
+      "sha256": "fdc48d589d5408ca981022acdff3d920b787c4eed28c762efe8dd3e2eaadbbfb"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/traces/L/dancetrack0075.jsonl",
+      "sha256": "45deb1a45e436bd37536acb9175cb200007264cb7a11d6a615057e10a650166a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/trackers/M/dancetrack0075.txt",
+      "sha256": "fdc48d589d5408ca981022acdff3d920b787c4eed28c762efe8dd3e2eaadbbfb"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/traces/M/dancetrack0075.jsonl",
+      "sha256": "04becc3d0412135cfba7d9ba96838be6ebee079fcfb90e353d921999aaa573ac"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/trackers/G/dancetrack0057.txt",
+      "sha256": "c085a8f3d8d9ee62b31439bc96ae12b7643153cfeec2e8d8db0ffdc58ce1cfee"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/traces/G/dancetrack0057.jsonl",
+      "sha256": "612b04660142893b5d611d17ce184555454b5c50dde2eb211303917153462e83"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/trackers/Z/dancetrack0057.txt",
+      "sha256": "c085a8f3d8d9ee62b31439bc96ae12b7643153cfeec2e8d8db0ffdc58ce1cfee"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/traces/Z/dancetrack0057.jsonl",
+      "sha256": "5d112d56758561a37924cc597fed2e59115d32bbe05e5c29f9f6d428ad08e3b4"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/trackers/L/dancetrack0057.txt",
+      "sha256": "c28ce0f383e74d1a87a7d20154eb394b212628237882b13ad504b050a80a8160"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/traces/L/dancetrack0057.jsonl",
+      "sha256": "57acd6db2bb45931de3f6e6906c9ee683ca90bdff81beae15f092ceb86c8890f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/trackers/M/dancetrack0057.txt",
+      "sha256": "a7fc11cae968e00af6be6e11b24cc75fb3d2a67c35cde37ce2655fa3401072f6"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/traces/M/dancetrack0057.jsonl",
+      "sha256": "66068f1560d127eb51b62bdb16260b767885ba37fa25ef51a4c4e7d0daf1cf40"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/trackers/G/dancetrack0061.txt",
+      "sha256": "44ba08467c88f54bbb6afec27b932491c8df07235c1023fbb7b545466819b66e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/traces/G/dancetrack0061.jsonl",
+      "sha256": "292d8fff2b544f22ea18748907ee5dd12d3f5a98ed4b7256e861fb93c559f137"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/trackers/Z/dancetrack0061.txt",
+      "sha256": "44ba08467c88f54bbb6afec27b932491c8df07235c1023fbb7b545466819b66e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/traces/Z/dancetrack0061.jsonl",
+      "sha256": "4b61fc4335f7da627564bb16d840b241bfd197702eb9f7eca7783da5a7f4efe3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/trackers/L/dancetrack0061.txt",
+      "sha256": "1f0c21ecd766cb3d4a0e0bec6155370de31b3efafdf33d46b4938830fa9aed47"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/traces/L/dancetrack0061.jsonl",
+      "sha256": "cd3603a7dc88d0b0ad5c4909928633c931602d80ffdec3450c079406ac063bb0"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/trackers/M/dancetrack0061.txt",
+      "sha256": "9a18128dce8fa75c819a1758ff5fc4ddde9b9605ba3c6f0e36903e7c6f9f3b6c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/traces/M/dancetrack0061.jsonl",
+      "sha256": "ffb37eae4394721884cee8d42cd2fef06529bb89ceeed8f78568be8d9d5d0824"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/trackers/G/dancetrack0008.txt",
+      "sha256": "1f48178f97be8a75c5d2f472e11e4f6f0979e8d0293fcd31bd3e83698605baa9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/traces/G/dancetrack0008.jsonl",
+      "sha256": "dddddb885eb1062a563617aa6e8e7cbf32f6464d1a2a44fdc5167f0de6ce7311"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/trackers/Z/dancetrack0008.txt",
+      "sha256": "1f48178f97be8a75c5d2f472e11e4f6f0979e8d0293fcd31bd3e83698605baa9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/traces/Z/dancetrack0008.jsonl",
+      "sha256": "57ec0ae5a85e630f7ca97fdd03c30525f7b4522db51e42034a02608bdb8ad571"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/trackers/L/dancetrack0008.txt",
+      "sha256": "42164f0e91ec6deae0070c0083ac2a90f5df81433045444bf0dc575636a9a3bd"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/traces/L/dancetrack0008.jsonl",
+      "sha256": "bf8777ab9027f5cec98fed8dc0a5afd8ae482c1be10e0ffef43a58574c449e4b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/trackers/M/dancetrack0008.txt",
+      "sha256": "a2c8467386e4f7bab38954101558149538be444daaf80208386e2f83ad01f20a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/traces/M/dancetrack0008.jsonl",
+      "sha256": "cdeddc68731c827f04bc272ad2f75ce5f19b3e3e95f5660ed6384520c9862a4b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/trackers/G/dancetrack0051.txt",
+      "sha256": "df657cd039a24baff5854402913c830dfdd7c76005bb8749791a5207257eb00c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/traces/G/dancetrack0051.jsonl",
+      "sha256": "fd3c9dc1bd97772788133eb780f96e1271de460cfd3e0c3bf79bc617fd7cb181"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/trackers/Z/dancetrack0051.txt",
+      "sha256": "df657cd039a24baff5854402913c830dfdd7c76005bb8749791a5207257eb00c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/traces/Z/dancetrack0051.jsonl",
+      "sha256": "5925168c910f98260e95a3e97e490888d367a9f31b3ebd213dc915a01a0431b1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/trackers/L/dancetrack0051.txt",
+      "sha256": "dc79a8898be6ed8273f8639ee1347d3556f59210e726b8d6bceabb0ce96e9407"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/traces/L/dancetrack0051.jsonl",
+      "sha256": "30e1d229dfcf158168da50876bce38b441f155af5cfed5da17fcdab592255000"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/trackers/M/dancetrack0051.txt",
+      "sha256": "0486b3fd259d2c691a1984ef5850e4ca81386cdd4b9b92b25f6c50636a0e23bc"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/traces/M/dancetrack0051.jsonl",
+      "sha256": "628f19c9d0563cd02846543ab919408fe180e25ee2018fe970416e87c3c64d17"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/trackers/G/dancetrack0002.txt",
+      "sha256": "1fd3df29a590262bf21caeb707c31f0ffd5a41aa3125bd52387ef6313e3c6df3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/traces/G/dancetrack0002.jsonl",
+      "sha256": "6ea6adae1e5dd007373601a09c0f4879a62fd159d3fa8764a1586c61b6e50917"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/trackers/Z/dancetrack0002.txt",
+      "sha256": "1fd3df29a590262bf21caeb707c31f0ffd5a41aa3125bd52387ef6313e3c6df3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/traces/Z/dancetrack0002.jsonl",
+      "sha256": "104d1335ea24b008e36e0bcc0f08370e3d418dbbb11b5cdf2d843fc7561192db"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/trackers/L/dancetrack0002.txt",
+      "sha256": "3f72f7b21bd8a72818e0c9c546046b2cb51cf292bfe42de7ff0e59d1038cabb1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/traces/L/dancetrack0002.jsonl",
+      "sha256": "dcc17ac85104065db33928cdb79a756877997671cc96c25fecb40e8548f04849"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/trackers/M/dancetrack0002.txt",
+      "sha256": "33f287b5565d1dc68ec67b493f3426b009a914b62a1b3f20e83b69508c005cf7"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/traces/M/dancetrack0002.jsonl",
+      "sha256": "8878e285b38d524027bafb7e7b5e354bb0e2ce3fcf3aa299f5c883f48294a687"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/trackers/G/dancetrack0006.txt",
+      "sha256": "598affa681b13fd64aff729044562844cc06dbb4a892070bffcffbb51b43b7eb"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/traces/G/dancetrack0006.jsonl",
+      "sha256": "71da4abfd86d54a4196e8749c70518b5e1e652b8dc941785a00d7eb4fd045d0a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/trackers/Z/dancetrack0006.txt",
+      "sha256": "598affa681b13fd64aff729044562844cc06dbb4a892070bffcffbb51b43b7eb"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/traces/Z/dancetrack0006.jsonl",
+      "sha256": "8dbc2b98083dc26597999baee7b793519a2784620dd9c36d2dc18eab2a755777"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/trackers/L/dancetrack0006.txt",
+      "sha256": "42a5fcb537245ee33a1113c4fe71cb0cb227aa010163bcdaad919eba7e67ce0f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/traces/L/dancetrack0006.jsonl",
+      "sha256": "47bbab61d64d8e1ec3dfa8165d6da7dd20d4b8e8361b167fc55911e294d5718c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/trackers/M/dancetrack0006.txt",
+      "sha256": "30ae76c46c2eda7b15609089373da3559c4ac1a7b4100d2c677f73b32c7aa815"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/traces/M/dancetrack0006.jsonl",
+      "sha256": "5f47bb3e4e4d415c1bf24ef1f88c64d94ce0c6697e35d850673acd29f610777f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/trackers/G/dancetrack0068.txt",
+      "sha256": "145ff2e40cf1753ead35ec65b644b888befcc2c5791190b986680b915390d299"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/traces/G/dancetrack0068.jsonl",
+      "sha256": "42f7b95473794d085a24aedf9fb7e27c0e486bcb05390ef15b11ddb0307935f3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/trackers/Z/dancetrack0068.txt",
+      "sha256": "145ff2e40cf1753ead35ec65b644b888befcc2c5791190b986680b915390d299"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/traces/Z/dancetrack0068.jsonl",
+      "sha256": "6fb1db48bdc494e6db5a34bb8ddb08dc49a5ab0625fba99f5c28e84eadd9d4d5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/trackers/L/dancetrack0068.txt",
+      "sha256": "45b6d9c3e74b4e7e69c1ae86935ab305e570c354a2ed0824ea6b61f9bc13162a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/traces/L/dancetrack0068.jsonl",
+      "sha256": "d86af8f2fa7ded2eecbeb61f892dbf78e34b06eff6b77745b518f6d519a0fcbd"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/trackers/M/dancetrack0068.txt",
+      "sha256": "30e409133e756be7d300fa930df60cff62947bc716ff866bba2fd0f8f1b39ff3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/traces/M/dancetrack0068.jsonl",
+      "sha256": "f7af5386956529134b40bcb077dd22662981d4ee4fa2aacc35c57390cbe3629a"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/trackers/G/dancetrack0052.txt",
+      "sha256": "3947903aa44b72a05a5416512afa1707e67e1caf99d5044d3ccf9186c619f4ee"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/traces/G/dancetrack0052.jsonl",
+      "sha256": "f5e24177bceb8bd22756da587b7a54ac32b2fc635c7d09db427b3b0f1aaa07c5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/trackers/Z/dancetrack0052.txt",
+      "sha256": "3947903aa44b72a05a5416512afa1707e67e1caf99d5044d3ccf9186c619f4ee"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/traces/Z/dancetrack0052.jsonl",
+      "sha256": "8da4512dad2313781ca93a3fc0e814372ae69ecaaecd85857b177ab7e6f40689"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/trackers/L/dancetrack0052.txt",
+      "sha256": "6cd5b8c54025373c2c1336d2a02a72a551894565c2b1ebbdb171f7ff3e0dad1e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/traces/L/dancetrack0052.jsonl",
+      "sha256": "f9856d9389b9eab6b2acec84001ead3c069cf91bc921a826c2b30cf042a39230"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/trackers/M/dancetrack0052.txt",
+      "sha256": "5daf05c61d1423b9c862c2c69bf704a0374758e85e2738a9b3116b56072e49e1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/traces/M/dancetrack0052.jsonl",
+      "sha256": "363c258a3c0c894ed2a55434ee919e695ecd9f862733b1a56fb129b29cac37b1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/trackers/G/dancetrack0062.txt",
+      "sha256": "a1c92a7563f0d505405783ed5d178ecdea650159d55c71c0e64f12dd870e2938"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/traces/G/dancetrack0062.jsonl",
+      "sha256": "ea044a88c27b988ed474e6bf34e227f10c79d44e32c55c9861168ca5761c6e50"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/trackers/Z/dancetrack0062.txt",
+      "sha256": "a1c92a7563f0d505405783ed5d178ecdea650159d55c71c0e64f12dd870e2938"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/traces/Z/dancetrack0062.jsonl",
+      "sha256": "14bfd121c35517a27164cc6c6a48f70c372e9c5c38b0238a346766950441054c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/trackers/L/dancetrack0062.txt",
+      "sha256": "d783d97499e7945a4595a0066bb1a90377c7a1b899764fa6dd5a5abbb0d7cb90"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/traces/L/dancetrack0062.jsonl",
+      "sha256": "3c2e1ca0cbb51eaa928439d59b9f03ea6a9a9adae049e5f42c37493b1134b584"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/trackers/M/dancetrack0062.txt",
+      "sha256": "1d0fd8e65759e1da31a9f7f7f12807daba686fabf7b001f340c2ccb3178bb5fd"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/traces/M/dancetrack0062.jsonl",
+      "sha256": "5880d942f75cf8094f525c4f2f8f155e68d400f76540e5e6c006ef2e8aa38bad"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/trackers/G/dancetrack0099.txt",
+      "sha256": "5cf6f4b1e61c6a0e19304b9f0f279dc29f5b4ff9e64af93278ac1046afd26b0b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/traces/G/dancetrack0099.jsonl",
+      "sha256": "4356001144130a81284c10bb61a8de47fd31bf8dbcd871527e58cf520bb0a67f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/trackers/Z/dancetrack0099.txt",
+      "sha256": "5cf6f4b1e61c6a0e19304b9f0f279dc29f5b4ff9e64af93278ac1046afd26b0b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/traces/Z/dancetrack0099.jsonl",
+      "sha256": "6a21cefc13011c9c69553916c7773e4322f0338b380d7a6abf0d781195985364"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/trackers/L/dancetrack0099.txt",
+      "sha256": "44a3b7731d57491f4c209b3efdd58df05f78daf630b3396831a96dda83348165"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/traces/L/dancetrack0099.jsonl",
+      "sha256": "acc34c55db27c5229866c295b7b9e4426a2320d86242167338ee3d0f6d502bb0"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/trackers/M/dancetrack0099.txt",
+      "sha256": "96de4a1e8624083aebea72b347b5a539394faa3403dc0a1e4961012ab612df31"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/traces/M/dancetrack0099.jsonl",
+      "sha256": "f8cc4f197df0c3ccacde9bc1faf1535954020621ab51ca3c5169f57cc9b92cc1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/trackers/G/dancetrack0066.txt",
+      "sha256": "a27ca00f7fd91c2d436a0fff925d8f0f458d8a3ef0bb0d213eab1281e2e0eee3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/traces/G/dancetrack0066.jsonl",
+      "sha256": "c76b4d614739cd271055cda269ecf42bbb902d73f058404853d20687f419b7b6"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/trackers/Z/dancetrack0066.txt",
+      "sha256": "a27ca00f7fd91c2d436a0fff925d8f0f458d8a3ef0bb0d213eab1281e2e0eee3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/traces/Z/dancetrack0066.jsonl",
+      "sha256": "19ef6da18d178a752c297608aa73e7b437a1faaaaaa6859f974f9b5fe1b9ee6e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/trackers/L/dancetrack0066.txt",
+      "sha256": "318276442b60f621ee5e1ac74b938103b983d39150691d7bff866be72d7a2b28"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/traces/L/dancetrack0066.jsonl",
+      "sha256": "f810b73d8dbad69ad1a4c0757d6f72688ac0d44248ae02b0c8165d474496a826"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/trackers/M/dancetrack0066.txt",
+      "sha256": "4fc2be34fe0558be7cdb7154152977ccace9540643dae12908808bc4da2a91f7"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/traces/M/dancetrack0066.jsonl",
+      "sha256": "8ac2431b382b08491225d778ce664ebf88c09c4928e7c37abc7df488a5324ae3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/trackers/G/dancetrack0029.txt",
+      "sha256": "aeb5cf4f7ced772ff672e9055de221a066c2ecc728123fe75ddf957ef269bd85"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/traces/G/dancetrack0029.jsonl",
+      "sha256": "c176318d9c2b2054b256c3ce9f2e00c9770183befaf127b76581e13c734ed7e1"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/trackers/Z/dancetrack0029.txt",
+      "sha256": "aeb5cf4f7ced772ff672e9055de221a066c2ecc728123fe75ddf957ef269bd85"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/traces/Z/dancetrack0029.jsonl",
+      "sha256": "fd25f3605491e86be3e2235c5ab23f1a090d603ee24788f7ccabf90d773945d9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/trackers/L/dancetrack0029.txt",
+      "sha256": "aeb5cf4f7ced772ff672e9055de221a066c2ecc728123fe75ddf957ef269bd85"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/traces/L/dancetrack0029.jsonl",
+      "sha256": "28b835f6334611a17ac99d728a48de9abe27f412d471a67d439f298a09577ff3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/trackers/M/dancetrack0029.txt",
+      "sha256": "7cf27c0bd9eb807ed164240cb02079964e369b35392bbec05e8bcd01683097c0"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/traces/M/dancetrack0029.jsonl",
+      "sha256": "f5957e5ba2ef79b687965fd3a2bea90be6a6aae5a0fde777a374e45bbd52d9ca"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/trackers/G/dancetrack0039.txt",
+      "sha256": "8adeb85425e480f519739f1bc89c68e985e42ae5303c4ecaf38fea26f7f7136e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/traces/G/dancetrack0039.jsonl",
+      "sha256": "c4fa63009cd11c11f5e5ee939d2675a5f31558b1443db5a39078096282eab566"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/trackers/Z/dancetrack0039.txt",
+      "sha256": "8adeb85425e480f519739f1bc89c68e985e42ae5303c4ecaf38fea26f7f7136e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/traces/Z/dancetrack0039.jsonl",
+      "sha256": "aff7357b0b3f60130e4919da11fd3fe6e2580201468d5df8c72e2c8f4221fc1c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/trackers/L/dancetrack0039.txt",
+      "sha256": "8adeb85425e480f519739f1bc89c68e985e42ae5303c4ecaf38fea26f7f7136e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/traces/L/dancetrack0039.jsonl",
+      "sha256": "6c7294c848cfa0b4fb23f3cfa2ffece5696c4a9ece11fd15cd814f068f28aa72"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/trackers/M/dancetrack0039.txt",
+      "sha256": "56c44d9170fac4ac36f57ae5a04a681387fad37bc1340bd930b8fb7346d70ca2"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/traces/M/dancetrack0039.jsonl",
+      "sha256": "ee5269de8e955e7ead4821b93c078708327eae92c42dd1ac0a506b78f55130f2"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/trackers/G/dancetrack0045.txt",
+      "sha256": "ff843f5e91ee17403cf4402cdca447025c36deb39d5ade6ffae0c9fc0a2fb44d"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/traces/G/dancetrack0045.jsonl",
+      "sha256": "bb06917bdc0063436c720e9fd3dd1d5511edea53a39b183351e54f656e3af84c"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/trackers/Z/dancetrack0045.txt",
+      "sha256": "ff843f5e91ee17403cf4402cdca447025c36deb39d5ade6ffae0c9fc0a2fb44d"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/traces/Z/dancetrack0045.jsonl",
+      "sha256": "0902e66233197c9d161fcd7c19d97d170e4925c387f75dbef274e60e54705319"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/trackers/L/dancetrack0045.txt",
+      "sha256": "fffd44cc74861f32cbb05a7af725c275fcf29595b106b5cdd791d3058d79214b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/traces/L/dancetrack0045.jsonl",
+      "sha256": "cb67e6fb124d81045e555ef2e4ea73add10d2dee3e43799fdd7e8a1c166d8cf5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/trackers/M/dancetrack0045.txt",
+      "sha256": "6fce22e93e53402411b0fffafb434c8f187b3337b759d53350b66fa56ce0e45b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/traces/M/dancetrack0045.jsonl",
+      "sha256": "7a44baaccb135f243f84c3b927e43bf1da0d1bd9973c229d0e1adfea9dc9f871"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/trackers/G/dancetrack0016.txt",
+      "sha256": "dd71396e65660a14134a56cc1226381c69bc6e76e4565c4937942cded1a647ef"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/traces/G/dancetrack0016.jsonl",
+      "sha256": "a2199a1b624fb70f14ba7f3e0f2af3b2a0a3e55994301b70526216e09b0ae9c3"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/trackers/Z/dancetrack0016.txt",
+      "sha256": "dd71396e65660a14134a56cc1226381c69bc6e76e4565c4937942cded1a647ef"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/traces/Z/dancetrack0016.jsonl",
+      "sha256": "bbd05d0416a357abebab987684c851588e896e9c1f493ee420f4afca756d7c44"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/trackers/L/dancetrack0016.txt",
+      "sha256": "0bb3a524231637a3630ca0d61e700ce61ecf22128d9429595dfb3370751e2cbe"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/traces/L/dancetrack0016.jsonl",
+      "sha256": "2ffe8f497a2f04b90328c14b9299eb7758ee8901e6c9a48febeb93261f8903c5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/trackers/M/dancetrack0016.txt",
+      "sha256": "77f7a6450e58014514e9f16d09a5e1cbff10ef1db25dd8816208d06dcdaec333"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/traces/M/dancetrack0016.jsonl",
+      "sha256": "a15169f7923ef68ea7b071f837fa64d796d94a6594ab2249a14dafd0c2466d12"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/trackers/G/dancetrack0027.txt",
+      "sha256": "8699cad424278b3a92422261bbb539f52ea86015eb9e09d6b7e47581b3a8a72e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/traces/G/dancetrack0027.jsonl",
+      "sha256": "bd07580db4cf4187982cb10eae3386742eb2e58af3ead32e2efbfd24d56fd9a5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/trackers/Z/dancetrack0027.txt",
+      "sha256": "8699cad424278b3a92422261bbb539f52ea86015eb9e09d6b7e47581b3a8a72e"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/traces/Z/dancetrack0027.jsonl",
+      "sha256": "6f8a80f05cc068a61a6269bda5258f01f274443d8a870a374d3794304c870347"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/trackers/L/dancetrack0027.txt",
+      "sha256": "4db13c16e0db7067b30ef341dcb947a6c44b1af093ce8f21aad210eaa97b930f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/traces/L/dancetrack0027.jsonl",
+      "sha256": "9d38c1e0121b87772ad5278914007d642c004ff34c54c43c0dea261842e5fdb7"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/trackers/M/dancetrack0027.txt",
+      "sha256": "4db13c16e0db7067b30ef341dcb947a6c44b1af093ce8f21aad210eaa97b930f"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/traces/M/dancetrack0027.jsonl",
+      "sha256": "ad004b89b6725f7af6edbf72e13583fbae28a842c8fb756f93117ef3358a02bd"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/trackers/G/dancetrack0096.txt",
+      "sha256": "582aa8b50c4658f0fbdfe999aa1e528b70334b70e7d98271488c363977411c13"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/traces/G/dancetrack0096.jsonl",
+      "sha256": "54a312952af302ce7bd8ca82255a895c9b273d95fccb91bf8f4817f00e71a9b6"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/trackers/Z/dancetrack0096.txt",
+      "sha256": "582aa8b50c4658f0fbdfe999aa1e528b70334b70e7d98271488c363977411c13"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/traces/Z/dancetrack0096.jsonl",
+      "sha256": "605a2dee78a3efa187323f457afaec4a7e86f683c1fad448f5cd4d459efd826b"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/trackers/L/dancetrack0096.txt",
+      "sha256": "af7bc3d142454c0c5699572bf6bd0b72d6695ec0b76b1d397fd1a579d340e2d5"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/traces/L/dancetrack0096.jsonl",
+      "sha256": "24c1d9e6749d9db663eb3d56ea05d1f85fb7f919f3693d2061e74ef064dd57d9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/trackers/M/dancetrack0096.txt",
+      "sha256": "43f35156cdfb3646491d26b63e71fb655bd7c272a6bf8362a276b292a12b14cc"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/traces/M/dancetrack0096.jsonl",
+      "sha256": "f04939a86b5199c14ad27dc36dba187091c830a618898532ccb7c04e83ad1a66"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/trackers/G/dancetrack0055.txt",
+      "sha256": "a24742ef7359175c318d078b8788aa2432a386d8d6ed776177c6725f36bebb97"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/traces/G/dancetrack0055.jsonl",
+      "sha256": "d85c03fc8a1891ff5315b6671271d40a0b7a226348b88d2e35447da7d107f294"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/trackers/Z/dancetrack0055.txt",
+      "sha256": "a24742ef7359175c318d078b8788aa2432a386d8d6ed776177c6725f36bebb97"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/traces/Z/dancetrack0055.jsonl",
+      "sha256": "40dc097c1d2fbcdc2f91dbd38254a0fec61136693944041f9083b06db21212d4"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/trackers/L/dancetrack0055.txt",
+      "sha256": "83ac87f0f3efb6ddca9b55752458456be9aa5dfcbd49b53fab488f0a7b6b19ae"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/traces/L/dancetrack0055.jsonl",
+      "sha256": "b4f6e10c15e4944116887c5fe6b5a087e4eae9af712b33c38967162c3a92a3f2"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/trackers/M/dancetrack0055.txt",
+      "sha256": "c11a54665ded27caa0ad6109af842419c239f4377feeb88b6fd361c7327783a9"
+    },
+    {
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/traces/M/dancetrack0055.jsonl",
+      "sha256": "6c9d4ada98b2adc47022839c1a679e39c1688dc52c654917c2654712319bae9a"
+    }
+  ],
+  "feature_artifacts": [
+    {
+      "sequence": "dancetrack0087",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0087.npz",
+      "sha256": "fc145c220f7905f3f6229d1d4aadd859b27825d5450e97958846480d39532c14"
+    },
+    {
+      "sequence": "dancetrack0098",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0098.npz",
+      "sha256": "7a632710892f2c26d6954175acd66c0a45f52b4107880bd4bdaf2f02bafe6379"
+    },
+    {
+      "sequence": "dancetrack0072",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_pilot_features1/features/dancetrack0072.npz",
+      "sha256": "5747c756ec09721ec210bdc012991d47c6ecc2fe6899c469cb7f7a0e69e07415"
+    },
+    {
+      "sequence": "dancetrack0001",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0001.npz",
+      "sha256": "7c419fd64c0b403c4ec46d8812c938f7e5ec1d1374b607e536c11c569fcb6c55"
+    },
+    {
+      "sequence": "dancetrack0082",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0082.npz",
+      "sha256": "e1124b8d93ea762f58840a72f09e8a7e6047d2fbb665bb796fcc6bc4fc22259b"
+    },
+    {
+      "sequence": "dancetrack0075",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0075.npz",
+      "sha256": "9eda9b0219c6e1f04c5daca5d5cf911ffcaccabbf884cbb29c32591b52f242d2"
+    },
+    {
+      "sequence": "dancetrack0057",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0057.npz",
+      "sha256": "b540b1327ccc5d6084eabc40fd3aafae05e8d18194fba61b99f98f20ab04942f"
+    },
+    {
+      "sequence": "dancetrack0061",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0061.npz",
+      "sha256": "85645e03470299e6701f62d38fca9873aab024180b15b80cac131b19a3cdf344"
+    },
+    {
+      "sequence": "dancetrack0008",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0008.npz",
+      "sha256": "8437db569ef612414d9a0d9bfd05a5eae22bd3e7d1ff15cd7b307a1a1632b7d5"
+    },
+    {
+      "sequence": "dancetrack0051",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_pilot_features1/features/dancetrack0051.npz",
+      "sha256": "09bd51b8fc102738b5f7270f38e2ddfe56c04b464a870d723da1c29bc3e793ed"
+    },
+    {
+      "sequence": "dancetrack0002",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0002.npz",
+      "sha256": "d4af69b803006753a40691471e5bd12a0fa164ee3e54ab090e1c1ed6a3bbe6d2"
+    },
+    {
+      "sequence": "dancetrack0006",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0006.npz",
+      "sha256": "f061372c35f8ebfbd5335861ef69632eaddc1880fcbfaf77b4443e30c63aba79"
+    },
+    {
+      "sequence": "dancetrack0068",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0068.npz",
+      "sha256": "4a8677842a35cf1cd75f8484da025b898a26b282a9ce41534fb17053a3409cb2"
+    },
+    {
+      "sequence": "dancetrack0052",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_pilot_features1/features/dancetrack0052.npz",
+      "sha256": "e18f609713a0bd580106d961f517f4b2b686329d3722a74a971d54bff9f6d46a"
+    },
+    {
+      "sequence": "dancetrack0062",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0062.npz",
+      "sha256": "016a93e09069395b0bb8a79355527e068c043757e4ed6866bbe9aa2c6aeed694"
+    },
+    {
+      "sequence": "dancetrack0099",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0099.npz",
+      "sha256": "a8022601ee306b8447f9dfff3df205d12c8a5e80eb619701d1d149d890015cc2"
+    },
+    {
+      "sequence": "dancetrack0066",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0066.npz",
+      "sha256": "d4401239b0fbbec26b05624e69992e8630860f089ee8fd3eb8c2c0399e15176b"
+    },
+    {
+      "sequence": "dancetrack0029",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0029.npz",
+      "sha256": "1c18c6e7caa93718a0d3ecc687bf8a698a73910484e2806ac9222a30d02cc2c4"
+    },
+    {
+      "sequence": "dancetrack0039",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0039.npz",
+      "sha256": "968564a29d3f35081d70df20bd18670553611fd47a6ce5d748add95520f05be0"
+    },
+    {
+      "sequence": "dancetrack0045",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0045.npz",
+      "sha256": "8a3e0d1df2ef3966050eebdd093a3b967e3df78110475caea62c868f0489429a"
+    },
+    {
+      "sequence": "dancetrack0016",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_pilot_features1/features/dancetrack0016.npz",
+      "sha256": "d2f1ff8a35beefcec94921289e16ed13e13e1947f2a56fa2ac1ce3eedeceb60a"
+    },
+    {
+      "sequence": "dancetrack0027",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0027.npz",
+      "sha256": "9577293c1f063404707f7b70a64f2159322bfd9df62df5dc74302ed5efbf1048"
+    },
+    {
+      "sequence": "dancetrack0096",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0096.npz",
+      "sha256": "9d93cf543a2a396c72d915263da8e6c24a2e92edc8a998057ec82067e74654ba"
+    },
+    {
+      "sequence": "dancetrack0055",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_remaining20_features1/features/dancetrack0055.npz",
+      "sha256": "5ccbb941eab06a210bec17fabd082b953885f629a10b7ebd0f6d77184db58662"
+    }
+  ],
+  "engineering_check_artifacts": [
+    {
+      "sequence": "dancetrack0087",
+      "sha256": "dd1c8eaa94f3023149eb7c90e07c31d031d7a47047c4a9d2562026824578203d",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0087/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0098",
+      "sha256": "4017c18d5f75e61dfcadcaac930beefb7551702683a3da6c6f4a60d4121e017b",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0098/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0072",
+      "sha256": "e3407dea53c81b00dd80b86345758ac8cda22091b7e68b893ba4f197af64b727",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0072/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0001",
+      "sha256": "5d29901c65c4a4846ea3afead342b6d7fcb2a8d0cba74170cc19c1dca4324d30",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0001/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0082",
+      "sha256": "084ba585b0344129ecc6679a9d7f164fb249cf55f2a1619858da29cfc3dbf122",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0082/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0075",
+      "sha256": "c05a3fa7eb9ed58d302449f82d2afbc743f49f4ecfb1d41e7b128bc57608c38f",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0075/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0057",
+      "sha256": "3a8efbb395aa1805ac3e735ed81e160b7f39749745be80848fc5dd85811ed2de",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0057/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0061",
+      "sha256": "714e06d31e9e2432c356150daac5cb6f0d34cf38c0700ed7575d49c5788e992c",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0061/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0008",
+      "sha256": "b9e7cb04c5f985aac8f9f8bb991da18e2ff1df3391c037c8febb765ee5953014",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0008/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0051",
+      "sha256": "3db2cad8af51a7879ae83f6b57241b7064729c49d3758eb7fc9ad57e3a7ace3c",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0051/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0002",
+      "sha256": "d46a05f127280c07eb39620cfd977d6dd0b1db6a0d6c37d331a3938633e6fb35",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0002/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0006",
+      "sha256": "38e6003f48da342b73817342232ed83929cf0b3da04a49412bd70cb0759abb02",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0006/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0068",
+      "sha256": "5bb4d716f01cbeee672f1b59eec0f5ede67ae8b93a8b95566e8d5aded0a42d0d",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0068/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0052",
+      "sha256": "b7e1963e6698e97b27de69a9621727ad5adc24d889e32bf31cc7ed2c7fe33b85",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0052/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0062",
+      "sha256": "c65fc10f1ed9d7b339f23d6253cdadd7d70191b974605d4b0f02b42b4f7866db",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0062/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0099",
+      "sha256": "50e9f49051333eb09ed50a7f9d6581e260d738d54f5a88bd8c77a8182e5a11fd",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0099/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0066",
+      "sha256": "b0c9e8543c8a734bd44307227e3678379342a09c310d555c8e6824aa90bed59a",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0066/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0029",
+      "sha256": "4aadeb303dd071dc484939594dad7b30a145f372a107ed92136b5d99e53fdb65",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0029/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0039",
+      "sha256": "4b3ad1c6b0457b11caff87e84d5b24898d8deb873a6527326a605f369b4ac1f4",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0039/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0045",
+      "sha256": "5d23683fdbaef185ed3752893f29684c560f4edbfa5fd7ab815bee063e65e0cf",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0045/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0016",
+      "sha256": "164f1271f2e74add2c5d719859b8259ffcd3d6678ec5d9b14e571f448fb18519",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0016/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0027",
+      "sha256": "450eeac7f6431c956fe4fb640005adc53808aa780a5bd093dde519941ac5f984",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0027/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0096",
+      "sha256": "c9afa1244953c8a47e48d101aa186538cf38ac77e5d5e9a8b24d0af7306ee9ab",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0096/engineering_checks.json"
+    },
+    {
+      "sequence": "dancetrack0055",
+      "sha256": "8d5046d256ebc5096cb20f908724ed1fe02356a33a8f9a03d6f5dc7cafd06bac",
+      "path": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_tracking1/dancetrack0055/engineering_checks.json"
+    }
+  ],
+  "resource_estimate_from_completed_replays": {
+    "cpu_core_hours": 5.137200149408057,
+    "tracker_wall_seconds": 4663.941030425951
+  },
+  "cuda_visible_devices": "",
+  "physical_gpu": null,
+  "environment": "/home/imc/anaconda3/envs/mot-det; Python 3.10.22, lap.lapjv 0.5.12",
+  "gt_access": "only after frozen_inputs.json from summary script"
+}

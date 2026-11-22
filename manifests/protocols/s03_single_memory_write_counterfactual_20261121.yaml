@@ -1,0 +1,71 @@
+protocol_id: s03_single_memory_write_counterfactual_20261121
+status: design_fixed_before_full_branch_scoring
+claim_level: GT_privileged_local_causal_diagnostic_only
+purpose: isolate_effect_of_one_visual_memory_write_on_natural_30_frame_continuation
+inputs:
+  s01_frozen_inputs: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/frozen_inputs.json
+  s01_frozen_inputs_sha256: ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2
+  s01_eval_runtime_lock: manifests/runtime/s01_visual_association_s1_full_eval2_20261121.json
+  s01_eval_runtime_lock_sha256: 473a092e59f06033419f2bf2f145e5476e871f9fdbc923c2b721c9d0b7fab460
+  s01_protocol: manifests/protocols/s01_visual_association_handoff_20261120.yaml
+  s01_protocol_sha256: f99c994a2ab622f3e6f7b1156a1b94410ab53c1e79275aa3076e6e57700ffa5c
+  s02_events: /media/imc/data/mot-data/runs/s02_natural_identity_mechanism_20261121_retry3/events.jsonl
+  s02_events_sha256: 4491d04dcb3338aca56e0e0910c8b689936a9e4fd2973492b68030563f77d465
+  s02_summary: /media/imc/data/mot-data/runs/s02_natural_identity_mechanism_20261121_retry3/summary.json
+  s02_summary_sha256: 5cdb942ab76cd0b705fabeac8aca5db9608a784f800951441e4bf8b20aeb0f38
+  smoke_engineering_checks: /media/imc/data/mot-data/runs/s03_memory_clone_smoke_20261121/engineering_checks.json
+  smoke_engineering_checks_sha256: e90c968b7ceed412e12e70faa086742cc967ca74246bb61f3fe2bb3141f5cd9b
+  smoke_required_status: ENGINEERING_PASS
+  condition: M
+  wrong_event_population: all_86_S02_actionable_competition_first_onsets_no_cherry_pick
+  sequence_order: S01_frozen_inputs_order
+  source_detection_score: strictly_greater_than_0.6
+  GT_detection_match: one_to_one_Hungarian_max_IoU_at_least_0.5
+control_selection:
+  candidate: stable_anchor_clean_actual_update_with_another_live_differently_anchored_track
+  same_video: true
+  exclude_within_frames_of_any_wrong_event_in_same_video: 30
+  one_unique_control_per_wrong_event: true
+  match_before_branch_outputs: true
+  distance: abs_log1p_track_age_plus_abs_log1p_update_gap_plus_2x_abs_score_plus_0.05x_abs_live_count_plus_0.05x_abs_high_detection_count_plus_abs_max_neighbor_detection_IoU
+  deterministic_tie_break: SHA256_s03_colon_sequence_colon_frame_colon_track_id
+  on_no_control: retain_unmatched_wrong_event_and_report_no_relaxation
+intervention:
+  snapshot: immediately_before_selected_frame
+  factual_and_suppressed_same_tracker_CV_and_memory_state: true
+  hold_event_frame_association_tracker_state_and_output_fixed: true
+  suppressed_write: remove_only_selected_track_detection_from_visual_memory_finish_frame_mapping
+  other_visual_memory_writes: unchanged
+  continuation: independent_natural_M_closed_loop_for_up_to_30_future_frames
+  GT_in_online_branch: false
+  wrong_and_clean_controls_use_identical_intervention: true
+engineering_gates:
+  full_S01_M_tracker_and_trace_sha_exact_for_each_of_24_videos: true
+  every_factual_branch_rows_and_trace_exact_S01: true
+  event_frame_factual_and_suppressed_rows_trace_tracker_state_equal: true
+  event_frame_only_selected_memory_write_differs: true
+  preserve_per_video_results_on_failure: true
+  no_research_summary_if_any_required_video_fails: true
+evaluation:
+  branch_outputs_frozen_before_GT_scoring: true
+  GT_anchor_source: original_M_output_at_frame_before_event_one_to_one_IoU_at_least_0.5
+  primary_descriptive: difference_in_same_ID_correct_output_frames_for_all_prior_output_anchors_over_future_30_frames
+  secondary: [target_owner_same_ID_correct_frames, other_prior_anchor_net_frames, any_other_anchor_harmed, output_change_frames, legal_owner_detection_edge_at_event]
+  report_wrong_vs_matched_clean_separately: true
+  report_all_86_wrong_events_including_unmatched_controls: true
+  unit_of_inference: video_not_event
+  overlapping_windows: quantify_and_do_not_treat_as_independent
+  legal_edge: actual_CV_adapted_first_round_IoU_at_least_0.3
+  no_TrackEval_claim_from_local_windows: true
+decision:
+  if_replay_or_state_gate_fails: engineering_failure_no_research_score
+  if_controls_match_less_than_80_percent_or_wrong_legal_events_fewer_than_20_or_legal_videos_fewer_than_6: report_sparse_or_unbalanced_no_training
+  otherwise: return_descriptive_result_for_integrity_and_claim_review_no_auto_train
+  no_numeric_method_success_claim_from_this_privileged_diagnostic: true
+execution:
+  CUDA_VISIBLE_DEVICES: ""
+  physical_gpu: none
+  output_root: /media/imc/data/mot-data/runs/s03_single_memory_write_counterfactual_20261121
+  no_overwrite: true
+  no_training: true
+  no_heldout_val_test: true

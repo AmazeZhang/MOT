@@ -1,0 +1,46 @@
+diff --git a/trackers/ocsort_tracker/ocsort.py b/trackers/ocsort_tracker/ocsort.py
+index 7437f17..ba81fd7 100644
+--- a/trackers/ocsort_tracker/ocsort.py
++++ b/trackers/ocsort_tracker/ocsort.py
+@@ -220,6 +220,14 @@ class OCSort(object):
+         dets_second = dets[inds_second]  # detections for second matching
+         remain_inds = scores > self.det_thresh
+         dets = dets[remain_inds]
++        # S01 optional provenance hook. IDs stay aligned with the same source
++        # detection mask; this does not change any matching or tracker state.
++        s01_ids = getattr(self, "_s01_source_det_ids", None)
++        if s01_ids is not None:
++            if len(s01_ids) != len(scores):
++                raise ValueError("S01 source detection IDs are not aligned")
++            s01_high_ids = np.asarray(s01_ids)[remain_inds]
++            s01_record = self._s01_record
+ 
+         # get predicted locations from existing trackers.
+         trks = np.zeros((len(self.trackers), 5))
+@@ -247,6 +255,8 @@ class OCSort(object):
+             dets, trks, self.iou_threshold, velocities, k_observations, self.inertia)
+         for m in matched:
+             self.trackers[m[1]].update(dets[m[0], :])
++            if s01_ids is not None:
++                s01_record(self.trackers[m[1]].id + 1, int(s01_high_ids[m[0]]), "first")
+ 
+         """
+             Second round of associaton by OCR
+@@ -291,6 +301,8 @@ class OCSort(object):
+                     if iou_left[m[0], m[1]] < self.iou_threshold:
+                         continue
+                     self.trackers[trk_ind].update(dets[det_ind, :])
++                    if s01_ids is not None:
++                        s01_record(self.trackers[trk_ind].id + 1, int(s01_high_ids[det_ind]), "later")
+                     to_remove_det_indices.append(det_ind)
+                     to_remove_trk_indices.append(trk_ind)
+                 unmatched_dets = np.setdiff1d(unmatched_dets, np.array(to_remove_det_indices))
+@@ -303,6 +315,8 @@ class OCSort(object):
+         for i in unmatched_dets:
+             trk = KalmanBoxTracker(dets[i, :], delta_t=self.delta_t)
+             self.trackers.append(trk)
++            if s01_ids is not None:
++                s01_record(trk.id + 1, int(s01_high_ids[i]), "birth")
+         i = len(self.trackers)
+         for trk in reversed(self.trackers):
+             if trk.last_observation.sum() < 0:

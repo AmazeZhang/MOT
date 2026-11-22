@@ -1,0 +1,33 @@
+protocol_id: s03_memory_clone_smoke_20261121
+status: engineering_only_frozen_before_run
+purpose: verify_exact_S01_M_replay_and_one_write_suppression_clone_before_S03_scoring
+claim_level: engineering_no_GT_scoring_no_causal_claim
+inputs:
+  s01_frozen_inputs: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/frozen_inputs.json
+  s01_frozen_inputs_sha256: ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2
+  s02_events: /media/imc/data/mot-data/runs/s02_natural_identity_mechanism_20261121_retry3/events.jsonl
+  s02_events_sha256: 4491d04dcb3338aca56e0e0910c8b689936a9e4fd2973492b68030563f77d465
+  smoke_selection: first_M_actionable_event_in_S01_frozen_sequence_order_then_frame_then_track_ID
+  selected_sequence: dancetrack0087
+  selected_frame: 195
+  selected_track_id: 1
+  selected_owner_positive_det_id: 9
+  branch_future_frames: 30
+  S01_M_only: true
+  GT_access: false
+engineering_gates:
+  full_replay_tracker_sha_exact_S01: true
+  full_replay_trace_sha_exact_S01: true
+  factual_clone_frame_and_30_future_rows_traces_exact_S01: true
+  intervention_same_frame_rows_traces_exact_factual: true
+  intervention_changes_only_target_visual_memory_write_at_event_frame: true
+  legal_edge_logged_from_actual_CV_adapted_first_round_matrix: true
+  future_intervention_output_may_differ: true
+execution:
+  CUDA_VISIBLE_DEVICES: ""
+  physical_gpu: none
+  output_root: /media/imc/data/mot-data/runs/s03_memory_clone_smoke_20261121
+  no_overwrite: true
+  no_training: true
+  no_heldout_val_test: true
+  on_failure: preserve_failure_and_do_not_score

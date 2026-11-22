@@ -1,0 +1,52 @@
+{
+  "run_id": "s02_natural_identity_mechanism_retry3",
+  "status": "locked_before_re_evaluation_after_environment_mismatch",
+  "project_commit": "7ac72619515fcd30c4dc5fe29facf5197585bcbf",
+  "protocol_sha256": "5b389496aeb89c39bc37f296618ba9b0032431e6ec7ae42cc74f1cc1ffc06c3c",
+  "analysis_code_sha256": "6f0842e8e61bc8e72c36c8afd653cea5e9043900698d1cbb46e72f375b0a0a5e",
+  "s01_frozen_inputs_sha256": "ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2",
+  "sequences": [
+    "dancetrack0087",
+    "dancetrack0098",
+    "dancetrack0072",
+    "dancetrack0001",
+    "dancetrack0082",
+    "dancetrack0075",
+    "dancetrack0057",
+    "dancetrack0061",
+    "dancetrack0008",
+    "dancetrack0051",
+    "dancetrack0002",
+    "dancetrack0006",
+    "dancetrack0068",
+    "dancetrack0052",
+    "dancetrack0062",
+    "dancetrack0099",
+    "dancetrack0066",
+    "dancetrack0029",
+    "dancetrack0039",
+    "dancetrack0045",
+    "dancetrack0016",
+    "dancetrack0027",
+    "dancetrack0096",
+    "dancetrack0055"
+  ],
+  "output_root": "/media/imc/data/mot-data/runs/s02_natural_identity_mechanism_20261121_retry3",
+  "cuda_visible_devices": "",
+  "physical_gpu": null,
+  "environment": "/home/imc/anaconda3/envs/mot-det",
+  "protocol_path": "manifests/protocols/s02_natural_identity_mechanism_retry3_20261121.yaml",
+  "dependency_code_sha256": {
+    "src/mot_research/analysis/failure_events.py": "a23cc23e23d2b11a006dbbe73ceeef36c133dd79cdf1f0100926e183e9db1dec",
+    "src/mot_research/association/appearance_core.py": "b8ae8536710cdb32a8c69570e384bcb79cf958d9a156e4457bdb5fb970cbf5af"
+  },
+  "environment_versions": {
+    "python": "3.10.22",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "pyyaml": "6.0.2"
+  },
+  "retry_of": "s02_natural_identity_mechanism_retry2",
+  "retry_reason": "retry2 stopped before output because SciPy version differed with PYTHONNOUSERSITE=1",
+  "run1_summary_sha256": "89ce78868c15463e946feeda2cdebe98aefb611b2762670e8acf044333091043"
+}

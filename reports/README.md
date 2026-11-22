@@ -29,3 +29,6 @@
 - `diagnostics/e4_oracle_association_headroom_20261119/`：24 段 train-fit 的一次 GT 特权正确配对五帧局部分支；454 个条件化错配事件、目标净增 1,426 正确帧、全锚点净增 1,643，headroom 门通过但不代表在线方法或官方完整序列指标。
 - `feasibility/e5_nonoracle_appearance_local_20261119/`：24 段 train-fit 中 576 次配平的非 GT 外观/几何五帧局部分支；外观相对几何全锚点净帧 −6、其他锚点损伤 422/420，未过 fit 门，留出未运行。
 - `diagnostics/e5_error_analysis_20261120/`：对 E5 的 47 次选择分歧、414 次共同其他锚点损伤及正常首轮配对归属做只读事后拆解；576 个事件连接复核，不构成新方法或新晋级门。
+- `feasibility/s01_visual_association_20261120/`：固定检测的 G/Z/L/M 深度外观基线，24 段 train-fit 完整 TrackEval；S0 工程验收与同家族暂定完整性审阅均在此，不能外推为新方法或独立泛化。
+- `diagnostics/s02_natural_identity_mechanism_20261121/`：在冻结 S01 轨迹上做 GT 辅助、只读的自然异主更新普查；事件标签和重复窗口均为诊断代理，预写门只授权计划受控记忆测试。
+- `diagnostics/s03_single_memory_write_counterfactual_20261122/`：冻结 S01 M 轨迹上的单次记忆写入局部分支、严格对照重评和事后仪表补检；GT 特权机制诊断，不是在线方法或完整序列评测。

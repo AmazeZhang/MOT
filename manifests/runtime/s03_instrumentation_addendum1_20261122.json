@@ -1,0 +1,20 @@
+{
+  "run_id": "s03_instrumentation_addendum1",
+  "status": "locked_before_posthoc_addendum_execution",
+  "project_commit": "7ac72619515fcd30c4dc5fe29facf5197585bcbf",
+  "protocol_sha256": "6701e32d1d49bff2257b70bcb5980cc2d08d75f2aa7f95aef976d2f7238a6868",
+  "analysis_code_sha256": "aa27e6eb2b962d32b36d7eac83663d3d13eae1fc10108926e81df257c5547d9c",
+  "dependency_code_sha256": {
+    "scripts/run_s03_single_memory_write_counterfactual.py": "b92ffce7af58acb443c632f5cac0acb6ff02fdbf16b9fc9ab480f4c1de994ed4",
+    "src/mot_research/association/appearance_core.py": "b8ae8536710cdb32a8c69570e384bcb79cf958d9a156e4457bdb5fb970cbf5af"
+  },
+  "environment_versions": {
+    "python": "3.10.22",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "pyyaml": "6.0.2"
+  },
+  "output_root": "/media/imc/data/mot-data/runs/s03_instrumentation_addendum_20261122",
+  "cuda_visible_devices": "",
+  "physical_gpu": null
+}

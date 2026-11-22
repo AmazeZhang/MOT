@@ -1,0 +1,33 @@
+{
+  "run_id": "s0_motip1",
+  "branch": "MOTIP_official_single_video_engineering_only",
+  "protocol_sha256": "f99c994a2ab622f3e6f7b1156a1b94410ab53c1e79275aa3076e6e57700ffa5c",
+  "project_commit": "7ac72619515fcd30c4dc5fe29facf5197585bcbf",
+  "motip_commit": "ffc0e905ac196a603027eca8d18fb0dff48c8bcc",
+  "motip_source_url": "https://github.com/MCG-NJU/MOTIP",
+  "motip_license": "Apache-2.0",
+  "config_path": "/media/imc/data/mot-data/third_party/MOTIP/configs/r50_deformable_detr_motip_dancetrack.yaml",
+  "config_sha256": "b01272b169342f074e8dd7bef6068ea8512c826f946f7e7542e0895e18ca871e",
+  "weight_path": "/media/imc/data/mot-data/weights/motip/r50_deformable_detr_motip_dancetrack.pth",
+  "weight_sha256": "c642793c1f3d526aa8537d59bc6a3d201b44b16099076519ffad5ec379050800",
+  "weight_url": "https://github.com/MCG-NJU/MOTIP/releases/download/v0.1/r50_deformable_detr_motip_dancetrack.pth",
+  "training_data_status": "DanceTrack-trained official checkpoint; train smoke is in-sample engineering only",
+  "dataset_view_root": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s0_motip1/view",
+  "dataset_view_manifest_sha256": "c44d1b21789f0d711e9642a2bb1dfc0fae4cc69accaf1a420d4dd3fb0494ede6",
+  "selected_sequence": "dancetrack0027",
+  "frames_inclusive": [
+    1,
+    200
+  ],
+  "environment": "/media/imc/data/mot-data/envs/s01-motip; Python 3.12.2, torch 2.2.2+cu121, torchvision 0.17.2, accelerate 0.31.0, triton 2.2.0; CUDA toolkit 12.4",
+  "cuda_visible_devices": "1",
+  "physical_gpu": 1,
+  "gpu_uuid": "GPU-767ac2de-9a21-fb02-38ad-eb7806c7fd9e",
+  "gpu0_forbidden": true,
+  "code_sha256": {
+    "submit_and_evaluate.py": "33fbbecf88308c36f3331574382540186cf7e07cf8fcc00f184838b2c86a8d66",
+    "models/ops/MultiScaleDeformableAttention.cpython-312-x86_64-linux-gnu.so": "3084274b92efe9a8bb1f01d56696ff6547cd6724511ac1d1752b0ec0dbb246cf"
+  },
+  "output_root": "/media/imc/data/mot-data/runs/s01_visual_association_20261120/s0_motip1/output",
+  "mode": "submit (no GT loading)"
+}

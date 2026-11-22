@@ -1,0 +1,25 @@
+protocol_id: s03_instrumentation_addendum_20261122
+status: posthoc_read_only_checks_after_S03_full_results
+claim_level: instrumentation_and_dependence_check_only
+inputs:
+  s03_summary: /media/imc/data/mot-data/runs/s03_single_memory_write_counterfactual_20261121/summary.json
+  s03_summary_sha256: 20699a65eff5384f4bfbb9a9edffd18e7084c4059886b496e02ad0b2961ef0cc
+  s03_event_selection: /media/imc/data/mot-data/runs/s03_single_memory_write_counterfactual_20261121/frozen_event_selection.json
+  s03_event_selection_sha256: 9c2076ad4d874d5dd4c947054651246ee5b9602cd4ee5572fc8351a3a4870919
+  s03_branches_frozen: /media/imc/data/mot-data/runs/s03_single_memory_write_counterfactual_20261121/branches_frozen.json
+  s03_branches_frozen_sha256: 863aa17984b4e4050ffe0f093e03378f0af9955e59f2539f568abf50f7f851a1
+  s01_frozen_inputs: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/frozen_inputs.json
+  s01_frozen_inputs_sha256: ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2
+checks:
+  selected_target_memory_vector_before_vs_after_write_L2: all_172_cases
+  branch_trace_field_difference_counts: all_172_cases
+  memory_visible_future_frames_and_fast_path_coverage: all_172_cases
+  window_overlap_and_video_end_truncation: both_groups_and_combined
+  control_pair_uniqueness_same_video_distance: all_86_pairs
+  no_outcome_rescoring_or_parameter_change: true
+outputs:
+  root: /media/imc/data/mot-data/runs/s03_instrumentation_addendum_20261122
+  no_overwrite: true
+execution:
+  CUDA_VISIBLE_DEVICES: ""
+  physical_gpu: none

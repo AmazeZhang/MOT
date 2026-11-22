@@ -1,0 +1,57 @@
+protocol_id: s02_natural_identity_mechanism_retry2_20261121
+retry_of: s02_natural_identity_mechanism_20261121
+retry_reason: pin_analysis_dependency_source_hashes_before_re_evaluation
+status: frozen_before_GT_diagnostic
+purpose: decide whether candidate_A_contamination_mechanism_merits_controlled_test
+claim_level: read_only_train_fit_diagnostic_not_causal_or_generalization
+inputs:
+  s01_protocol: manifests/protocols/s01_visual_association_handoff_20261120.yaml
+  s01_protocol_sha256: f99c994a2ab622f3e6f7b1156a1b94410ab53c1e79275aa3076e6e57700ffa5c
+  s01_summary: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/summary.json
+  s01_summary_sha256: b3585deb2eebc5132ac898478a69d8bdb803f9b989c0bdaf8c88ea0bf6ddabb0
+  frozen_inputs: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/frozen_inputs.json
+  frozen_inputs_sha256: ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2
+  s01_runtime_lock: manifests/runtime/s01_visual_association_s1_full_eval2_20261121.json
+  s01_runtime_lock_sha256: 473a092e59f06033419f2bf2f145e5476e871f9fdbc923c2b721c9d0b7fab460
+  sequences: frozen_inputs.sequences_all_24
+  conditions: [G, L, M]
+  source_detection_score: strictly_greater_than_0.6
+  high_detection_to_GT: one_to_one_Hungarian_max_IoU_at_least_0.5
+  GT_use: after_full_S01_outputs_frozen_only
+definitions:
+  event_stream: actual_high_score_source_detection_updates_from_S01_trace
+  stable_anchor: last_3_actual_updates_before_frame_all_have_same_GT_label_and_most_recent_within_30_frames
+  unlabelled_update: breaks_stable_anchor
+  first_onset: first_nonbirth_update_per_sequence_condition_track_with_foreign_GT_label_after_stable_anchor
+  first_onset_only_per_track: true
+  unknown_detection_GT: exclude_from_wrong_update_numerator_and_report_separately
+  owner_positive_available: high_detection_one_to_one_matched_to_anchor_GT_at_event_frame
+  foreign_competitor: another_requested_live_track_has_stable_anchor_for_foreign_GT_at_event_frame
+  actionable_competition: first_onset_and_owner_positive_available_and_foreign_competitor
+  future_horizon_frames: 30
+  persistence: future_wrong_GT_updates_before_first_return_to_anchor_GT
+  future_opportunity: anchor_GT_present_and_high_positive_detection_available_and_track_live
+  memory_similarity: pre_frame_M_or_L_memory_cosine_to_owner_positive_minus_selected_foreign_detection
+  memory_similarity_scope: offline_observability_only_not_feasibility_or_deployment_score
+  changed_pair_accounting: compare_first_round_base_and_actual_pairs_only_on_pre_frame_stable_anchors_and_GT_labeled_high_detections
+  unit_of_summary: video
+  no_cross_condition_track_ID_pairing_after_divergence: true
+decision:
+  minimum_observational_support_to_plan_controlled_memory_test:
+    actionable_competition_first_onsets: 20
+    videos_with_actionable_competition: 6
+    actionable_onsets_with_later_wrong_update_and_owner_positive: 10
+  if_below_any_minimum: defer_candidate_A_training_and_report_sparsity
+  if_all_met: only_plan_controlled_memory_or_competition_intervention_not_auto_train
+  label_proxy_caveat: IoU_0.5_assignment_is_diagnostic_not_true_identity_or_TrackEval_event
+  no_claim_of_causality_from_observational_persistence: true
+  no_adaptive_threshold_or_subset_selection: true
+execution:
+  read_only_inputs: true
+  CUDA_VISIBLE_DEVICES: ""
+  physical_gpu: none
+  output_root: /media/imc/data/mot-data/runs/s02_natural_identity_mechanism_20261121_retry2
+  no_overwrite: true
+  no_training: true
+  no_heldout_val_test: true
+  repo_report: reports/diagnostics/s02_natural_identity_mechanism_20261121/README.md

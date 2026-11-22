@@ -1,0 +1,57 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T11:16:16.929820+00:00",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "diagnostic_proxy_dependence_and_historical_source_lock_gap",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-21_run02/",
+  "audited_input_hashes": {
+    "retry3/summary.json": "sha256:5cdb942ab76cd0b705fabeac8aca5db9608a784f800951441e4bf8b20aeb0f38",
+    "retry3/frozen_inputs.json": "sha256:e5a3713010d90650fb2e49a1ffcc673792a14f61a3ca647603ef0a6064423a8c",
+    "manifests/runtime/s02_natural_identity_mechanism_retry3_20261121.json": "sha256:99d760268e15109b519dc4450825931ab2cfedcf14d15c3309a9edcff3740a78"
+  },
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "24 dataset GT files match retained archives; GT loaded after source freeze."
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Raw counters and fixed absolute thresholds; cosine is feature similarity."
+    },
+    "result_existence": {
+      "status": "pass",
+      "details": "Independent full 24-video reimplementation matched 843 events and all counts; retry3 matches run1."
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "All reported analysis functions execute and write outputs."
+    },
+    "scope": {
+      "status": "warn",
+      "details": "Reused train-fit, IoU identity proxy, overlapping event windows, no causal intervention."
+    },
+    "eval_type": "real_gt_custom_observational_diagnostic"
+  },
+  "claims": [
+    {
+      "id": "s02_observational_opportunity",
+      "impact": "supported_with_proxy_qualification"
+    },
+    {
+      "id": "memory_write_causal_propagation",
+      "impact": "unsupported"
+    },
+    {
+      "id": "candidate_A_training_benefit",
+      "impact": "unsupported"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-22",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "posthoc_control_retry_overlap_anchor_scope_and_unbalanced_matching",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "review_route_note": "fresh initial reviewer continued to retry2; GPT-5.6-Sol unavailable",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-22_run01/",
+  "audited_input_hashes": {
+    "retry2/summary.json": "sha256:12293779fa5ceb1930eb9f59d0c99f07ee670d5bcfb3a38cbf6e8c4c7cd472bc",
+    "retry2/frozen_event_selection.json": "sha256:5c71eafe1e3d11e4a021298b2f3490a6bcf238927434b809cd1babc01965bccb",
+    "retry2/branches_frozen.json": "sha256:19320a027e1cd43b2604008eab0e53cf6bae2494b38d4c0a4ad3525eb8c9214b",
+    "manifests/runtime/s03_single_memory_write_counterfactual_retry2_20261122.json": "sha256:72948a9ffd5a8b19e22b1413a68733b3de1a92ca8e85f62c1b18da17bc2050f2"
+  },
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "Real dataset GT checked and used for offline privileged selection/scoring, not natural M branch inference."
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Raw suppressed-minus-factual correct-frame counts; cosine feature normalization is not metric normalization."
+    },
+    "result_existence": {
+      "status": "pass",
+      "details": "339 hash comparisons; 24 replay videos and 172 factual branches match S01; all scores and aggregates independently recomputed."
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "172 nonzero EMA perturbations, actual appearance-score change probe, and nonzero scoring positive control."
+    },
+    "scope": {
+      "status": "warn",
+      "details": "Retry2 posthoc control correction, overlap/truncation, limited prior-output anchors, no matching balance proof, reused train-fit."
+    },
+    "eval_type": "real_gt_privileged_local_counterfactual_diagnostic"
+  },
+  "claims": [
+    {
+      "id": "s03_single_write_local_zero_output_effect",
+      "impact": "supported_with_scope_qualification"
+    },
+    {
+      "id": "repeated_memory_contamination_is_harmless",
+      "impact": "unsupported"
+    },
+    {
+      "id": "candidate_A_training_benefit",
+      "impact": "unsupported"
+    }
+  ],
+  "generated_at": "2026-11-22T04:30:53.309411+00:00",
+  "reviewer_agent_id": "/root/s03_experiment_integrity_audit"
+}

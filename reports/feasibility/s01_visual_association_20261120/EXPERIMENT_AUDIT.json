@@ -1,0 +1,57 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T03:06:11.448953+00:00",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "development_scope_and_historical_provenance",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-21_run01/",
+  "audited_input_hashes": {
+    "s1_full_evaluation2/summary.json": "sha256:b3585deb2eebc5132ac898478a69d8bdb803f9b989c0bdaf8c88ea0bf6ddabb0",
+    "s1_full_evaluation2/frozen_inputs.json": "sha256:ed50243913084d3df2840423feb2bb3ffb3b010667dbc8cf4ebf8d483340fcc2",
+    "manifests/runtime/s01_visual_association_s1_full_eval2_20261121.json": "sha256:473a092e59f06033419f2bf2f145e5476e871f9fdbc923c2b721c9d0b7fab460"
+  },
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "24 GT files byte-identical to archived DanceTrack zip; TrackEval reads dataset annotations after frozen outputs."
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Official TrackEval threshold mean and percent projection; no output-dependent denominator."
+    },
+    "result_existence": {
+      "status": "pass",
+      "details": "All official detailed CSV fields verified against summary; eval2 identical to eval1."
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "HOTA, CLEAR, Identity instantiated and evaluated; projected to summary."
+    },
+    "scope": {
+      "status": "warn",
+      "details": "24 reused train-fit videos, one deterministic configuration; appearance pretraining overlap unknown."
+    },
+    "eval_type": "real_gt"
+  },
+  "claims": [
+    {
+      "id": "fixed_baseline_train_fit_descriptive",
+      "impact": "supported_with_scope_qualification"
+    },
+    {
+      "id": "independent_generalization",
+      "impact": "unsupported"
+    },
+    {
+      "id": "new_method_effectiveness",
+      "impact": "unsupported"
+    }
+  ]
+}

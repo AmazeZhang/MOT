@@ -179,3 +179,23 @@ Verdict: **not supported** for the intended discriminating-mechanism claim. On 8
 On 831 fixed recovery events from eight selected DanceTrack motion-dev sequences, none of four registered aggregate learned-versus-CV disadvantage checks triggered on the 829 common applicable B0-state events. Learned was stronger on these one-step aggregate measurements despite weaker prior natural closed-loop tracking. The diagnostic therefore did not explain the closed-loop deficit, and the frozen resource-allocation rule stops/pivots this branch.
 
 Integrity status is same-family provisional `WARN` for scope and chronology, with all numeric/no-writeback checks passing. Raw evidence: `reports/diagnostics/p1_common_state_mechanism_v1_20261113/`. Local result-to-claim trace: `.aris/traces/result-to-claim/2026-11-13_run02/`.
+
+## 2026-11-21: S01 deep appearance baseline versus candidate A mechanism claim
+
+Verdict: **not supported** for the claim that S01 already demonstrates naturally persistent competitive identity-memory contamination and therefore warrants immediate candidate A training. Fresh GPT-6.1-Sol ultra result-to-claim review is same-family, provisional; integrity status `WARN`. See [S01 baseline report](reports/feasibility/s01_visual_association_20261120/README.md), [audit](reports/feasibility/s01_visual_association_20261120/EXPERIMENT_AUDIT.md), and [S02 prewritten protocol](manifests/protocols/s02_natural_identity_mechanism_20261121.yaml).
+
+Supported: a fixed deep-appearance first-round association baseline is integrated and supplies descriptive visual-history information on 24 reused DanceTrack train-fit videos. Compared with G, M raises COMBINED_SEQ HOTA by 2.46, AssA by 3.32 and IDF1 by 2.56 percentage points at the fixed 0.25 appearance weight and 0.9 EMA. Some videos decline; 132/138 L/M changed first-round frames compare against no-appearance association on each condition's own state.
+
+Unsupported: prevalence, duration or causal effect of wrong-identity memory writes; benefit of structured rollout training over matched alternatives; independent generalization; MOTIP research performance or new-method novelty. S01 traces lack GT ownership and persistence labels. M versus L also changes ordinary temporal smoothing, so aggregate differences cannot identify contamination.
+
+Route: **S02 read-only natural-error diagnosis first**, followed by a controlled single-memory-write intervention only if observational opportunity is sufficient. No candidate A training from S01 alone. The reviewer has high confidence in this insufficiency judgment; the mechanism itself remains unknown.
+
+## 2026-11-22: S03 single visual-memory write causal gate
+
+Verdict: **not supported** for the claim that one wrong visual-memory write is a major cause of subsequent natural ID errors and already justifies candidate A structured-rollout training. Fresh same-family GPT-6.1-Sol ultra `result-to-claim` review is provisional, with high confidence for the scoped null and training stop; integrity audit is `WARN`. See [S03 decision](docs/s03_claim_gate_20261122.md), [report](reports/diagnostics/s03_single_memory_write_counterfactual_20261122/README.md), and [audit](reports/diagnostics/s03_single_memory_write_counterfactual_20261122/EXPERIMENT_AUDIT.md).
+
+Supported: in frozen S01 M on 24 reused DanceTrack train-fit videos, suppressing exactly one target memory write in each of 86 GT-proxy wrong events and 86 selected clean updates changed no saved output in the available future windows of up to 30 frames. Every recorded local target/other/all-anchor correct-frame delta was zero. All target vectors changed; one actual subsequent fused-score probe changed, so the intervention reached the scoring path.
+
+Unsupported: major causal influence of one wrong write, sufficient feasibility signal for candidate A training, general harmlessness of appearance memory contamination, repeated-write or longer-horizon nulls, an online method, full-sequence TrackEval gain, or independent generalization. Retry2 corrected controls after the first zero result, so it is not a blind independent replication.
+
+Route: **stop candidate A training under this rationale now**. No further run of the unchanged single-write hypothesis is needed for that decision. Any continuation requires a distinct prospectively frozen mechanism diagnostic, explicit clean-update costs and collateral-identity accounting, and later independent matched training/validation if that new mechanism passes. Generic `evidence_check.py` was unavailable; S03 has separate deterministic artifact and scoring review.
