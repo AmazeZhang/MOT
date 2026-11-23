@@ -1,0 +1,10 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "TEMPLATE",
+  "generated_at": null,
+  "git_paths_relative_to": "report_directory",
+  "server_root": "/media/imc/data/mot-data",
+  "self_hash_excluded": true,
+  "files": [],
+  "missing_artifacts": []
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": "mot-report-v1",
+  "experiment_id": null,
+  "status": "TEMPLATE",
+  "stage": null,
+  "created_at": null,
+  "decision": null,
+  "decision_reason": null,
+  "protocol": {
+    "path": null,
+    "sha256": null,
+    "frozen_at": null,
+    "known_results_at_freeze": [],
+    "deviations": []
+  },
+  "code": {
+    "commit": null,
+    "dirty": null,
+    "source_index_artifact_id": null,
+    "dirty_patch_artifact_id": null,
+    "untracked_source_artifact_ids": [],
+    "third_party_locks": [],
+    "evaluator": null,
+    "exporter": null
+  },
+  "inputs": {
+    "dataset": null,
+    "dataset_revision": null,
+    "split_manifest": null,
+    "split_sha256": null,
+    "detection_index_artifact_id": null,
+    "feature_index_artifact_id": null,
+    "weights": [],
+    "preprocessing_artifact_id": null,
+    "gt_usage": null
+  },
+  "scopes": [],
+  "conditions": [],
+  "planned_runs": [],
+  "attempts": [],
+  "authoritative_evaluations": [],
+  "metric_contract": {
+    "ratio_scale": "0_to_100_points_MOTA_may_be_negative",
+    "count_unit": "integer",
+    "aggregation": "official_TrackEval_COMBINED_SEQ",
+    "missing_csv": "empty_cell_with_missing_reason",
+    "missing_json": "null_with_reason",
+    "per_video_tie_tolerance": null,
+    "precision_limitations": null
+  },
+  "training": null,
+  "environment_artifact_id": null,
+  "resources": [],
+  "omissions": [],
+  "limitations": [],
+  "next_action": null
+}

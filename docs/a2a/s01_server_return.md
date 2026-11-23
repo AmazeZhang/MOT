@@ -1,5 +1,7 @@
 # S01 服务器回传：S0 工程门与 S1 固定外观基线
 
+> 状态导航（2026-11-23）：本文件保留 S01 当时的完整回传。后续 S02/S03/S04 已完成，最新方向判断见[研究端复盘](../research_status_review_20261123.md)；文末“下一步”是 S01 完成时的历史建议，不能据此重新启动候选 A。
+
 日期：2026-11-21。状态：**COMPLETE_EXPLORATORY**。按既定协议完成 S0 和 S1；未训练候选方法，未使用 heldout 或官方 val/test。完整逐视频表见 [结果报告](../../reports/feasibility/s01_visual_association_20261120/README.md)。所有原始产物在 `/media/imc/data/mot-data/runs/s01_visual_association_20261120/`，未放进 Git 仓库。
 
 ## 运行身份和环境

@@ -1,14 +1,18 @@
 # MOT 毕业设计研究
 
-研究问题：在短时观测缺失与身份竞争下，运动分布能否改善在线多目标跟踪？Flow Matching（FM）是候选实现，需要与确定性预测、高斯和混合密度网络（MDN）比较。
+初始研究问题：在短时观测缺失与身份竞争下，运动分布能否改善在线多目标跟踪？Flow Matching（FM）是历史候选，目前暂缓；当前建议聚焦深度外观基线上的竞争关联决策，见下方最新交接。
+
+**下一轮与报告要求（2026-11-23）：** [S05/S06 建议](docs/a2a/NEXT_ROUND_20261123.md)规定先补八段完整对照与一次有界候选覆盖检查，再决定小型学习方法；CAMELTrack 等先例已覆盖泛化的上下文关联，候选创新尚未成立。[AGENTS.md](AGENTS.md) 已加入 [报告规范 v1](docs/experiment_reporting.md)，使用 [可复制模板](docs/templates/report_bundle/README.md)回传完整精度总体/逐视频指标、诊断案例、训练曲线及来源。服务器从 [LATEST](docs/a2a/LATEST.md) 读取当前任务；新实验尚未运行。
+
+**当前阶段（2026-11-23）：S01–S04 已完成。** 固定深度外观 EMA 基线在 24 段开发集上相对 CV+E 有 +2.46 HOTA、+3.32 AssA、+2.56 IDF1；这是已有视觉机制的正向基线，不是已确认的新方法或泛化结果。S03 单次跳写和 S04 连续冻结均未改变所选分支输出，停止据此启动候选 A 训练。下一步重心转向错误发生时的视觉/几何竞争与合法关联决策，先补稳定性对照和决策覆盖诊断，不继续扫冻结窗口。见 [S01–S04 最新复盘](docs/research_status_review_20261123.md)、[S01 结果](reports/feasibility/s01_visual_association_20261120/README.md)、[S04 结果](reports/diagnostics/s04_bounded_memory_freeze_20261122/README.md)。
 
 **整体复盘（2026-11-20）：** [两周进展与方向评估](docs/research_status_review_20261120.md)区分了已获得的简单改进、机制发现与尚未成立的方法创新。建议收束当前规则链，先进行有边界的方向发散；不是继续执行旧实验清单。
 
 **方向调研（2026-11-20）：** [方向评估与最小验证方案](调研/研究方向发散_2026-11-20/方向评估与最小验证方案.md)建议先建立深度视觉对照与 MOTIP 验收，再验证竞争身份污染或合法冲突集合决策；可靠记忆与 FM 暂缓。MOTIP2、早期 exposure-bias 工作等已覆盖部分直觉，不把候选当已确认创新。[检索与代码核查记录](调研/研究方向发散_2026-11-20/allinone.md)列出原始来源、API 失败和代码可用性限制。本轮未实现或运行新实验。
 
-**服务器 agent 交接（2026-11-20）：** 从 [S0/S1 任务书](docs/a2a/S01_SERVER_TASK.md) 开始，按[固定对照协议](manifests/protocols/s01_visual_association_handoff_20261120.yaml)补齐环境、版本/权重锁和完整执行脚本。[核心代码](src/mot_research/association/appearance_core.py)与 11 项 CPU 测试已完成；真实数据接入、GPU 和模型验收尚未执行。用[服务器回传模板](docs/a2a/s01_server_return.md)通过仓库交接结果，本轮不启动 A/B 或 FM 训练。
+**服务器 agent 交接：** [S0/S1 任务书](docs/a2a/S01_SERVER_TASK.md)及[固定对照协议](manifests/protocols/s01_visual_association_handoff_20261120.yaml)已执行，真实数据接入、外观提取、固定对照与 MOTIP 单视频验收见[服务器回传](docs/a2a/s01_server_return.md)。后续 S02–S04 见[进展日志](docs/progress_log.md)与最新复盘；旧任务书保留作复现说明，不是新的待运行清单。
 
-**当前阶段（2026-11-20）：P1、R1 当前选择器分支和 R2 P1 离线排序均已按预定门槛停止。E0/E1 找到“匹配并更新但未输出”的断点，E2 的简单门控有开发集收益与代价，E3 的短缺失补回未过 fit 门。E4 的 GT 特权局部反事实证明选中错配事件存在短程收益；E5 用固定 HSV 外观选择可观察事件，在 24 段 train-fit 上相对配平几何规则净差 −6 帧、其他锚点损伤 422 对 420，未过晋级门，8 段留出未运行。事后只读分析显示 576 次动作中 529 次两规则同选，414 次共同损伤其他锚点；正常首轮常已把候选检测配给别的身份。** 目前仍无经独立确认的新方法或新颖性结论。当前外观选择器停止，尚无已验证的安全在线触发信号；只有提出实质不同的可观察机制后才启动新协议。见 [E5 失误分析](reports/diagnostics/e5_error_analysis_20261120/README.md)、[E5 实验报告](reports/feasibility/e5_nonoracle_appearance_local_20261119/README.md)、[E5 主张决策](docs/e5_claim_gate_20261120.md)、[进展日志](docs/progress_log.md)；[11 月 19 日复盘](docs/experiment_review_20261119.md)保留当时的执行建议。
+**历史阶段（2026-11-20，后续见上方最新状态）：P1、R1 当前选择器分支和 R2 P1 离线排序均已按预定门槛停止。E0/E1 找到“匹配并更新但未输出”的断点，E2 的简单门控有开发集收益与代价，E3 的短缺失补回未过 fit 门。E4 的 GT 特权局部反事实证明选中错配事件存在短程收益；E5 用固定 HSV 外观选择可观察事件，在 24 段 train-fit 上相对配平几何规则净差 −6 帧、其他锚点损伤 422 对 420，未过晋级门，8 段留出未运行。事后只读分析显示 576 次动作中 529 次两规则同选，414 次共同损伤其他锚点；正常首轮常已把候选检测配给别的身份。** 目前仍无经独立确认的新方法或新颖性结论。当前外观选择器停止，尚无已验证的安全在线触发信号；只有提出实质不同的可观察机制后才启动新协议。见 [E5 失误分析](reports/diagnostics/e5_error_analysis_20261120/README.md)、[E5 实验报告](reports/feasibility/e5_nonoracle_appearance_local_20261119/README.md)、[E5 主张决策](docs/e5_claim_gate_20261120.md)、[进展日志](docs/progress_log.md)；[11 月 19 日复盘](docs/experiment_review_20261119.md)保留当时的执行建议。
 
 R1 的原始设计见 [P1 停止后的研究路线建议](docs/research_route_proposal_20261113.md)。[决策规则对照执行草案](docs/next_branch_decision_rule_plan_20261118.md) 已产生独立冻结的 R2 P1 实验，其余阶段未执行；草案中的归因推断和三条件设计需按最新复盘修正，不能直接作为下一轮运行清单。
 

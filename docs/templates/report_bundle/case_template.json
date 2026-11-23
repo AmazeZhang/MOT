@@ -1,0 +1,23 @@
+{
+  "status": "TEMPLATE",
+  "case_id": null,
+  "run_id": null,
+  "baseline_run_id": null,
+  "condition": null,
+  "scope_id": null,
+  "sequence": null,
+  "frame_start": null,
+  "frame_end": null,
+  "comparison_type": null,
+  "sampling_stratum": null,
+  "sampling_rank_key": null,
+  "track_and_detection_mapping": [],
+  "gt_role": "offline_diagnostic_only",
+  "baseline_pairs": [],
+  "method_pairs": [],
+  "decision_reason": null,
+  "all_affected_identities_outcomes": [],
+  "score_and_legal_mask_evidence": [],
+  "coordinate_or_visual_evidence": [],
+  "source_artifact_ids": []
+}

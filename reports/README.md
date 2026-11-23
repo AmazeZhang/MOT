@@ -4,6 +4,8 @@
 
 每个快照必须注明数据划分、运行范围、原始文件 SHA256 和限制；train 诊断不得写成 val 或新方法结果。
 
+2026-11-23 起新增报告遵循 [报告规范 v1](../docs/experiment_reporting.md) 和 [报告包模板](../docs/templates/report_bundle/README.md)：完整精度汇总/逐视频指标随 Git 回传，负结果与未完成组也保留。历史 S01/S04 机器可读补齐尚待服务器执行，不代表本地已有原始数值。[当前交接与下一步](../docs/a2a/LATEST.md)。
+
 当前快照：
 
 - `baselines/g1_ocsort_train_20261110/`：完整 DanceTrack train 诊断基线。

@@ -1,0 +1,21 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "TEMPLATE",
+  "comparison_type": null,
+  "unit_of_analysis": null,
+  "definitions": {},
+  "sampling_rule": null,
+  "selection_seed": null,
+  "statistics": [],
+  "per_sequence_statistics": [],
+  "overlap_accounting": null,
+  "unlabeled_or_excluded": [],
+  "case_sampling": {
+    "rule": "fixed_seed_hash_order_within_improved_worsened_unchanged_strata",
+    "maximum_per_stratum": 3,
+    "actual_counts": null,
+    "source_artifact_id": null,
+    "worst_case_additions_separately_labeled": true
+  },
+  "limitations": []
+}

@@ -1,0 +1,1 @@
+run_id,condition,seed,scope_id,sequence,status,num_frames,HOTA,DetA,AssA,IDF1,MOTA,IDSW,FP,FN,Frag,source_artifact_id,source_locator,missing_reason

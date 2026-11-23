@@ -1,0 +1,53 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "TEMPLATE",
+  "executed_at": null,
+  "reviewer_or_process": null,
+  "checks": [
+    {
+      "name": "format_and_unique_keys",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    },
+    {
+      "name": "expected_vs_completed_coverage",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    },
+    {
+      "name": "metric_export_matches_source",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    },
+    {
+      "name": "paired_comparison_compatibility",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    },
+    {
+      "name": "relevant_engineering_invariants",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    },
+    {
+      "name": "artifact_hashes_and_safe_export",
+      "status": "NOT_RUN",
+      "command": null,
+      "evidence": [],
+      "scope": null
+    }
+  ],
+  "cited_prior_checks": [],
+  "not_accessible_here": [],
+  "limitations": []
+}
