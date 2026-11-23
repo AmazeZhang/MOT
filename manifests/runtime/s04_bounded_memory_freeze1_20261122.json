@@ -1,0 +1,115 @@
+{
+  "run_id": "s04_bounded_memory_freeze1_20261122",
+  "status": "locked_before_event_selection_and_branch_outputs",
+  "project_commit": "c4c5fb86cc54f44d1d555827e5ea8e010ec1704b",
+  "protocol_sha256": "b6e40f6a24d7c8f79a41e43e89ce21de403bc43f2872e01597c81285d04fd90f",
+  "analysis_code_sha256": "17914ae2d49dbf36ac84bd4e84fc70e3d71227bc312af51d4c9d58637ec95d4d",
+  "dependency_code_sha256": {
+    "scripts/run_s03_memory_clone_smoke.py": "255b4f57313f3f384dcf5ea52579f883eee6f9b77da15ec62b4093005799f5f3",
+    "scripts/run_s01_visual_baselines.py": "6b5be11aad06664b78777b92cb3e775a874f88c6ccdfc54285bce9825941f062",
+    "scripts/analyze_s02_natural_identity_mechanism.py": "6f0842e8e61bc8e72c36c8afd653cea5e9043900698d1cbb46e72f375b0a0a5e",
+    "scripts/run_e1_mature_reemit_factorial.py": "ccbad0b85d2262ab6599075ddabe6a77a2f9dc611cb0451aaae1531ed8d916e4",
+    "scripts/analyze_p1_common_state_mechanism.py": "eeb4b6aa6afab7984afef7a7577934f5ed4eb2707a3a63ae12a175981758a172",
+    "src/mot_research/analysis/failure_events.py": "a23cc23e23d2b11a006dbbe73ceeef36c133dd79cdf1f0100926e183e9db1dec",
+    "src/mot_research/association/appearance_core.py": "b8ae8536710cdb32a8c69570e384bcb79cf958d9a156e4457bdb5fb970cbf5af",
+    "src/mot_research/tracking/first_round_adapter.py": "56b855330dfde71cbcbf708153a178862ddfe909c2c3f4a2fe47aecd7a0e7b62",
+    "src/mot_research/tracking/natural_motion_policy.py": "8b855daca23cdc41595e5c581fa42fec16adf4a5f846aab6d8f75372d6ac5a00",
+    "src/mot_research/analysis/runtime_record.py": "331c6ccc2b4a674834d3047491b9d6e3fa507af6de0a70007f2beb19b38a5f43",
+    "third_party/OC_SORT/trackers/ocsort_tracker/ocsort.py": "0e3ea4fbdec2e8fe743e54d438e044cb6dbf146314946cf1fb544c0d75634455",
+    "third_party/OC_SORT/trackers/ocsort_tracker/association.py": "def9274c709c9a5650938ba7e9bb95dbbb8c69f33b61006c8aa6ea332e4415ac",
+    "scripts/run_s03_single_memory_write_counterfactual_retry2.py": "23e1b8b388e08767c6839b743a1bf75cbb8d086088974af8ed3ea892fd792e16",
+    "scripts/run_s04_baseline_queue.py": "723499cbb59ee8e02b2c95c7e22e2d7a7b71f7d681a8dedcda1403149c0e1047"
+  },
+  "environment_versions": {
+    "python": "3.10.12",
+    "numpy": "1.26.4",
+    "scipy": "1.13.0",
+    "pyyaml": "6.0.2"
+  },
+  "sequences": [
+    "dancetrack0074",
+    "dancetrack0032",
+    "dancetrack0069",
+    "dancetrack0015",
+    "dancetrack0023",
+    "dancetrack0080",
+    "dancetrack0049",
+    "dancetrack0083"
+  ],
+  "feature_runtime_lock_path": "manifests/runtime/s04_heldout_features1_20261122.json",
+  "feature_runtime_lock_sha256": "4cf1cae88643a63f5e0f4ee1c9117cec5a172d352d456cd019f4ab409687bef3",
+  "baseline_runtime_lock_path": "manifests/runtime/s04_M_baseline1_20261122.json",
+  "baseline_runtime_lock_sha256": "64cb02eca137193b536490b4397bfe0e95ae50c5e6c2112813d99e8b306fe32c",
+  "feature_status_sha256": "57044c1b720578b3a5c69f9fbaf9f3763efb30f664a90544f55b6cc4c6281067",
+  "baseline_status_sha256": "49675dea09ac555df36fb2a16eec8450d765b593e67d2565f7b1160386a4c008",
+  "source_sha256": {
+    "dancetrack0074": {
+      "tracker": "fd42bce75ca4c1107bd0112351e4f0ea8edf528996dead3a031657d9f9b33b76",
+      "trace": "fdd2b33711bebc44b1cfd264a3cc6a536399f7191d24295a0ee7834ca53afd8e",
+      "feature": "492f365443ae0f0a2d1a424fa88d47805e9caf9ad349324e4611a169a20ba9b9",
+      "detection": "e341cf0d3f5f96731f4f77caa1a003d0f8f89d04f72f0b2260247eb03eb7fb8b",
+      "baseline_check": "b1f5335dc8a19a5aee1628f40e773f47c38ed9a0acca7ce12ebfbdba3c343707",
+      "baseline_lock": "d166e75132b5bc82155c783bbc9858b16c5289310373f3913769a42ea14005ef"
+    },
+    "dancetrack0032": {
+      "tracker": "037a66cead5918421a26a96a08bd6c90b079690ce16032b85999c000048ca0f0",
+      "trace": "ef1dcb2ee508b1b1a03ea257e93b1fa6d65e53a986e47ccb666550f24d089eb8",
+      "feature": "4f3b3ea5e81506a709f359fa714291bdf6c0c7b21babe11be69891df05ffa527",
+      "detection": "5ae520e137dd5885862770afcd233ea79b07d240a366793765878d445eefbd2a",
+      "baseline_check": "67f750c9847accf9144d843bd9407087dba957c7eaa257ef120d35c8229710ce",
+      "baseline_lock": "1b8091dc8cf6996526df156eae6eba602ceb6d63e1b8a82bb87dd5179e2770e0"
+    },
+    "dancetrack0069": {
+      "tracker": "e0e48ceae1aab80db49828dd866ec05de646bea17c8b65989e4e7954ef77c37a",
+      "trace": "3dbb2ad3c730f3f1dd9ae46742e66465e64d252474d17b8bab4c32bd5ff78450",
+      "feature": "669a578a38f18e63668c679300234211cffba43cbcaeca9a898cb250ee096e21",
+      "detection": "56fba3e0883a7a5a00031b7f0758f20d36ac9299f76dc34744f158ac8cb7956f",
+      "baseline_check": "5b59a0b58123fbc92acb747a2cd3d6e88f82f3ca13a02a5b7053a9932739a105",
+      "baseline_lock": "1f2b4dd520c4c0f0c01f7e256a8ab04a99ae2526a0afb0856b6bcea34a0852f4"
+    },
+    "dancetrack0015": {
+      "tracker": "6ec5b84fdc4146856d2073ea008d3299816db661743bcb52b2d08ff5524b851b",
+      "trace": "b110acfecfc5ab64b789e9cf741064365bc147b2a36462b0141fd10eba97f49f",
+      "feature": "14e1966949d41eb921e454c8c7d5252a1a75caae3fb2ca89d9085b2add7bc024",
+      "detection": "ba68e752b574e045f19a2ef35ec5c4b989b58724b16afc99bd7f034dd0d95ff6",
+      "baseline_check": "7e8117e594bb26ba567d53031a415c93669a09809eee7d72c421f2bc7c375807",
+      "baseline_lock": "ff6e88f11cca18149c60f683b3667f52cc17845964c20fcb82430824c35d2488"
+    },
+    "dancetrack0023": {
+      "tracker": "262797f36c6a78ea99835b4a990cdd9b2acdfca221855fb36060eba4ae8304ed",
+      "trace": "e65aa0753bc4c43a9e135be59f18dcdbd2de103eb60f420fd1c68c7f534c1d54",
+      "feature": "93dd42662d214e4cebe9d9f1b3fd87c4a5f31d23a9ab88cf5e8962776c8b8754",
+      "detection": "464a46830cf64286a955803c807fb6bda6f7fecfbb8330e25d0e4a64f8fbe938",
+      "baseline_check": "559025f4a28aeee636d52df16219853cfa8276fc20d40e6f05e36a00313f6649",
+      "baseline_lock": "a03e2072c883e4cc3deac04fb80024ffc9bc1a44d9fc206ffd540160812a7feb"
+    },
+    "dancetrack0080": {
+      "tracker": "4e39be1b8b4e16a69ece976dfe0413385927ebd2d4c5ba1c7115d660f23ca0f3",
+      "trace": "f1148e96158391b993cf05e4f36803bec9bb441725f3123d1a57e9258e6948bc",
+      "feature": "2db8350ead86f0195e094716b306f230b2e17b9c4ec6be404f02fdcf0d57e945",
+      "detection": "13e744857332d95f9ae0fd980d4d5018aed326da1383cd4acf8695c60cccf466",
+      "baseline_check": "6e59393fc08af4a02bc9f66104876f266c759b63792174a9a132267e07b07af2",
+      "baseline_lock": "3d2265b446b410f43a08c0e223cb2ed5d52aec3b1fb31d8d7cbfe6dfe7488b06"
+    },
+    "dancetrack0049": {
+      "tracker": "198e0ef8a3b3d5a1c785a16e0da8d0fa7ac0af9e6235f7575513d2ff69a279ed",
+      "trace": "db728e888f9e387436a577088bc3789dc21bd4baa714d4a2002014d642ad5a3d",
+      "feature": "4766e6229c0fa05705ca1c399ed02e072c96401cfa5bfc6e5c2442fe90dd14b4",
+      "detection": "09c7def5a1b0d3a0c7fea714bd82012b26b4cbb431fa607e715a8218c18af0f0",
+      "baseline_check": "9cf8c42f3bd5b27a5ea4d7a25ec1523496b025611926984f7500ee99cf4f9037",
+      "baseline_lock": "abe576639efafcbde776e0ed130804a82e378037494a88b145cfde93ff76b967"
+    },
+    "dancetrack0083": {
+      "tracker": "ac04de9411bc4f88adef9c7327b26b897ce7d79834104516353b9768db309c7f",
+      "trace": "64aeb01ec0d18408f0b379dd4fcd7fefa7e52447df795f5afc405724ed69b90a",
+      "feature": "d097698e0d6eb0979f2c32e9ef7ddc1a35a42fea01edab4010e4559c6ea3cc55",
+      "detection": "df006d0cea95081d6a1f710a17775eb1414119b0c9976b2ca0df9ec4cbadf736",
+      "baseline_check": "0efc017efabf93f08aefc8ce45d2fbe28ff9f22429be9c0b6f1aa3d4db71ad50",
+      "baseline_lock": "da84f275b4ebffd4e200ce7697656f4d46aa8bf7ba16034e6d90723069b985f1"
+    }
+  },
+  "output_root": "/media/imc/data/mot-data/runs/s04_bounded_memory_freeze_20261122/branches",
+  "cuda_visible_devices": "",
+  "physical_gpus": [],
+  "gpu0_forbidden": true
+}

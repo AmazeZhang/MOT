@@ -1,0 +1,36 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-23",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "limited_incremental_owner_competition_reused_train_overlap_and_control_balance",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "review_route_note": "fresh reviewer resumed after a usage-limit interruption and confirmed complete written verdict; GPT-5.6-Sol unavailable",
+  "trace_path": ".aris/traces/experiment-audit/2026-11-22_run02/",
+  "review_response_sha256": "c240f73dfd5846ca77555e3735093dc46b2a862bf3cd5e56c6151ee4b8fd25df",
+  "audited_input_hashes": {
+    "branches/summary.json": "sha256:589323a38141cb9964d5a0ee4eef6ee1514896fed64e097223a3de070920e128",
+    "branches/frozen_event_selection.json": "sha256:b538f3a54eccb0ac2202021cfb2b37ee5d9e13a514e79f8df28e6c152bd5b807",
+    "branches/branches_frozen.json": "sha256:afa6547c766ade1c2f3babe72ae1ccbb48f853c1ac3fe9c2edc9b18255a21ae9",
+    "manifests/runtime/s04_bounded_memory_freeze_retry4_20261122.json": "sha256:16ac218cf4122938b1fa032e4895233b6bfb1dda1a0aacad249b0626462869cb"
+  },
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Original DanceTrack train ZIP members match local GT; GT privileged offline selection and post-branch scoring only."},
+    "score_normalization": {"status": "pass", "details": "Raw same-ID correct-frame differences with no self-output normalization."},
+    "result_existence": {"status": "pass", "details": "9371 SHA comparisons, exact 8903-frame baseline replay, 30 three-arm branch reruns and 30 independent score recomputations agree."},
+    "dead_code": {"status": "pass", "details": "30 real memory and LAP-score perturbations; nonzero positive/negative scorer sensitivity controls."},
+    "scope": {"status": "warn", "details": "Owner-positive incremental competition in 14/15 wrong cases; reused train videos, overlapping windows, incomplete anchor coverage and no control-balance proof."},
+    "eval_type": "real_gt_privileged_local_counterfactual_diagnostic"
+  },
+  "claims": [
+    {"id": "s04_bounded_memory_local_zero_output_change", "impact": "supported_with_scope_qualification"},
+    {"id": "cumulative_memory_drift_has_no_general_causal_role", "impact": "unsupported"},
+    {"id": "candidate_A_training_benefit", "impact": "unsupported"}
+  ],
+  "reviewer_agent_id": "/root/s04_experiment_integrity_audit"
+}

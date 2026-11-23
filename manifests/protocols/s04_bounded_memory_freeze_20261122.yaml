@@ -1,0 +1,83 @@
+protocol_id: s04_bounded_memory_freeze_20261122
+status: design_fixed_before_S04_feature_extraction_and_branch_results
+claim_level: GT_privileged_distinct_mechanism_diagnostic_only
+purpose: test_whether_bounded_cumulative_visual_memory_drift_changes_natural_M_decisions_when_one_write_did_not
+hypothesis: freezing_target_memory_for_event_frame_plus_30_future_frames_can_change_identity_outputs_beyond_single_write_suppression
+source_and_scope:
+  split_manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  split_manifest_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+  sequences: [dancetrack0074, dancetrack0032, dancetrack0069, dancetrack0015, dancetrack0023, dancetrack0080, dancetrack0049, dancetrack0083]
+  sequence_order: fixed_above
+  source_split: DanceTrack_train
+  reuse_note: disjoint_from_S01_S03_fit_but_previously_used_in_R1;_not_independent_generalization
+  no_official_val_or_test: true
+  train_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  feature_source: same_fixed_Deep_OC_SORT_FP32_as_S01
+  baseline: S01_M_weight_0.25_EMA_alpha_0.9_CV_plus_E
+baseline_freeze:
+  all_8_full_video_M_outputs_and_trace_before_GT_selection: true
+  independent_S01_M_runner_output_and_trace_byte_exact: true
+  input_detection_feature_code_GT_hashes_before_scoring: true
+  output_root: /media/imc/data/mot-data/runs/s04_bounded_memory_freeze_20261122
+selection:
+  owner_proxy: same_S02_three_labeled_updates_stable_anchor_max_gap_30_and_IoU_0.5_one_to_one_GT_detection_label
+  wrong_population: every_track_first_foreign_GT_update_after_stable_anchor_with_owner_positive_high_detection_and_other_live_foreign_anchor
+  no_wrong_event_subsampling: true
+  clean_pool: same_S03_stable_clean_update_with_differently_anchored_live_track
+  control_exclusion: same_video_all_M_first_foreign_onsets_plus_minus_30_frames
+  matching: same_S03_fixed_covariate_distance_greedy_frame_track_order_and_SHA_tie_break
+  controls_unique: true
+  selection_frozen_before_any_branch_output: true
+  GT_privileged_case_selection: true
+interventions:
+  snapshot: immediately_before_selected_event_frame
+  arms: [factual, single_write_skip, bounded_memory_freeze]
+  event_frame_association_tracker_CV_state_output_fixed: true
+  single_write_skip: suppress_target_visual_memory_write_at_event_frame_only
+  bounded_memory_freeze: suppress_target_visual_memory_writes_when_present_from_event_through_next_30_frames
+  other_tracks_memory: unchanged
+  future_inference_uses_GT: false
+  target_track_absent_or_not_updated: no_write_to_suppress_no_forced_action
+  closed_loop: each_arm_uses_own_natural_tracker_and_memory_state
+  branch_horizon: up_to_30_future_frames_no_extension_or_sweep
+  same_arms_on_clean_controls: true
+  record_suppressed_write_count_and_future_appearance_score_exposure_per_arm: true
+engineering_gates:
+  full_baseline_M_exact_to_independent_S01_implementation_for_each_video: true
+  factual_branch_exact_to_frozen_baseline_for_every_event_and_future_frame: true
+  event_frame_all_three_arms_same_output_and_tracker_CV_state: true
+  event_frame_only_target_visual_memory_write_differs: true
+  bounded_arm_event_write_count_at_least_1: true
+  branch_outputs_frozen_before_GT_scoring: true
+  preserve_per_video_failures_and_do_not_emit_research_summary_on_gate_failure: true
+evaluation:
+  GT_anchor: original_M_output_at_frame_before_event_one_to_one_IoU_at_least_0.5
+  primary: per_video_sum_of_all_prior_output_anchor_same_ID_correct_frame_delta_bounded_minus_single_for_wrong_vs_clean
+  secondary: [bounded_minus_factual_all_anchor_delta, target_delta, other_anchor_delta, other_anchor_harmed_cases, output_changed_cases, bounded_suppressed_write_count, event_frame_legal_owner_edge]
+  same_all_8_videos_reported_including_zero_case_videos: true
+  video_is_paired_unit: true
+  overlapping_windows_and_truncated_horizons_quantified: true
+  no_event_level_independent_significance_claim: true
+  no_TrackEval_or_online_method_claim: true
+decision:
+  sparse_if_wrong_cases_below: 10
+  sparse_if_wrong_event_videos_below: 4
+  sparse_if_wrong_with_at_least_2_bounded_suppressed_writes_below: 8
+  sparse_if_clean_pair_fraction_below: 0.8
+  on_sparse: report_inconclusive_no_training_no_threshold_relaxation
+  mechanism_signal_requires_all:
+    - wrong_bounded_minus_single_all_anchor_delta_per_informative_event_at_least_0.25
+    - positive_wrong_bounded_minus_single_video_net_in_at_least_4_videos
+    - wrong_bounded_minus_single_other_anchor_harmed_cases_no_more_than_clean_bounded_minus_single
+    - clean_bounded_minus_factual_all_anchor_delta_per_clean_case_at_least_minus_0.25
+  on_no_signal: stop_cumulative_freeze_rationale_for_candidate_A_no_same_set_tuning
+  on_signal: review_integrity_and_claim_before_any_training;_signal_is_privileged_only
+execution:
+  feature_extraction_CUDA_VISIBLE_DEVICES: '1'
+  feature_extraction_physical_gpu: 1
+  tracker_and_branch_CUDA_VISIBLE_DEVICES: ''
+  tracker_and_branch_physical_gpus: none
+  physical_gpu0_forbidden: true
+  no_training: true
+  no_commit_or_push_until_explicit_user_request: true

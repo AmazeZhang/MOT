@@ -17,3 +17,4 @@ S01/S02 当前链条：
 - `s03_single_memory_write_counterfactual_20261121.yaml`：S03 首版；保留原始运行和对照排除口径偏差记录。
 - `s03_single_memory_write_counterfactual_retry2_20261122.yaml`：对照明确排除同视频全部 278 个 M 首次事件的 ±30 帧，独立重跑。
 - `s03_instrumentation_addendum_20261122.yaml`：对首版分支的记忆向量变化与未来 trace 做只读事后补检，不改变主结果。
+- `s04_bounded_memory_freeze_20261122.yaml`：预写八段 train 的三臂局部机制实验，比较一次跳写与连续冻结目标记忆，并用干净更新对照衡量适应代价。

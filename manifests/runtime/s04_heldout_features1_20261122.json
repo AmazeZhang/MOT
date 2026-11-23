@@ -1,0 +1,74 @@
+{
+  "run_id": "s04_heldout_features1_20261122",
+  "status": "locked_before_feature_extraction",
+  "scope": "8_train_sequences_disjoint_from_S01_S03_fit_but_used_in_prior_R1",
+  "project_commit": "c4c5fb86cc54f44d1d555827e5ea8e010ec1704b",
+  "project_status_at_lock": "?? manifests/protocols/s04_bounded_memory_freeze_20261122.yaml",
+  "protocol_path": "manifests/protocols/s04_bounded_memory_freeze_20261122.yaml",
+  "protocol_sha256": "b6e40f6a24d7c8f79a41e43e89ce21de403bc43f2872e01597c81285d04fd90f",
+  "feature_source_root": "/media/imc/data/mot-data/third_party/Deep-OC-SORT",
+  "feature_source_commit": "6bb51d027b137233f5c520b6fcc4f2ae387a6ba9",
+  "feature_weight_path": "/media/imc/data/mot-data/weights/deep_oc_sort/dance_sbs_S50.pth",
+  "feature_weight_sha256": "004beb12f0dd9dcf355bc57f5b8cc66b6904fc6d5599fb41ee9403c4c659ab29",
+  "feature_weight_training_data_status": "unknown_DanceTrack_overlap_possible",
+  "extractor_config_sha256": "5410bfe270162e062ca2e6d14c73a8bcb9f9bb8fb3eabb8650329c2afac4168d",
+  "train_root": "/media/imc/data/mot-data/datasets/dancetrack/train",
+  "detection_root": "/media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train",
+  "input_detection_sha256": {
+    "dancetrack0074": "e341cf0d3f5f96731f4f77caa1a003d0f8f89d04f72f0b2260247eb03eb7fb8b",
+    "dancetrack0032": "5ae520e137dd5885862770afcd233ea79b07d240a366793765878d445eefbd2a",
+    "dancetrack0069": "56fba3e0883a7a5a00031b7f0758f20d36ac9299f76dc34744f158ac8cb7956f",
+    "dancetrack0015": "ba68e752b574e045f19a2ef35ec5c4b989b58724b16afc99bd7f034dd0d95ff6",
+    "dancetrack0023": "464a46830cf64286a955803c807fb6bda6f7fecfbb8330e25d0e4a64f8fbe938",
+    "dancetrack0080": "13e744857332d95f9ae0fd980d4d5018aed326da1383cd4acf8695c60cccf466",
+    "dancetrack0049": "09c7def5a1b0d3a0c7fea714bd82012b26b4cbb431fa607e715a8218c18af0f0",
+    "dancetrack0083": "df006d0cea95081d6a1f710a17775eb1414119b0c9976b2ca0df9ec4cbadf736"
+  },
+  "input_gt_sha256": {
+    "dancetrack0074": "0cee01618509b900354aadd67fd833a821f7a9166b0b788d6cda85544d46a1fe",
+    "dancetrack0032": "557251cbbaeb8819adecbe8f2117ed4e15c86ab1f5e2e6b60bbeeecfdf374461",
+    "dancetrack0069": "8a5b4563310113c20dad1038e1916950e12b30bc76195c1bf477ac9cf8d1a537",
+    "dancetrack0015": "13f67eda2c11e6f9eba23b6ce4eae387f257886ec7da719cb52478e4ffd9ffd9",
+    "dancetrack0023": "b09986f5e18f3cdfa5357129dd84168321db9bf22c435ddedb0555e366fba4c5",
+    "dancetrack0080": "88157a55197c4943f85ee1525309c0e0a986b444577c76f1654b2e5343afabcc",
+    "dancetrack0049": "af38e2c8617b865a19f932856ee6797c1ebe718272b583fa21a340d18b1baf70",
+    "dancetrack0083": "9303fbbb9048536d32a313172fc87a9e08080c8da8c4983860703fdb8db2c13d"
+  },
+  "input_image_manifest_path": "/media/imc/data/mot-data/runs/s04_bounded_memory_freeze_20261122/input_image_hashes.json",
+  "input_image_manifest_sha256": "3f7b55e803b46f8126f141549dbb9a78c8bd86294835521eba8ae87030e5d23a",
+  "selected_sequences": [
+    "dancetrack0074",
+    "dancetrack0032",
+    "dancetrack0069",
+    "dancetrack0015",
+    "dancetrack0023",
+    "dancetrack0080",
+    "dancetrack0049",
+    "dancetrack0083"
+  ],
+  "selected_sequences_sha256": "f2ff9fe1ea9c1379174e6077461b2a0f0c3ed495bc3a788486156d95a176ba2f",
+  "selected_sequence_lengths": {
+    "dancetrack0074": 1203,
+    "dancetrack0032": 604,
+    "dancetrack0069": 1403,
+    "dancetrack0015": 1203,
+    "dancetrack0023": 1483,
+    "dancetrack0080": 1201,
+    "dancetrack0049": 1203,
+    "dancetrack0083": 603
+  },
+  "code_hashes": {
+    "scripts/extract_s01_appearance.py": "57a5197831b152139ed33eab056c59ee5de80375672c547065c4b8026a2b4ad0",
+    "scripts/run_s04_feature_queue.py": "5a9f2d6470faf7b5e0de477215ea2dd646c2383090f8e4d3bd10632a037e077b"
+  },
+  "appearance_environment": "/media/imc/data/mot-data/envs/s01-appearance",
+  "cuda_visible_devices": "1",
+  "physical_gpus": [
+    1
+  ],
+  "gpu_uuid": [
+    "GPU-767ac2de-9a21-fb02-38ad-eb7806c7fd9e"
+  ],
+  "gpu0_forbidden": true,
+  "output_root": "/media/imc/data/mot-data/runs/s04_bounded_memory_freeze_20261122/features"
+}

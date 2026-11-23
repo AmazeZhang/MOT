@@ -32,3 +32,4 @@
 - `feasibility/s01_visual_association_20261120/`：固定检测的 G/Z/L/M 深度外观基线，24 段 train-fit 完整 TrackEval；S0 工程验收与同家族暂定完整性审阅均在此，不能外推为新方法或独立泛化。
 - `diagnostics/s02_natural_identity_mechanism_20261121/`：在冻结 S01 轨迹上做 GT 辅助、只读的自然异主更新普查；事件标签和重复窗口均为诊断代理，预写门只授权计划受控记忆测试。
 - `diagnostics/s03_single_memory_write_counterfactual_20261122/`：冻结 S01 M 轨迹上的单次记忆写入局部分支、严格对照重评和事后仪表补检；GT 特权机制诊断，不是在线方法或完整序列评测。
+- `diagnostics/s04_bounded_memory_freeze_20261122/`：在与 S01/S03 fit 不重叠的八段 train 视频上，对比单次跳写和连续冻结目标视觉记忆的特权局部分支；记录停止门与独立审阅。
