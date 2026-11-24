@@ -1135,3 +1135,11 @@
 - **审计与偏离：** 新上下文 GPT-6.1-Sol ultra 同家族暂定 `WARN`，独立复现 693 个最终 TrackEval 单元格（最大差 0）和 378 个代理动作标签（零差）。发现协议写 128 components、实际按 128+80 action examples 累积且末批仍 `/128`；Local 另有 8,192 个上下文输入权重结构性不活跃，故有效容量未严格匹配。上述在看结果后发现，原样报告，不授权修补重跑。历史 GPU 分配没有独立快照；锁/代码/运行记录显示训练只用物理 GPU1、其余 CPU-only，物理 GPU0 未暴露。
 - **主张门与报告：** result-to-claim 给 `claim_supported=no`、confidence high、精确路由 stop。权威报告为 `reports/feasibility/s06_component_selector_seed13_retry3_20261124/`，含 7 行 aggregate、56 行逐视频、60 行曲线、54 个案例/对照、checkpoint、gate、审计和 artifact hashes。大型根目录约 retry2 279MB、retry3 202MB，留在数据盘。未 commit/push。
 - **精确下一步：** 停止 S06，不运行 seeds37/73，不以偏离为由事后修复同一门。只允许对现有 artifact 做 CPU-only postmortem。若未来研究 Context-no-risk，必须另立新问题/协议、修正 component batching、加入有效容量对照并规划未触碰评估；不自动授权新的性能运行。
+
+## 2026-11-24：研究端复核 S05/S06 与次要正向信号
+
+- **完成内容：** 审阅 `54d03cc` 中 S05/S06 协议、完整精度汇总/逐视频表、训练曲线、选模记录、案例、审计和实际模型/训练/回放代码；新增 `docs/research_status_review_20261124.md`、只读脚本 `scripts/review_s06_git_evidence.py` 与 `docs/audits/s05_s06_local_review_20261124/derived_summary.json`。同步 README、LATEST 和创新台账导航，保留原报告与停止决定。
+- **结果判断：** Context-risk 原主门仍仅 2/8 通过，S06 停止、不续跑 seeds37/73。计划内 Context 无额外风险相对 M 有 +1.480101 HOTA/+2.203603 AssA/−9 IDSW，相对固定 V 有 +0.562045/+0.732083/−20；但对 V 仅 2 胜/2 负/4 平，优势主要集中 0074。以上为已回传开发数据的复算，不是本轮新跑指标或独立泛化结论。
+- **新解释限制：** train18 只有 104 个可标注分量/208 个动作，执行每 epoch 两步；风险策略选模打平导致 Local epoch5（约10步）、Context epoch30（约60步）。Local 在导出案例中对理论上 g=h=0 的 M 动作仍预测约 0.4，不能将低动作率等同于可靠风险识别。Local 已含竞争 margin；加上实际容量不匹配，尚不能将差异归因于上下文。案例缺配对/合法边/逐身份后续证据，artifact ID 仍有未定义项，列为补充交付缺口。
+- **实际验证：** CPU-only 标准库脚本检查 7 个总体/56 个逐视频条目、与 gate JSON 的 441 个共同指标单元格精确一致、S05/S06 清单中 12 个 Git 文件 SHA256、8 条门槛及案例/样本计数；临时目录重复执行得到完全一致 JSON，已有输出拒绝覆盖。72 个本地文档链接与 git diff --check 通过。服务器报告的 693 次官方指标复算/378 个标签复现仅引用，未在本机重新执行。没有 GPU 工作、模型训练、服务器访问或原始 TrackEval 重评。
+- **精确下一步：** 建议服务器在一个工作日/8 CPU 核小时内，对现有全部 checkpoint 在固定 train18/internal-dev6 样本导出标签/预测/排序、M 零点误差和常数参照，并补 0074/0032/0049/0023 变化决策的配对和后续身份证据、可解析来源引用；不重训、不扫风险阈值、不根据 evaluation8 重选 checkpoint。体检后再决定是否另立无额外风险/相对效用的新问题；当前不升级 V1/V2。未提交、未推送。

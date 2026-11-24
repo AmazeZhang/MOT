@@ -2,6 +2,8 @@
 
 初始研究问题：在短时观测缺失与身份竞争下，运动分布能否改善在线多目标跟踪？Flow Matching（FM）是历史候选，目前暂缓；当前建议聚焦深度外观基线上的竞争关联决策，见下方最新交接。
 
+**最新阶段（2026-11-24）：S05/S06 seed13 已完成。** Context-risk 未过冻结门，停止当前 S06、不续跑 seeds37/73；计划内的 Context 无额外风险分支相对 M 有 +1.480 HOTA、+2.204 AssA、−9 IDSW，相对固定 V 有 +0.562 HOTA，但对 V 仅 2 胜/2 负/4 平，且选模/容量对照限制机制解释。见 [最新复盘](docs/research_status_review_20261124.md)和[权威实验报告](reports/feasibility/s06_component_selector_seed13_retry3_20261124/README.md)。下一步仅建议对已有 checkpoint/案例做学习质量体检；尚未确立创新方法。下面 11 月 23 日安排为历史设计，新执行以 [LATEST](docs/a2a/LATEST.md) 为入口。
+
 **下一轮与报告要求（2026-11-23）：** [S05/S06 建议](docs/a2a/NEXT_ROUND_20261123.md)规定先补八段完整对照与一次有界候选覆盖检查，再决定小型学习方法；CAMELTrack 等先例已覆盖泛化的上下文关联，候选创新尚未成立。[AGENTS.md](AGENTS.md) 已加入 [报告规范 v1](docs/experiment_reporting.md)，使用 [可复制模板](docs/templates/report_bundle/README.md)回传完整精度总体/逐视频指标、诊断案例、训练曲线及来源。服务器从 [LATEST](docs/a2a/LATEST.md) 读取当前任务；新实验尚未运行。
 
 **当前阶段（2026-11-23）：S01–S04 已完成。** 固定深度外观 EMA 基线在 24 段开发集上相对 CV+E 有 +2.46 HOTA、+3.32 AssA、+2.56 IDF1；这是已有视觉机制的正向基线，不是已确认的新方法或泛化结果。S03 单次跳写和 S04 连续冻结均未改变所选分支输出，停止据此启动候选 A 训练。下一步重心转向错误发生时的视觉/几何竞争与合法关联决策，先补稳定性对照和决策覆盖诊断，不继续扫冻结窗口。见 [S01–S04 最新复盘](docs/research_status_review_20261123.md)、[S01 结果](reports/feasibility/s01_visual_association_20261120/README.md)、[S04 结果](reports/diagnostics/s04_bounded_memory_freeze_20261122/README.md)。
