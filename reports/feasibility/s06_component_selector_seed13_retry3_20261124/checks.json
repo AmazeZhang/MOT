@@ -1,0 +1,21 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED_WITH_WARN",
+  "executed_at": "2026-11-24T11:30:52+08:00",
+  "reviewer_or_process": "primary plus fresh same-family integrity audit",
+  "checks": [
+    {"name": "format_and_unique_keys", "status": "PASS", "evidence": ["7 aggregate rows", "56 per-sequence rows", "60 learning-curve rows"]},
+    {"name": "expected_vs_completed_coverage", "status": "PASS", "evidence": ["24/24 feature instrumentation", "72/72 dev replays", "40/40 new evaluation8 replays", "7/7 official evaluations"]},
+    {"name": "metric_export_matches_source", "status": "PASS", "evidence": ["693 independent official TrackEval comparisons; maximum absolute difference 0"]},
+    {"name": "proxy_target_reproduction", "status": "PASS", "evidence": ["378 action labels; zero mismatch"]},
+    {"name": "checkpoint_selection", "status": "PASS", "evidence": ["Local epoch5; Context epoch30 independently reproduced"]},
+    {"name": "seed13_gate", "status": "PASS", "evidence": ["2/8 clauses pass; STOP decision reproduced"]},
+    {"name": "component_batch_protocol_fidelity", "status": "WARN", "evidence": ["execution batches action examples rather than components"]},
+    {"name": "effective_capacity_matching", "status": "WARN", "evidence": ["8192 Local neighbor-input weights structurally inactive"]},
+    {"name": "GPU0_forbidden", "status": "PASS_WITH_TELEMETRY_LIMIT", "evidence": ["locks/code/runtime exclude GPU0; no archived independent historical allocation snapshot"]},
+    {"name": "artifact_hashes_and_safe_export", "status": "PASS", "evidence": ["small summaries only in Git; weights/traces remain on data disk"]}
+  ],
+  "cited_prior_checks": ["S05 integrity audit"],
+  "not_accessible_here": ["external-family review", "independent historical GPU utilization telemetry"],
+  "limitations": ["same-family semantic review provisional", "format/hash checks are not training reproduction"]
+}

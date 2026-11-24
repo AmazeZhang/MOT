@@ -35,3 +35,6 @@
 - `diagnostics/s02_natural_identity_mechanism_20261121/`：在冻结 S01 轨迹上做 GT 辅助、只读的自然异主更新普查；事件标签和重复窗口均为诊断代理，预写门只授权计划受控记忆测试。
 - `diagnostics/s03_single_memory_write_counterfactual_20261122/`：冻结 S01 M 轨迹上的单次记忆写入局部分支、严格对照重评和事后仪表补检；GT 特权机制诊断，不是在线方法或完整序列评测。
 - `diagnostics/s04_bounded_memory_freeze_20261122/`：在与 S01/S03 fit 不重叠的八段 train 视频上，对比单次跳写和连续冻结目标视觉记忆的特权局部分支；记录停止门与独立审阅。
+- `diagnostics/s05_visual_decision_coverage_20261123/`：补齐 S01/S04 机器可读证据，在复用的八段开发视频上完成 G/L/M 官方 TrackEval，并在 fit24 的 M 因果状态上普查合法 M/G/V 分量动作；41 个净正向代理分量跨 17 视频，资源门通过但不代表可学习或闭环增益。
+- `feasibility/s06_component_selector_seed13_20261123/`：seed 13 前置特征仪表在空 tracker 边界两次工程失败；按冻结的一次修复上限停止。未训练、未评测、无科学结论，所有 GPU 均未使用。
+- `feasibility/s06_component_selector_seed13_retry3_20261124/`：经透明 retry 完成 seed 13 七条件自然闭环；冻结 Context+risk 主门仅过 2/8，决定 `STOP_S06_NO_SEEDS_37_73`。Context-no-risk 有单 seed 描述性正结果，但不替换主门；报告含完整精度逐视频表、曲线、checkpoint、案例、偏离和独立审计。

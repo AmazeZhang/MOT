@@ -1,0 +1,69 @@
+protocol_id: s06_component_selector_seed13_retry3_20261124
+status: frozen_before_retry3_training_or_scientific_results
+frozen_at: '2026-11-24T10:41:07+08:00'
+parent_protocol: manifests/protocols/s06_component_selector_seed13_retry2_20261123.yaml
+parent_protocol_sha256: 3c6806cad965dc68932902df94d54c1a69a4c4a4630f4107d99d50aca4329a67
+authorization: user_explicitly_requested_continuation
+claim_level: development_feasibility_only
+
+verified_reused_inputs:
+  instrumentation_root: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry2_20261123/feature_instrumentation_attempt1
+  instrumentation_coverage: 24_sequences_25328_frames
+  authoritative_M_tracker_exact: 24_of_24
+  candidate_projection_exact: 25328_of_25328_frames
+  finite_feature_frames: 25328_of_25328
+  samples_path: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry2_20261123/samples_attempt1/samples.jsonl
+  samples_sha256: ccd2f00185ec9f0c7868713f175713890fa4a35799131cbe94ea99a9a2b626bd
+  samples_counts:
+    train18_components: 199
+    train18_labelable_components: 104
+    train18_supervised_actions: 208
+    train18_profitable_components: 33
+    internal_dev6_components: 43
+    internal_dev6_labelable_components: 22
+    internal_dev6_supervised_actions: 44
+    internal_dev6_profitable_components: 8
+
+known_failures_before_freeze:
+  - retry2_training_lock_attempt1_stopped_before_lock_due_relative_protocol_path_operator_error
+  - retry2_training_attempt2_reached_GPU1_but_stopped_before_first_optimizer_step_because_deterministic_CuBLAS_workspace_environment_was_missing
+  - no_completed_epoch_checkpoint_dev_evaluation_or_scientific_metric_exists
+
+inherited_without_change:
+  - train18_internal_dev6_evaluation8_lists_and_uses
+  - causal_features_labels_and_GT_prohibitions
+  - Local_and_Context_width64_parameter_matched_architectures
+  - no_extra_risk_and_risk_policies
+  - AdamW_lr_0.001_weight_decay_0.0001_maximum_30_epochs_batch_128
+  - video_balanced_sampling_and_train18_only_normalization
+  - checkpoint_epochs_5_10_15_20_25_30
+  - internal_dev6_checkpoint_selection_by_official_AssA_then_HOTA_then_earlier_epoch
+  - seed13_only_and_seeds37_73_blocked
+  - evaluation8_seven_condition_matrix_and_all_metric_gate_clauses
+
+only_authorized_changes:
+  deterministic_cuda_environment:
+    CUDA_VISIBLE_DEVICES: '1'
+    physical_gpu: 1
+    logical_device: cuda:0
+    CUBLAS_WORKSPACE_CONFIG: ':4096:8'
+    torch_use_deterministic_algorithms: true
+  immutable_identity:
+    training_run_id: s06_seed13_training_retry3_attempt1
+    new_output_root: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1
+
+failure_policy:
+  any_training_engineering_failure: FAILED_ENGINEERING_stop_no_scientific_decision
+  scientific_contract_changes_allowed: false
+  no_additional_repair_under_this_protocol: true
+
+hardware:
+  physical_GPU0_forbidden: true
+  allowed_physical_gpu: 1
+  explicit_logical_to_physical_mapping_required: true
+  GPU_device_hour_budget_inherited: 24
+
+reporting:
+  report_root: reports/feasibility/s06_component_selector_seed13_retry3_20261124
+  large_output_root: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124
+  no_commit_or_push_without_user_request: true

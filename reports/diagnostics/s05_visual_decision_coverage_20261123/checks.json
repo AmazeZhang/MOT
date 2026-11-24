@@ -1,0 +1,18 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "executed_at": "2026-11-23T16:52:54+08:00",
+  "reviewer_or_process": "primary plus fresh same-family audit",
+  "checks": [
+    {"name": "format_and_unique_keys", "status": "PASS", "evidence": ["27 official metric rows", "242 unique component records"]},
+    {"name": "expected_vs_completed_coverage", "status": "PASS", "evidence": ["3x8 S05-A sequence rows plus 3 combined rows", "24/24 S05-B sequences"]},
+    {"name": "metric_export_matches_source", "status": "PASS", "evidence": ["independent official reproduction exact for all 27 rows"]},
+    {"name": "paired_comparison_compatibility", "status": "PASS", "evidence": ["fixed detections/evaluator; same-state S05-B actions"]},
+    {"name": "relevant_engineering_invariants", "status": "PASS", "evidence": ["8 synthetic/general tests passed", "M output matches authoritative S01 for 24/24", "dancetrack0027 deterministic replay exact"]},
+    {"name": "artifact_hashes_and_safe_export", "status": "PASS", "evidence": ["small report exports only; raw outputs remain on data disk"]},
+    {"name": "GPU0_forbidden", "status": "PASS", "evidence": ["CUDA_VISIBLE_DEVICES empty for every S05 phase"]}
+  ],
+  "cited_prior_checks": [],
+  "not_accessible_here": ["independent external-family semantic review"],
+  "limitations": ["same-family review is provisional", "format check is not independent scientific replication"]
+}

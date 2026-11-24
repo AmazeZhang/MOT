@@ -1,0 +1,21 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-24T11:30:52+08:00",
+  "git_paths_relative_to": "report_directory",
+  "server_root": "/media/imc/data/mot-data",
+  "self_hash_excluded": true,
+  "files": [
+    {"artifact_id": "aggregate_metrics", "location": "git", "path": "aggregate_metrics.csv", "bytes": 2263, "sha256": "196c53c0aa637514a184a00651e253b51a38f9da628beff948d0b6b9d442e1fb", "role": "full_precision_combined_metrics"},
+    {"artifact_id": "per_sequence_metrics", "location": "git", "path": "per_sequence_metrics.csv", "bytes": 17352, "sha256": "b0a256ad1d1eed5db736e2468cc82a53b1382a4330be8671e5fa0ca73da21fba", "role": "all_conditions_all_sequences"},
+    {"artifact_id": "learning_curves", "location": "git", "path": "learning_curves.csv", "bytes": 6967, "sha256": "a33662f29c3d7d018496110956875516ca978c3ad1151096dd1e8a96e28b2700", "role": "all_recorded_training_epochs"},
+    {"artifact_id": "diagnostics", "location": "git", "path": "diagnostics.json", "bytes": 6912, "sha256": "be9447f8de7d0ab40e2afee59e00212050f001accb58e623cd710bb9261aa0da", "role": "component_exposure_and_compute"},
+    {"artifact_id": "cases", "location": "git", "path": "cases.jsonl", "bytes": 36350, "sha256": "067f4d74ccd91702132265a02381d7e33dbc12459245a05d5dabd55b8df13c62", "role": "all_changed_decisions_plus_fixed_hash_controls"},
+    {"artifact_id": "seed13_gate", "location": "git", "path": "seed13_gate.json", "sha256": "28252683b9fee9bebc38e934df15547a15fa35526f6d25fe48d0dc752e470108", "role": "authoritative_decision"},
+    {"artifact_id": "checkpoint_selection", "location": "git", "path": "checkpoint_selection.json", "sha256": "e8b362784de6bb0ee968b277aad48fcd0872ac3ba3000c7ae874554d00c47e41", "role": "all_dev_candidates_and_selected_epochs"},
+    {"artifact_id": "training_summary", "location": "server", "path": "runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/summary.json", "sha256": "76ba8ea4eac50b43b3f2e69a5a8eb95d47a2fb5aba2e6bde3facf4849db65fcd", "role": "checkpoint_hash_index"},
+    {"artifact_id": "independent_official_reproduction", "location": "server", "path": "audits/s06_seed13_integrity_20261124/official_reproduction.json", "sha256": "ccc9840e09b37a04e7e9da2ca7de249398ce69e2eebd190eb55eb04e63aa8ec2", "role": "693_exact_metric_comparisons"},
+    {"artifact_id": "independent_proxy_reproduction", "location": "server", "path": "audits/s06_seed13_integrity_20261124/proxy_target_reproduction.json", "sha256": "37dfed8a042919935e9d52c2344d50f1892ab65ff707919776ea83170d6ddbea", "role": "378_exact_action_labels"}
+  ],
+  "missing_artifacts": [{"artifact": "historical_GPU_allocation_snapshot", "reason": "not archived; locks/code/runtime metadata available"}]
+}

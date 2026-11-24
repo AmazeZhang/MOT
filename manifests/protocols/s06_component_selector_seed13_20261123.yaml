@@ -1,0 +1,143 @@
+protocol_id: s06_component_selector_seed13_20261123
+status: frozen_before_s06_specific_extraction_training_or_results
+frozen_at: '2026-11-23T16:52:54+08:00'
+parent_protocol: manifests/protocols/s05_visual_decision_coverage_20261123.yaml
+authorization: S05_resource_gate_pass_and_result_to_claim_seed13_only
+claim_level: development_feasibility_only
+question: can a causal competition-aware component-action selector beat M and fixed-weight controls in natural closed loop
+known_results_at_freeze:
+  - S05-A M minus G on reused development8 was +0.61595401659423 HOTA and +0.74069159342888 AssA with 35 fewer IDSW
+  - S05-B found 41 proxy-profitable component-frames across 17 videos; the 40/4 resource gate passed by one component
+  - S05-B train18 contains 104 fully labelable and 33 net-profitable components; internal-dev6 contains 22 and 8
+  - no S06 samples, losses, checkpoints, closed-loop outputs, or metrics existed
+
+data:
+  dataset: DanceTrack_train
+  fit24_previous_use: S01_and_S05_reused_development
+  train18:
+    sequences: [dancetrack0087, dancetrack0098, dancetrack0072, dancetrack0001, dancetrack0075, dancetrack0057, dancetrack0061, dancetrack0051, dancetrack0002, dancetrack0006, dancetrack0068, dancetrack0052, dancetrack0062, dancetrack0029, dancetrack0045, dancetrack0016, dancetrack0027, dancetrack0096]
+    uses: [feature_normalization, gradient_updates]
+  internal_dev6:
+    sequences: [dancetrack0008, dancetrack0039, dancetrack0055, dancetrack0066, dancetrack0082, dancetrack0099]
+    uses: [checkpoint_selection_every_5_epochs]
+  evaluation8:
+    sequences: [dancetrack0074, dancetrack0032, dancetrack0069, dancetrack0015, dancetrack0023, dancetrack0080, dancetrack0049, dancetrack0083]
+    uses: [one_time_seed13_natural_closed_loop_evaluation]
+    prohibited_uses: [gradient_updates, normalization, checkpoint_selection, threshold_selection]
+  split_rule: sort_fit24_by_sequence_id_and_take_positions_4_8_12_16_20_24_as_internal_dev
+  selection_depends_on_prior_metrics: false
+  appearance_pretraining_overlap: unknown_must_be_reported
+
+candidate_contract:
+  factual_state: each_condition_own_natural_closed_loop_state
+  actions: [M, G, V]
+  weights: {M: 0.25, G: 0.0, V: 0.5}
+  component_and_action_definition: identical_to_S05_B
+  candidate_generation_uses_GT: false
+  training_labels:
+    source: current_frame_offline_stable_owner_proxy
+    future_information: forbidden
+    only_fully_labelable_components_supervised: true
+    targets: [g_div_k, h_div_k]
+    loss: equally_weighted_MSE
+  inference_runs_on_all_observable_components: true
+  unlabelable_targets_are_not_zero: true
+
+causal_features:
+  per_edge: [iou, direction_score, detection_score, ema_detection_cosine, observation_gap, valid_history_length, row_best_margin, column_best_margin, differs_from_M]
+  per_component: [track_count, detection_count, action_edge_count]
+  exact_definitions:
+    direction_score: upstream_OC_SORT_angle_diff_cost_after_detection_score_and_inertia_weight
+    observation_gap: current_frame_minus_latest_causal_detection_history_frame_or_minus1
+    valid_history_length: number_of_causal_detection_history_observations_capped_at_8
+    row_best_margin: M_fused_edge_score_minus_best_other_tracker_score_for_same_detection_or_zero_if_none
+    column_best_margin: M_fused_edge_score_minus_best_other_detection_score_for_same_tracker_or_zero_if_none
+    differs_from_M: one_if_edge_membership_in_candidate_action_differs_from_M_component_action
+    ema_detection_cosine: zero_if_either_feature_invalid_plus_separate_feature_validity_masks
+  forbidden: [GT_identity, owner_label, future_frame, event_error_label, evaluation_statistics]
+  normalization: train18_only
+  backbone_and_ema: frozen
+  extraction_requirement: rerun_instrumented_M_with_exact_tracker_output_hash_match_before_labels
+
+models:
+  Local:
+    edge_encoder: shared_MLP_width64_max_two_hidden_layers
+    context: none
+    action_pool: permutation_invariant_masked_mean_and_max
+    outputs: [sigmoid_g_div_k, sigmoid_h_div_k]
+  Context:
+    edge_encoder: shared_MLP_width64_max_two_hidden_layers
+    context: one_row_and_column_neighbor_aggregation_layer
+    action_pool: permutation_invariant_masked_mean_and_max
+    outputs: [sigmoid_g_div_k, sigmoid_h_div_k]
+  parameter_matching: report_actual_counts_and_keep_within_20_percent_if_possible
+
+policies:
+  no_extra_risk: maximize_g_hat_minus_h_hat
+  risk: maximize_g_hat_minus_2h_hat
+  replacement_requires_strictly_positive_score: true
+  ties: [M, G, V]
+  apply_complete_nonoverlapping_component_actions: true
+  thereafter: normal_tracker_and_memory_updates
+
+training:
+  allowed_seeds: [13]
+  blocked_until_seed13_gate_passes: [37, 73]
+  optimizer: AdamW
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  maximum_epochs: 30
+  batch_components: 128
+  component_sampling_cap_per_video_before_label_filter: 2000
+  sampling: fixed_seed_hash_order_then_video_balanced
+  checkpoint_epochs: [5, 10, 15, 20, 25, 30]
+  checkpoint_selection: maximum_internal_dev_official_AssA_then_HOTA_then_earlier_epoch
+  selected_checkpoint_policy: risk
+  policies_share_selected_checkpoint: true
+  architecture_or_threshold_search: forbidden
+  allowed_engineering_repair: one_with_new_attempt_id_and_full_disclosure
+
+evaluation_matrix_seed13: [M, G, V, Local_no_extra_risk, Local_risk, Context_no_extra_risk, Context_risk]
+primary_gate_seed13:
+  scope: evaluation8_official_TrackEval_COMBINED_SEQ
+  context_risk_minus_M_HOTA_min_points: 0.5
+  context_risk_minus_M_AssA_min_points: 0.5
+  context_risk_minus_M_IDSW_max_count: 0
+  context_risk_positive_HOTA_videos_min: 5
+  context_risk_minus_V_HOTA_strictly_positive: true
+  context_risk_minus_V_AssA_strictly_positive: true
+  context_risk_minus_Local_risk_HOTA_strictly_positive: true
+  context_risk_minus_Local_risk_AssA_strictly_positive: true
+  all_clauses_required: true
+  interpretation: seed13_progression_signal_not_significance_or_method_validation
+decision:
+  pass: authorize_seeds_37_and_73_under_same_protocol_without_retuning
+  fail: stop_S06_and_preserve_negative_or_partial_result
+  engineering_failure: no_scientific_decision_one_repair_maximum
+
+engineering_gates:
+  physical_GPU0_forbidden: true
+  explicit_CUDA_VISIBLE_DEVICES_required: true
+  logical_to_physical_mapping_required: true
+  candidate_actions_one_to_one: true
+  selecting_M_reconstructs_factual_first_round: true
+  instrumented_tracker_output_hash_matches_parent_M: true
+  GT_absent_from_inference_features: true
+  finite_feature_and_prediction_checks: true
+  full_precision_aggregate_and_per_sequence_export: true
+  training_curves_and_checkpoint_hashes_required: true
+
+budget:
+  maximum_wall_time: 7_days
+  maximum_GPU_device_hours_all_S06: 24
+  maximum_CPU_core_hours_all_S06: 96
+  single_GPU_only: true
+  allowed_physical_GPUs: [1, 2, 3, 4, 5, 6, 7]
+  physical_GPU0_forbidden: true
+  on_limit: preserve_PARTIAL_and_return
+
+reporting:
+  specification: docs/experiment_reporting.md
+  large_output_root: /media/imc/data/mot-data/runs/s06_component_selector_seed13_20261123
+  report_root: reports/feasibility/s06_component_selector_seed13_20261123
+  no_commit_or_push_without_user_request: true

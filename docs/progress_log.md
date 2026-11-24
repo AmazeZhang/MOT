@@ -1107,3 +1107,31 @@
 - **验证证据：** 五个 JSON 模板解析通过且均为 TEMPLATE，三张 CSV 均只有合法且不重复的表头，两张指标表列一致；当前改动/新增 Markdown 的 97 个本地链接全部可定位；按原 24 fit 清单核得 18/6 的拟议内部划分无交集。`git diff --check` 通过。仅文档与格式验证，没有访问服务器原始数据、使用 GPU、训练、重评或声称独立复现。
 - **产物与限制：** 更新 README、报告索引、研究治理入口、创新台账及旧实验简记模板导航；保留此前未提交的 S01–S04 复盘修改。服务器回传历史补齐仍未执行，报告模板不含真实指标；现有开发集复用和 ReID 训练重叠未知的限制不变。
 - **精确下一步：** 用户审阅并同步本批文件后，服务器 agent 从 `docs/a2a/LATEST.md` 进入，先补历史机器可读结果并将 S05 转成锁定配置/命令，完成 S05 后按规范回传；再根据覆盖及八段结果决定是否实现 S06。没有提交、推送或发送远程消息。
+
+## 2026-11-23：完成 S05 稳定性/合法动作覆盖，冻结 S06 seed 13 协议
+
+- **历史补齐与协议：** 从权威原始文件导出 S01 G/Z/L/M 的 4 行完整精度 aggregate、96 行逐视频指标，以及 S04 的 30 个事件结果；未从 Markdown 舍入值重建。S05 在新跟踪前冻结 `manifests/protocols/s05_visual_decision_coverage_20261123.yaml`（SHA256 `b35aef525d6c6b43564d036ea090dd9edf6f6c868c8f2b45c29a6cd18d20cbc3`）。
+- **S05-A：** 在复用且非独立的八段 train development 上完成 G/L，并经哈希条件复用 M。官方 combined G/L/M HOTA 为 `68.90273986139066 / 68.81504013879633 / 69.51869387798489`，AssA 为 `52.82377438598485 / 52.77110310801603 / 53.56446597941373`，IDSW 为 `270 / 250 / 235`。M 相对 G pooled HOTA/AssA `+0.615954/+0.740692`，但只赢 5/8 视频，最差视频 HOTA `-7.1388`，不支持一致增益。首轮因缺 PYTHONPATH 在跟踪前失败，第二 immutable attempt 仅修环境并完成。
+- **S05-B：** 遍历 fit24 共 25,328 帧；GT-free 同状态 M/G/V 生成器找到 239 个差异帧、242 个 union 分量，126 个可完整代理标注。41 个合法去重 G/V 动作满足 `g-h>0`，覆盖 40 帧、17 视频，刚过预写 40/4 资源门；46 个分量存在任一 `g>0`，其中 5 个同时损伤 M 正确配对。69 是涉及的 video-track ID，不是恢复身份数；实际有 43 个唯一 video-track ID 新增代理正确配对。`dancetrack0027` 完整确定性重放的候选 trace 和 tracker 输出哈希均一致。
+- **审计与主张：** 新上下文同家族 GPT-6.1-Sol ultra 暂定 `WARN`，独立读取 152 JSON、335,407 tracker 行、25,328 trace 和 242 分量，并重跑官方 TrackEval，27 行逐项一致；未见假 GT、归一化造高、幽灵结果、重复膨胀或 GPU0 使用。限制是复用开发数据、离线 owner 代理、外观预训练重叠未知及范围。`result-to-claim` 只支持资源可行性，路由为 `implement_and_run_seed13_only`。
+- **报告和硬件：** 权威小型报告在 `reports/diagnostics/s05_visual_decision_coverage_20261123/`；大产物在 `/media/imc/data/mot-data/runs/s05_visual_decision_coverage_20261123/`。全 S05 使用 `CUDA_VISIBLE_DEVICES=''`，没有使用任何 GPU，物理 GPU0 明确未用。保留一个无科学输出的 `source_snapshot` glob launcher 错误。没有 commit 或 push。
+- **S06 冻结：** 在任何 S06 专用提取、训练或结果前冻结 `manifests/protocols/s06_component_selector_seed13_20261123.yaml`（SHA256 `290a95e3e36e96dbc62cd20e7661a6b1c80b1627a2849586cb37c412f2afdf51`）。只允许 seed 13；37/73 阻断。seed 13 必须以 Context+risk 相对 M 同时达到 HOTA/AssA 各 `+0.5`、IDSW 不增加、至少 5/8 视频 HOTA 为正，并在 pooled HOTA/AssA 同时胜 V 与 Local+risk，才允许后续 seeds。
+- **精确下一步：** 实现 S06 因果特征仪表并先验证 instrumented M 输出哈希等价；训练 Local/Context seed 13，按内部 dev6 官方 AssA→HOTA→早 epoch 选 checkpoint，再一次性跑 evaluation8 全七条件闭环。开始任何 CUDA 工作前重新查卡，只用物理 GPU1–7 中空闲单卡并显式记录映射；物理 GPU0 始终禁用。
+
+## 2026-11-23：S06 seed 13 在训练前工程门停止
+
+- **冻结与实现：** 在 S06 专用提取前冻结 `manifests/protocols/s06_component_selector_seed13_20261123.yaml`（SHA256 `290a95e3e36e96dbc62cd20e7661a6b1c80b1627a2849586cb37c412f2afdf51`），固定 train18/internal-dev6/evaluation8、Local/Context 表示、两个风险政策、seed 13 全数值门和一次工程修复上限。新增因果方向分、EMA cosine、竞争 margin 原语与测试，以及 instrumented M runner/immutable lock 生成器。
+- **失败尝试：** attempt1 在 `dancetrack0027` 首个无 tracker 帧因空 velocity/observation 形状校验停止，未形成完整 trace 或 tracker 结果。修复后用新目录 attempt2 重试，但 upstream OC-SORT 的空 `k_observations` 实际为一维 `(0,)`，仍在同一首帧停止。源码只读核查定位到空 tracker list 的 `np.array([...])` 构造。协议只允许一次修复，故没有 attempt3。两个目录没有覆盖，但 preparer 把 attempt2 内部 run ID 也硬编码成 attempt1；该元数据缺陷原样保留并写入报告。
+- **后置代码状态：** 工作树已补 `(0,)` observation 回归测试，现有相关测试 20 passed；该后置修正没有作为运行执行，不能算 S06 等价或科学证据。报告为 `reports/feasibility/s06_component_selector_seed13_20261123/`。
+- **科学状态与硬件：** `FAILED_ENGINEERING / NO_SCIENTIFIC_DECISION`。没有样本导出、训练、checkpoint、闭环 tracker 或 TrackEval；seed 13/37/73 都是科学 `NOT_RUN`。两次均 `CUDA_VISIBLE_DEVICES=''`，物理 GPU0 及所有 GPU 完全未用。没有 commit/push。
+- **精确下一步：** 若用户仍要继续 S06，先另立 versioned retry 协议，显式继承已知失败并把空 tracker 两种形状的单测作为前置门；随后才允许 attempt3-equivalent 的新 run ID。未获新授权前不再执行当前 S06。
+
+## 2026-11-24：S06 retry3 完成 seed 13，冻结主门失败并停止
+
+- **恢复与等价门：** 用户明确授权后冻结 retry2；修复空 tracker `(0,)` 表示和唯一 run ID。24/24 fit 视频、25,328 帧的 instrumented M tracker 哈希与权威 M 完全一致，候选投影逐帧一致，242 个差异分量和所有特征有限性检查通过。导出 train18 199 分量/104 可标注/208 动作/33 profitable，internal-dev6 43/22/44/8；未标注样本保留 null，不当负例。
+- **训练与选择：** retry2 首个训练锁因相对协议路径在锁前停止；随后 GPU1 训练在首次 optimizer step 前因缺确定性 CuBLAS 环境停止。新冻结 retry3（SHA256 `5762feb586e341fb5cca6583baaea00f7ecbedfe87c7ef1ec96f2b580ceb0014`），使用 `CUDA_VISIBLE_DEVICES=1`、逻辑 `cuda:0→物理 GPU1`、`CUBLAS_WORKSPACE_CONFIG=:4096:8`。Local/Context 各 25,794 参数、seed13、30 epochs、12 checkpoint 完成；internal-dev6 官方 AssA→HOTA→早 epoch 选择 Local epoch5、Context epoch30，evaluation8 未参与选择。
+- **一次性 evaluation8：** 40/40 新闭环任务和七条件官方 TrackEval 完成。M HOTA/AssA/IDSW `69.518694/53.564466/235`；V `70.436750/55.035986/246`；Local-risk 与 M 相同；Context-risk `69.613263/53.707202/239`。Context-risk 相对 M 仅 `+0.094569/+0.142736`、IDSW `+4`、仅 1/8 视频 HOTA 为正，相对 V `−0.823486/−1.328785`；主门仅过 2/8，决定 `STOP_S06_NO_SEEDS_37_73`。
+- **次要条件：** 预定义 Context-no-risk 为 `70.998795/55.768069/226`，相对 M `+1.480101/+2.203603/−9 IDSW`，相对 V `+0.562045/+0.732083/−20`；4 视频正、2 负、2 平。这是单 seed 复用开发描述，不得事后替换 Context-risk 主门或作为机制/泛化主张。
+- **审计与偏离：** 新上下文 GPT-6.1-Sol ultra 同家族暂定 `WARN`，独立复现 693 个最终 TrackEval 单元格（最大差 0）和 378 个代理动作标签（零差）。发现协议写 128 components、实际按 128+80 action examples 累积且末批仍 `/128`；Local 另有 8,192 个上下文输入权重结构性不活跃，故有效容量未严格匹配。上述在看结果后发现，原样报告，不授权修补重跑。历史 GPU 分配没有独立快照；锁/代码/运行记录显示训练只用物理 GPU1、其余 CPU-only，物理 GPU0 未暴露。
+- **主张门与报告：** result-to-claim 给 `claim_supported=no`、confidence high、精确路由 stop。权威报告为 `reports/feasibility/s06_component_selector_seed13_retry3_20261124/`，含 7 行 aggregate、56 行逐视频、60 行曲线、54 个案例/对照、checkpoint、gate、审计和 artifact hashes。大型根目录约 retry2 279MB、retry3 202MB，留在数据盘。未 commit/push。
+- **精确下一步：** 停止 S06，不运行 seeds37/73，不以偏离为由事后修复同一门。只允许对现有 artifact 做 CPU-only postmortem。若未来研究 Context-no-risk，必须另立新问题/协议、修正 component batching、加入有效容量对照并规划未触碰评估；不自动授权新的性能运行。

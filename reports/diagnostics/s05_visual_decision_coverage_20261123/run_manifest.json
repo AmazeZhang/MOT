@@ -1,0 +1,20 @@
+{
+  "schema_version": "mot-report-v1",
+  "experiment_id": "s05_visual_decision_coverage_20261123",
+  "status": "COMPLETED",
+  "stage": "development_stability_and_resource_coverage",
+  "created_at": "2026-11-23T16:52:54+08:00",
+  "decision": "CONTINUE_TO_SEPARATELY_FROZEN_S06_SEED13_ONLY",
+  "protocol": {"path": "manifests/protocols/s05_visual_decision_coverage_20261123.yaml", "sha256": "b35aef525d6c6b43564d036ea090dd9edf6f6c868c8f2b45c29a6cd18d20cbc3", "frozen_at": "2026-11-23T15:30:53+08:00", "deviations": []},
+  "code": {"commit": "2e086732c9ef622cbf710f016015397db84f20fe", "dirty": true, "evaluator": "TrackEval official local checkout", "exporter": "scripts/export_s05_report_diagnostics.py"},
+  "inputs": {"dataset": "DanceTrack train", "dataset_revision": "local", "split_manifest": "manifests/protocols/r1_stage_b_20261118.yaml", "split_sha256": "6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde", "gt_usage": "official S05-A evaluation and offline S05-B stable-owner proxy labels only", "weights": [{"name": "S01 appearance encoder", "training_data": "unknown", "overlap_audit": "unresolved"}]},
+  "scopes": [{"scope_id": "development8_reused", "dataset_split": "train", "sequences": 8, "purpose": "official full-sequence stability", "previous_use": "R1 and S04"}, {"scope_id": "fit24_reused", "dataset_split": "train", "sequences": 24, "purpose": "same-state component coverage", "previous_use": "S01 and multiple diagnostics"}],
+  "conditions": ["G", "L", "M", "same_state_M_G_V_component_actions"],
+  "attempts": [{"attempt_id": "s05a_attempt1", "status": "FAILED_ENGINEERING", "failure_reason": "missing PYTHONPATH; no tracking result"}, {"attempt_id": "s05a_attempt2", "status": "COMPLETED", "supersedes": "s05a_attempt1"}, {"attempt_id": "s05b_attempt1", "status": "COMPLETED_WITH_RETAINED_LAUNCHER_ERROR", "failure_reason": "non-sequence source_snapshot glob target only"}, {"attempt_id": "s05b_determinism_attempt2_dancetrack0027", "status": "COMPLETED"}],
+  "metric_contract": {"ratio_scale": "0_to_100_points_MOTA_may_be_negative", "count_unit": "integer", "aggregation": "official_TrackEval_COMBINED_SEQ", "per_video_tie_tolerance": 0.0},
+  "training": null,
+  "resources": [{"phase": "all_S05", "physical_gpu_ids": [], "CUDA_VISIBLE_DEVICES": "", "logical_to_physical": {}, "gpu_device_hours": 0, "measurement_method": "per-run metadata and audit"}],
+  "omissions": [{"file_or_field": "training", "reason": "S05 did not train a model"}, {"file_or_field": "exact CPU aggregate", "reason": "per-run CPU metadata retained on data disk; not promoted to an unverified sum"}],
+  "limitations": ["reused train development scopes", "offline owner proxy", "unknown appearance pretraining overlap", "coverage gate is not learnability or power"],
+  "next_action": "run S06 seed13 only under its frozen protocol; keep seeds37/73 blocked"
+}

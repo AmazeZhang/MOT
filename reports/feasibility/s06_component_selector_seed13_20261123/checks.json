@@ -1,0 +1,17 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "FAILED_ENGINEERING",
+  "executed_at": "2026-11-23T16:52:54+08:00",
+  "reviewer_or_process": "primary deterministic checks",
+  "checks": [
+    {"name": "frozen_protocol_hash", "status": "PASS", "evidence": ["290a95e3e36e96dbc62cd20e7661a6b1c80b1627a2849586cb37c412f2afdf51"]},
+    {"name": "feature_primitive_unit_tests_before_attempt1", "status": "PASS", "evidence": ["19 passed"]},
+    {"name": "feature_primitive_unit_tests_after_attempt1_repair", "status": "PASS", "evidence": ["20 passed"]},
+    {"name": "instrumented_M_output_equivalence", "status": "NOT_RUN", "evidence": ["both attempts stopped on first empty tracker frame"]},
+    {"name": "training_and_closed_loop_evaluation", "status": "NOT_RUN", "evidence": ["pre-training engineering gate failed"]},
+    {"name": "GPU0_forbidden", "status": "PASS", "evidence": ["CUDA_VISIBLE_DEVICES empty for both attempts"]}
+  ],
+  "cited_prior_checks": [],
+  "not_accessible_here": [],
+  "limitations": ["no scientific result exists to audit"]
+}

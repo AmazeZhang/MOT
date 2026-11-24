@@ -1,0 +1,40 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "reason_code": "training_unit_deviation_effective_capacity_and_scope",
+  "summary": "Official metrics and STOP gate reproduce exactly; batch unit differs from protocol and effective capacity is not matched.",
+  "audited_input_hashes": {
+    "final_summary": "sha256:28252683b9fee9bebc38e934df15547a15fa35526f6d25fe48d0dc752e470108",
+    "official_reproduction": "sha256:ccc9840e09b37a04e7e9da2ca7de249398ce69e2eebd190eb55eb04e63aa8ec2",
+    "proxy_target_reproduction": "sha256:37dfed8a042919935e9d52c2344d50f1892ab65ff707919776ea83170d6ddbea"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-24_run01/",
+  "agent_id": "/root/s06_integrity_audit",
+  "verdict_id": "/root/s06_integrity_audit",
+  "executor_model": "codex-primary",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "generated_at": "2026-11-24T11:30:52+08:00",
+  "date": "2026-11-24",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Official GT evaluation; explicit offline past-only owner proxy for training."},
+    "score_normalization": {"status": "pass", "details": "No prediction-dependent performance normalization; train-only feature normalization reproduced."},
+    "result_existence": {"status": "pass", "details": "693 official metric comparisons reproduced exactly."},
+    "dead_code": {"status": "pass", "details": "Selector, metric, checkpoint selection and gate paths executed."},
+    "protocol_fidelity": {"status": "warn", "details": "128 action examples were batched rather than 128 components; final short batch retains /128 scaling."},
+    "scope": {"status": "warn", "details": "One seed, reused train development, proxy labels, unknown appearance pretraining overlap."},
+    "eval_type": {"final": "real_gt", "training": "real_gt_with_derived_offline_owner_proxy"}
+  },
+  "claims": [
+    {"id": "S06_SEED13_GATE", "impact": "supported_stop_no_seeds37_73"},
+    {"id": "CONTEXT_RISK_GAIN", "impact": "unsupported"},
+    {"id": "CONTEXT_NO_RISK", "impact": "descriptive_only"},
+    {"id": "MATCHED_CAPACITY", "impact": "unsupported"}
+  ]
+}

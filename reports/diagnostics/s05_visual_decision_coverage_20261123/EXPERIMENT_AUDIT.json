@@ -1,0 +1,40 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "reason_code": "qualified_development_scope_and_proxy_gate",
+  "summary": "Deterministic integrity checks pass; scope and proxy labels require qualified claims.",
+  "audited_input_hashes": {
+    "s05a_summary": "sha256:77f65c8287b4451ebffb98893819378d1807f21d71864a8fdc22942dc46be76f",
+    "s05b_summary": "sha256:8d3bc1ba6561363d1cf6bb3e09f69f63e85ee654eb2b9c797d8c701b48730f8d",
+    "s05b_components": "sha256:b957578f71cec5660d7a49208faa15d8915cb92e37a467971b05bb1513124e87",
+    "independent_audit": "sha256:d30dcb38e17195066c782f27ccdeabe3fac2e5d46ddc6ac788713e98e6f23372",
+    "official_reproduction": "sha256:a6b87175f469e1291bd93f90dd6bf623525462799cf6289b9cbfab4cba1f8175"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-23_run01/",
+  "agent_id": "/root/s05_integrity_audit",
+  "verdict_id": "/root/s05_integrity_audit",
+  "executor_model": "codex-primary",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "generated_at": "2026-11-23T16:44:09+08:00",
+  "date": "2026-11-23",
+  "auditor": "gpt-6.1-sol-ultra",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "Official DanceTrack GT for S05-A; explicitly labelled offline stable-owner proxy for S05-B."},
+    "score_normalization": {"status": "pass", "details": "No prediction-dependent normalization."},
+    "result_existence": {"status": "pass", "details": "All 27 TrackEval rows and all 242 component records independently reproduced."},
+    "dead_code": {"status": "pass", "details": "Candidate, component, g/h and gate paths execute in the real pipeline."},
+    "scope": {"status": "warn", "details": "Reused development/fit scopes and proxy labels; appearance pretraining overlap unknown."},
+    "eval_type": {"s05a": "real_gt", "s05b": "real_gt_with_derived_offline_owner_proxy"}
+  },
+  "claims": [
+    {"id": "S05A_M_DEVELOPMENT_STABILITY", "impact": "supported_with_qualifiers"},
+    {"id": "S05B_RESOURCE_COVERAGE_GATE", "impact": "supported_for_frozen_proxy_gate_only"}
+  ]
+}

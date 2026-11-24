@@ -1,0 +1,124 @@
+protocol_id: s05_visual_decision_coverage_20261123
+status: design_frozen_before_new_tracking_or_coverage_results
+frozen_at: '2026-11-23T15:30:53+08:00'
+claim_level: development_stability_and_candidate_coverage_only
+purpose: decide whether a legal M/G/V component selector has enough observable recoverable coverage to justify S06 training
+hypotheses:
+  stability: fixed deep appearance M remains competitive with G and L on the reused 8-sequence development scope
+  coverage: M causal states contain at least 40 fully labelable component-frames with a legal G or V action whose added-correct minus harmed-correct count is positive, across at least 4 videos
+known_results_at_freeze:
+  - S01 M minus G on reused 24-fit scope was +2.45921611751648 HOTA points and +3.31971079302186 AssA points
+  - S03 single-write suppression changed no selected branch output
+  - S04 bounded visual-memory freeze changed no selected branch output and stopped that rationale
+  - S05 and S06 had not run
+
+source_and_scopes:
+  dataset: DanceTrack_train
+  dataset_root: /media/imc/data/mot-data/datasets/dancetrack/train
+  detection_root: /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train
+  split_manifest: manifests/protocols/r1_stage_b_20261118.yaml
+  split_manifest_sha256: 6b601deb6e5aebe3d1cc7449170c00367505b4d5c1dca25cc2a36eba3bb43fde
+  fit24:
+    purpose: same-state_candidate_coverage_only
+    sequences: [dancetrack0087, dancetrack0098, dancetrack0072, dancetrack0001, dancetrack0082, dancetrack0075, dancetrack0057, dancetrack0061, dancetrack0008, dancetrack0051, dancetrack0002, dancetrack0006, dancetrack0068, dancetrack0052, dancetrack0062, dancetrack0099, dancetrack0066, dancetrack0029, dancetrack0039, dancetrack0045, dancetrack0016, dancetrack0027, dancetrack0096, dancetrack0055]
+    previous_use: S01_fit_and_multiple_prior_development_diagnostics
+  development8:
+    purpose: full_sequence_stability_check
+    sequences: [dancetrack0074, dancetrack0032, dancetrack0069, dancetrack0015, dancetrack0023, dancetrack0080, dancetrack0049, dancetrack0083]
+    previous_use: R1_and_S04;_not_independent_test
+  official_val_or_test_used: false
+  appearance_pretraining_overlap: unknown_must_be_reported_not_assumed_absent
+
+historical_backfill:
+  s01_source: /media/imc/data/mot-data/runs/s01_visual_association_20261120/s1_full_evaluation2/summary.json
+  required: full_precision_G_Z_L_M_combined_and_all_24_per_sequence_metrics_with_source_locators
+  s04_source: /media/imc/data/mot-data/runs/s04_bounded_memory_freeze_20261122/branches
+  required: per_event_machine_readable_results_and_coverage_with_source_locators
+  no_metric_reconstruction_from_rounded_markdown: true
+  no_retraining_for_backfill: true
+
+s05_a:
+  question: does fixed M remain useful on the reused development8 scope
+  conditions:
+    G: {appearance_weight: 0.0, memory: none}
+    L: {appearance_weight: 0.25, memory: last}
+    M: {appearance_weight: 0.25, memory: ema, alpha_old_memory_weight: 0.9}
+  fixed_factors: [detector, detection_cache, tracker, CV_history, mature_reemit_output_policy, TrackEval_version]
+  output: official_TrackEval_COMBINED_SEQ_and_all_per_sequence_metrics
+  primary_descriptive: [HOTA, AssA]
+  secondary: [DetA, IDF1, MOTA, IDSW, FP, FN, Frag]
+  reuse_M_only_if: [input_hashes_match, config_matches, executed_source_hashes_match, output_hash_matches]
+  interpretation: reused_development_stability_not_independent_confirmation
+  no_best_only_reporting: true
+
+s05_b:
+  state: M_own_causal_closed_loop_state_on_fit24
+  candidates:
+    M: {appearance_weight: 0.25, role: factual_executed_action}
+    G: {appearance_weight: 0.0, role: same_state_first_round_candidate}
+    V: {appearance_weight: 0.5, role: same_state_first_round_candidate}
+  candidate_generation:
+    complete_first_round_matches: true
+    preserve_fast_path_and_post_LAP_thresholding: true
+    no_threshold_sweep: true
+    no_GT_in_generation_or_trigger: true
+    later_rounds_birth_output_and_memory_follow_executed_M_only: true
+  component_definition:
+    graph_nodes: detection_row_and_tracker_row_in_union_of_M_G_V_edges
+    connected_components: include_all_union_edges_and_unmatched_endpoints_touched_by_a_difference
+    action: complete_M_G_or_V_projection_within_one_component
+    duplicate_actions_removed: true
+    component_outside_matches_unchanged: true
+    action_must_be_one_to_one: true
+    unit_of_analysis: component_frame
+  labels:
+    owner_proxy: S02_stable_owner_definition
+    applied_after_candidate_generation: true
+    future_information: forbidden
+    fully_labelable: every_affected_track_has_reliable_owner
+    g: number_of_new_correct_pairs_relative_to_M_across_all_labeled_affected_tracks
+    h: number_of_M_correct_pairs_destroyed_including_becoming_unmatched
+    unlabelable_is_missing_not_zero: true
+  coverage_gate:
+    profitable_alternative_definition: fully_labelable_and_action_differs_from_M_and_g_minus_h_strictly_positive
+    required_component_frames: 40
+    required_unique_videos: 4
+    meaning: bounded_resource_gate_not_power_or_learnability_proof
+  diagnostics:
+    multi_label_reasons_required: [positive_detection_absent, only_low_score_or_later_round, IoU_gate_excluded, no_correct_action_in_M_G_V, correct_alternative_with_M_wrong, M_correct_and_alternative_harms]
+    exclusive_funnel_priority: [unlabelable, positive_detection_absent, only_low_score_or_later_round, IoU_gate_excluded, no_correct_action_in_M_G_V, recoverable_M_wrong, M_correct_at_risk, other]
+    report_intersections: true
+    report_counts: [component_frames, unique_frames, unique_videos, unique_track_ids_within_video, labeled_and_unlabeled]
+
+engineering_gates:
+  deterministic_candidate_replay: required
+  every_candidate_action_one_to_one: required
+  selecting_M_reconstructs_factual_M_first_round_every_frame: required
+  M_tracker_output_matches_S01_authoritative_output: required
+  GT_absent_from_candidate_features_and_trigger: required
+  synthetic_three_assignment_component_tests: required
+  fast_path_and_no_candidate_denominators: required
+
+decision:
+  on_engineering_gate_failure: FAILED_engineering_no_scientific_decision
+  on_coverage_gate_pass: CONTINUE_to_separately_frozen_S06_protocol
+  on_coverage_gate_fail: INCONCLUSIVE_STOP_CURRENT_SELECTOR_no_more_freeze_diagnostics
+  on_candidate_or_gate_bottleneck: stop_and_write_separate_shared_candidate_pool_protocol_if_pursued
+  S06_automatic_start: false
+
+budget:
+  wall_time: 2_working_days
+  maximum_CPU_core_hours: 64
+  maximum_GPU_device_hours: 2
+  GPU_use: cache_extraction_only_if_missing
+  physical_GPU0_forbidden: true
+  tracking_and_diagnostics_CUDA_VISIBLE_DEVICES: ''
+  on_limit: preserve_PARTIAL_and_return
+
+reporting:
+  specification: docs/experiment_reporting.md
+  template: docs/templates/report_bundle
+  report_root: reports/diagnostics/s05_visual_decision_coverage_20261123
+  large_output_root: /media/imc/data/mot-data/runs/s05_visual_decision_coverage_20261123
+  update_after_handoff: [reports/README.md, docs/progress_log.md, docs/a2a/LATEST.md]
+  no_commit_or_push_without_user_request: true

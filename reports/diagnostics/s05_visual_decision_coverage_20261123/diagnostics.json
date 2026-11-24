@@ -1,0 +1,837 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "comparison_type": "same_state_M_G_V_first_round_candidate_coverage",
+  "unit_of_analysis": "component_frame",
+  "definitions": {
+    "profitable": "fully labelable, action differs from M, and g-h > 0",
+    "g": "new correct pairs relative to M",
+    "h": "M-correct pairs destroyed by the alternative",
+    "correct_alternative_with_M_wrong": "at least one non-M action has g>0; may also have h>0",
+    "recoverable_M_wrong": "at least one unique non-M action has g-h>0; this is the 41-component resource gate",
+    "exclusive_funnel_priority": [
+      "unlabelable",
+      "positive_detection_absent",
+      "only_low_score_or_later_round",
+      "IoU_gate_excluded",
+      "no_correct_action_in_M_G_V",
+      "recoverable_M_wrong",
+      "M_correct_and_alternative_harms"
+    ]
+  },
+  "sampling_rule": "all fit24 frames and every non-identical union component",
+  "selection_seed": null,
+  "statistics": [
+    {
+      "name": "candidate_difference_frames",
+      "definition": "frozen S05-B summary count: candidate_difference_frames",
+      "value": 239,
+      "unit": "count",
+      "numerator": 239,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.candidate_difference_frames"
+      }
+    },
+    {
+      "name": "component_frames",
+      "definition": "frozen S05-B summary count: component_frames",
+      "value": 242,
+      "unit": "count",
+      "numerator": 242,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.component_frames"
+      }
+    },
+    {
+      "name": "fast_path_frames",
+      "definition": "frozen S05-B summary count: fast_path_frames",
+      "value": 7559,
+      "unit": "count",
+      "numerator": 7559,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.fast_path_frames"
+      }
+    },
+    {
+      "name": "frames",
+      "definition": "frozen S05-B summary count: frames",
+      "value": 25328,
+      "unit": "count",
+      "numerator": 25328,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.frames"
+      }
+    },
+    {
+      "name": "fully_labelable_component_frames",
+      "definition": "frozen S05-B summary count: fully_labelable_component_frames",
+      "value": 126,
+      "unit": "count",
+      "numerator": 126,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.fully_labelable_component_frames"
+      }
+    },
+    {
+      "name": "profitable_component_frames",
+      "definition": "frozen S05-B summary count: profitable_component_frames",
+      "value": 41,
+      "unit": "count",
+      "numerator": 41,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.profitable_component_frames"
+      }
+    },
+    {
+      "name": "unlabelable_component_frames",
+      "definition": "frozen S05-B summary count: unlabelable_component_frames",
+      "value": 116,
+      "unit": "count",
+      "numerator": 116,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.unlabelable_component_frames"
+      }
+    },
+    {
+      "name": "videos_with_candidate_difference_frames",
+      "definition": "frozen S05-B summary count: videos_with_candidate_difference_frames",
+      "value": 24,
+      "unit": "count",
+      "numerator": 24,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_candidate_difference_frames"
+      }
+    },
+    {
+      "name": "videos_with_component_frames",
+      "definition": "frozen S05-B summary count: videos_with_component_frames",
+      "value": 24,
+      "unit": "count",
+      "numerator": 24,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_component_frames"
+      }
+    },
+    {
+      "name": "videos_with_fast_path_frames",
+      "definition": "frozen S05-B summary count: videos_with_fast_path_frames",
+      "value": 24,
+      "unit": "count",
+      "numerator": 24,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_fast_path_frames"
+      }
+    },
+    {
+      "name": "videos_with_fully_labelable_component_frames",
+      "definition": "frozen S05-B summary count: videos_with_fully_labelable_component_frames",
+      "value": 23,
+      "unit": "count",
+      "numerator": 23,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_fully_labelable_component_frames"
+      }
+    },
+    {
+      "name": "videos_with_profitable_component_frames",
+      "definition": "frozen S05-B summary count: videos_with_profitable_component_frames",
+      "value": 17,
+      "unit": "count",
+      "numerator": 17,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_profitable_component_frames"
+      }
+    },
+    {
+      "name": "videos_with_unlabelable_component_frames",
+      "definition": "frozen S05-B summary count: videos_with_unlabelable_component_frames",
+      "value": 20,
+      "unit": "count",
+      "numerator": 20,
+      "denominator": 25328,
+      "scope": "S05 fit24 same-state M/G/V candidate coverage",
+      "gt_role": "offline IoU-0.5 detection and stable-owner proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "counts.videos_with_unlabelable_component_frames"
+      }
+    },
+    {
+      "name": "reason_IoU_gate_excluded",
+      "definition": "multi-label component reason: IoU_gate_excluded",
+      "value": 17,
+      "unit": "component_frame",
+      "numerator": 17,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.IoU_gate_excluded"
+      }
+    },
+    {
+      "name": "reason_M_correct_and_alternative_harms",
+      "definition": "multi-label component reason: M_correct_and_alternative_harms",
+      "value": 81,
+      "unit": "component_frame",
+      "numerator": 81,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.M_correct_and_alternative_harms"
+      }
+    },
+    {
+      "name": "reason_correct_alternative_with_M_wrong",
+      "definition": "multi-label component reason: correct_alternative_with_M_wrong",
+      "value": 46,
+      "unit": "component_frame",
+      "numerator": 46,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "derived_from_component_results:any_unique_alternative_g>0"
+      }
+    },
+    {
+      "name": "reason_no_correct_action_in_M_G_V",
+      "definition": "multi-label component reason: no_correct_action_in_M_G_V",
+      "value": 53,
+      "unit": "component_frame",
+      "numerator": 53,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.no_correct_action_in_M_G_V"
+      }
+    },
+    {
+      "name": "reason_only_low_score_or_later_round",
+      "definition": "multi-label component reason: only_low_score_or_later_round",
+      "value": 25,
+      "unit": "component_frame",
+      "numerator": 25,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.only_low_score_or_later_round"
+      }
+    },
+    {
+      "name": "reason_positive_detection_absent",
+      "definition": "multi-label component reason: positive_detection_absent",
+      "value": 44,
+      "unit": "component_frame",
+      "numerator": 44,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.positive_detection_absent"
+      }
+    },
+    {
+      "name": "reason_recoverable_M_wrong",
+      "definition": "multi-label component reason: recoverable_M_wrong",
+      "value": 41,
+      "unit": "component_frame",
+      "numerator": 41,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.recoverable_M_wrong"
+      }
+    },
+    {
+      "name": "reason_unlabelable",
+      "definition": "multi-label component reason: unlabelable",
+      "value": 116,
+      "unit": "component_frame",
+      "numerator": 116,
+      "denominator": 242,
+      "scope": "S05 fit24 candidate difference components",
+      "gt_role": "offline diagnostic proxy labeling",
+      "source": {
+        "artifact_id": "s05b_summary",
+        "locator": "multi_label_reason_counts.unlabelable"
+      }
+    }
+  ],
+  "per_sequence_statistics": [
+    {
+      "sequence": "dancetrack0001",
+      "counts": {
+        "frames": 703,
+        "fast_path_frames": 282,
+        "candidate_difference_frames": 2,
+        "component_frames": 2,
+        "fully_labelable_component_frames": 2,
+        "profitable_component_frames": 1
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 1,
+        "recoverable_M_wrong": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0002",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 342,
+        "candidate_difference_frames": 10,
+        "component_frames": 10,
+        "unlabelable_component_frames": 7,
+        "fully_labelable_component_frames": 3,
+        "profitable_component_frames": 2
+      },
+      "reason_counts": {
+        "unlabelable": 7,
+        "recoverable_M_wrong": 2,
+        "IoU_gate_excluded": 2,
+        "M_correct_and_alternative_harms": 1,
+        "no_correct_action_in_M_G_V": 1,
+        "only_low_score_or_later_round": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0006",
+      "counts": {
+        "frames": 1202,
+        "candidate_difference_frames": 21,
+        "component_frames": 21,
+        "unlabelable_component_frames": 6,
+        "fully_labelable_component_frames": 15,
+        "fast_path_frames": 338,
+        "profitable_component_frames": 3
+      },
+      "reason_counts": {
+        "unlabelable": 6,
+        "M_correct_and_alternative_harms": 12,
+        "no_correct_action_in_M_G_V": 8,
+        "only_low_score_or_later_round": 4,
+        "positive_detection_absent": 7,
+        "recoverable_M_wrong": 3
+      }
+    },
+    {
+      "sequence": "dancetrack0008",
+      "counts": {
+        "frames": 883,
+        "candidate_difference_frames": 10,
+        "component_frames": 10,
+        "unlabelable_component_frames": 4,
+        "fast_path_frames": 188,
+        "fully_labelable_component_frames": 6,
+        "profitable_component_frames": 2
+      },
+      "reason_counts": {
+        "unlabelable": 4,
+        "no_correct_action_in_M_G_V": 3,
+        "positive_detection_absent": 4,
+        "recoverable_M_wrong": 2,
+        "M_correct_and_alternative_harms": 3,
+        "only_low_score_or_later_round": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0016",
+      "counts": {
+        "frames": 2163,
+        "fast_path_frames": 647,
+        "candidate_difference_frames": 9,
+        "component_frames": 9,
+        "fully_labelable_component_frames": 5,
+        "unlabelable_component_frames": 4
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 5,
+        "no_correct_action_in_M_G_V": 4,
+        "unlabelable": 4,
+        "only_low_score_or_later_round": 1,
+        "positive_detection_absent": 2
+      }
+    },
+    {
+      "sequence": "dancetrack0027",
+      "counts": {
+        "frames": 403,
+        "fast_path_frames": 18,
+        "candidate_difference_frames": 5,
+        "component_frames": 5,
+        "fully_labelable_component_frames": 3,
+        "unlabelable_component_frames": 2
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 3,
+        "unlabelable": 2,
+        "no_correct_action_in_M_G_V": 2,
+        "positive_detection_absent": 1,
+        "IoU_gate_excluded": 1,
+        "only_low_score_or_later_round": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0029",
+      "counts": {
+        "frames": 1263,
+        "fast_path_frames": 72,
+        "candidate_difference_frames": 2,
+        "component_frames": 2,
+        "fully_labelable_component_frames": 2
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 2,
+        "no_correct_action_in_M_G_V": 1,
+        "positive_detection_absent": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0039",
+      "counts": {
+        "frames": 1242,
+        "fast_path_frames": 633,
+        "candidate_difference_frames": 2,
+        "component_frames": 2,
+        "fully_labelable_component_frames": 2
+      },
+      "reason_counts": {
+        "IoU_gate_excluded": 1,
+        "M_correct_and_alternative_harms": 2,
+        "no_correct_action_in_M_G_V": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0045",
+      "counts": {
+        "frames": 1203,
+        "candidate_difference_frames": 19,
+        "component_frames": 19,
+        "fully_labelable_component_frames": 10,
+        "profitable_component_frames": 3,
+        "fast_path_frames": 19,
+        "unlabelable_component_frames": 9
+      },
+      "reason_counts": {
+        "positive_detection_absent": 6,
+        "recoverable_M_wrong": 3,
+        "M_correct_and_alternative_harms": 6,
+        "no_correct_action_in_M_G_V": 6,
+        "only_low_score_or_later_round": 2,
+        "unlabelable": 9,
+        "IoU_gate_excluded": 3
+      }
+    },
+    {
+      "sequence": "dancetrack0051",
+      "counts": {
+        "frames": 1203,
+        "candidate_difference_frames": 16,
+        "component_frames": 16,
+        "fully_labelable_component_frames": 8,
+        "profitable_component_frames": 4,
+        "unlabelable_component_frames": 8,
+        "fast_path_frames": 97
+      },
+      "reason_counts": {
+        "positive_detection_absent": 3,
+        "recoverable_M_wrong": 4,
+        "unlabelable": 8,
+        "M_correct_and_alternative_harms": 4,
+        "no_correct_action_in_M_G_V": 4,
+        "only_low_score_or_later_round": 2,
+        "IoU_gate_excluded": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0052",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 590,
+        "candidate_difference_frames": 10,
+        "component_frames": 10,
+        "fully_labelable_component_frames": 3,
+        "profitable_component_frames": 2,
+        "unlabelable_component_frames": 7
+      },
+      "reason_counts": {
+        "positive_detection_absent": 1,
+        "recoverable_M_wrong": 2,
+        "unlabelable": 7,
+        "M_correct_and_alternative_harms": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0055",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 596,
+        "candidate_difference_frames": 8,
+        "component_frames": 8,
+        "fully_labelable_component_frames": 6,
+        "profitable_component_frames": 3,
+        "unlabelable_component_frames": 2
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 3,
+        "no_correct_action_in_M_G_V": 2,
+        "positive_detection_absent": 2,
+        "recoverable_M_wrong": 3,
+        "unlabelable": 2,
+        "only_low_score_or_later_round": 1,
+        "IoU_gate_excluded": 2
+      }
+    },
+    {
+      "sequence": "dancetrack0057",
+      "counts": {
+        "frames": 622,
+        "fast_path_frames": 340,
+        "candidate_difference_frames": 5,
+        "component_frames": 5,
+        "unlabelable_component_frames": 3,
+        "fully_labelable_component_frames": 2,
+        "profitable_component_frames": 1
+      },
+      "reason_counts": {
+        "unlabelable": 3,
+        "recoverable_M_wrong": 1,
+        "M_correct_and_alternative_harms": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0061",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 741,
+        "candidate_difference_frames": 7,
+        "component_frames": 7,
+        "unlabelable_component_frames": 4,
+        "fully_labelable_component_frames": 3
+      },
+      "reason_counts": {
+        "unlabelable": 4,
+        "M_correct_and_alternative_harms": 3,
+        "IoU_gate_excluded": 1,
+        "no_correct_action_in_M_G_V": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0062",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 699,
+        "candidate_difference_frames": 4,
+        "component_frames": 4,
+        "unlabelable_component_frames": 2,
+        "fully_labelable_component_frames": 2,
+        "profitable_component_frames": 1
+      },
+      "reason_counts": {
+        "unlabelable": 2,
+        "M_correct_and_alternative_harms": 1,
+        "only_low_score_or_later_round": 1,
+        "recoverable_M_wrong": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0066",
+      "counts": {
+        "frames": 1202,
+        "fast_path_frames": 535,
+        "candidate_difference_frames": 3,
+        "component_frames": 3,
+        "unlabelable_component_frames": 3
+      },
+      "reason_counts": {
+        "unlabelable": 3
+      }
+    },
+    {
+      "sequence": "dancetrack0068",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 462,
+        "candidate_difference_frames": 18,
+        "component_frames": 18,
+        "fully_labelable_component_frames": 9,
+        "profitable_component_frames": 3,
+        "unlabelable_component_frames": 9
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 5,
+        "only_low_score_or_later_round": 1,
+        "recoverable_M_wrong": 3,
+        "no_correct_action_in_M_G_V": 2,
+        "positive_detection_absent": 2,
+        "unlabelable": 9
+      }
+    },
+    {
+      "sequence": "dancetrack0072",
+      "counts": {
+        "frames": 1203,
+        "fast_path_frames": 515,
+        "candidate_difference_frames": 9,
+        "component_frames": 9,
+        "fully_labelable_component_frames": 4,
+        "profitable_component_frames": 2,
+        "unlabelable_component_frames": 5
+      },
+      "reason_counts": {
+        "IoU_gate_excluded": 2,
+        "recoverable_M_wrong": 2,
+        "unlabelable": 5,
+        "M_correct_and_alternative_harms": 2,
+        "no_correct_action_in_M_G_V": 2,
+        "only_low_score_or_later_round": 1,
+        "positive_detection_absent": 2
+      }
+    },
+    {
+      "sequence": "dancetrack0075",
+      "counts": {
+        "frames": 803,
+        "fast_path_frames": 162,
+        "candidate_difference_frames": 1,
+        "component_frames": 1,
+        "fully_labelable_component_frames": 1
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 1,
+        "no_correct_action_in_M_G_V": 1,
+        "positive_detection_absent": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0082",
+      "counts": {
+        "frames": 603,
+        "fast_path_frames": 65,
+        "candidate_difference_frames": 11,
+        "component_frames": 11,
+        "unlabelable_component_frames": 6,
+        "fully_labelable_component_frames": 5,
+        "profitable_component_frames": 2
+      },
+      "reason_counts": {
+        "unlabelable": 6,
+        "M_correct_and_alternative_harms": 2,
+        "positive_detection_absent": 3,
+        "recoverable_M_wrong": 2,
+        "no_correct_action_in_M_G_V": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0087",
+      "counts": {
+        "frames": 1003,
+        "fast_path_frames": 33,
+        "candidate_difference_frames": 14,
+        "component_frames": 14,
+        "fully_labelable_component_frames": 7,
+        "unlabelable_component_frames": 7,
+        "profitable_component_frames": 2
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 5,
+        "unlabelable": 7,
+        "IoU_gate_excluded": 3,
+        "no_correct_action_in_M_G_V": 2,
+        "only_low_score_or_later_round": 2,
+        "recoverable_M_wrong": 2
+      }
+    },
+    {
+      "sequence": "dancetrack0096",
+      "counts": {
+        "frames": 603,
+        "candidate_difference_frames": 30,
+        "component_frames": 33,
+        "fully_labelable_component_frames": 19,
+        "unlabelable_component_frames": 14,
+        "profitable_component_frames": 8,
+        "fast_path_frames": 140
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 11,
+        "unlabelable": 14,
+        "no_correct_action_in_M_G_V": 9,
+        "only_low_score_or_later_round": 6,
+        "recoverable_M_wrong": 8,
+        "positive_detection_absent": 6,
+        "IoU_gate_excluded": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0098",
+      "counts": {
+        "frames": 1203,
+        "candidate_difference_frames": 14,
+        "component_frames": 14,
+        "unlabelable_component_frames": 8,
+        "fully_labelable_component_frames": 6,
+        "profitable_component_frames": 1,
+        "fast_path_frames": 39
+      },
+      "reason_counts": {
+        "unlabelable": 8,
+        "positive_detection_absent": 3,
+        "recoverable_M_wrong": 1,
+        "M_correct_and_alternative_harms": 5,
+        "no_correct_action_in_M_G_V": 3,
+        "only_low_score_or_later_round": 1
+      }
+    },
+    {
+      "sequence": "dancetrack0099",
+      "counts": {
+        "frames": 603,
+        "fast_path_frames": 6,
+        "candidate_difference_frames": 9,
+        "component_frames": 9,
+        "fully_labelable_component_frames": 3,
+        "unlabelable_component_frames": 6,
+        "profitable_component_frames": 1
+      },
+      "reason_counts": {
+        "M_correct_and_alternative_harms": 2,
+        "unlabelable": 6,
+        "recoverable_M_wrong": 1
+      }
+    }
+  ],
+  "overlap_accounting": {
+    "component_frames": 242,
+    "unique_component_ids": 242,
+    "profitable_unique_frames": 40
+  },
+  "unlabeled_or_excluded": [
+    {
+      "reason": "unstable_or_missing_owner",
+      "count": 116
+    }
+  ],
+  "case_sampling": {
+    "rule": "sha256(s05-cases-v1:component_id) within improved/worsened/unchanged",
+    "maximum_per_stratum": 3,
+    "actual_counts": {
+      "improved": 3,
+      "worsened": 3,
+      "unchanged": 3
+    },
+    "source_artifact_id": "s05b_component_results",
+    "worst_case_additions_separately_labeled": false
+  },
+  "limitations": [
+    "GT IoU-0.5 owner labels are offline diagnostic proxies",
+    "fit24 are reused development sequences",
+    "coverage does not prove learnability or closed-loop gain"
+  ],
+  "coverage_gate": {
+    "required_component_frames": 40,
+    "required_unique_videos": 4,
+    "observed_component_frames": 41,
+    "observed_unique_frames": 40,
+    "observed_unique_videos": 17,
+    "observed_unique_video_track_ids": 69,
+    "passed": true
+  },
+  "decision": "CONTINUE_TO_SEPARATELY_FROZEN_S06",
+  "multi_label_reason_counts": {
+    "M_correct_and_alternative_harms": 81,
+    "recoverable_M_wrong": 41,
+    "unlabelable": 116,
+    "IoU_gate_excluded": 17,
+    "no_correct_action_in_M_G_V": 53,
+    "only_low_score_or_later_round": 25,
+    "positive_detection_absent": 44,
+    "correct_alternative_with_M_wrong": 46
+  },
+  "reason_intersections": {
+    "IoU_gate_excluded&M_correct_and_alternative_harms": 9,
+    "IoU_gate_excluded&correct_alternative_with_M_wrong": 8,
+    "IoU_gate_excluded&no_correct_action_in_M_G_V": 9,
+    "IoU_gate_excluded&only_low_score_or_later_round": 5,
+    "IoU_gate_excluded&recoverable_M_wrong": 8,
+    "M_correct_and_alternative_harms&correct_alternative_with_M_wrong": 5,
+    "M_correct_and_alternative_harms&no_correct_action_in_M_G_V": 49,
+    "M_correct_and_alternative_harms&only_low_score_or_later_round": 16,
+    "M_correct_and_alternative_harms&positive_detection_absent": 30,
+    "correct_alternative_with_M_wrong&only_low_score_or_later_round": 10,
+    "correct_alternative_with_M_wrong&positive_detection_absent": 13,
+    "correct_alternative_with_M_wrong&recoverable_M_wrong": 41,
+    "no_correct_action_in_M_G_V&only_low_score_or_later_round": 15,
+    "no_correct_action_in_M_G_V&positive_detection_absent": 31,
+    "only_low_score_or_later_round&recoverable_M_wrong": 9,
+    "positive_detection_absent&recoverable_M_wrong": 11
+  },
+  "exclusive_funnel_counts": {
+    "M_correct_and_alternative_harms": 29,
+    "recoverable_M_wrong": 13,
+    "unlabelable": 116,
+    "only_low_score_or_later_round": 25,
+    "IoU_gate_excluded": 12,
+    "positive_detection_absent": 44,
+    "no_correct_action_in_M_G_V": 3
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "comparison_type": "natural_closed_loop_component_selector",
+  "unit_of_analysis": "component_frame",
+  "per_condition_sequence": {
+    "Local_no_extra_risk": [
+      {
+        "sequence": "dancetrack0015",
+        "components": 2,
+        "changed_components": 0,
+        "wall_seconds": 124.68782821111381,
+        "cpu_core_hours": 0.12245505655777777
+      },
+      {
+        "sequence": "dancetrack0023",
+        "components": 18,
+        "changed_components": 3,
+        "wall_seconds": 126.41810853220522,
+        "cpu_core_hours": 0.14001989818416666
+      },
+      {
+        "sequence": "dancetrack0032",
+        "components": 9,
+        "changed_components": 3,
+        "wall_seconds": 15.992051530629396,
+        "cpu_core_hours": 0.019664367899444445
+      },
+      {
+        "sequence": "dancetrack0049",
+        "components": 31,
+        "changed_components": 8,
+        "wall_seconds": 86.52064591832459,
+        "cpu_core_hours": 0.09952130031055556
+      },
+      {
+        "sequence": "dancetrack0069",
+        "components": 4,
+        "changed_components": 2,
+        "wall_seconds": 71.73198423534632,
+        "cpu_core_hours": 0.07995997581194444
+      },
+      {
+        "sequence": "dancetrack0074",
+        "components": 7,
+        "changed_components": 2,
+        "wall_seconds": 29.616710705682635,
+        "cpu_core_hours": 0.03366214680583333
+      },
+      {
+        "sequence": "dancetrack0080",
+        "components": 1,
+        "changed_components": 0,
+        "wall_seconds": 103.282615698874,
+        "cpu_core_hours": 0.10325015365583332
+      },
+      {
+        "sequence": "dancetrack0083",
+        "components": 4,
+        "changed_components": 2,
+        "wall_seconds": 86.4928719792515,
+        "cpu_core_hours": 0.0806065813075
+      }
+    ],
+    "Local_risk": [
+      {
+        "sequence": "dancetrack0015",
+        "components": 2,
+        "changed_components": 0,
+        "wall_seconds": 128.30272220633924,
+        "cpu_core_hours": 0.1240778081661111
+      },
+      {
+        "sequence": "dancetrack0023",
+        "components": 20,
+        "changed_components": 0,
+        "wall_seconds": 130.99774747528136,
+        "cpu_core_hours": 0.1433716158391667
+      },
+      {
+        "sequence": "dancetrack0032",
+        "components": 9,
+        "changed_components": 0,
+        "wall_seconds": 15.517452822998166,
+        "cpu_core_hours": 0.01879098080611111
+      },
+      {
+        "sequence": "dancetrack0049",
+        "components": 29,
+        "changed_components": 0,
+        "wall_seconds": 78.4857860840857,
+        "cpu_core_hours": 0.09224904535111113
+      },
+      {
+        "sequence": "dancetrack0069",
+        "components": 4,
+        "changed_components": 0,
+        "wall_seconds": 74.38622635044158,
+        "cpu_core_hours": 0.08289356576444444
+      },
+      {
+        "sequence": "dancetrack0074",
+        "components": 8,
+        "changed_components": 0,
+        "wall_seconds": 31.079502599313855,
+        "cpu_core_hours": 0.03537636885888889
+      },
+      {
+        "sequence": "dancetrack0080",
+        "components": 1,
+        "changed_components": 0,
+        "wall_seconds": 104.00259377248585,
+        "cpu_core_hours": 0.10405109868583333
+      },
+      {
+        "sequence": "dancetrack0083",
+        "components": 5,
+        "changed_components": 0,
+        "wall_seconds": 91.94782708026469,
+        "cpu_core_hours": 0.08280639155416666
+      }
+    ],
+    "Context_no_extra_risk": [
+      {
+        "sequence": "dancetrack0015",
+        "components": 2,
+        "changed_components": 1,
+        "wall_seconds": 133.37614730373025,
+        "cpu_core_hours": 0.1263941811163889
+      },
+      {
+        "sequence": "dancetrack0023",
+        "components": 18,
+        "changed_components": 4,
+        "wall_seconds": 128.13103496842086,
+        "cpu_core_hours": 0.14107040414861113
+      },
+      {
+        "sequence": "dancetrack0032",
+        "components": 9,
+        "changed_components": 3,
+        "wall_seconds": 16.068176614120603,
+        "cpu_core_hours": 0.019773069831666667
+      },
+      {
+        "sequence": "dancetrack0049",
+        "components": 28,
+        "changed_components": 6,
+        "wall_seconds": 87.38508989289403,
+        "cpu_core_hours": 0.10079020197277778
+      },
+      {
+        "sequence": "dancetrack0069",
+        "components": 4,
+        "changed_components": 0,
+        "wall_seconds": 74.00558455660939,
+        "cpu_core_hours": 0.08253966232694444
+      },
+      {
+        "sequence": "dancetrack0074",
+        "components": 7,
+        "changed_components": 2,
+        "wall_seconds": 30.638278933241963,
+        "cpu_core_hours": 0.034822205251944446
+      },
+      {
+        "sequence": "dancetrack0080",
+        "components": 1,
+        "changed_components": 0,
+        "wall_seconds": 106.78282279521227,
+        "cpu_core_hours": 0.10507078487111111
+      },
+      {
+        "sequence": "dancetrack0083",
+        "components": 4,
+        "changed_components": 3,
+        "wall_seconds": 94.6475262735039,
+        "cpu_core_hours": 0.08331945864916666
+      }
+    ],
+    "Context_risk": [
+      {
+        "sequence": "dancetrack0015",
+        "components": 2,
+        "changed_components": 0,
+        "wall_seconds": 129.1165922395885,
+        "cpu_core_hours": 0.12466183087222223
+      },
+      {
+        "sequence": "dancetrack0023",
+        "components": 20,
+        "changed_components": 0,
+        "wall_seconds": 132.48369412869215,
+        "cpu_core_hours": 0.1446204962475
+      },
+      {
+        "sequence": "dancetrack0032",
+        "components": 9,
+        "changed_components": 0,
+        "wall_seconds": 16.01855337433517,
+        "cpu_core_hours": 0.01918939000277778
+      },
+      {
+        "sequence": "dancetrack0049",
+        "components": 28,
+        "changed_components": 2,
+        "wall_seconds": 84.8682225253433,
+        "cpu_core_hours": 0.09849546765944443
+      },
+      {
+        "sequence": "dancetrack0069",
+        "components": 4,
+        "changed_components": 0,
+        "wall_seconds": 77.4531856328249,
+        "cpu_core_hours": 0.0863498433638889
+      },
+      {
+        "sequence": "dancetrack0074",
+        "components": 8,
+        "changed_components": 1,
+        "wall_seconds": 30.66759130358696,
+        "cpu_core_hours": 0.035002128920277785
+      },
+      {
+        "sequence": "dancetrack0080",
+        "components": 1,
+        "changed_components": 0,
+        "wall_seconds": 104.26473389193416,
+        "cpu_core_hours": 0.1040362632875
+      },
+      {
+        "sequence": "dancetrack0083",
+        "components": 5,
+        "changed_components": 0,
+        "wall_seconds": 89.71337440423667,
+        "cpu_core_hours": 0.08184550345472222
+      }
+    ]
+  },
+  "limitations": [
+    "reused development sequences",
+    "owner-proxy training labels",
+    "single seed"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "status": "COMPLETED",
+  "selection_rule": "max_AssA_then_HOTA_then_earlier_epoch",
+  "policy_used_for_selection": "risk",
+  "candidates": {
+    "Local": [
+      {
+        "mode": "Local",
+        "epoch": 5,
+        "method": "Local_risk_e05",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e05/summary.json",
+        "evaluation_summary_sha256": "503f6975ec5ce1d1d0baaf655c88afd5893f018c537b773b108d3197967fac18",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_05.pt",
+        "checkpoint_sha256": "c3f4aafa778deb94b77ab0e8be448e8d5f531b1796d526ab379d2e6f14ac3ce0"
+      },
+      {
+        "mode": "Local",
+        "epoch": 10,
+        "method": "Local_risk_e10",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e10/summary.json",
+        "evaluation_summary_sha256": "0cf1af64ecc531f324a8ae67e6cac50641eb71b945ebd2d7f8c9bb75c6527329",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_10.pt",
+        "checkpoint_sha256": "8236ad5e71dbd84133e43663e667cb63f6bae48453d5238514e0a7c9018bdbe3"
+      },
+      {
+        "mode": "Local",
+        "epoch": 15,
+        "method": "Local_risk_e15",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e15/summary.json",
+        "evaluation_summary_sha256": "d07a6090f0259a794541b1bd279709c16ccf1001c4f57ec05ade3e9de5b558fa",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_15.pt",
+        "checkpoint_sha256": "b8e8984dd7dbcdb2438ee0cd200b91d69d0e076d57e8d8cc9add6c487ba08fd7"
+      },
+      {
+        "mode": "Local",
+        "epoch": 20,
+        "method": "Local_risk_e20",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e20/summary.json",
+        "evaluation_summary_sha256": "edc09a81ff5a53daa285675f93813e758836591969735766cdebd7ac38259a99",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_20.pt",
+        "checkpoint_sha256": "cbb2925171958107a6e181c9803aa1a803ef35c9194446756921cccce0b94b3b"
+      },
+      {
+        "mode": "Local",
+        "epoch": 25,
+        "method": "Local_risk_e25",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e25/summary.json",
+        "evaluation_summary_sha256": "4286a1abb36a42ece62691237a6b0cb1fdfb686706c5486730dd527dd6c53e3b",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_25.pt",
+        "checkpoint_sha256": "ccaeff6b89a949e36e111beeaa72921874fa6bb39d055eb41e3864399b1799d9"
+      },
+      {
+        "mode": "Local",
+        "epoch": 30,
+        "method": "Local_risk_e30",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e30/summary.json",
+        "evaluation_summary_sha256": "d47d672ec6df909a9682f30ff795739afd11f1c72e7c8dce55e4ecba30d0ec4a",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_30.pt",
+        "checkpoint_sha256": "8a5f7bfcf29b6c95af0e9289cec73167a67ca4b285ad2aaaee0abcb15af5b3d1"
+      }
+    ],
+    "Context": [
+      {
+        "mode": "Context",
+        "epoch": 5,
+        "method": "Context_risk_e05",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e05/summary.json",
+        "evaluation_summary_sha256": "2d95077e19cd9413f5677ba966fc60dcf85ad03585c4b03cb09de14dc1a89c0e",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_05.pt",
+        "checkpoint_sha256": "1a992fb0f1f5fdf176f79e0d9a3ce8585ddffffce6bdb6022d1542282c1573fc"
+      },
+      {
+        "mode": "Context",
+        "epoch": 10,
+        "method": "Context_risk_e10",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e10/summary.json",
+        "evaluation_summary_sha256": "a5956f3560480aed2dbb2a76082e69e613a537d2b4e0395cb3b8639866c84efc",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_10.pt",
+        "checkpoint_sha256": "388b7b6f62d850c688ce6eb6f6ed88f2abc1b32d0de0c569940aad330f90f4ba"
+      },
+      {
+        "mode": "Context",
+        "epoch": 15,
+        "method": "Context_risk_e15",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e15/summary.json",
+        "evaluation_summary_sha256": "9c44d01de2905f2442f2b8c60e5f24f15df8c8af12c2bdcb6bcd8944d066e671",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_15.pt",
+        "checkpoint_sha256": "b1404b298e9744a87952b5ce937940919487eefc53da0a0289a5ec32ac99f76d"
+      },
+      {
+        "mode": "Context",
+        "epoch": 20,
+        "method": "Context_risk_e20",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e20/summary.json",
+        "evaluation_summary_sha256": "2b0aac67a8a3b4009f1b21c9f28cba5dec0c15bdf46499cbbcf396859a82520f",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_20.pt",
+        "checkpoint_sha256": "391f2ff3fb98b5356db7c24796e951812c4da08c5c0a69e5da708e4714dd80e4"
+      },
+      {
+        "mode": "Context",
+        "epoch": 25,
+        "method": "Context_risk_e25",
+        "AssA": 43.3067740848915,
+        "HOTA": 62.38627864731413,
+        "IDF1": 61.21867149617339,
+        "IDSW": 215,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e25/summary.json",
+        "evaluation_summary_sha256": "56a0625de7a8e12852fb8c7d5774a9c5e5af686f2a6214c2dd3ecde54e884daa",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_25.pt",
+        "checkpoint_sha256": "96111d31c1e55c64feaf3cd9e0f2fe702d3e026be3e320452837b19b45cd231d"
+      },
+      {
+        "mode": "Context",
+        "epoch": 30,
+        "method": "Context_risk_e30",
+        "AssA": 44.376789832883766,
+        "HOTA": 63.12866775819169,
+        "IDF1": 62.14785646682168,
+        "IDSW": 216,
+        "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e30/summary.json",
+        "evaluation_summary_sha256": "0718e1cf562e75ba752d93033c2f0d56371026fca5ef8a9b8d7e32d0057e026b",
+        "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_30.pt",
+        "checkpoint_sha256": "26d1e60101f9a6f837048ddbe67b0541e3a459c4a41e067824f50fb165c16f97"
+      }
+    ]
+  },
+  "selected": {
+    "Local": {
+      "mode": "Local",
+      "epoch": 5,
+      "method": "Local_risk_e05",
+      "AssA": 43.3067740848915,
+      "HOTA": 62.38627864731413,
+      "IDF1": 61.21867149617339,
+      "IDSW": 215,
+      "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Local_risk_e05/summary.json",
+      "evaluation_summary_sha256": "503f6975ec5ce1d1d0baaf655c88afd5893f018c537b773b108d3197967fac18",
+      "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Local/epoch_05.pt",
+      "checkpoint_sha256": "c3f4aafa778deb94b77ab0e8be448e8d5f531b1796d526ab379d2e6f14ac3ce0"
+    },
+    "Context": {
+      "mode": "Context",
+      "epoch": 30,
+      "method": "Context_risk_e30",
+      "AssA": 44.376789832883766,
+      "HOTA": 63.12866775819169,
+      "IDF1": 62.14785646682168,
+      "IDSW": 216,
+      "evaluation_summary": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/dev_checkpoint_evaluation_attempt1/Context_risk_e30/summary.json",
+      "evaluation_summary_sha256": "0718e1cf562e75ba752d93033c2f0d56371026fca5ef8a9b8d7e32d0057e026b",
+      "checkpoint": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/Context/epoch_30.pt",
+      "checkpoint_sha256": "26d1e60101f9a6f837048ddbe67b0541e3a459c4a41e067824f50fb165c16f97"
+    }
+  },
+  "evaluation8_used": false
+}

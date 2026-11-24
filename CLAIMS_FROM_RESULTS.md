@@ -209,3 +209,27 @@ Supported: in frozen S01 M on eight reused DanceTrack train videos, all three sa
 Unsupported: a positive identity rescue, a training signal, universal irrelevance of cumulative memory, population equivalence, an online event selector, official full-sequence gain, or independent validation. Bounded freezing also suppresses potentially corrective writes and preserves the wrong association/tracker/CV state. Overlapping 900 window-frame exposures cover 604 distinct frames; controls lack demonstrated covariate balance.
 
 Route: **close this cumulative-freeze training rationale**. No extra S04 run is needed to enact the frozen stop. Any future mechanism work must be genuinely distinct and prelocked, with actual owner/rival competition and assignment margins, clean costs, collateral harm, video-level gate, and fresh evidence before training is reconsidered. Generic `evidence_check.py` remained unavailable; separate deterministic artifact/replay/scoring review passed.
+
+## 2026-11-23: S05 visual stability and legal component-action coverage
+
+Verdict: **supported only for the frozen development/resource gate** (`claim_supported: yes`, confidence medium, same-family provisional integrity `WARN`). S05 does not establish learnability, closed-loop gain, novelty, or generalization.
+
+On the reused eight-video development scope, official combined TrackEval gives M versus G `+0.615954` HOTA, `+0.740692` AssA and `-35` IDSW. M wins HOTA on 5/8 videos but loses on 3/8, including `-7.1388` on `dancetrack0074`; unweighted per-video mean deltas are negative. The pooled result therefore supports continued use of M as a development baseline, not uniform robustness or independent confirmation.
+
+On M's own causal states across the reused 24-video fit scope, a GT-free generator produced 242 non-identical M/G/V union components in 239 of 25,328 frames. Offline stable-owner proxy scoring found 126 fully labelable components and 41 with a legal deduplicated G/V action satisfying frozen `g-h>0`, across 17 videos. This narrowly clears the prewritten `40 components / 4 videos` resource gate. Forty-six components have some `g>0`; five also destroy one M-correct pair and are not net-profitable. Three fully labelable components have owner collisions; none are profitable.
+
+Fresh same-family audit independently read all 152 JSON inputs, 335,407 tracker rows, 25,328 candidate traces and 242 components, and independently reproduced all 27 official TrackEval rows. It found no fake GT, prediction-dependent normalization, phantom results, duplicate inflation, or GPU0 use. The `WARN` is for reused development/fit data, proxy labels, unknown appearance-pretraining overlap and scope. The local protocol timestamp supports a pre-execution freeze on this machine, not external preregistration.
+
+Route: `implement_and_run_seed13_only`. Seed 13 may proceed only under a separate frozen executable S06 protocol. Seeds 37 and 73 remain blocked until the seed-13 gate passes. The strongest current claim is candidate-resource feasibility; no model, training or tracking improvement has yet been demonstrated.
+
+## 2026-11-24: S06 seed-13 component selector gate
+
+Verdict: **not supported** for the intended claim that Context+risk provides sufficient natural closed-loop gain over M, fixed V and Local+risk to justify further seeds (`claim_supported: no`, confidence high, same-family provisional integrity `WARN`).
+
+On the reused eight-video DanceTrack development scope, Context+risk versus M is HOTA `+0.09456944456033511`, AssA `+0.1427358275802959`, IDSW `+4`, and only 1/8 positive-HOTA videos. It trails fixed V by `0.8234863186461467` HOTA and `1.3287845120047663` AssA. Only 2/8 frozen clauses pass, so the exact decision is `STOP_S06_NO_SEEDS_37_73`.
+
+The predefined Context-no-extra-risk condition is a descriptive secondary observation: versus M it has `+1.4801012144080374` HOTA, `+2.2036032163611523` AssA and `−9` IDSW; versus V, `+0.5620454512015556` HOTA, `+0.7320828767760901` AssA and `−20` IDSW. It improves HOTA on 4/8 videos, declines on 2/8 and ties on 2/8. It cannot replace the frozen primary policy after inspection, establish a context mechanism, authorize seeds 37/73, or support generalization.
+
+Fresh same-family audit independently reproduced 693 final TrackEval cells exactly and all 378 proxy action labels. Integrity is `WARN`, not fabrication: the trainer batched 128 action examples rather than the frozen 128 components, and Local has 8,192 structurally inactive neighbor-input weights despite equal allocated parameter count. These weaken protocol fidelity and Local/Context attribution but do not change the observed metrics or stop decision.
+
+Route: stop S06 and preserve the negative result. No new performance run is automatically warranted. A future no-extra-risk study would require a new question and protocol, corrected component batching, an effective-capacity control and a defensible untouched evaluation split; it would not be a corrective continuation of S06.

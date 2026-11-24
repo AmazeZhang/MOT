@@ -1,0 +1,922 @@
+{
+  "status": "COMPLETED",
+  "seed": 13,
+  "decision": "STOP_S06_NO_SEEDS_37_73",
+  "gate_passed": false,
+  "gate_clauses": {
+    "Context_risk_minus_M_HOTA_at_least_0.5": false,
+    "Context_risk_minus_M_AssA_at_least_0.5": false,
+    "Context_risk_minus_M_IDSW_not_increased": false,
+    "Context_risk_positive_HOTA_videos_at_least_5": false,
+    "Context_risk_beats_V_HOTA": false,
+    "Context_risk_beats_V_AssA": false,
+    "Context_risk_beats_Local_risk_HOTA": true,
+    "Context_risk_beats_Local_risk_AssA": true
+  },
+  "Context_risk_positive_HOTA_videos": 1,
+  "deltas": {
+    "Context_risk_minus_M": {
+      "HOTA": 0.09456944456033511,
+      "AssA": 0.1427358275802959,
+      "IDF1": 0.1362237212653099,
+      "IDSW": 4,
+      "MOTA": -0.007771618050867346
+    },
+    "Context_risk_minus_V": {
+      "HOTA": -0.8234863186461467,
+      "AssA": -1.3287845120047663,
+      "IDF1": -0.9294731106911485,
+      "IDSW": -7,
+      "MOTA": -0.007771618050867346
+    },
+    "Context_risk_minus_Local_risk": {
+      "HOTA": 0.09456944456033511,
+      "AssA": 0.1427358275802959,
+      "IDF1": 0.1362237212653099,
+      "IDSW": 4,
+      "MOTA": -0.007771618050867346
+    }
+  },
+  "results": {
+    "M": {
+      "COMBINED_SEQ": {
+        "HOTA": 69.51869387798489,
+        "DetA": 90.27333574658635,
+        "AssA": 53.56446597941373,
+        "MOTA": 97.17760737785606,
+        "IDF1": 67.32726439190517,
+        "IDSW": 235,
+        "Frag": 472,
+        "Dets": 75486,
+        "GT_Dets": 77204,
+        "IDs": 150,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 81.25597933259617,
+          "DetA": 93.59114265729488,
+          "AssA": 70.55021095887145,
+          "MOTA": 99.19776119402985,
+          "IDF1": 85.65554621063453,
+          "IDSW": 4,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 44.56654905129857,
+          "DetA": 84.68650015967025,
+          "AssA": 23.49906252839123,
+          "MOTA": 94.60268714011517,
+          "IDF1": 40.341933965963456,
+          "IDSW": 69,
+          "Frag": 143,
+          "Dets": 12477,
+          "GT_Dets": 13025,
+          "IDs": 24,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 58.46279816954535,
+          "DetA": 87.02503734538656,
+          "AssA": 39.29926108010141,
+          "MOTA": 94.10714285714286,
+          "IDF1": 55.50983081847279,
+          "IDSW": 25,
+          "Frag": 38,
+          "Dets": 3201,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 58.50819675740879,
+          "DetA": 86.22232580358383,
+          "AssA": 39.70815677293154,
+          "MOTA": 94.6432330035782,
+          "IDF1": 56.83666325596424,
+          "IDSW": 56,
+          "Frag": 111,
+          "Dets": 9067,
+          "GT_Dets": 9502,
+          "IDs": 17,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 68.37770344334727,
+          "DetA": 95.01884992713364,
+          "AssA": 49.221144012533664,
+          "MOTA": 98.82552367114663,
+          "IDF1": 66.11097590654661,
+          "IDSW": 13,
+          "Frag": 24,
+          "Dets": 8177,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 48.54190715262581,
+          "DetA": 88.5718558571999,
+          "AssA": 26.6603383013475,
+          "MOTA": 95.49396681749623,
+          "IDF1": 42.700939957797814,
+          "IDSW": 31,
+          "Frag": 54,
+          "Dets": 5122,
+          "GT_Dets": 5304,
+          "IDs": 18,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 77.11779173427992,
+          "DetA": 91.88821546553369,
+          "AssA": 64.7446383953684,
+          "MOTA": 98.85954381752701,
+          "IDF1": 76.3859132297804,
+          "IDSW": 25,
+          "Frag": 52,
+          "Dets": 14878,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "G": {
+      "COMBINED_SEQ": {
+        "HOTA": 68.90273986139066,
+        "DetA": 89.92889674405896,
+        "AssA": 52.82377438598485,
+        "MOTA": 97.10766281539817,
+        "IDF1": 67.32730333178326,
+        "IDSW": 270,
+        "Frag": 482,
+        "Dets": 75477,
+        "GT_Dets": 77204,
+        "IDs": 151,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 81.25422244613932,
+          "DetA": 93.59114265729488,
+          "AssA": 70.54717132732509,
+          "MOTA": 99.17910447761194,
+          "IDF1": 85.65554621063453,
+          "IDSW": 6,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 45.59023402530113,
+          "DetA": 84.31746744391549,
+          "AssA": 24.698041193263283,
+          "MOTA": 94.47984644913628,
+          "IDF1": 41.93270060396894,
+          "IDSW": 83,
+          "Frag": 144,
+          "Dets": 12473,
+          "GT_Dets": 13025,
+          "IDs": 25,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 62.9925439196217,
+          "DetA": 84.20438170716125,
+          "AssA": 47.140205618361556,
+          "MOTA": 93.54166666666667,
+          "IDF1": 64.41091297058375,
+          "IDSW": 32,
+          "Frag": 39,
+          "Dets": 3201,
+          "GT_Dets": 3360,
+          "IDs": 9,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 47.88291094089233,
+          "DetA": 85.39582433500912,
+          "AssA": 26.883261956410415,
+          "MOTA": 94.46432330035782,
+          "IDF1": 47.35340046308761,
+          "IDSW": 73,
+          "Frag": 116,
+          "Dets": 9069,
+          "GT_Dets": 9502,
+          "IDs": 17,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 67.27402391949194,
+          "DetA": 94.87818500463923,
+          "AssA": 47.71438776395037,
+          "MOTA": 98.80130766436615,
+          "IDF1": 66.24885914207485,
+          "IDSW": 12,
+          "Frag": 25,
+          "Dets": 8176,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 55.680691813783554,
+          "DetA": 88.1912945477928,
+          "AssA": 35.221105660991384,
+          "MOTA": 95.55052790346909,
+          "IDF1": 51.074443591711436,
+          "IDSW": 26,
+          "Frag": 54,
+          "Dets": 5120,
+          "GT_Dets": 5304,
+          "IDs": 18,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 87.65339250436689,
+          "DetA": 93.49805325834294,
+          "AssA": 82.18587492675482,
+          "MOTA": 98.51328903654485,
+          "IDF1": 90.81939799331103,
+          "IDSW": 13,
+          "Frag": 27,
+          "Dets": 11880,
+          "GT_Dets": 12040,
+          "IDs": 22,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 76.99784236562695,
+          "DetA": 91.89000376283786,
+          "AssA": 64.53587155184893,
+          "MOTA": 98.87288248632787,
+          "IDF1": 76.38433210579177,
+          "IDSW": 25,
+          "Frag": 53,
+          "Dets": 14876,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "V": {
+      "COMBINED_SEQ": {
+        "HOTA": 70.43674964119137,
+        "DetA": 90.20136419302209,
+        "AssA": 55.035986318998795,
+        "MOTA": 97.17760737785606,
+        "IDF1": 68.39296122386163,
+        "IDSW": 246,
+        "Frag": 466,
+        "Dets": 75493,
+        "GT_Dets": 77204,
+        "IDs": 150,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 88.15290130960852,
+          "DetA": 94.35122582424945,
+          "AssA": 82.36484336116096,
+          "MOTA": 99.23507462686567,
+          "IDF1": 92.47733856648911,
+          "IDSW": 2,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 45.34258553387374,
+          "DetA": 85.03453434587783,
+          "AssA": 24.226492903408793,
+          "MOTA": 94.61804222648752,
+          "IDF1": 41.48990394040384,
+          "IDSW": 72,
+          "Frag": 143,
+          "Dets": 12480,
+          "GT_Dets": 13025,
+          "IDs": 24,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 58.72099649990986,
+          "DetA": 85.843759270682,
+          "AssA": 40.1961158894583,
+          "MOTA": 94.04761904761905,
+          "IDF1": 56.46807862258114,
+          "IDSW": 25,
+          "Frag": 38,
+          "Dets": 3203,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 58.84177596021335,
+          "DetA": 84.46732358627912,
+          "AssA": 41.004885492213674,
+          "MOTA": 94.58008840244159,
+          "IDF1": 58.99962310881387,
+          "IDSW": 68,
+          "Frag": 106,
+          "Dets": 9071,
+          "GT_Dets": 9502,
+          "IDs": 16,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 68.37770344334727,
+          "DetA": 95.01884992713364,
+          "AssA": 49.221144012533664,
+          "MOTA": 98.82552367114663,
+          "IDF1": 66.11097590654661,
+          "IDSW": 13,
+          "Frag": 24,
+          "Dets": 8177,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 47.79499303845984,
+          "DetA": 89.22454938837295,
+          "AssA": 25.66605114948299,
+          "MOTA": 95.5316742081448,
+          "IDF1": 42.20623501199041,
+          "IDSW": 30,
+          "Frag": 53,
+          "Dets": 5121,
+          "GT_Dets": 5304,
+          "IDs": 19,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 75.65054677348482,
+          "DetA": 91.89421475607811,
+          "AssA": 62.30282609235327,
+          "MOTA": 98.85954381752701,
+          "IDF1": 74.58739245421981,
+          "IDSW": 24,
+          "Frag": 52,
+          "Dets": 14877,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "Local_no_extra_risk": {
+      "COMBINED_SEQ": {
+        "HOTA": 69.89846225123074,
+        "DetA": 90.17448987708899,
+        "AssA": 54.21411095355416,
+        "MOTA": 97.17890264753122,
+        "IDF1": 68.06824507973933,
+        "IDSW": 231,
+        "Frag": 469,
+        "Dets": 75481,
+        "GT_Dets": 77204,
+        "IDs": 153,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 81.25597933259617,
+          "DetA": 93.59114265729488,
+          "AssA": 70.55021095887145,
+          "MOTA": 99.19776119402985,
+          "IDF1": 85.65554621063453,
+          "IDSW": 4,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 44.8013835297693,
+          "DetA": 85.43772729726307,
+          "AssA": 23.540070111695684,
+          "MOTA": 94.60268714011517,
+          "IDF1": 40.07843137254902,
+          "IDSW": 69,
+          "Frag": 141,
+          "Dets": 12475,
+          "GT_Dets": 13025,
+          "IDs": 25,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 59.73177348130954,
+          "DetA": 84.95558950312571,
+          "AssA": 42.0179371557446,
+          "MOTA": 94.13690476190476,
+          "IDF1": 58.3752476756592,
+          "IDSW": 24,
+          "Frag": 38,
+          "Dets": 3201,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 55.58025167408145,
+          "DetA": 85.04839836561221,
+          "AssA": 36.33891597516071,
+          "MOTA": 94.63270890338876,
+          "IDF1": 55.76260232658336,
+          "IDSW": 58,
+          "Frag": 109,
+          "Dets": 9066,
+          "GT_Dets": 9502,
+          "IDs": 17,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 71.09461296839956,
+          "DetA": 95.02786314146474,
+          "AssA": 53.20370895476248,
+          "MOTA": 98.80130766436615,
+          "IDF1": 69.48585336172802,
+          "IDSW": 12,
+          "Frag": 25,
+          "Dets": 8176,
+          "GT_Dets": 8259,
+          "IDs": 15,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 60.25586977924606,
+          "DetA": 88.69659726727728,
+          "AssA": 41.01481407485295,
+          "MOTA": 95.5316742081448,
+          "IDF1": 54.119904076738614,
+          "IDSW": 28,
+          "Frag": 54,
+          "Dets": 5121,
+          "GT_Dets": 5304,
+          "IDs": 19,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 75.65406186053973,
+          "DetA": 91.89982321973307,
+          "AssA": 62.30482199710603,
+          "MOTA": 98.86621315192744,
+          "IDF1": 74.5915907873594,
+          "IDSW": 24,
+          "Frag": 52,
+          "Dets": 14878,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "Local_risk": {
+      "COMBINED_SEQ": {
+        "HOTA": 69.51869387798489,
+        "DetA": 90.27333574658635,
+        "AssA": 53.56446597941373,
+        "MOTA": 97.17760737785606,
+        "IDF1": 67.32726439190517,
+        "IDSW": 235,
+        "Frag": 472,
+        "Dets": 75486,
+        "GT_Dets": 77204,
+        "IDs": 150,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 81.25597933259617,
+          "DetA": 93.59114265729488,
+          "AssA": 70.55021095887145,
+          "MOTA": 99.19776119402985,
+          "IDF1": 85.65554621063453,
+          "IDSW": 4,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 44.56654905129857,
+          "DetA": 84.68650015967025,
+          "AssA": 23.49906252839123,
+          "MOTA": 94.60268714011517,
+          "IDF1": 40.341933965963456,
+          "IDSW": 69,
+          "Frag": 143,
+          "Dets": 12477,
+          "GT_Dets": 13025,
+          "IDs": 24,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 58.46279816954535,
+          "DetA": 87.02503734538656,
+          "AssA": 39.29926108010141,
+          "MOTA": 94.10714285714286,
+          "IDF1": 55.50983081847279,
+          "IDSW": 25,
+          "Frag": 38,
+          "Dets": 3201,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 58.50819675740879,
+          "DetA": 86.22232580358383,
+          "AssA": 39.70815677293154,
+          "MOTA": 94.6432330035782,
+          "IDF1": 56.83666325596424,
+          "IDSW": 56,
+          "Frag": 111,
+          "Dets": 9067,
+          "GT_Dets": 9502,
+          "IDs": 17,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 68.37770344334727,
+          "DetA": 95.01884992713364,
+          "AssA": 49.221144012533664,
+          "MOTA": 98.82552367114663,
+          "IDF1": 66.11097590654661,
+          "IDSW": 13,
+          "Frag": 24,
+          "Dets": 8177,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 48.54190715262581,
+          "DetA": 88.5718558571999,
+          "AssA": 26.6603383013475,
+          "MOTA": 95.49396681749623,
+          "IDF1": 42.700939957797814,
+          "IDSW": 31,
+          "Frag": 54,
+          "Dets": 5122,
+          "GT_Dets": 5304,
+          "IDs": 18,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 77.11779173427992,
+          "DetA": 91.88821546553369,
+          "AssA": 64.7446383953684,
+          "MOTA": 98.85954381752701,
+          "IDF1": 76.3859132297804,
+          "IDSW": 25,
+          "Frag": 52,
+          "Dets": 14878,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "Context_no_extra_risk": {
+      "COMBINED_SEQ": {
+        "HOTA": 70.99879509239292,
+        "DetA": 90.4422025217949,
+        "AssA": 55.768069195774885,
+        "MOTA": 97.19574115330812,
+        "IDF1": 69.18588278441055,
+        "IDSW": 226,
+        "Frag": 469,
+        "Dets": 75489,
+        "GT_Dets": 77204,
+        "IDs": 150,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 88.15290130960852,
+          "DetA": 94.35122582424945,
+          "AssA": 82.36484336116096,
+          "MOTA": 99.23507462686567,
+          "IDF1": 92.47733856648911,
+          "IDSW": 2,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 44.57577684320377,
+          "DetA": 84.69248713666,
+          "AssA": 23.507017370415443,
+          "MOTA": 94.61804222648752,
+          "IDF1": 40.34977648811858,
+          "IDSW": 69,
+          "Frag": 142,
+          "Dets": 12477,
+          "GT_Dets": 13025,
+          "IDs": 24,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 59.68845324423261,
+          "DetA": 85.62837392955825,
+          "AssA": 41.63071709046898,
+          "MOTA": 94.04761904761905,
+          "IDF1": 60.09446899283864,
+          "IDSW": 25,
+          "Frag": 38,
+          "Dets": 3203,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 58.316790168856784,
+          "DetA": 87.1590692582488,
+          "AssA": 39.03367129985781,
+          "MOTA": 94.72742580509367,
+          "IDF1": 59.110488908033595,
+          "IDSW": 53,
+          "Frag": 109,
+          "Dets": 9070,
+          "GT_Dets": 9502,
+          "IDs": 16,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 68.37770344334727,
+          "DetA": 95.01884992713364,
+          "AssA": 49.221144012533664,
+          "MOTA": 98.82552367114663,
+          "IDF1": 66.11097590654661,
+          "IDSW": 13,
+          "Frag": 24,
+          "Dets": 8177,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 60.25586977924606,
+          "DetA": 88.69659726727728,
+          "AssA": 41.01481407485295,
+          "MOTA": 95.5316742081448,
+          "IDF1": 54.119904076738614,
+          "IDSW": 28,
+          "Frag": 54,
+          "Dets": 5121,
+          "GT_Dets": 5304,
+          "IDs": 19,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 75.65054677348482,
+          "DetA": 91.89421475607811,
+          "AssA": 62.30282609235327,
+          "MOTA": 98.85954381752701,
+          "IDF1": 74.58739245421981,
+          "IDSW": 24,
+          "Frag": 52,
+          "Dets": 14877,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    },
+    "Context_risk": {
+      "COMBINED_SEQ": {
+        "HOTA": 69.61326332254522,
+        "DetA": 90.27853599794537,
+        "AssA": 53.70720180699403,
+        "MOTA": 97.1698357598052,
+        "IDF1": 67.46348811317048,
+        "IDSW": 239,
+        "Frag": 472,
+        "Dets": 75486,
+        "GT_Dets": 77204,
+        "IDs": 150,
+        "GT_IDs": 84
+      },
+      "per_sequence": {
+        "dancetrack0015": {
+          "HOTA": 81.25597933259617,
+          "DetA": 93.59114265729488,
+          "AssA": 70.55021095887145,
+          "MOTA": 99.19776119402985,
+          "IDF1": 85.65554621063453,
+          "IDSW": 4,
+          "Frag": 24,
+          "Dets": 10682,
+          "GT_Dets": 10720,
+          "IDs": 9,
+          "GT_IDs": 9
+        },
+        "dancetrack0023": {
+          "HOTA": 44.56654905129857,
+          "DetA": 84.68650015967025,
+          "AssA": 23.49906252839123,
+          "MOTA": 94.60268714011517,
+          "IDF1": 40.341933965963456,
+          "IDSW": 69,
+          "Frag": 143,
+          "Dets": 12477,
+          "GT_Dets": 13025,
+          "IDs": 24,
+          "GT_IDs": 9
+        },
+        "dancetrack0032": {
+          "HOTA": 58.46279816954535,
+          "DetA": 87.02503734538656,
+          "AssA": 39.29926108010141,
+          "MOTA": 94.10714285714286,
+          "IDF1": 55.50983081847279,
+          "IDSW": 25,
+          "Frag": 38,
+          "Dets": 3201,
+          "GT_Dets": 3360,
+          "IDs": 10,
+          "GT_IDs": 6
+        },
+        "dancetrack0049": {
+          "HOTA": 53.14554420583346,
+          "DetA": 86.187943228292,
+          "AssA": 32.7776060975186,
+          "MOTA": 94.55904020206273,
+          "IDF1": 51.526738111906944,
+          "IDSW": 62,
+          "Frag": 111,
+          "Dets": 9067,
+          "GT_Dets": 9502,
+          "IDs": 17,
+          "GT_IDs": 8
+        },
+        "dancetrack0069": {
+          "HOTA": 68.37770344334727,
+          "DetA": 95.01884992713364,
+          "AssA": 49.221144012533664,
+          "MOTA": 98.82552367114663,
+          "IDF1": 66.11097590654661,
+          "IDSW": 13,
+          "Frag": 24,
+          "Dets": 8177,
+          "GT_Dets": 8259,
+          "IDs": 14,
+          "GT_IDs": 6
+        },
+        "dancetrack0074": {
+          "HOTA": 60.227809923917164,
+          "DetA": 88.71076344932082,
+          "AssA": 40.96967905306482,
+          "MOTA": 95.5316742081448,
+          "IDF1": 54.15307884135814,
+          "IDSW": 29,
+          "Frag": 54,
+          "Dets": 5122,
+          "GT_Dets": 5304,
+          "IDs": 18,
+          "GT_IDs": 5
+        },
+        "dancetrack0080": {
+          "HOTA": 88.15082416280534,
+          "DetA": 93.50618157760321,
+          "AssA": 83.11421678267651,
+          "MOTA": 98.53820598006644,
+          "IDF1": 91.33851684641753,
+          "IDSW": 12,
+          "Frag": 26,
+          "Dets": 11882,
+          "GT_Dets": 12040,
+          "IDs": 21,
+          "GT_IDs": 16
+        },
+        "dancetrack0083": {
+          "HOTA": 77.11779173427992,
+          "DetA": 91.88821546553369,
+          "AssA": 64.7446383953684,
+          "MOTA": 98.85954381752701,
+          "IDF1": 76.3859132297804,
+          "IDSW": 25,
+          "Frag": 52,
+          "Dets": 14878,
+          "GT_Dets": 14994,
+          "IDs": 37,
+          "GT_IDs": 25
+        }
+      }
+    }
+  },
+  "source_summaries": {
+    "M": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/M/summary.json",
+      "sha256": "fca940b9a18233f6f94ca8bb1bcf40ffc7696df484b42b9bca6e0dbb4e3282b9"
+    },
+    "G": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/G/summary.json",
+      "sha256": "393a452e85acc21d76eec93b4b75be01ed10fa56613f8963f78b7fab37e14797"
+    },
+    "V": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/V/summary.json",
+      "sha256": "4af34240b390448a223dfae5728169f1af64fe340e9b2ba9f916dea279a9ebec"
+    },
+    "Local_no_extra_risk": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/Local_no_extra_risk/summary.json",
+      "sha256": "49a7fb96e4ce6ca49424d2f61a8ba7194a613f38ae0fec8a8394675287acf860"
+    },
+    "Local_risk": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/Local_risk/summary.json",
+      "sha256": "b9e3d337e5b654ea90a1776643587c5e7cc69544a65628dc8b11da569d2a0fc2"
+    },
+    "Context_no_extra_risk": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/Context_no_extra_risk/summary.json",
+      "sha256": "b4b67d3b39a94392489deee7ef80d5257555934458f7b0ab0da359a8770b7532"
+    },
+    "Context_risk": {
+      "path": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_trackeval_attempt1/Context_risk/summary.json",
+      "sha256": "2030768c2fc83a75b5ea1e312663e46d56d87e8eecd6248e7b2645f9eb3c6843"
+    }
+  },
+  "staging_manifest": "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/manifest.json",
+  "staging_manifest_sha256": "82993b687cd29e7bb701cc33b66fda039c4b60db752bf98e0f173e099a93efef",
+  "interpretation": "single_seed_reused_development_progression_gate_not_significance_or_validation"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-23T16:52:54+08:00",
+  "git_paths_relative_to": "report_directory",
+  "server_root": "/media/imc/data/mot-data",
+  "self_hash_excluded": true,
+  "files": [
+    {"artifact_id": "aggregate_metrics", "location": "git", "path": "aggregate_metrics.csv", "sha256": "011c0f8a5bfd979ec8052a87aea276d4b985885740c355fdfc9608a5b513d77d"},
+    {"artifact_id": "per_sequence_metrics", "location": "git", "path": "per_sequence_metrics.csv", "sha256": "829e2bd31eebf59080f7fbabc1c43d192f7584f76e42881fbe8b0b7b771edc0f"},
+    {"artifact_id": "diagnostics", "location": "git", "path": "diagnostics.json", "sha256": "22ebc829264dfc973edc1365ac9fc1d6c353a90f03c0cbbe8ca6a6132d4fb212"},
+    {"artifact_id": "component_results", "location": "git", "path": "component_results.jsonl", "sha256": "1ab90f7a9edaea44e6a0bc1d923e173f8b1d65f520ca0c14d060e34453990915"},
+    {"artifact_id": "cases", "location": "git", "path": "cases.jsonl", "sha256": "e9d57b18fc0b07a48b85e0e12115cba1720014dd9197e36231e4b2ce074d3ce9"},
+    {"artifact_id": "s05a_summary", "location": "server", "path": "runs/s05_visual_decision_coverage_20261123/evaluation_attempt1/summary.json", "sha256": "77f65c8287b4451ebffb98893819378d1807f21d71864a8fdc22942dc46be76f"},
+    {"artifact_id": "s05b_summary", "location": "server", "path": "runs/s05_visual_decision_coverage_20261123/coverage_analysis_attempt1/summary.json", "sha256": "8d3bc1ba6561363d1cf6bb3e09f69f63e85ee654eb2b9c797d8c701b48730f8d"}
+  ],
+  "missing_artifacts": []
+}
