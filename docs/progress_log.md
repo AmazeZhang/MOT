@@ -1143,3 +1143,13 @@
 - **新解释限制：** train18 只有 104 个可标注分量/208 个动作，执行每 epoch 两步；风险策略选模打平导致 Local epoch5（约10步）、Context epoch30（约60步）。Local 在导出案例中对理论上 g=h=0 的 M 动作仍预测约 0.4，不能将低动作率等同于可靠风险识别。Local 已含竞争 margin；加上实际容量不匹配，尚不能将差异归因于上下文。案例缺配对/合法边/逐身份后续证据，artifact ID 仍有未定义项，列为补充交付缺口。
 - **实际验证：** CPU-only 标准库脚本检查 7 个总体/56 个逐视频条目、与 gate JSON 的 441 个共同指标单元格精确一致、S05/S06 清单中 12 个 Git 文件 SHA256、8 条门槛及案例/样本计数；临时目录重复执行得到完全一致 JSON，已有输出拒绝覆盖。72 个本地文档链接与 git diff --check 通过。服务器报告的 693 次官方指标复算/378 个标签复现仅引用，未在本机重新执行。没有 GPU 工作、模型训练、服务器访问或原始 TrackEval 重评。
 - **精确下一步：** 建议服务器在一个工作日/8 CPU 核小时内，对现有全部 checkpoint 在固定 train18/internal-dev6 样本导出标签/预测/排序、M 零点误差和常数参照，并补 0074/0032/0049/0023 变化决策的配对和后续身份证据、可解析来源引用；不重训、不扫风险阈值、不根据 evaluation8 重选 checkpoint。体检后再决定是否另立无额外风险/相对效用的新问题；当前不升级 V1/V2。未提交、未推送。
+
+## 2026-11-24：S07 完成既有 checkpoint CPU 学习质量体检
+
+- **冻结与范围：** 在运行前新增 `manifests/protocols/s07_s06_checkpoint_postmortem_20261124.yaml`（SHA256 `c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef`），固定只读取 S06 Local/Context epoch5–30 共 12 个 checkpoint，在既有 train18/internal-dev6 可标注样本上推理；禁止梯度更新、调参、重选 checkpoint、evaluation8 选模、新跟踪和 GPU 工作。权威 run ID 为 `s07_s06_checkpoint_postmortem_cpu_attempt1`。
+- **完成结果：** 导出 3,024 行全精度预测。train18 为 104 分量/208 动作；internal-dev6 为 22/44，实际 5 个视频有标签。Context epoch30 internal-dev6 视频等权 mean MSE `0.06909482306121303`，低于 Local epoch30 `0.08368197978582628` 和冻结 train-mean 常数 `0.09706207694768555`；但无额外风险决定为 `13/22`，低于 always-M `14/22`，risk 为 `14/22` 且全部选 M。train18 无额外风险为 `80/104`，显示训练到开发的决策差距。
+- **结果后补检：** 协议全局声明视频等权，但 decision accuracy 实现按分量 pooled；保留原结果并新增两种分母补充，不覆盖。结果后探索性 M=0+共享 non-M train 均值在 internal-dev6 MSE `0.06755007982129707`，M/G/V train 均值为 `0.05587726359924876`，均低于 Context epoch30；这些不是冻结对照，只说明原 action-agnostic 常数不足证明 component-specific learning。
+- **案例谱系：** 首次导出误把 trace 的 G proposal 配对标成 baseline M，独立审计发现后保留为 `case_evidence_attempt1_invalid*`。权威 attempt2 覆盖指定 4 段全部 15 个改动，明确为同状态 G-vs-applied；独立重建 868 项一致。但旧 trace 不含同状态 M 候选与精确合法 mask，4 个选 G 案例相对 G 差异为空，14 条配对 owner 未解析，不能建立单动作因果或官方 IDSW 证据。
+- **验证与审阅：** 临时目录重复推理的 predictions/CSV 逐字节一致；独立复算 1,104 个指标/常数/差值最大误差约 `1.67e-16`，107 个哈希引用/70 个唯一文件无不匹配，不同 Torch 版本 CPU 重推理最大差约 `5.96e-08`。result-to-claim 为 `partial`、confidence high；完整性审计同家族暂定 `WARN`，未见假 GT、自归一化或幽灵结果。
+- **资源与产物：** 全过程 `CUDA_VISIBLE_DEVICES=''`、8 CPU 线程，物理 GPU 列表为空、GPU0 未使用；主推理 1.5301 秒，CPU 核时上界约 0.0034。权威小报告为 `reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/`，大产物在 `/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/`。实验完成时保持可审阅工作树；2026-11-25 用户随后明确授权提交并推送本次交接。
+- **精确下一步：** 保持 `STOP_S06_NO_SEEDS_37_73`，不自动启动任何新性能实验。研究端先选择转向成熟关联基线失败研究，或另立新相对效用问题；新协议必须包含 M 解析零点、action-type 强常数、排序/regret/拒绝校准、公平 component batching/有效容量及未触碰最终评估，并重新获得执行授权。

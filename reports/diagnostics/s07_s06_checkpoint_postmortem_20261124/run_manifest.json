@@ -1,0 +1,57 @@
+{
+  "schema_version": "mot-report-v1",
+  "experiment_id": "s07_s06_checkpoint_postmortem_20261124",
+  "status": "COMPLETED",
+  "scientific_decision": "STOP_CURRENT_METHOD",
+  "run_id": "s07_s06_checkpoint_postmortem_cpu_attempt1",
+  "date": "2026-11-24",
+  "protocol": "manifests/protocols/s07_s06_checkpoint_postmortem_20261124.yaml",
+  "protocol_sha256": "c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef",
+  "git_commit_at_freeze": "5a3060e7c220475be0d9d918bb0e73a4146bb28c",
+  "scope": {
+    "kind": "fixed-sample checkpoint diagnostic",
+    "training_seed": 13,
+    "models": ["Local", "Context"],
+    "epochs": [5, 10, 15, 20, 25, 30],
+    "train18": {"components": 104, "actions": 208, "sequences_with_labels": 18},
+    "internal_dev6": {"components": 22, "actions": 44, "sequences_with_labels": 5, "planned_sequences": 6},
+    "data_reuse": "internal-dev6 was already used by S06 checkpoint selection"
+  },
+  "attempts": [
+    {"run_id": "s07_s06_checkpoint_postmortem_cpu_attempt1", "status": "COMPLETED", "role": "authoritative checkpoint inference"},
+    {"run_id": "s07_case_evidence_attempt1", "status": "FAILED", "role": "invalid case export", "reason": "base_first_pairs was proposals G but mislabeled baseline M", "preserved_path": "/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/case_evidence_attempt1_invalid.jsonl"},
+    {"run_id": "s07_case_evidence_attempt2", "status": "COMPLETED", "role": "authoritative descriptive case export", "supersedes": "s07_case_evidence_attempt1"},
+    {"run_id": "s07_decision_weighting_addendum_attempt1", "status": "COMPLETED", "role": "post-result denominator audit"},
+    {"run_id": "s07_action_type_controls_addendum_attempt1", "status": "COMPLETED", "role": "post-result exploratory stronger constants"}
+  ],
+  "resources": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "physical_gpus": [],
+    "GPU0_used": false,
+    "cpu_threads": 8,
+    "main_wall_seconds": 1.5300824642181396,
+    "main_cpu_core_hours_upper_bound": 0.0034001832538180883
+  },
+  "large_output_root": "/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124",
+  "source_sha256": {
+    "scripts/run_s07_checkpoint_postmortem.py": "9cff3b6666b5b4caac562eb24060e275a0db8ff24312a393b6d7385b53988d5c",
+    "scripts/export_s07_case_evidence.py": "86ba2dac602741b2b23304378a9c583a996e029f2806aa115cdddc527b2f18ab",
+    "scripts/audit_s07_decision_weighting.py": "fae418ba6e2801b6ff0e2e218e83430a5c117d66dbb415d85be256619dba1284",
+    "scripts/audit_s07_action_type_controls.py": "6359f5edfe4ff0854768e9b767f979ffc0d9137555d10c83c36c3f3db63d887b",
+    "src/mot_research/models/component_action_selector.py": "8c1cd4f56da54f9b6a4d844ea00042804d930ea60c0f30b43da01d37610e8528"
+  },
+  "commands": {
+    "checkpoint_inference": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 PYTHONPATH=src python3 scripts/run_s07_checkpoint_postmortem.py --protocol manifests/protocols/s07_s06_checkpoint_postmortem_20261124.yaml --protocol-sha256 c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef --samples /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry2_20261123/samples_attempt1/samples.jsonl --training-summary /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/summary.json --output-root /media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124",
+    "case_attempt2": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 OPENBLAS_NUM_THREADS=8 python3 scripts/export_s07_case_evidence.py --cases reports/feasibility/s06_component_selector_seed13_retry3_20261124/cases.jsonl --evaluation-root /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124 --dataset-root /media/imc/data/mot-data/datasets/dancetrack/train --detection-root /media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train --output /media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/case_evidence_attempt2.jsonl --followup-frames 30"
+  },
+  "deviations": [
+    "Decision accuracy pooled components although the protocol globally declared video-balanced weighting; both denominators are retained in an addendum.",
+    "Case attempt1 mislabeled reference-G pairs as baseline M; it is preserved invalid and replaced by explicit G-vs-applied attempt2.",
+    "Exact legal masks and same-state M candidate pairs were unavailable in retained evaluation traces."
+  ],
+  "omissions": [
+    {"file": "aggregate_metrics.csv", "reason": "no tracking evaluation"},
+    {"file": "per_sequence_metrics.csv", "reason": "no tracking evaluation"},
+    {"file": "learning_curves.csv", "reason": "no training"}
+  ]
+}

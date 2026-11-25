@@ -1,0 +1,34 @@
+{
+  "run_id": "s07_s06_checkpoint_postmortem_cpu_attempt1",
+  "status": "COMPLETED",
+  "exact_argv": [
+    "scripts/run_s07_checkpoint_postmortem.py",
+    "--protocol",
+    "manifests/protocols/s07_s06_checkpoint_postmortem_20261124.yaml",
+    "--protocol-sha256",
+    "c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef",
+    "--samples",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry2_20261123/samples_attempt1/samples.jsonl",
+    "--training-summary",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/summary.json",
+    "--output-root",
+    "/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124"
+  ],
+  "working_directory": "/home/imc/yzy/MOT",
+  "CUDA_VISIBLE_DEVICES": "",
+  "physical_gpus": [],
+  "GPU0_used": false,
+  "source_sha256": {
+    "scripts/run_s07_checkpoint_postmortem.py": "9cff3b6666b5b4caac562eb24060e275a0db8ff24312a393b6d7385b53988d5c",
+    "src/mot_research/models/component_action_selector.py": "8c1cd4f56da54f9b6a4d844ea00042804d930ea60c0f30b43da01d37610e8528"
+  },
+  "protocol_sha256": "c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef",
+  "started_unix": 1795521690.9564178,
+  "ended_unix": 1795521692.4865003,
+  "exit_code": 0,
+  "output_sha256": {
+    "summary.json": "1f83db307ac97ea4224b8b6f8f4027c3362e8afa2a0d2b9ace0755b16f210cbc",
+    "predictions.jsonl": "3a5bf6b4845f6acd5bd01d25ffddfef870f390c22043da9ddb1a72e97d22d731",
+    "checkpoint_metrics.csv": "4319acbf9a22a580c990d3b54fb077f71dc61e9f715028b027e22a65843ab7e2"
+  }
+}

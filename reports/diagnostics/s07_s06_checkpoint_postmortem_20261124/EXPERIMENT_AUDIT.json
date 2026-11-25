@@ -1,0 +1,43 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "integrity_status": "warn",
+  "reason_code": "protocol_weighting_deviation_and_proxy_scope",
+  "summary": "Checkpoint numbers reproduce; weighting and case-attempt deviations plus proxy/reuse scope require qualified claims.",
+  "agent_id": "/root/s07_integrity_audit",
+  "verdict_id": "/root/s07_integrity_audit",
+  "executor_model": "codex-gpt-5-family",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-6.1-sol",
+  "reviewer_family": "openai",
+  "reviewer_reasoning": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "date": "2026-11-24",
+  "overall_verdict": "warn",
+  "checks": {
+    "gt_provenance": {"status": "pass", "details": "DanceTrack GT-assisted stable-owner proxy, explicitly not official tracking utility"},
+    "score_normalization": {"status": "pass", "details": "No prediction-statistic denominator or self-normalized performance"},
+    "result_existence": {"status": "warn", "details": "1104 numeric checks pass; decision accuracy pooled despite protocol-global video balancing"},
+    "dead_code": {"status": "warn", "details": "Metric paths execute; upstream Local effective capacity and action batching limit mechanism claims"},
+    "scope": {"status": "warn", "details": "one seed, reused internal-dev6, sparse proxy labels, descriptive selected cases"},
+    "eval_type": "real_gt_assisted_local_proxy_diagnostic"
+  },
+  "deterministic_evidence": {
+    "prediction_rows": 3024,
+    "metric_checks": 1104,
+    "metric_max_absolute_difference": 1.6653345369377348e-16,
+    "hash_references": 107,
+    "unique_hashed_files": 70,
+    "hash_mismatches": 0,
+    "case_reconstruction_checks": 868,
+    "case_reconstruction_mismatches": 0,
+    "cpu_reinference_max_absolute_difference": 5.960464477539063e-08
+  },
+  "claims": [
+    {"id": "fixed_sample_regression_improves", "impact": "supported_with_qualification"},
+    {"id": "transferable_action_ordering", "impact": "unsupported"},
+    {"id": "context_mechanism_validated", "impact": "unsupported"},
+    {"id": "new_tracking_performance", "impact": "unsupported"}
+  ]
+}

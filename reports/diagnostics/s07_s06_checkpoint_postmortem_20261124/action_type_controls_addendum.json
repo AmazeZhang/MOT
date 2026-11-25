@@ -1,0 +1,53 @@
+{
+  "status": "COMPLETED_POST_RESULT_EXPLORATORY_ADDENDUM",
+  "discovered_after_result_inspection": true,
+  "confirmatory_control": false,
+  "purpose": "test whether frozen action-agnostic controls were too weak",
+  "original_results_overwritten": false,
+  "prediction_source": "/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/predictions.jsonl",
+  "prediction_source_sha256": "3a5bf6b4845f6acd5bd01d25ffddfef870f390c22043da9ddb1a72e97d22d731",
+  "train_video_balanced_shared_non_M_mean_g_h": [
+    0.2129884897428757,
+    0.48056019678826695
+  ],
+  "train_video_balanced_action_type_means_g_h": {
+    "G": [
+      0.1492795603089721,
+      0.5749381065557536
+    ],
+    "M": [
+      0.0,
+      0.0
+    ],
+    "V": [
+      0.3350694444444445,
+      0.2569444444444445
+    ]
+  },
+  "controls": {
+    "train18": {
+      "analytic_M_zero_shared_non_M_train_mean": {
+        "actions": 208,
+        "video_balanced_mean_mse": 0.06653044040932063
+      },
+      "train_action_type_means_M_G_V": {
+        "actions": 208,
+        "video_balanced_mean_mse": 0.0594174516207994
+      }
+    },
+    "internal_dev6": {
+      "analytic_M_zero_shared_non_M_train_mean": {
+        "actions": 44,
+        "video_balanced_mean_mse": 0.06755007982129707
+      },
+      "train_action_type_means_M_G_V": {
+        "actions": 44,
+        "video_balanced_mean_mse": 0.05587726359924876
+      }
+    }
+  },
+  "CUDA_VISIBLE_DEVICES": "",
+  "physical_gpus": [],
+  "GPU0_used": false,
+  "interpretation": "descriptive confound check only; not a frozen model-selection control"
+}

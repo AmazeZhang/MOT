@@ -1,0 +1,46 @@
+{
+  "status": "COMPLETED",
+  "cases": 15,
+  "per_sequence": {
+    "dancetrack0074": 2,
+    "dancetrack0032": 3,
+    "dancetrack0049": 6,
+    "dancetrack0023": 4
+  },
+  "followup_frames": 30,
+  "matching": "per-frame Hungarian IoU>=0.5",
+  "exact_legal_edge_masks_available": false,
+  "same_state_M_candidate_pairs_available": false,
+  "attempt_lineage": {
+    "attempt1": "INVALID: mislabeled trace base_first_pairs (proposals['G']) as baseline M",
+    "attempt2": "authoritative; pairs are explicitly G-vs-applied and separate M trajectory is follow-up only"
+  },
+  "CUDA_VISIBLE_DEVICES": "",
+  "physical_gpus": [],
+  "GPU0_used": false,
+  "output": "/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/case_evidence_attempt2.jsonl",
+  "output_sha256": "85f6bca32709d3b412945b369e0597cc9efdd79709105ed12d6e812ba82d11c2",
+  "source_sha256": {
+    "reports/feasibility/s06_component_selector_seed13_retry3_20261124/cases.jsonl": "067f4d74ccd91702132265a02381d7e33dbc12459245a05d5dabd55b8df13c62",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_tracking_attempt1/Context_no_extra_risk/dancetrack0074/traces/M/dancetrack0074.jsonl": "8c3f4b7a66006cf1fae47af50568972a1302766bc64b0cfb5d57b8552870210d",
+    "/media/imc/data/mot-data/datasets/dancetrack/train/dancetrack0074/gt/gt.txt": "0cee01618509b900354aadd67fd833a821f7a9166b0b788d6cda85544d46a1fe",
+    "/media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0074.csv": "e341cf0d3f5f96731f4f77caa1a003d0f8f89d04f72f0b2260247eb03eb7fb8b",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/M/dancetrack0074.txt": "fd42bce75ca4c1107bd0112351e4f0ea8edf528996dead3a031657d9f9b33b76",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/Context_no_extra_risk/dancetrack0074.txt": "f1155064883cdbc7766924759475bf50f3f0ca8f0c6e37cf3e9a6e7e7109ff61",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_tracking_attempt1/Context_no_extra_risk/dancetrack0032/traces/M/dancetrack0032.jsonl": "d7ed8616f0e48dee2bc9c6a83de18f80f631711056b63b93ec86b2b5d2f681b1",
+    "/media/imc/data/mot-data/datasets/dancetrack/train/dancetrack0032/gt/gt.txt": "557251cbbaeb8819adecbe8f2117ed4e15c86ab1f5e2e6b60bbeeecfdf374461",
+    "/media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0032.csv": "5ae520e137dd5885862770afcd233ea79b07d240a366793765878d445eefbd2a",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/M/dancetrack0032.txt": "037a66cead5918421a26a96a08bd6c90b079690ce16032b85999c000048ca0f0",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/Context_no_extra_risk/dancetrack0032.txt": "23e489c43b4729e490c8eb4f7f0312fd1c179f773b118071cdf5bf01c2e8715f",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_tracking_attempt1/Context_no_extra_risk/dancetrack0049/traces/M/dancetrack0049.jsonl": "cd70bf45ff15cb5b4f5978b6fc7a26552499742db48a261eec28c897d86be388",
+    "/media/imc/data/mot-data/datasets/dancetrack/train/dancetrack0049/gt/gt.txt": "af38e2c8617b865a19f932856ee6797c1ebe718272b583fa21a340d18b1baf70",
+    "/media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0049.csv": "09c7def5a1b0d3a0c7fea714bd82012b26b4cbb431fa607e715a8218c18af0f0",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/M/dancetrack0049.txt": "198e0ef8a3b3d5a1c785a16e0da8d0fa7ac0af9e6235f7575513d2ff69a279ed",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/Context_no_extra_risk/dancetrack0049.txt": "5acc62cef0185c12f9ab6f25191b94072cc67a362aa5d62f50970db3a963ae99",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_tracking_attempt1/Context_no_extra_risk/dancetrack0023/traces/M/dancetrack0023.jsonl": "569cd83586febcb1418395ab4c8b5aec9c165a87caf011440f269590efb2d076",
+    "/media/imc/data/mot-data/datasets/dancetrack/train/dancetrack0023/gt/gt.txt": "b09986f5e18f3cdfa5357129dd84168321db9bf22c435ddedb0555e366fba4c5",
+    "/media/imc/data/mot-data/cache/detections/ocsort_yolox_dance_bb2f686_b8d1/train/dancetrack0023.csv": "464a46830cf64286a955803c807fb6bda6f7fecfbb8330e25d0e4a64f8fbe938",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/M/dancetrack0023.txt": "262797f36c6a78ea99835b4a990cdd9b2acdfca221855fb36060eba4ae8304ed",
+    "/media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/evaluation8_staged_attempt1/Context_no_extra_risk/dancetrack0023.txt": "fe3608d0383bb913edbc8bff0a965765d94b9620608c5f0083da24ef67d75317"
+  }
+}

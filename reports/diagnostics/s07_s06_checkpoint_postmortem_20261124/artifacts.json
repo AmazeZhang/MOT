@@ -1,0 +1,23 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "server_root": "/media/imc/data/mot-data",
+  "self_hash_excluded": true,
+  "files": [
+    {"artifact_id": "readme", "location": "git", "path": "README.md", "bytes": 5092, "sha256": "9cb3318619f4516da10f3adc494f4c466e97f1283affba0b24103f211cf83c79", "role": "human_readable_authoritative_report"},
+    {"artifact_id": "run_manifest", "location": "git", "path": "run_manifest.json", "bytes": 4703, "sha256": "c1d3761e89c9cd042ab94dd770255b8aee161b2da1c36aa34af86a1267edbd95", "role": "run_scope_attempts_resources_and_deviations"},
+    {"artifact_id": "checks", "location": "git", "path": "checks.json", "bytes": 1922, "sha256": "26ac71d650f25e4234eba24c649354698347028f9a4e3b4d13a477a6fe2ceebb", "role": "executed_verification_matrix"},
+    {"artifact_id": "claims_from_results", "location": "git", "path": "CLAIMS_FROM_RESULTS.md", "bytes": 890, "sha256": "b9b7697bca7de18f0763bcc64dac618dc1fae8b38e95c0fd2e03b7562c69480e", "role": "same_family_provisional_claim_gate"},
+    {"artifact_id": "experiment_audit_md", "location": "git", "path": "EXPERIMENT_AUDIT.md", "bytes": 3115, "sha256": "1100f6887a1d9931fd6b4b7de3306c8b2b09565a509d28822d494d49e2cbe908", "role": "same_family_provisional_integrity_audit"},
+    {"artifact_id": "experiment_audit_json", "location": "git", "path": "EXPERIMENT_AUDIT.json", "bytes": 2148, "sha256": "424a5373f9ee4f1f4eff6fabc55c32003e3efb79b9bc080daa00c207595496ec", "role": "machine_readable_integrity_audit"},
+    {"artifact_id": "checkpoint_metrics", "location": "git", "path": "checkpoint_metrics.csv", "bytes": 10211, "sha256": "8e3020a181b68a8bb81fc23c3cbfcbd7c230d3090499b2fd7de312313815156f", "role": "all_checkpoint_fixed_sample_metrics"},
+    {"artifact_id": "diagnostics", "location": "git", "path": "diagnostics.json", "bytes": 33687, "sha256": "1f83db307ac97ea4224b8b6f8f4027c3362e8afa2a0d2b9ace0755b16f210cbc", "role": "authoritative_main_summary"},
+    {"artifact_id": "runtime", "location": "git", "path": "runtime.json", "bytes": 1583, "sha256": "10c6408cd49ca0d72348045a70c4261d01eb629f19ac29aea515e18f170d6da3", "role": "command_environment_and_output_hashes"},
+    {"artifact_id": "cases_attempt2", "location": "git", "path": "cases.jsonl", "bytes": 110224, "sha256": "85f6bca32709d3b412945b369e0597cc9efdd79709105ed12d6e812ba82d11c2", "role": "authoritative_descriptive_case_evidence"},
+    {"artifact_id": "case_summary", "location": "git", "path": "case_evidence_summary.json", "bytes": 4991, "sha256": "5920b1d8e1a14f7c7fa094ce046ff85eae6ac7ea400687ea9e6930bd9097061a", "role": "case_lineage_and_source_hashes"},
+    {"artifact_id": "weighting_addendum", "location": "git", "path": "decision_weighting_addendum.json", "bytes": 63346, "sha256": "2006f2a76fa462e16e7a99e1aa2bdec9c17da4b753273e1697a431facd778826", "role": "post_result_pooled_vs_video_balanced_denominators"},
+    {"artifact_id": "action_type_controls", "location": "git", "path": "action_type_controls_addendum.json", "bytes": 1574, "sha256": "193fbbf764c13ad51a6ab2f6ae11ee3fc0ae15dc5bc6cd0d4870090b3e117817", "role": "post_result_exploratory_stronger_constants"},
+    {"artifact_id": "raw_predictions", "location": "server", "path": "runs/s07_s06_checkpoint_postmortem_20261124/predictions.jsonl", "bytes": 1570171, "sha256": "3a5bf6b4845f6acd5bd01d25ffddfef870f390c22043da9ddb1a72e97d22d731", "role": "3024_full_precision_action_predictions"},
+    {"artifact_id": "invalid_case_attempt1", "location": "server", "path": "runs/s07_s06_checkpoint_postmortem_20261124/case_evidence_attempt1_invalid.jsonl", "bytes": 111033, "sha256": "fd1d53e2ed859be9b028ac6f4e0a76ad21a6eff549b94e73cb0d06fada4c8c36", "role": "preserved_failed_attempt_not_authoritative"}
+  ]
+}

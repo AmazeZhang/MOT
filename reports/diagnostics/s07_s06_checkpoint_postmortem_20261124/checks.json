@@ -1,0 +1,18 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED_WITH_WARNINGS",
+  "checks": [
+    {"name": "protocol_frozen_before_checkpoint_inference", "status": "PASS", "evidence": "protocol SHA256 c6039c138507081783b233010928f917422d4748a5bf9eb4bacd481a630cacef recorded before run"},
+    {"name": "all_twelve_checkpoint_hashes_match", "status": "PASS", "evidence": "diagnostics.json checkpoint_sha256"},
+    {"name": "fixed_sample_hash_matches", "status": "PASS", "evidence": "ccd2f00185ec9f0c7868713f175713890fa4a35799131cbe94ea99a9a2b626bd"},
+    {"name": "coverage_complete", "status": "PASS", "evidence": "12 checkpoints x 252 actions = 3024 prediction rows"},
+    {"name": "repeat_inference_byte_identical", "status": "PASS", "evidence": "predictions 3a5bf6b... and checkpoint metrics 4319acbf... identical in temporary rerun"},
+    {"name": "independent_metric_recomputation", "status": "PASS", "evidence": "1104 comparisons; max absolute difference 1.665e-16"},
+    {"name": "cpu_only_gpu0_excluded", "status": "PASS", "evidence": "runtime.json CUDA_VISIBLE_DEVICES empty; physical_gpus empty; GPU0_used false"},
+    {"name": "decision_accuracy_weighting_matches_protocol", "status": "FAIL", "evidence": "original decision accuracy pooled components; decision_weighting_addendum.json preserves protocol-intended video-balanced values"},
+    {"name": "case_attempt1_pair_label", "status": "FAIL", "evidence": "attempt1 preserved invalid on data disk; never used by authoritative report"},
+    {"name": "case_attempt2_reconstruction", "status": "PASS", "evidence": "15/15 changed decisions covered; independent 868-field reconstruction exact"},
+    {"name": "same_state_M_pairs_and_legal_masks", "status": "NOT_RUN", "evidence": "not retained by S06 evaluation trace; explicitly unavailable"},
+    {"name": "new_tracking_or_TrackEval", "status": "NOT_APPLICABLE", "evidence": "fixed-sample diagnostic only"}
+  ]
+}

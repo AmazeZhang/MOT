@@ -1,0 +1,87 @@
+schema_version: mot-experiment-protocol-v1
+experiment_id: s07_s06_checkpoint_postmortem_20261124
+run_id: s07_s06_checkpoint_postmortem_cpu_attempt1
+frozen_at: 2026-11-24T19:59:27+08:00
+status: FROZEN_BEFORE_S07_INFERENCE
+question: >-
+  Do the already-trained S06 Local and Context checkpoints learn action utility
+  and action ordering beyond constant predictors on the frozen train18 and
+  internal-dev6 labeled samples?
+scope:
+  kind: CPU-only postmortem of existing artifacts
+  allowed:
+    - Load all twelve saved Local/Context checkpoints at epochs 5,10,15,20,25,30.
+    - Run inference on the already-exported, fixed train18 and internal-dev6 samples.
+    - Export per-action labels, predictions, scores, ordering decisions, and aggregate diagnostics.
+    - Compare Local and Context only at the same epoch.
+    - Add descriptive evidence for already-recorded evaluation8 decisions without rerunning tracking.
+  forbidden:
+    - Gradient updates, retraining, calibration, threshold scans, or checkpoint reselection.
+    - Running seeds 37 or 73.
+    - Using evaluation8 to select a model, epoch, threshold, or claim.
+    - New TrackEval, closed-loop tracking, FM experiments, or GPU workloads.
+known_before_freeze:
+  - S06 Context-risk passed 2/8 frozen clauses and remains stopped.
+  - Context-no-extra-risk had a single-seed descriptive aggregate gain on reused evaluation8.
+  - Local epoch5 and Context epoch30 were selected by the original risk-policy rule.
+  - Prior review found sparse supervision, Local M-zero prediction bias in selected cases,
+    action-example batching, and unmatched effective capacity.
+inputs:
+  samples:
+    path: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry2_20261123/samples_attempt1/samples.jsonl
+    sha256: ccd2f00185ec9f0c7868713f175713890fa4a35799131cbe94ea99a9a2b626bd
+  training_summary:
+    path: /media/imc/data/mot-data/runs/s06_component_selector_seed13_retry3_20261124/training_attempt1/summary.json
+  splits:
+    train18: [dancetrack0001, dancetrack0002, dancetrack0006, dancetrack0016,
+      dancetrack0027, dancetrack0029, dancetrack0045, dancetrack0051,
+      dancetrack0052, dancetrack0057, dancetrack0061, dancetrack0062,
+      dancetrack0068, dancetrack0072, dancetrack0075, dancetrack0087,
+      dancetrack0096, dancetrack0098]
+    internal_dev6: [dancetrack0008, dancetrack0039, dancetrack0055,
+      dancetrack0066, dancetrack0082, dancetrack0099]
+  note: internal_dev6 has no labelable component from dancetrack0066; retain it in coverage.
+models:
+  modes: [Local, Context]
+  training_seed: 13
+  checkpoint_epochs: [5, 10, 15, 20, 25, 30]
+controls:
+  - constant zero g/h predictor
+  - video-balanced train18 target-mean g/h predictor
+  - same-epoch Local versus Context comparison
+metrics:
+  primary: internal_dev6 video-balanced mean action MSE over g/k and h/k
+  secondary:
+    - train18 video-balanced mean action MSE
+    - g and h MAE and MSE
+    - no-extra-risk utility ordering accuracy using g/k-h/k
+    - risk utility ordering accuracy using g/k-2h/k
+    - exact component action decision agreement under the original deterministic priority
+    - M-action predicted g/h absolute zero error and rejection counts
+  units: labels and predictions are per-track fractions in [0,1]
+  weighting: each represented video has equal total weight; actions within video share it equally
+selection_and_stopping:
+  checkpoint_selection: none; report all twelve checkpoints and same-epoch comparisons
+  stopping: one immutable CPU inference attempt; failures remain recorded and are not overwritten
+  interpretation_gate: >-
+    This run may diagnose learning quality only. It cannot revive S06, establish
+    generalization, or support a tracking-performance claim.
+budget:
+  wall_time_max: one working day
+  cpu_core_hours_max: 8
+  cpu_threads_max: 8
+  gpu_hours: 0
+resources:
+  CUDA_VISIBLE_DEVICES: ""
+  physical_gpus: []
+  GPU0_used: false
+outputs:
+  large_root: /media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124
+  git_report: reports/diagnostics/s07_s06_checkpoint_postmortem_20261124
+provenance:
+  git_commit_at_freeze: 5a3060e7c220475be0d9d918bb0e73a4146bb28c
+  dirty_at_freeze: true
+  dirty_reason: protocol and inference implementation are being added before execution
+  runtime_lock_must_record: [protocol_sha256, source_sha256, input_sha256,
+    checkpoint_sha256, exact_command, environment, elapsed_time, output_sha256]
+

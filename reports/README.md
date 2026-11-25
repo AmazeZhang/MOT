@@ -38,3 +38,4 @@
 - `diagnostics/s05_visual_decision_coverage_20261123/`：补齐 S01/S04 机器可读证据，在复用的八段开发视频上完成 G/L/M 官方 TrackEval，并在 fit24 的 M 因果状态上普查合法 M/G/V 分量动作；41 个净正向代理分量跨 17 视频，资源门通过但不代表可学习或闭环增益。
 - `feasibility/s06_component_selector_seed13_20261123/`：seed 13 前置特征仪表在空 tracker 边界两次工程失败；按冻结的一次修复上限停止。未训练、未评测、无科学结论，所有 GPU 均未使用。
 - `feasibility/s06_component_selector_seed13_retry3_20261124/`：经透明 retry 完成 seed 13 七条件自然闭环；冻结 Context+risk 主门仅过 2/8，决定 `STOP_S06_NO_SEEDS_37_73`。Context-no-risk 有单 seed 描述性正结果，但不替换主门；报告含完整精度逐视频表、曲线、checkpoint、案例、偏离和独立审计。
+- `diagnostics/s07_s06_checkpoint_postmortem_20261124/`：CPU-only 读取 S06 全部 12 个 checkpoint，在固定 train18/internal-dev6 上复算 g/h、排序和拒绝。后期模型降低标量 MSE，但 Context epoch30 的 internal-dev6 决策不胜 always-M；结果后 action-type 常数 MSE 更低。保留案例 attempt1 无效谱系、权威 attempt2、分母偏差和同家族暂定 WARN 审计；不授权新性能实验。
