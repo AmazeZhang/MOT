@@ -1153,3 +1153,20 @@
 - **验证与审阅：** 临时目录重复推理的 predictions/CSV 逐字节一致；独立复算 1,104 个指标/常数/差值最大误差约 `1.67e-16`，107 个哈希引用/70 个唯一文件无不匹配，不同 Torch 版本 CPU 重推理最大差约 `5.96e-08`。result-to-claim 为 `partial`、confidence high；完整性审计同家族暂定 `WARN`，未见假 GT、自归一化或幽灵结果。
 - **资源与产物：** 全过程 `CUDA_VISIBLE_DEVICES=''`、8 CPU 线程，物理 GPU 列表为空、GPU0 未使用；主推理 1.5301 秒，CPU 核时上界约 0.0034。权威小报告为 `reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/`，大产物在 `/media/imc/data/mot-data/runs/s07_s06_checkpoint_postmortem_20261124/`。实验完成时保持可审阅工作树；2026-11-25 用户随后明确授权提交并推送本次交接。
 - **精确下一步：** 保持 `STOP_S06_NO_SEEDS_37_73`，不自动启动任何新性能实验。研究端先选择转向成熟关联基线失败研究，或另立新相对效用问题；新协议必须包含 M 解析零点、action-type 强常数、排序/regret/拒绝校准、公平 component batching/有效容量及未触碰最终评估，并重新获得执行授权。
+
+## 2026-11-25：S07 研究端复盘与路线收束
+
+- **完成内容：** 审阅 `92b0802` 的 S07 协议、24 条 checkpoint/split 结果、强常数与分母补充、15 个权威案例、审计、执行代码；新增 `docs/research_status_review_20261125.md` 与 `docs/audits/s07_local_review_20261125/{reproduce.py,verification.json}`。更新 README、报告索引、LATEST 和研究治理/创新台账，不改写权威实验结果。
+- **判断变化：** Context epoch30 的 internal-dev6 MSE 为 0.069095，低于同 epoch Local，但高于结果后动作类型常数 0.055877；最终无额外风险决定 13/22，always-M 为 14/22，二分类分解 TP2/FP3/FN6/TN11。视频等权后仍无推进优势。保留 S06 已有单 seed 闭环正向数值，但降低当前稀疏双头选择器的研究优先级；不将小样本一例差异或 MSE 对照解释为普遍否定上下文学习。停止同批补充诊断，不续 seeds37/73。
+- **实际验证：** 本地只读标准库脚本核对 13 个 Git 报告文件 SHA256/大小、5 个执行源码哈希及协议哈希，CSV/JSON 共 456 个数值单元格一致；复算 48 条分母记录的视频均值，从 Git 已有 S05 标签重建动作类型均值和四个强常数 MSE（误差<1e-12）。15 个案例均缺同状态 M 与精确合法 mask；原 CSV 的 runtime 哈希可由 Git 文件重建 CRLF 精确复现，属于换行差异。84 个本地 Markdown 链接、JSON 格式和 git diff --check 通过。
+- **范围与限制：** 没有服务器访问、模型推理、训练、CUDA 或新 TrackEval；S07 的 3,024 行推理重复/1,104 项独立复算仅引用已有审计。本次只基于 Git 结果做算术/来源/逻辑核查。重新读取 CAMELTrack 作者论文作为平台方向依据，没有新核验仓库训练可用性或承诺运行耗时。V1/V2 与 C1–C5 不升级。
+- **精确下一步：** 建议改为准备成熟学习关联基线（优先 CAMELTrack）的有界执行任务书，固定版本/数据/权重来源、历史划分使用、官方最小训练与推理验收、资源预算和报告要求；先建立可信闭环，再据自然失败选一个具体方法问题。当前不启动新训练、调阈值或重复 S07，不把基线复现当创新。未提交、未推送。
+
+## 2026-11-25：规范研究端任务下发并准备 S08 基线闭环
+
+- **完成内容：** 新增 `docs/experiment_task_contract.md`、`docs/templates/server_experiment_task.md`，在 AGENTS.md 加入研究端指导职责；规范问题/对照/数据历史/选模/更新步数/预算、自动继续与停止、实现责任、回传文件和本地审阅。更新报告规范、README、研究治理入口、旧服务器手册与报告索引；LATEST 改为单一当前任务入口，历史停止范围明确限于原分支。
+- **具体任务：** 新增 `docs/a2a/S08_CAMEL_BASELINE_TASK.md` 与 `manifests/protocols/s08_camel_baseline_20261125.yaml`。A来源环境锁→B预训练在线验收→C训练/恢复smoke→D train32随机初始化seed13单阶段20epoch→E两条件dev8完整评测→F最多16例自然失败摘要。前置工程门通过且预算内自动继续，最后停止回传；总≤24GPU卡时、单张物理GPU1–7、GPU0禁用。沿用已使用的motion train32/dev8，官方val/test不在本轮，P预训练与T随机初始化只作描述性参考，不称受控方法优势。
+- **来源核查：** 通过GitHub连接器读取CAMELTrack官方 `bc1c261075b0beacfe71c2896453be83643153c8` 的README、pyproject、主/训练/模块配置与模型/训练数据代码。任务明确论文两阶段train+val与本轮单阶段train32不同；处理默认global权重、0.5/0.1阈值覆盖、缓存划分警告、当前目录last.ckpt自动恢复和重载返回值未赋回的风险。依赖版本、资产内容/训练重叠和真实运行兼容性留在A阶段锁定，不编造已安装/已复现。
+- **实际验证：** 使用本地既有PyYAML解析新协议，逐项核对train32/dev8列表与原split完全一致、32/8互斥且合计40、A–F六阶段、16条逐视频/2条总体预期覆盖、24GPU卡时分项、GPU0排除、20epoch固定schedule和随机初始化字段；本轮文档链接检查与git diff --check通过。检查只覆盖设计结构和导航，不证明服务器命令可执行或科学方法有效。
+- **范围与限制：** 只有研究侧文档/协议修改和官方源码阅读，没有服务器操作、安装/下载训练资产、训练、CUDA或新TrackEval。实际launcher、状态过滤、指标导出由服务器实现；协议状态 `DESIGN_READY_RUNTIME_LOCK_PENDING` / `NOT_RUN`，冻结时间为空，运行前须生成实际执行快照。原有S07本地复盘工作树保留；未commit/push。
+- **精确下一步：** 用户将S08任务交给服务器后，从A阶段落实依赖/资产/划分/命令锁并顺序执行有界流程，返回 `reports/baselines/s08_camel_baseline_20261125/` 标准证据包。研究端据训练可用性、完整指标及失败证据决定一个后续方法问题；不自动续S06、换MOTIP、做两阶段扩展或新增模块。

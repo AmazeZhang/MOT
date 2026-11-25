@@ -2,6 +2,8 @@
 
 生效日期：2026-11-23。适用于服务器 agent 和本地研究端；规则入口是 [AGENTS.md](../AGENTS.md)。目标是研究端仅凭 Git 就能判断“跑了什么、效果如何、为什么这样解释、还缺什么”。大型原始产物继续在 `/media/imc/data/mot-data`，不为报告而重新跑已经可核验的实验。
 
+研究端下发前须同时遵守 [实验指导与任务规范](experiment_task_contract.md)，使用 [任务书模板](templates/server_experiment_task.md) 明确实验矩阵、前置门、预算、自动继续和停止边界。报告中的 `protocol` 指向本次实际执行快照；设计稿不等于已冻结或已运行。
+
 ## 1. 每次交付是什么
 
 一个实验系列可用一个报告目录，里面每个配置、种子和重试都有唯一 `run_id`。路径沿用 `reports/{engineering,diagnostics,feasibility,baselines}/<experiment_id>/`。先复制 [模板目录](templates/report_bundle/README.md)，填真实信息，再更新 [报告索引](../reports/README.md)、[进展日志](progress_log.md)、[最新交接](a2a/LATEST.md)。不要求为每个 epoch 单独写报告。

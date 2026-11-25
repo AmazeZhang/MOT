@@ -1,0 +1,181 @@
+protocol_id: s08_camel_baseline_20261125
+version: 1
+created_on: '2026-11-25'
+status: DESIGN_READY_RUNTIME_LOCK_PENDING
+execution_status: NOT_RUN
+frozen_at: null
+task_document: docs/a2a/S08_CAMEL_BASELINE_TASK.md
+task_contract: docs/experiment_task_contract.md
+report_contract: docs/experiment_reporting.md
+report_directory: reports/baselines/s08_camel_baseline_20261125
+purpose: trainable_online_learned_association_platform_and_descriptive_baseline
+allowed_claim: engineering_readiness_and_reused_development_performance_only
+activation: user_hands_this_task_to_server_for_execution
+automatic_progression: A_to_F_if_predecessor_gates_pass_and_budgets_remain
+stop_after: F_or_first_unresolved_gate_or_budget_limit
+prior_evidence:
+  review: docs/research_status_review_20261125.md
+  stopped_branch: S06_NO_SEEDS_37_73
+  known_result: S07_does_not_establish_component_specific_decision_value
+upstream:
+  repository: https://github.com/TrackingLaboratory/CAMELTrack
+  commit: bc1c261075b0beacfe71c2896453be83643153c8
+  locally_verified: source_reading_only_no_install_or_execution
+  server_must_lock:
+    - TrackLab_KPR_and_transitive_dependency_versions
+    - source_patch_and_untracked_execution_source
+    - resolved_configs_commands_and_working_directories
+    - asset_revisions_sha256_dimensions_and_provenance
+    - runtime_environment_and_physical_GPU_allocation
+  runtime_freeze: before_B_write_timestamped_immutable_snapshot_and_hashes
+data:
+  dataset: DanceTrack
+  official_source_split: train
+  membership_source: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  train32:
+    sequences: [dancetrack0001, dancetrack0002, dancetrack0006, dancetrack0008, dancetrack0015, dancetrack0016, dancetrack0023, dancetrack0027, dancetrack0029, dancetrack0032, dancetrack0039, dancetrack0045, dancetrack0049, dancetrack0051, dancetrack0052, dancetrack0055, dancetrack0057, dancetrack0061, dancetrack0062, dancetrack0066, dancetrack0068, dancetrack0069, dancetrack0072, dancetrack0074, dancetrack0075, dancetrack0080, dancetrack0082, dancetrack0083, dancetrack0087, dancetrack0096, dancetrack0098, dancetrack0099]
+    frame_scope: all
+    expected_frames_from_existing_inventory: 34231
+  dev8:
+    sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+    frame_scope: all
+    expected_frames_from_existing_inventory: 7565
+  history: reused_project_development_not_independent_confirmation
+  official_val: not_used_this_round_previously_evaluated_in_project
+  official_test: not_used_or_submitted
+  states: official_DanceTrack_train_precomputed_states_only
+  cues: [bbox, appearance, keypoints]
+  missing_or_incompatible_states: stop_and_report_do_not_silently_replace_or_regenerate_full_dataset
+  inference: frame_local_detections_and_features_no_GT_or_cached_tracker_identity
+  training_GT: permitted_for_training_targets_only
+  evaluation_GT: permitted_for_offline_metrics_and_cases_only
+  cache: independent_S08_namespace_with_split_and_config_hash
+conditions:
+  P_OFFICIAL:
+    checkpoint_name: camel_bbox_app_kps_dancetrack.ckpt
+    role: platform_reference_not_controlled_training_comparison
+    seed_field: NA
+    training_overlap: must_audit_do_not_assume_dev8_unseen
+  T_SCRATCH:
+    role: single_stage_development_baseline_not_paper_reproduction
+    seed: 13
+    association_initialization: random_all_TE_and_GAFFE
+    checkpoint_path: null
+    all_encoder_checkpoint_paths: null
+    gaffe_checkpoint_path: null
+    off_the_shelf_models: frozen
+training:
+  architecture_loss_augmentations: pinned_upstream_three_cue_defaults
+  train_add_val: false
+  multi_dataset_training: false
+  max_epochs: 20
+  schedule_horizon_epochs_from_start: 20
+  checkpoint_selection: last_of_completed_epoch20_only
+  engineering_checkpoint_epoch: 2
+  dev_loss_frequency: every_epoch
+  tracking_evaluation_frequency: once_after_training
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  precision: 32
+  batch_size: 8
+  accumulate_grad_batches: 1
+  num_samples: 32
+  samples_per_video: 100
+  max_length: 50
+  max_num_obs_transform: 150
+  OOM_policy: no_automatic_batch_precision_or_architecture_change
+  smoke_weights_must_not_initialize_main_training: true
+inference:
+  min_det_conf: 0.4
+  min_init_det_conf: 0.9
+  sim_threshold: 0.1
+  use_computed_sim_threshold: false
+  min_num_hits: 0
+  max_wo_hits: 150
+  max_track_gallery_size: 50
+  checkpoint_override_must_match_explicit_thresholds: true
+  postprocessing_interpolation: false
+  independent_closed_loop_per_condition: true
+stages:
+  A:
+    action: resolve_environment_assets_split_adapter_and_runtime_lock
+    gate: complete_disjoint_32_8_membership_usable_features_provenance_and_commands
+  B:
+    condition: P_OFFICIAL
+    sequence: dancetrack0027
+    frame_ranges_inclusive: [[1, 400], [1, 200], [1, 400], [1, 400]]
+    runs: [normal, future_truncated, GT_removed, repeat_normal]
+    gate: valid_nonempty_MOT_output_repeat_prefix_and_GT_removal_invariance
+  C:
+    condition: T_SCRATCH_SMOKE
+    train: {sequence: dancetrack0027, frames_inclusive: [1, 400]}
+    dev: {sequence: dancetrack0012, frames_inclusive: [1, 200]}
+    seed: 13
+    optimizer_steps: 100
+    restart_at_step: 50
+    gate: finite_loss_gradients_parameter_update_correct_state_resume_and_checkpoint_reload
+    fixed_training_probe: step0_and_step100_no_augmentation_loss_descriptive_only
+  D:
+    condition: T_SCRATCH
+    gate: finite_correct_scope_training_within_budget_then_complete_epoch20
+    epoch2_check: engineering_and_budget_only_no_performance_selection
+  E:
+    conditions: [P_OFFICIAL, T_SCRATCH]
+    scope: dev8
+    expected_per_sequence_rows: 16
+    expected_aggregate_rows: 2
+    gate: all_sequences_and_official_aggregate_exported_with_source_verification
+    partial_policy: retain_missing_rows_do_not_substitute_partial_scope_as_complete
+  F:
+    condition: T_SCRATCH
+    source: official_IDSW_events_from_E
+    sample_rule: ascending_SHA256_of_13_colon_sequence_colon_frame_colon_gt_id
+    maximum_per_video: 2
+    maximum_total: 16
+    detection_presence_iou: 0.5
+    competing_GT_bbox_iou: 0.3
+    interpretation: descriptive_nonexclusive_flags_not_causal_classes_or_population_rates
+    unavailable_event_mapping: report_gap_no_custom_IDSW_substitute_no_new_runs
+evaluation:
+  evaluator: official_TrackEval_version_locked_by_server
+  metrics: [HOTA, DetA, AssA, IDF1, MOTA, IDSW, FP, FN, Frag]
+  ratio_scale: 0_to_100_points_MOTA_may_be_negative
+  aggregation: official_COMBINED_SEQ_not_video_mean
+  analysis_unit: sequence
+  per_video_tie_tolerance: 0.00000001
+  innovation_gate: none_this_is_platform_establishment
+  pretrained_vs_scratch: descriptive_only_due_training_and_initialization_differences
+  comparison_to_S06_numbers: forbidden_as_controlled_comparison_scope_and_inputs_differ
+budgets:
+  gpu_count_concurrent: 1
+  physical_gpu_allowed: [1, 2, 3, 4, 5, 6, 7]
+  physical_gpu_forbidden: [0]
+  gpu_hours_total_max: 24
+  gpu_hours_stage_max: {B: 1, C: 1, D: 20, E: 2}
+  A_CUDA_if_any_counts_toward_total: true
+  elapsed_hours_total_max: 72
+  active_engineering_workdays_max: 2
+  extra_storage_gib_max: 100
+  minimum_remaining_free_gib: 50
+  targeted_compatibility_repairs_per_blocker_max: 2
+  budget_exhaustion: save_partial_and_stop_no_increase_or_silent_condition_drop
+outputs:
+  standard_bundle: docs/templates/report_bundle
+  additional_required:
+    - source_audit.json
+    - split_audit.json
+    - resolved_configs/
+    - commands.sh
+    - runtime_lock.json
+    - failure_inventory.csv_or_explicit_omission
+  sources: small_full_precision_source_metric_evidence_in_Git_large_artifacts_on_data_disk
+  resource_breakdown: by_stage_including_failed_attempts
+  next_action: stop_after_handoff_research_side_selects_one_followup_question
+not_in_scope:
+  - new_association_modules_or_Flow_Matching
+  - S06_seeds37_73_or_more_S07_diagnostics
+  - threshold_or_augmentation_grid_search
+  - two_stage_TE_pretraining_or_train_plus_val_paper_reproduction
+  - multi_seed_confirmation_or_cross_dataset_experiment
+  - old_OCSORT_cache_port_or_MOTIP_training
+  - automatic_git_commit_or_push

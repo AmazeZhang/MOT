@@ -2,7 +2,11 @@
 
 此目录只保存体积小、可审核、不可变的实验结果快照。原始数据、权重、检测缓存、完整 tracker 输出和可再生成的大型运行目录仍保存在仓库外。
 
+2026-11-25 研究端补充审阅：[S07 复盘与方向决定](../docs/research_status_review_20261125.md)，附 [Git 导出核查记录](../docs/audits/s07_local_review_20261125/verification.json)。这是本地证据审阅，不是新 checkpoint 推理或跟踪实验；S07 原报告与停止判定未改写。
+
 每个快照必须注明数据划分、运行范围、原始文件 SHA256 和限制；train 诊断不得写成 val 或新方法结果。
+
+2026-11-25 起，研究端下发遵循 [任务规范](../docs/experiment_task_contract.md)，服务器按任务逐阶段回传。当前 [S08任务](../docs/a2a/S08_CAMEL_BASELINE_TASK.md) 只有设计，尚无报告或模型结果，不计入以下已完成快照。
 
 2026-11-23 起新增报告遵循 [报告规范 v1](../docs/experiment_reporting.md) 和 [报告包模板](../docs/templates/report_bundle/README.md)：完整精度汇总/逐视频指标随 Git 回传，负结果与未完成组也保留。历史 S01/S04 机器可读补齐尚待服务器执行，不代表本地已有原始数值。[当前交接与下一步](../docs/a2a/LATEST.md)。
 

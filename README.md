@@ -1,6 +1,10 @@
 # MOT 毕业设计研究
 
-初始研究问题：在短时观测缺失与身份竞争下，运动分布能否改善在线多目标跟踪？Flow Matching（FM）是历史候选，目前暂缓；当前建议聚焦深度外观基线上的竞争关联决策，见下方最新交接。
+**当前待执行（2026-11-25）：** [S08 CAMELTrack 基线任务书](docs/a2a/S08_CAMEL_BASELINE_TASK.md)与[协议](manifests/protocols/s08_camel_baseline_20261125.yaml)已准备，服务器尚未执行。按来源锁定、在线验收、训练恢复、20epoch单seed训练、dev8完整评测及有界失败摘要推进；预算内通过前置门可自动继续。长期协作采用[研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从[LATEST](docs/a2a/LATEST.md)读取当前任务。
+
+**最新阶段（2026-11-25）：S07 checkpoint 补充体检完成。** Context 后期 checkpoint 的固定样本回归误差降低，但 internal-dev6 动作决定为 13/22，未超过 always-M 的 14/22；结果后动作类型常数的 MSE 也更低。保持 S06 STOP，不再补同批小选择器诊断，优先转向成熟学习关联基线，再选择具体创新问题。见 [S07 复盘与方向决定](docs/research_status_review_20261125.md)、[权威报告](reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md)与 [A2A 当前入口](docs/a2a/LATEST.md)。以下 11 月 24 日及更早阶段保留为历史，不是新的待执行清单。
+
+初始研究问题：在短时观测缺失与身份竞争下，运动分布能否改善在线多目标跟踪？Flow Matching（FM）是历史候选，目前暂缓；当前先建立成熟学习关联平台，再据自然失败选择方法问题，见上方最新交接。
 
 **最新阶段（2026-11-24）：S05/S06 seed13 已完成。** Context-risk 未过冻结门，停止当前 S06、不续跑 seeds37/73；计划内的 Context 无额外风险分支相对 M 有 +1.480 HOTA、+2.204 AssA、−9 IDSW，相对固定 V 有 +0.562 HOTA，但对 V 仅 2 胜/2 负/4 平，且选模/容量对照限制机制解释。见 [最新复盘](docs/research_status_review_20261124.md)和[权威实验报告](reports/feasibility/s06_component_selector_seed13_retry3_20261124/README.md)。下一步仅建议对已有 checkpoint/案例做学习质量体检；尚未确立创新方法。下面 11 月 23 日安排为历史设计，新执行以 [LATEST](docs/a2a/LATEST.md) 为入口。
 

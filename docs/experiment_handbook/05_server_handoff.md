@@ -1,5 +1,7 @@
 # 服务器反馈与协作
 
+> 2026-11-25更新：下文首次环境准备与G阶段顺序为历史手册。当前实验从 [LATEST](../a2a/LATEST.md) 领取，长期遵循 [研究端任务规范](../experiment_task_contract.md) 与 [服务器报告规范](../experiment_reporting.md)；不能把本页早期安排当作新待运行清单。
+
 ## 1. 你现在可以做的准备
 
 1. 阅读 [总览](00_overview.md) 和 [验证路线](01_validation_plan.md)，确认第一轮范围。
