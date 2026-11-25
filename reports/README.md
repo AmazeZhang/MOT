@@ -6,12 +6,13 @@
 
 每个快照必须注明数据划分、运行范围、原始文件 SHA256 和限制；train 诊断不得写成 val 或新方法结果。
 
-2026-11-25 起，研究端下发遵循 [任务规范](../docs/experiment_task_contract.md)，服务器按任务逐阶段回传。当前 [S08任务](../docs/a2a/S08_CAMEL_BASELINE_TASK.md) 只有设计，尚无报告或模型结果，不计入以下已完成快照。
+2026-11-25 起，研究端下发遵循 [任务规范](../docs/experiment_task_contract.md)，服务器按任务逐阶段回传。S08 CAMELTrack 有界基线闭环已于 2026-11-25 在物理 GPU 1 上完成 A–F 全阶段，权威报告见 [S08报告](baselines/s08_camel_baseline_20261125/README.md)（决定：`CONTINUE`，仅授权进入研究端下一轮单问题设计）。
 
 2026-11-23 起新增报告遵循 [报告规范 v1](../docs/experiment_reporting.md) 和 [报告包模板](../docs/templates/report_bundle/README.md)：完整精度汇总/逐视频指标随 Git 回传，负结果与未完成组也保留。历史 S01/S04 机器可读补齐尚待服务器执行，不代表本地已有原始数值。[当前交接与下一步](../docs/a2a/LATEST.md)。
 
 当前快照：
 
+- `baselines/s08_camel_baseline_20261125/`：S08 CAMELTrack（commit `bc1c2610`）有界基线训练与评测闭环；包含 A–F 全阶段证据、20 epoch `T_SCRATCH`（seed 13，train32）与 `P_OFFICIAL` 在 `motion_dev8` 的全精度 TrackEval 对比及 16 例抽样官方 IDSW 失败清单。
 - `baselines/g1_ocsort_train_20261110/`：完整 DanceTrack train 诊断基线。
 - `baselines/g1_ocsort_val_20261111/`：查看指标前冻结的完整 DanceTrack val G1 参考基线。
 - `baselines/b0_b1_equivalence_motion_dev_20261112/`：冻结 motion-dev 上直接 B0 与关闭研究功能的 B1 适配器全量等价验收；float64 tracker 输出逐元素一致。

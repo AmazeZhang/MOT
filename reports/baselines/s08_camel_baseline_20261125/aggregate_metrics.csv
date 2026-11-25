@@ -1,0 +1,3 @@
+run_id,condition,seed,scope_id,sequence,status,num_frames,HOTA,DetA,AssA,IDF1,MOTA,IDSW,FP,FN,Frag,source_artifact_id,source_locator,missing_reason
+e_p_official_dev8_v2,P_OFFICIAL,NA,dev8,COMBINED_SEQ,COMPLETED,7565,66.99273973335293,82.52390480711561,54.51552276322664,71.76287443191805,91.59052516060618,638,1646,4536,1397,server_e_p_official_detailed_csv,eval/results/tracklab/pedestrian_detailed.csv:COMBINED,
+e_t_scratch_dev8_v1,T_SCRATCH,13,dev8,COMBINED_SEQ,COMPLETED,7565,53.98059301377264,81.01795034744723,36.09635770445169,56.69498698937204,90.62133935067017,1451,1721,4434,1428,server_e_t_scratch_detailed_csv,eval/results/tracklab/pedestrian_detailed.csv:COMBINED,

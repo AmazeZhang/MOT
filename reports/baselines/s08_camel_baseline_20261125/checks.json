@@ -1,0 +1,132 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "executed_at": "2026-11-25T15:38:46.314175+08:00",
+  "reviewer_or_process": "scripts/export_s08_report.py + scripts/run_s08_camel.py",
+  "checks": [
+    {
+      "name": "split_and_loader_membership",
+      "status": "PASS",
+      "command": "python scripts/prepare_s08_camel_assets.py",
+      "evidence": [
+        "split_audit.json"
+      ],
+      "scope": "40 DanceTrack train sequences (32 train32 + 8 dev8, 0 overlap)"
+    },
+    {
+      "name": "random_initialization",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py resolve-configs",
+      "evidence": [
+        "resolved_configs/stage_d_t_scratch_train.yaml"
+      ],
+      "scope": "T_SCRATCH checkpoint_path=null, gaffe=null, all 3 temp_encs=null"
+    },
+    {
+      "name": "cache_isolation",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-d --run-id d_t_scratch_seed13_e20_v1",
+      "evidence": [
+        "/media/imc/data/mot-data/cache/s08_camel/dm_d_t_scratch_seed13_e20_v1_isolated"
+      ],
+      "scope": "Stage D isolated cache namespace separate from Stage C smoke"
+    },
+    {
+      "name": "gt_free_and_prefix_invariance",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-b --run-id b_p_official_online_check_v2",
+      "evidence": [
+        "b_p_official_online_check_v2/stage_b_summary.json"
+      ],
+      "scope": "dancetrack0027 f1-400 vs gt_removed f1-400 and future_truncated f1-200"
+    },
+    {
+      "name": "repeat_determinism",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-b --run-id b_p_official_online_check_v2",
+      "evidence": [
+        "b_p_official_online_check_v2/stage_b_summary.json"
+      ],
+      "scope": "dancetrack0027 f1-400 repeat SHA256 identical"
+    },
+    {
+      "name": "effective_gradients_and_resume",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-c-{part1,part2} --run-id c_t_scratch_smoke_v5",
+      "evidence": [
+        "c_t_scratch_smoke_v5/stage_c_summary.json"
+      ],
+      "scope": "100 steps finite grads, GAFFE 51/51 & encoders 55/56 updated, step-50 new-process resume match"
+    },
+    {
+      "name": "explicit_checkpoint_reload",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-c-reload-check && stage-e",
+      "evidence": [
+        "c_t_scratch_smoke_v5/stage_c_summary.json",
+        "e_t_scratch_dev8_v1/stage_e_summary.json"
+      ],
+      "scope": "New-process load_from_checkpoint assigned back to self.CAMEL + SHA256 verified"
+    },
+    {
+      "name": "paired_comparison_compatibility",
+      "status": "PASS",
+      "command": "python scripts/run_s08_camel.py stage-e",
+      "evidence": [
+        "resolved_configs/stage_e_p_official_dev8.yaml",
+        "resolved_configs/stage_e_t_scratch_dev8.yaml"
+      ],
+      "scope": "Shared dev8 GT-free states, shared thresholds (0.4/0.9/0.1), shared TrackEval"
+    },
+    {
+      "name": "metric_export_matches_source",
+      "status": "PASS",
+      "command": "python scripts/export_s08_report.py",
+      "evidence": [
+        "aggregate_metrics.csv",
+        "per_sequence_metrics.csv"
+      ],
+      "scope": "Direct export from TrackEval pedestrian_detailed.csv without rounding"
+    },
+    {
+      "name": "expected_vs_completed_coverage",
+      "status": "PASS",
+      "command": "python scripts/export_s08_report.py",
+      "evidence": [
+        "aggregate_metrics.csv",
+        "per_sequence_metrics.csv"
+      ],
+      "scope": "2 aggregate rows + 16 per-sequence rows + 16 sampled failure rows"
+    },
+    {
+      "name": "resource_and_gpu_safety",
+      "status": "PASS",
+      "command": "nvidia-smi + enforce_gpu_safety()",
+      "evidence": [
+        "runtime_lock.json",
+        "run_manifest.json"
+      ],
+      "scope": "Physical GPU 1 only; physical GPU 0 forbidden and unused; total GPU-hours <= 24h"
+    },
+    {
+      "name": "artifact_hashes_and_safe_export",
+      "status": "PASS",
+      "command": "python scripts/export_s08_report.py",
+      "evidence": [
+        "artifacts.json"
+      ],
+      "scope": "All report files hashed; weights/states/logs kept on /media/imc/data/mot-data"
+    }
+  ],
+  "cited_prior_checks": [
+    "manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+    "docs/research_status_review_20261125.md"
+  ],
+  "not_accessible_here": [],
+  "limitations": [
+    "motion_train32 and motion_dev8 are reused DanceTrack train splits previously seen in project development, not an unseen test/val confirmation set.",
+    "P_OFFICIAL was trained by upstream authors (README documents DanceTrack train+val two-stage training), so P_OFFICIAL vs T_SCRATCH is descriptive only and not a controlled training comparison.",
+    "Official CAMELTrack DanceTrack precomputed states do not embed detector/ReID/pose checkpoint manifests in summary.json.",
+    "Stage F sampled failure cases (<=16) are bounded descriptive examples and cannot be extrapolated as population failure-type proportions."
+  ]
+}

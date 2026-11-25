@@ -1,0 +1,85 @@
+{
+  "schema_version": "s08-source-audit-v1",
+  "generated_at": "2026-11-25T10:36:26.857448+08:00",
+  "upstream_cameltrack": {
+    "repository": "https://github.com/TrackingLaboratory/CAMELTrack",
+    "commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+    "local_path": "/media/imc/data/mot-data/third_party/CAMELTrack"
+  },
+  "huggingface_assets": {
+    "repo_id": "trackinglaboratory/CAMELTrack",
+    "revision": "6759b7c27b99d8f2b8d8a13be69c6dbbb9cc40ff",
+    "pretrained_checkpoint": {
+      "filename": "camel_bbox_app_kps_dancetrack.ckpt",
+      "local_path": "/media/imc/data/mot-data/weights/camel/camel_bbox_app_kps_dancetrack.ckpt",
+      "bytes": 525750074,
+      "sha256": "cecce022fb51aa58e149ebb3f3cd408c6e4086266d7b126576f99bdc1b3f9075",
+      "training_data_provenance": "CAMELTrack official DanceTrack pretrained weights (README documents DanceTrack train+val two-stage training; exact embedded manifest absent -> dev8 overlap cannot be excluded, treat as platform reference only)",
+      "epoch_in_ckpt": 9,
+      "global_step_in_ckpt": 8120,
+      "computed_sim_threshold_in_ckpt": 0.46
+    },
+    "precomputed_states": {
+      "filename": "states/dancetrack-train.pklz",
+      "local_path": "/media/imc/data/mot-data/downloads/cameltrack/dancetrack-train.pklz",
+      "bytes": 1299071021,
+      "sha256": "3c6f7ba85c2a5dff6441310a2b6eb2c50b2fdb0abfa295afd74704f6d2ca3ed1",
+      "summary_columns": {
+        "detection": [
+          "keypoints_conf",
+          "keypoints_xyc",
+          "video_id",
+          "image_id",
+          "bbox_conf",
+          "track_bbox_ltwh",
+          "track_id",
+          "category_id",
+          "visibility_scores",
+          "bbox_ltwh",
+          "embeddings",
+          "ignored",
+          "is_occluded",
+          "track_bbox_conf",
+          "iou_occlusion"
+        ],
+        "image": [
+          "frame",
+          "is_labeled",
+          "file_path",
+          "video_id",
+          "id"
+        ]
+      },
+      "detector_provenance": "unknown_embedded (CAMELTrack README documents YOLOX detector weights from DiffMOT)",
+      "appearance_provenance": "unknown_embedded (CAMELTrack pipeline uses TrackLab KPR reid; embeddings shape (6, 128), visibility_scores shape (6,))",
+      "pose_provenance": "unknown_embedded (CAMELTrack pipeline uses yolo_ultralytics-pose; keypoints_xyc shape (17, 3))",
+      "cue_dimensions": {
+        "bbox_ltwh": [
+          4
+        ],
+        "bbox_conf": [
+          1
+        ],
+        "embeddings": [
+          6,
+          128
+        ],
+        "visibility_scores": [
+          6
+        ],
+        "keypoints_xyc": [
+          17,
+          3
+        ]
+      },
+      "per_frame_causal_feature_check": "PASS (GT and cached tracker columns stripped in inference state files; features are per-detection frame-local)"
+    }
+  },
+  "dancetrack_dataset": {
+    "source_split": "train",
+    "disk_path": "/media/imc/data/mot-data/datasets/dancetrack/train",
+    "dataset_manifest": "manifests/datasets/dancetrack.yaml",
+    "hf_revision": "a0ba42ac690c41e9850a20e76a0b9450a6fb6a47",
+    "symlink_root": "/media/imc/data/mot-data/cache/s08_camel/dancetrack_s08_dataset"
+  }
+}

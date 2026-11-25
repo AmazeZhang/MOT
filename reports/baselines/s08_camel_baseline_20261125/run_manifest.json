@@ -1,0 +1,556 @@
+{
+  "schema_version": "mot-report-v1",
+  "experiment_id": "s08_camel_baseline_20261125",
+  "status": "COMPLETED",
+  "stage": "A_to_F",
+  "created_at": "2026-11-25T15:38:46.314175+08:00",
+  "decision": "CONTINUE",
+  "decision_reason": "Stages A-F completed within budget on physical GPU 1 (GPU 0 excluded). CAMELTrack trains cleanly from random initialization (20 epochs, 8000 steps), reloads deterministically, runs strictly online without GT/future leakage, and exports official TrackEval metrics plus 16 sampled official IDSW failure cases on dev8.",
+  "protocol": {
+    "path": "manifests/protocols/s08_camel_baseline_20261125.yaml",
+    "sha256": "dbbe9a777cab2f7b47d330117ba5040e4863da912e5090d76d4768a6e21b77f9",
+    "frozen_at": "2026-11-25T10:43:23.839799+08:00",
+    "known_results_at_freeze": [
+      "docs/research_status_review_20261125.md",
+      "reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md",
+      "reports/feasibility/s06_component_selector_seed13_retry3_20261124/README.md"
+    ],
+    "deviations": [
+      {
+        "changed_at": "2026-11-25T15:38:46.314175+08:00",
+        "old_value": "Single in-process Tracklet.count across 4 Stage B runs and default TrackLab visualization",
+        "new_value": "Reset Tracklet.count=1 per inference run and set visualization=none",
+        "reason": "Engineering fix: prevent global class counter offset across sequential Stage B runs and skip unneeded video rendering.",
+        "results_seen_before_change": false
+      },
+      {
+        "changed_at": "2026-11-25T15:38:46.314175+08:00",
+        "old_value": "Stage C smoke probe checks without explicit RNG callback",
+        "new_value": "Added S08RngCheckpointCallback and -inf-safe tensor equality comparison",
+        "reason": "Engineering fix: Lightning checkpoints did not save RNG states natively and -inf masked cells gave (-inf)-(-inf)=nan.",
+        "results_seen_before_change": false
+      }
+    ]
+  },
+  "code": {
+    "commit": "9771e70b708bc41d5cc388a9cfdd1ea2b4469876",
+    "dirty": true,
+    "source_index_artifact_id": "git_commands_sh",
+    "dirty_patch_artifact_id": null,
+    "untracked_source_artifact_ids": [],
+    "scripts_sha256": {
+      "scripts/prepare_s08_camel_assets.py": "e2555e1c3045474b8447da542c71e7d71bd1672ac080b850ffe8f9f81becf954",
+      "scripts/run_s08_camel.py": "c9eb5d0c73f6acc895be00679fe640146a39115b82c3351be3efa04e646cc470",
+      "scripts/export_s08_failures.py": "62c6441ee2424648ca2a4a3a44c8d0878cfe87ae235ee3198171feef3d392f66",
+      "scripts/export_s08_report.py": "c0997ce1e913adabde111c7eeee182f05e1e1587fbeef8d3aac90d36a656a868"
+    },
+    "third_party_locks": [
+      {
+        "name": "CAMELTrack",
+        "repository": "https://github.com/TrackingLaboratory/CAMELTrack",
+        "commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+        "dirty": false
+      },
+      {
+        "name": "tracklab",
+        "version": "tracklab==1.3.17"
+      },
+      {
+        "name": "sn-trackeval",
+        "version": "sn-trackeval==0.4.0"
+      }
+    ],
+    "evaluator": "sn-trackeval==0.4.0 via TrackLab TrackEvalEvaluator (MotChallenge2DBox)",
+    "exporter": "scripts/export_s08_report.py"
+  },
+  "inputs": {
+    "dataset": "DanceTrack",
+    "dataset_revision": "a0ba42ac690c41e9850a20e76a0b9450a6fb6a47",
+    "split_manifest": "manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+    "split_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+    "detection_index_artifact_id": "git_source_audit_json",
+    "feature_index_artifact_id": "git_split_audit_json",
+    "weights": [
+      {
+        "name": "camel_bbox_app_kps_dancetrack.ckpt",
+        "source_url": "https://huggingface.co/trackinglaboratory/CAMELTrack/resolve/main/camel_bbox_app_kps_dancetrack.ckpt",
+        "sha256": "cecce022fb51aa58e149ebb3f3cd408c6e4086266d7b126576f99bdc1b3f9075",
+        "training_data": "CAMELTrack official DanceTrack pretrained checkpoint (README documents train+val; overlap with dev8 cannot be excluded)",
+        "overlap_audit": "potential_dev8_overlap_platform_reference_only",
+        "artifact_id": "server_p_official_ckpt"
+      },
+      {
+        "name": "T_SCRATCH epoch20 last.ckpt",
+        "source_url": "local_stage_d_training",
+        "sha256": "fb86a65eab1d72c271c73b27e8155dae5f162545d5c14f0e1b61daad2aed7808",
+        "training_data": "motion_train32 (32 sequences, 34231 frames, disjoint from motion_dev8)",
+        "overlap_audit": "disjoint_from_dev8_verified",
+        "artifact_id": "server_t_scratch_epoch20_ckpt"
+      }
+    ],
+    "preprocessing_artifact_id": "git_split_audit_json",
+    "gt_usage": "GT used only for Stage C/D training targets and Stage E/F offline TrackEval & IDSW diagnosis; stripped from Stage E inference states."
+  },
+  "scopes": [
+    {
+      "scope_id": "dev8",
+      "dataset_split": "DanceTrack_train_motion_dev8",
+      "sequences": [
+        "dancetrack0012",
+        "dancetrack0020",
+        "dancetrack0024",
+        "dancetrack0033",
+        "dancetrack0037",
+        "dancetrack0044",
+        "dancetrack0053",
+        "dancetrack0086"
+      ],
+      "frame_ranges": {
+        "dancetrack0012": [
+          1,
+          1203
+        ],
+        "dancetrack0020": [
+          1,
+          583
+        ],
+        "dancetrack0024": [
+          1,
+          763
+        ],
+        "dancetrack0033": [
+          1,
+          803
+        ],
+        "dancetrack0037": [
+          1,
+          1203
+        ],
+        "dancetrack0044": [
+          1,
+          1203
+        ],
+        "dancetrack0053": [
+          1,
+          1204
+        ],
+        "dancetrack0086": [
+          1,
+          603
+        ]
+      },
+      "purpose": "reused_development_closed_loop_baseline",
+      "previous_use": "Previously used in P1/G2/S05 (not an unseen holdout set; distinct from S06 evaluation8)",
+      "weight_overlap_status": "P_OFFICIAL overlap unknown/likely; T_SCRATCH trained strictly on disjoint motion_train32",
+      "evaluator_config_artifact_id": "git_resolved_cfg_e_t_scratch"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "P_OFFICIAL",
+      "description": "Official pretrained CAMELTrack checkpoint (platform reference only)",
+      "config_artifact_id": "git_resolved_cfg_e_p_official",
+      "baseline_condition": null,
+      "changed_factors": [
+        "official_pretrained_weights_unknown_overlap"
+      ],
+      "fixed_factors": [
+        "dev8_gt_free_states",
+        "min_det_conf=0.4",
+        "min_init_det_conf=0.9",
+        "sim_threshold=0.1",
+        "use_computed_sim_threshold=false"
+      ]
+    },
+    {
+      "condition": "T_SCRATCH",
+      "description": "Single-stage random-initialized CAMELTrack trained 20 epochs on motion_train32 (seed 13)",
+      "config_artifact_id": "git_resolved_cfg_e_t_scratch",
+      "baseline_condition": "P_OFFICIAL",
+      "changed_factors": [
+        "random_init_single_stage_20ep_train32_seed13"
+      ],
+      "fixed_factors": [
+        "dev8_gt_free_states",
+        "min_det_conf=0.4",
+        "min_init_det_conf=0.9",
+        "sim_threshold=0.1",
+        "use_computed_sim_threshold=false"
+      ]
+    }
+  ],
+  "planned_runs": [
+    {
+      "run_id": "e_p_official_dev8_v2",
+      "condition": "P_OFFICIAL",
+      "seed": "NA",
+      "scope_id": "dev8",
+      "expected_sequences": 8
+    },
+    {
+      "run_id": "e_t_scratch_dev8_v1",
+      "condition": "T_SCRATCH",
+      "seed": 13,
+      "scope_id": "dev8",
+      "expected_sequences": 8
+    }
+  ],
+  "attempts": [
+    {
+      "run_id": "b_p_official_online_check_v1",
+      "attempt_id": "attempt_1",
+      "stage": "B",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-b --run-id b_p_official_online_check_v1",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/b_p_official_online_check_v1",
+      "exit_code": 1,
+      "failure_reason": "Upstream Tracklet.count class counter persisted across 4 in-process runs and TrackLab visualization ran unnecessarily.",
+      "parent_attempt_id": null,
+      "supersedes": null,
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "b_p_official_online_check_v2",
+      "attempt_id": "attempt_2",
+      "stage": "B",
+      "status": "COMPLETED",
+      "ended_at": "2026-11-25T10:45:16.221806+08:00",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-b --run-id b_p_official_online_check_v2",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/b_p_official_online_check_v2",
+      "exit_code": 0,
+      "failure_reason": null,
+      "parent_attempt_id": "b_p_official_online_check_v1",
+      "supersedes": "b_p_official_online_check_v1",
+      "reused_artifacts": [
+        "camel_bbox_app_kps_dancetrack.ckpt",
+        "stage_b_states"
+      ]
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v1",
+      "attempt_id": "attempt_1",
+      "stage": "C",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-c-part1 --run-id c_t_scratch_smoke_v1",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/c_t_scratch_smoke_v1",
+      "exit_code": 1,
+      "failure_reason": "Post-fit probe helper received CPU model because Lightning moves model back to CPU after trainer.fit.",
+      "parent_attempt_id": null,
+      "supersedes": null,
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v2",
+      "attempt_id": "attempt_2",
+      "stage": "C",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-c-part2 --run-id c_t_scratch_smoke_v2",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/c_t_scratch_smoke_v2",
+      "exit_code": 1,
+      "failure_reason": "ResumeVerifyCallback checked optimizer state in on_fit_start before Lightning restore_training_state().",
+      "parent_attempt_id": "c_t_scratch_smoke_v1",
+      "supersedes": "c_t_scratch_smoke_v1",
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v3",
+      "attempt_id": "attempt_3",
+      "stage": "C",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-c-part2 --run-id c_t_scratch_smoke_v3",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/c_t_scratch_smoke_v3",
+      "exit_code": 1,
+      "failure_reason": "Eval comparison subtracted -inf padding values ((-inf)-(-inf)=nan).",
+      "parent_attempt_id": "c_t_scratch_smoke_v2",
+      "supersedes": "c_t_scratch_smoke_v2",
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v4",
+      "attempt_id": "attempt_4",
+      "stage": "C",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-c-part2 --run-id c_t_scratch_smoke_v4",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/c_t_scratch_smoke_v4",
+      "exit_code": 1,
+      "failure_reason": "DataLoader setup_data consumed torch CPU RNG after on_load_checkpoint; added on_train_start RNG alignment.",
+      "parent_attempt_id": "c_t_scratch_smoke_v3",
+      "supersedes": "c_t_scratch_smoke_v3",
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v5",
+      "attempt_id": "attempt_5",
+      "stage": "C",
+      "status": "COMPLETED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-c-{part1,part2,reload-check} --run-id c_t_scratch_smoke_v5",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/c_t_scratch_smoke_v5",
+      "exit_code": 0,
+      "failure_reason": null,
+      "parent_attempt_id": "c_t_scratch_smoke_v4",
+      "supersedes": "c_t_scratch_smoke_v4",
+      "reused_artifacts": [
+        "stage_c_states"
+      ]
+    },
+    {
+      "run_id": "d_t_scratch_seed13_e20_v1",
+      "attempt_id": "attempt_1",
+      "stage": "D",
+      "status": "COMPLETED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-d --run-id d_t_scratch_seed13_e20_v1",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1",
+      "exit_code": 0,
+      "failure_reason": null,
+      "parent_attempt_id": null,
+      "supersedes": null,
+      "reused_artifacts": [
+        "states_train32.pklz",
+        "states_dev8_train_ref.pklz"
+      ]
+    },
+    {
+      "run_id": "e_p_official_dev8_v1",
+      "attempt_id": "attempt_1",
+      "stage": "E",
+      "status": "FAILED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-e --condition P_OFFICIAL --run-id e_p_official_dev8_v1",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/e_p_official_dev8_v1",
+      "exit_code": 1,
+      "failure_reason": "TrackLab process_trackeval_results called tracklab.utils.wandb.log() before tracklab.utils.wandb.init(cfg) set module global use_wandb=False.",
+      "parent_attempt_id": null,
+      "supersedes": null,
+      "reused_artifacts": []
+    },
+    {
+      "run_id": "e_p_official_dev8_v2",
+      "attempt_id": "attempt_2",
+      "stage": "E",
+      "status": "COMPLETED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-e --condition P_OFFICIAL --run-id e_p_official_dev8_v2",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/e_p_official_dev8_v2",
+      "exit_code": 0,
+      "failure_reason": null,
+      "parent_attempt_id": "e_p_official_dev8_v1",
+      "supersedes": "e_p_official_dev8_v1",
+      "reused_artifacts": [
+        "camel_bbox_app_kps_dancetrack.ckpt",
+        "states_dev8_gt_free.pklz"
+      ]
+    },
+    {
+      "run_id": "e_t_scratch_dev8_v1",
+      "attempt_id": "attempt_1",
+      "stage": "E",
+      "status": "COMPLETED",
+      "command": "CUDA_VISIBLE_DEVICES=1 python scripts/run_s08_camel.py stage-e --condition T_SCRATCH --ckpt .../d_t_scratch_seed13_e20_v1/CAMEL/last.ckpt --run-id e_t_scratch_dev8_v1",
+      "cwd": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/e_t_scratch_dev8_v1",
+      "exit_code": 0,
+      "failure_reason": null,
+      "parent_attempt_id": null,
+      "supersedes": null,
+      "reused_artifacts": [
+        "d_t_scratch_seed13_e20_v1/CAMEL/last.ckpt",
+        "states_dev8_gt_free.pklz"
+      ]
+    }
+  ],
+  "authoritative_evaluations": [
+    {
+      "run_id": "e_p_official_dev8_v2",
+      "eval_id": "eval_p_official_dev8",
+      "scope_id": "dev8",
+      "status": "COMPLETED",
+      "output_artifact_id": "server_e_p_official_detailed_csv"
+    },
+    {
+      "run_id": "e_t_scratch_dev8_v1",
+      "eval_id": "eval_t_scratch_dev8",
+      "scope_id": "dev8",
+      "status": "COMPLETED",
+      "output_artifact_id": "server_e_t_scratch_detailed_csv"
+    }
+  ],
+  "metric_contract": {
+    "ratio_scale": "0_to_100_points_MOTA_may_be_negative",
+    "count_unit": "integer",
+    "aggregation": "official_TrackEval_COMBINED_SEQ",
+    "missing_csv": "empty_cell_with_missing_reason",
+    "missing_json": "null_with_reason",
+    "per_video_tie_tolerance": 1e-08,
+    "precision_limitations": "Full float64 precision exported via repr() from TrackEval pedestrian_detailed.csv."
+  },
+  "training": {
+    "run_id": "d_t_scratch_seed13_e20_v1",
+    "seed": 13,
+    "architecture": "CAMEL (3 TemporalEncoders: bbox/kp/app + GAFFE)",
+    "parameters": {
+      "total": {
+        "total_params": 43475200,
+        "trainable_params": 43475200
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      }
+    },
+    "optimizer": "AdamW(lr=1e-4, weight_decay=1e-4)",
+    "scheduler": "get_cosine_schedule_with_warmup(warmup=400, total_steps=8000)",
+    "batch_size": 8,
+    "num_samples_per_item": 32,
+    "samples_per_video": 100,
+    "max_length": 50,
+    "precision": 32,
+    "max_epochs": 20,
+    "completed_epochs": 20,
+    "global_step": 8000,
+    "nonfinite_grad_steps": 0,
+    "checkpoint_selection_rule": "last_of_completed_epoch20_only",
+    "epoch2_engineering_checkpoint": {
+      "epoch": 2,
+      "global_step": 800,
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/epoch2_engineering.ckpt",
+      "sha256": "d50f53a79bf47d4f341c04b5a13433506c2a1f38b1ed0e65e306919db9005b0f",
+      "bytes": 525395938,
+      "nonfinite_grad_steps_up_to_e2": 0
+    },
+    "selected_epoch20_checkpoint": {
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/last.ckpt",
+      "copy_path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/epoch20_last.ckpt",
+      "sha256": "fb86a65eab1d72c271c73b27e8155dae5f162545d5c14f0e1b61daad2aed7808",
+      "bytes": 525395874
+    },
+    "best_val_loss_observed_not_selected": {
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/epoch=16-loss=0.1814.ckpt",
+      "best_val_loss": 0.18137127161026
+    }
+  },
+  "environment_artifact_id": "git_runtime_lock_json",
+  "resources": [
+    {
+      "run_id": "a_prep_and_resolve",
+      "phase": "A",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "CPU",
+      "physical_gpu_ids": [],
+      "CUDA_VISIBLE_DEVICES": "",
+      "logical_to_physical": {},
+      "wall_seconds": null,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 0.0,
+      "peak_vram_mib": 0.0,
+      "measurement_method": "CPU only"
+    },
+    {
+      "run_id": "b_p_official_online_check_v2",
+      "phase": "B",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "NVIDIA GeForce RTX 4090 D",
+      "physical_gpu_ids": [
+        1
+      ],
+      "CUDA_VISIBLE_DEVICES": "1",
+      "logical_to_physical": {
+        "cuda:0": "physical_gpu_1"
+      },
+      "wall_seconds": 104.348,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 0.028986,
+      "peak_vram_mib": 1200.48,
+      "measurement_method": "time.perf_counter + torch.cuda.max_memory_allocated(0)"
+    },
+    {
+      "run_id": "c_t_scratch_smoke_v5",
+      "phase": "C",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "NVIDIA GeForce RTX 4090 D",
+      "physical_gpu_ids": [
+        1
+      ],
+      "CUDA_VISIBLE_DEVICES": "1",
+      "logical_to_physical": {
+        "cuda:0": "physical_gpu_1"
+      },
+      "wall_seconds": 132.326,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 0.036757,
+      "peak_vram_mib": 2597.63,
+      "measurement_method": "time.perf_counter + torch.cuda.max_memory_allocated(0)"
+    },
+    {
+      "run_id": "d_t_scratch_seed13_e20_v1",
+      "phase": "D",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "NVIDIA GeForce RTX 4090 D",
+      "physical_gpu_ids": [
+        1
+      ],
+      "CUDA_VISIBLE_DEVICES": "1",
+      "logical_to_physical": {
+        "cuda:0": "physical_gpu_1"
+      },
+      "wall_seconds": 14962.279,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 4.156189,
+      "peak_vram_mib": 2801.79,
+      "measurement_method": "time.perf_counter + torch.cuda.max_memory_allocated(0)"
+    },
+    {
+      "run_id": "e_p_official_dev8_v1",
+      "phase": "E",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "NVIDIA GeForce RTX 4090 D",
+      "physical_gpu_ids": [
+        1
+      ],
+      "CUDA_VISIBLE_DEVICES": "1",
+      "logical_to_physical": {
+        "cuda:0": "physical_gpu_1"
+      },
+      "wall_seconds": 448.321,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 0.124534,
+      "peak_vram_mib": 847.48,
+      "measurement_method": "time.perf_counter + torch.cuda.max_memory_allocated(0)"
+    },
+    {
+      "run_id": "e_t_scratch_dev8_v1",
+      "phase": "E",
+      "machine_alias": "imc-NF5468M6",
+      "gpu_model": "NVIDIA GeForce RTX 4090 D",
+      "physical_gpu_ids": [
+        1
+      ],
+      "CUDA_VISIBLE_DEVICES": "1",
+      "logical_to_physical": {
+        "cuda:0": "physical_gpu_1"
+      },
+      "wall_seconds": 427.565,
+      "cpu_core_hours": null,
+      "gpu_device_hours": 0.118768,
+      "peak_vram_mib": 847.14,
+      "measurement_method": "time.perf_counter + torch.cuda.max_memory_allocated(0)"
+    }
+  ],
+  "total_gpu_device_hours_authoritative": 4.465233,
+  "omissions": [],
+  "limitations": [
+    "motion_train32 and motion_dev8 are reused DanceTrack train splits previously seen in project development, not an unseen test/val confirmation set.",
+    "P_OFFICIAL was trained by upstream authors (README documents DanceTrack train+val two-stage training), so P_OFFICIAL vs T_SCRATCH is descriptive only and not a controlled training comparison.",
+    "Official CAMELTrack DanceTrack precomputed states do not embed detector/ReID/pose checkpoint manifests in summary.json.",
+    "Stage F sampled failure cases (<=16) are bounded descriptive examples and cannot be extrapolated as population failure-type proportions."
+  ],
+  "next_action": "Stop after Stage F handoff; research side inspects T_SCRATCH dev8 metrics and 16 official IDSW failure cases to define one focused follow-up method question."
+}

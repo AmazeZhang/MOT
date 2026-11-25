@@ -2,14 +2,15 @@
 
 更新：2026-11-25。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
-## 当前待执行：S08 CAMELTrack 基线闭环
+## 最新已完成：S08 CAMELTrack 有界基线闭环（`COMPLETED` / `CONTINUE`）
 
-- **任务书：** [S08 具体执行与回传要求](S08_CAMEL_BASELINE_TASK.md)；[版本化协议](../../manifests/protocols/s08_camel_baseline_20261125.yaml)。设计已给出，执行状态 `NOT_RUN`，运行锁待服务器生成；没有新模型结果。
-- **执行顺序：** A来源/环境/划分锁 → B官方预训练推理与在线验收 → C随机训练/恢复smoke → D seed13从头20epoch单阶段训练 → E两条件dev8完整闭环 → F有界失败摘要。用户交给服务器执行后，门通过且预算内自动继续；F或阻断/预算上限处停止回传。
-- **数据与范围：** 已有 motion_train32 / motion_dev8，均为历史使用的官方train；不要混用S06的evaluation8。官方三cue；P预训练参考、T随机初始化；P可能训练过dev8，不做同训练数据受控优劣结论。不是论文两阶段复现或创新验证。
-- **预算：** 空闲物理GPU1–7中的单张4090，GPU0禁用；总≤24GPU卡时、≤72小时墙钟、主动工程≤2工作日；具体分阶段上限、修复和存储限制见任务书。
-- **回传：** `reports/baselines/s08_camel_baseline_20261125/` 的标准报告包，加来源/实际split/解析配置/命令/运行锁及失败事件摘要。当前该目录尚未产生，不是已有结果链接。
-- **精确下一步：** 服务器从A开始落实并冻结运行锁；不要仅回复环境安装成功或只给服务器文件路径。研究端收到包后核查可用性与自然失败，再确定一个方法问题。
+- **任务与协议：** [S08 任务书](S08_CAMEL_BASELINE_TASK.md)；[版本化协议](../../manifests/protocols/s08_camel_baseline_20261125.yaml)。执行状态：`COMPLETED`（A–F 全部完成，权威报告：[S08 报告](../../reports/baselines/s08_camel_baseline_20261125/README.md)）。
+- **主要结论与指标（`motion_dev8`，7,565 帧）：**
+  - **平台验收：** 阶段 A–C 全部通过（无 GT / 截断未来 1–200 前缀 / 重跑均一致；step 50 新进程断点恢复后参数/优化器/scheduler/step/RNG 精确一致；`T_SCRATCH` 43.48M 参数在物理 GPU 1 上 20 epochs / 8,000 步无 NaN 收敛，峰值显存 2,801.8 MiB，全流程总耗时 4.465 GPU 卡时，GPU 0 禁用且未使用）。
+  - **TrackEval `COMBINED_SEQ`：** `T_SCRATCH`（seed 13，train32 单阶段 20 epoch `last.ckpt`）取得 HOTA `53.981`、DetA `81.018`、AssA `36.096`、IDF1 `56.695`、MOTA `90.621`、IDSW `1451`、FP `1721`、FN `4434`、Frag `1428`；`P_OFFICIAL` 平台参考为 HOTA `66.993`、DetA `82.524`、AssA `54.516`、IDF1 `71.763`、MOTA `91.591`、IDSW `638`。
+  - **自然失败（F 阶段）：** `T_SCRATCH` 在 `dev8` 共产生 `1,451` 个官方 TrackEval IDSW 事件（每视频按固定 SHA256 抽样最多 2 例、共 16 例，见 `failure_inventory.csv` / `cases.jsonl` / `diagnostics.json`）。全部 1,451 事件中，76.71%（1,113/1,451）存在 IoU≥0.3 的同帧竞争 GT 框，40.73%（591/1,451）发生于匹配中断 >1 帧之后，两者重叠 33.91%（492/1,451）。
+- **限制与范围：** `motion_train32` 与 `motion_dev8` 均为项目历史复用划分，非新留出确认集；`P_OFFICIAL` 为官方两阶段/train+val 权重，与 `T_SCRATCH` 仅作平台参考对比；未启动两阶段训练、新增模块、阈值网格或 S06 续跑。
+- **精确下一步（停在 F 交接研究端）：** 本轮已于阶段 F 结束并停止自动推进。请研究端审阅 [S08 报告](../../reports/baselines/s08_camel_baseline_20261125/README.md) 与 `failure_inventory.csv` / `cases.jsonl`，据此确定下一轮唯一的方法改进问题与任务书；未经明确授权不执行 `git commit` / `git push`。
 
 ## 长期协作规则
 

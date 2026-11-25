@@ -1,0 +1,1116 @@
+{
+  "schema_version": "s08-split-audit-v1",
+  "generated_at": "2026-11-25T10:36:26.857448+08:00",
+  "protocol_path": "manifests/protocols/s08_camel_baseline_20261125.yaml",
+  "protocol_sha256": "dbbe9a777cab2f7b47d330117ba5040e4863da912e5090d76d4768a6e21b77f9",
+  "split_manifest_path": "manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "disjoint_check": "PASS",
+  "total_sequences": 40,
+  "total_frames": 41796,
+  "train32": {
+    "sequence_count": 32,
+    "sequence_names_sha256": "1ef076afcd1c5f7eb43ea927a3d0c748f3b20f496b97a462dec7394a084e87d2",
+    "sequences": [
+      "dancetrack0001",
+      "dancetrack0002",
+      "dancetrack0006",
+      "dancetrack0008",
+      "dancetrack0015",
+      "dancetrack0016",
+      "dancetrack0023",
+      "dancetrack0027",
+      "dancetrack0029",
+      "dancetrack0032",
+      "dancetrack0039",
+      "dancetrack0045",
+      "dancetrack0049",
+      "dancetrack0051",
+      "dancetrack0052",
+      "dancetrack0055",
+      "dancetrack0057",
+      "dancetrack0061",
+      "dancetrack0062",
+      "dancetrack0066",
+      "dancetrack0068",
+      "dancetrack0069",
+      "dancetrack0072",
+      "dancetrack0074",
+      "dancetrack0075",
+      "dancetrack0080",
+      "dancetrack0082",
+      "dancetrack0083",
+      "dancetrack0087",
+      "dancetrack0096",
+      "dancetrack0098",
+      "dancetrack0099"
+    ],
+    "video_ids": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      7,
+      9,
+      11,
+      12,
+      13,
+      16,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      37,
+      38,
+      39,
+      40
+    ],
+    "total_frames": 34231,
+    "total_detections": 273443
+  },
+  "dev8": {
+    "sequence_count": 8,
+    "sequence_names_sha256": "43356c5f5571a9dee2bfb66a1cc860df98c50574bce2af0e2edc1bebdc39e429",
+    "sequences": [
+      "dancetrack0012",
+      "dancetrack0020",
+      "dancetrack0024",
+      "dancetrack0033",
+      "dancetrack0037",
+      "dancetrack0044",
+      "dancetrack0053",
+      "dancetrack0086"
+    ],
+    "video_ids": [
+      5,
+      8,
+      10,
+      14,
+      15,
+      17,
+      22,
+      36
+    ],
+    "total_frames": 7565,
+    "total_detections": 87134
+  },
+  "isolated_state_files": {
+    "train32_with_gt": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_train32.pklz",
+      "bytes": 571004601,
+      "sha256": "dc7de2cd48da21cc56005159c004123fc0573260fbf69d0b3fa9d572ac8a0f2a",
+      "strip_gt": false,
+      "frame_limit": null,
+      "video_count": 32,
+      "total_frames": 34231,
+      "total_detections": 273443,
+      "per_video": {
+        "1": {
+          "frames": 703,
+          "detections": 4929,
+          "zero_det_frames": 0
+        },
+        "2": {
+          "frames": 1203,
+          "detections": 9389,
+          "zero_det_frames": 0
+        },
+        "3": {
+          "frames": 1202,
+          "detections": 10575,
+          "zero_det_frames": 0
+        },
+        "4": {
+          "frames": 883,
+          "detections": 6782,
+          "zero_det_frames": 0
+        },
+        "6": {
+          "frames": 1203,
+          "detections": 10858,
+          "zero_det_frames": 0
+        },
+        "7": {
+          "frames": 2163,
+          "detections": 12863,
+          "zero_det_frames": 0
+        },
+        "9": {
+          "frames": 1483,
+          "detections": 13424,
+          "zero_det_frames": 0
+        },
+        "11": {
+          "frames": 403,
+          "detections": 3503,
+          "zero_det_frames": 0
+        },
+        "12": {
+          "frames": 1263,
+          "detections": 7902,
+          "zero_det_frames": 0
+        },
+        "13": {
+          "frames": 604,
+          "detections": 3324,
+          "zero_det_frames": 0
+        },
+        "16": {
+          "frames": 1242,
+          "detections": 6152,
+          "zero_det_frames": 0
+        },
+        "18": {
+          "frames": 1203,
+          "detections": 16467,
+          "zero_det_frames": 0
+        },
+        "19": {
+          "frames": 1203,
+          "detections": 9501,
+          "zero_det_frames": 0
+        },
+        "20": {
+          "frames": 1203,
+          "detections": 10716,
+          "zero_det_frames": 0
+        },
+        "21": {
+          "frames": 1203,
+          "detections": 4428,
+          "zero_det_frames": 0
+        },
+        "23": {
+          "frames": 1203,
+          "detections": 6045,
+          "zero_det_frames": 0
+        },
+        "24": {
+          "frames": 622,
+          "detections": 3060,
+          "zero_det_frames": 0
+        },
+        "25": {
+          "frames": 1203,
+          "detections": 6039,
+          "zero_det_frames": 0
+        },
+        "26": {
+          "frames": 1203,
+          "detections": 6346,
+          "zero_det_frames": 0
+        },
+        "27": {
+          "frames": 1202,
+          "detections": 6070,
+          "zero_det_frames": 0
+        },
+        "28": {
+          "frames": 1203,
+          "detections": 6109,
+          "zero_det_frames": 0
+        },
+        "29": {
+          "frames": 1403,
+          "detections": 8331,
+          "zero_det_frames": 0
+        },
+        "30": {
+          "frames": 1203,
+          "detections": 6206,
+          "zero_det_frames": 0
+        },
+        "31": {
+          "frames": 1203,
+          "detections": 5526,
+          "zero_det_frames": 0
+        },
+        "32": {
+          "frames": 803,
+          "detections": 5756,
+          "zero_det_frames": 0
+        },
+        "33": {
+          "frames": 1201,
+          "detections": 12198,
+          "zero_det_frames": 0
+        },
+        "34": {
+          "frames": 603,
+          "detections": 12599,
+          "zero_det_frames": 0
+        },
+        "35": {
+          "frames": 603,
+          "detections": 15273,
+          "zero_det_frames": 0
+        },
+        "37": {
+          "frames": 1003,
+          "detections": 11482,
+          "zero_det_frames": 0
+        },
+        "38": {
+          "frames": 603,
+          "detections": 16064,
+          "zero_det_frames": 0
+        },
+        "39": {
+          "frames": 1203,
+          "detections": 8899,
+          "zero_det_frames": 0
+        },
+        "40": {
+          "frames": 603,
+          "detections": 6627,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "dev8_train_ref": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_train_ref.pklz",
+      "bytes": 186129629,
+      "sha256": "ba6e88b5da10c5e9f9db43f580289f8344cd1750270cf255dea4998df213cacd",
+      "strip_gt": false,
+      "frame_limit": null,
+      "video_count": 8,
+      "total_frames": 7565,
+      "total_detections": 87134,
+      "per_video": {
+        "5": {
+          "frames": 1203,
+          "detections": 13620,
+          "zero_det_frames": 0
+        },
+        "8": {
+          "frames": 583,
+          "detections": 23598,
+          "zero_det_frames": 0
+        },
+        "10": {
+          "frames": 763,
+          "detections": 4562,
+          "zero_det_frames": 0
+        },
+        "14": {
+          "frames": 803,
+          "detections": 6385,
+          "zero_det_frames": 0
+        },
+        "15": {
+          "frames": 1203,
+          "detections": 8261,
+          "zero_det_frames": 0
+        },
+        "17": {
+          "frames": 1203,
+          "detections": 14689,
+          "zero_det_frames": 0
+        },
+        "22": {
+          "frames": 1204,
+          "detections": 6141,
+          "zero_det_frames": 0
+        },
+        "36": {
+          "frames": 603,
+          "detections": 9878,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "bytes": 184579566,
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "strip_gt": true,
+      "frame_limit": null,
+      "video_count": 8,
+      "total_frames": 7565,
+      "total_detections": 87134,
+      "per_video": {
+        "5": {
+          "frames": 1203,
+          "detections": 13620,
+          "zero_det_frames": 0
+        },
+        "8": {
+          "frames": 583,
+          "detections": 23598,
+          "zero_det_frames": 0
+        },
+        "10": {
+          "frames": 763,
+          "detections": 4562,
+          "zero_det_frames": 0
+        },
+        "14": {
+          "frames": 803,
+          "detections": 6385,
+          "zero_det_frames": 0
+        },
+        "15": {
+          "frames": 1203,
+          "detections": 8261,
+          "zero_det_frames": 0
+        },
+        "17": {
+          "frames": 1203,
+          "detections": 14689,
+          "zero_det_frames": 0
+        },
+        "22": {
+          "frames": 1204,
+          "detections": 6141,
+          "zero_det_frames": 0
+        },
+        "36": {
+          "frames": 603,
+          "detections": 9878,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "stage_b_0027_f1_400_with_gt": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_b_0027_f1_400_with_gt.pklz",
+      "bytes": 7324299,
+      "sha256": "834a9d22d3ee8a094247faa4961f7965cbccb62ccb4593cda4c75ddf1e73cf09",
+      "strip_gt": false,
+      "frame_limit": 400,
+      "video_count": 1,
+      "total_frames": 400,
+      "total_detections": 3463,
+      "per_video": {
+        "11": {
+          "frames": 400,
+          "detections": 3463,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "stage_b_0027_f1_400_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_b_0027_f1_400_gt_free.pklz",
+      "bytes": 7258681,
+      "sha256": "08dc09d9521a0cbe2f544619670fefe6c2612dab6b57a36ebb41d89f4633c7de",
+      "strip_gt": true,
+      "frame_limit": 400,
+      "video_count": 1,
+      "total_frames": 400,
+      "total_detections": 3463,
+      "per_video": {
+        "11": {
+          "frames": 400,
+          "detections": 3463,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "stage_b_0027_f1_200_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_b_0027_f1_200_gt_free.pklz",
+      "bytes": 3459685,
+      "sha256": "28500a97eb3a6d301b719ffa1df5d52446d5a8d6340c9f48690e14f842794aa3",
+      "strip_gt": true,
+      "frame_limit": 200,
+      "video_count": 1,
+      "total_frames": 200,
+      "total_detections": 1666,
+      "per_video": {
+        "11": {
+          "frames": 200,
+          "detections": 1666,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "stage_c_train_0027_f1_400": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_c_train_0027_f1_400.pklz",
+      "bytes": 7324299,
+      "sha256": "fe4b6db0aa1e21d4ce6f3d15d3406141bf9a63d4ac83da99895dac06c5a27381",
+      "strip_gt": false,
+      "frame_limit": 400,
+      "video_count": 1,
+      "total_frames": 400,
+      "total_detections": 3463,
+      "per_video": {
+        "11": {
+          "frames": 400,
+          "detections": 3463,
+          "zero_det_frames": 0
+        }
+      }
+    },
+    "stage_c_dev_0012_f1_200": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_c_dev_0012_f1_200.pklz",
+      "bytes": 4793530,
+      "sha256": "5225b211510b6396af0e63fed60994edd634303882752605e9003a2075ba1d79",
+      "strip_gt": false,
+      "frame_limit": 200,
+      "video_count": 1,
+      "total_frames": 200,
+      "total_detections": 2257,
+      "per_video": {
+        "5": {
+          "frames": 200,
+          "detections": 2257,
+          "zero_det_frames": 0
+        }
+      }
+    }
+  },
+  "sequence_inventory": [
+    {
+      "sequence": "dancetrack0001",
+      "video_id": 1,
+      "split_role": "train32",
+      "nframes": 703,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 0,
+      "image_id_end_inclusive": 702,
+      "num_detections": 4929,
+      "frames_with_detections": 703,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0002",
+      "video_id": 2,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 703,
+      "image_id_end_inclusive": 1905,
+      "num_detections": 9389,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0006",
+      "video_id": 3,
+      "split_role": "train32",
+      "nframes": 1202,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 1906,
+      "image_id_end_inclusive": 3107,
+      "num_detections": 10575,
+      "frames_with_detections": 1202,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0008",
+      "video_id": 4,
+      "split_role": "train32",
+      "nframes": 883,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 3108,
+      "image_id_end_inclusive": 3990,
+      "num_detections": 6782,
+      "frames_with_detections": 883,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0012",
+      "video_id": 5,
+      "split_role": "dev8",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 3991,
+      "image_id_end_inclusive": 5193,
+      "num_detections": 13620,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0015",
+      "video_id": 6,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 5194,
+      "image_id_end_inclusive": 6396,
+      "num_detections": 10858,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0016",
+      "video_id": 7,
+      "split_role": "train32",
+      "nframes": 2163,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 6397,
+      "image_id_end_inclusive": 8559,
+      "num_detections": 12863,
+      "frames_with_detections": 2163,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0020",
+      "video_id": 8,
+      "split_role": "dev8",
+      "nframes": 583,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 8560,
+      "image_id_end_inclusive": 9142,
+      "num_detections": 23598,
+      "frames_with_detections": 583,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0023",
+      "video_id": 9,
+      "split_role": "train32",
+      "nframes": 1483,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 9143,
+      "image_id_end_inclusive": 10625,
+      "num_detections": 13424,
+      "frames_with_detections": 1483,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0024",
+      "video_id": 10,
+      "split_role": "dev8",
+      "nframes": 763,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 10626,
+      "image_id_end_inclusive": 11388,
+      "num_detections": 4562,
+      "frames_with_detections": 763,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0027",
+      "video_id": 11,
+      "split_role": "train32",
+      "nframes": 403,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 11389,
+      "image_id_end_inclusive": 11791,
+      "num_detections": 3503,
+      "frames_with_detections": 403,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0029",
+      "video_id": 12,
+      "split_role": "train32",
+      "nframes": 1263,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 11792,
+      "image_id_end_inclusive": 13054,
+      "num_detections": 7902,
+      "frames_with_detections": 1263,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.06,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0032",
+      "video_id": 13,
+      "split_role": "train32",
+      "nframes": 604,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 13055,
+      "image_id_end_inclusive": 13658,
+      "num_detections": 3324,
+      "frames_with_detections": 604,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0033",
+      "video_id": 14,
+      "split_role": "dev8",
+      "nframes": 803,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 13659,
+      "image_id_end_inclusive": 14461,
+      "num_detections": 6385,
+      "frames_with_detections": 803,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0037",
+      "video_id": 15,
+      "split_role": "dev8",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 14462,
+      "image_id_end_inclusive": 15664,
+      "num_detections": 8261,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0039",
+      "video_id": 16,
+      "split_role": "train32",
+      "nframes": 1242,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 15665,
+      "image_id_end_inclusive": 16906,
+      "num_detections": 6152,
+      "frames_with_detections": 1242,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0044",
+      "video_id": 17,
+      "split_role": "dev8",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 16907,
+      "image_id_end_inclusive": 18109,
+      "num_detections": 14689,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0045",
+      "video_id": 18,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 18110,
+      "image_id_end_inclusive": 19312,
+      "num_detections": 16467,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0049",
+      "video_id": 19,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 19313,
+      "image_id_end_inclusive": 20515,
+      "num_detections": 9501,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0051",
+      "video_id": 20,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 20516,
+      "image_id_end_inclusive": 21718,
+      "num_detections": 10716,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0052",
+      "video_id": 21,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 21719,
+      "image_id_end_inclusive": 22921,
+      "num_detections": 4428,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0053",
+      "video_id": 22,
+      "split_role": "dev8",
+      "nframes": 1204,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 22922,
+      "image_id_end_inclusive": 24125,
+      "num_detections": 6141,
+      "frames_with_detections": 1204,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0055",
+      "video_id": 23,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 24126,
+      "image_id_end_inclusive": 25328,
+      "num_detections": 6045,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0057",
+      "video_id": 24,
+      "split_role": "train32",
+      "nframes": 622,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 25329,
+      "image_id_end_inclusive": 25950,
+      "num_detections": 3060,
+      "frames_with_detections": 622,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0061",
+      "video_id": 25,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 25951,
+      "image_id_end_inclusive": 27153,
+      "num_detections": 6039,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0062",
+      "video_id": 26,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 27154,
+      "image_id_end_inclusive": 28356,
+      "num_detections": 6346,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0066",
+      "video_id": 27,
+      "split_role": "train32",
+      "nframes": 1202,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 28357,
+      "image_id_end_inclusive": 29558,
+      "num_detections": 6070,
+      "frames_with_detections": 1202,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0068",
+      "video_id": 28,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 29559,
+      "image_id_end_inclusive": 30761,
+      "num_detections": 6109,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0069",
+      "video_id": 29,
+      "split_role": "train32",
+      "nframes": 1403,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 30762,
+      "image_id_end_inclusive": 32164,
+      "num_detections": 8331,
+      "frames_with_detections": 1403,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0072",
+      "video_id": 30,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 32165,
+      "image_id_end_inclusive": 33367,
+      "num_detections": 6206,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0074",
+      "video_id": 31,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 33368,
+      "image_id_end_inclusive": 34570,
+      "num_detections": 5526,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0075",
+      "video_id": 32,
+      "split_role": "train32",
+      "nframes": 803,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 34571,
+      "image_id_end_inclusive": 35373,
+      "num_detections": 5756,
+      "frames_with_detections": 803,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0080",
+      "video_id": 33,
+      "split_role": "train32",
+      "nframes": 1201,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 35374,
+      "image_id_end_inclusive": 36574,
+      "num_detections": 12198,
+      "frames_with_detections": 1201,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0082",
+      "video_id": 34,
+      "split_role": "train32",
+      "nframes": 603,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 36575,
+      "image_id_end_inclusive": 37177,
+      "num_detections": 12599,
+      "frames_with_detections": 603,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0083",
+      "video_id": 35,
+      "split_role": "train32",
+      "nframes": 603,
+      "im_width": 1920,
+      "im_height": 988,
+      "frame_rate": 20,
+      "image_id_start": 37178,
+      "image_id_end_inclusive": 37780,
+      "num_detections": 15273,
+      "frames_with_detections": 603,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0086",
+      "video_id": 36,
+      "split_role": "dev8",
+      "nframes": 603,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 37781,
+      "image_id_end_inclusive": 38383,
+      "num_detections": 9878,
+      "frames_with_detections": 603,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0087",
+      "video_id": 37,
+      "split_role": "train32",
+      "nframes": 1003,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 38384,
+      "image_id_end_inclusive": 39386,
+      "num_detections": 11482,
+      "frames_with_detections": 1003,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.98
+    },
+    {
+      "sequence": "dancetrack0096",
+      "video_id": 38,
+      "split_role": "train32",
+      "nframes": 603,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 39387,
+      "image_id_end_inclusive": 39989,
+      "num_detections": 16064,
+      "frames_with_detections": 603,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0098",
+      "video_id": 39,
+      "split_role": "train32",
+      "nframes": 1203,
+      "im_width": 1280,
+      "im_height": 720,
+      "frame_rate": 20,
+      "image_id_start": 39990,
+      "image_id_end_inclusive": 41192,
+      "num_detections": 8899,
+      "frames_with_detections": 1203,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    },
+    {
+      "sequence": "dancetrack0099",
+      "video_id": 40,
+      "split_role": "train32",
+      "nframes": 603,
+      "im_width": 1920,
+      "im_height": 1080,
+      "frame_rate": 20,
+      "image_id_start": 41193,
+      "image_id_end_inclusive": 41795,
+      "num_detections": 6627,
+      "frames_with_detections": 603,
+      "zero_detection_frames": 0,
+      "bbox_conf_min": 0.05,
+      "bbox_conf_max": 0.99
+    }
+  ]
+}

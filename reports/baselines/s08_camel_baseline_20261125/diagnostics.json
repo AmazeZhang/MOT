@@ -1,0 +1,134 @@
+{
+  "schema_version": "mot-report-v1",
+  "experiment_id": "s08_camel_baseline_20261125",
+  "generated_at": "2026-11-25T15:36:24.232033+08:00",
+  "condition": "T_SCRATCH",
+  "run_id": "e_t_scratch_dev8_v1",
+  "scope_id": "dev8",
+  "sampling_rule": {
+    "rule": "ascending_SHA256_of_13_colon_sequence_colon_frame_colon_gt_id",
+    "max_per_video": 2,
+    "max_total": 16,
+    "total_official_idsw_candidates": 1451,
+    "total_sampled_cases": 16,
+    "note": "Sampled subset (<=16) is illustrative only; do not extrapolate population rates from sampled cases."
+  },
+  "statistics": [
+    {
+      "name": "total_official_idsw_events",
+      "definition": "Total official TrackEval CLEAR IDSW events for T_SCRATCH on dev8",
+      "value": 1451,
+      "unit": "count",
+      "numerator": 1451,
+      "denominator": null,
+      "scope": "dev8",
+      "gt_role": "offline_official_TrackEval",
+      "source": "e_t_scratch_dev8_v1/eval/results/tracklab/pedestrian_detailed.csv:COMBINED:IDSW"
+    },
+    {
+      "name": "idsw_after_match_gap_gt_1_frame",
+      "definition": "Official IDSW events where frame - prev_matched_frame > 1",
+      "value": 0.4073053066850448,
+      "unit": "fraction_of_all_idsw",
+      "numerator": 591,
+      "denominator": 1451,
+      "scope": "dev8",
+      "gt_role": "offline_official_TrackEval",
+      "source": "replayed_TrackEval_CLEAR_matching"
+    },
+    {
+      "name": "idsw_with_qualifying_detection_iou_ge_0_5",
+      "definition": "Official IDSW events with a frame-local detection (conf>=0.4) having IoU>=0.5 with target GT (descriptive only, not valid tracker edge proof)",
+      "value": 1.0,
+      "unit": "fraction_of_all_idsw",
+      "numerator": 1451,
+      "denominator": 1451,
+      "scope": "dev8",
+      "gt_role": "offline_diagnosis_only",
+      "source": "states_dev8_gt_free.pklz + gt.txt"
+    },
+    {
+      "name": "idsw_with_competing_gt_iou_ge_0_3",
+      "definition": "Official IDSW events with another pedestrian GT box on the same frame having IoU>=0.3 with target GT (descriptive non-exclusive crowding flag)",
+      "value": 0.7670572019297036,
+      "unit": "fraction_of_all_idsw",
+      "numerator": 1113,
+      "denominator": 1451,
+      "scope": "dev8",
+      "gt_role": "offline_diagnosis_only",
+      "source": "gt.txt"
+    },
+    {
+      "name": "idsw_overlap_gap_gt_1_and_competing_gt",
+      "definition": "Official IDSW events with both gap>1 and competing GT IoU>=0.3",
+      "value": 0.3390764989662302,
+      "unit": "fraction_of_all_idsw",
+      "numerator": 492,
+      "denominator": 1451,
+      "scope": "dev8",
+      "gt_role": "offline_diagnosis_only",
+      "source": "replayed_TrackEval_CLEAR_matching + gt.txt"
+    },
+    {
+      "name": "idsw_neither_gap_gt_1_nor_competing_gt",
+      "definition": "Official IDSW events with gap==1 and no competing GT IoU>=0.3",
+      "value": 0.16471399035148174,
+      "unit": "fraction_of_all_idsw",
+      "numerator": 239,
+      "denominator": 1451,
+      "scope": "dev8",
+      "gt_role": "offline_diagnosis_only",
+      "source": "replayed_TrackEval_CLEAR_matching + gt.txt"
+    }
+  ],
+  "per_sequence_idsw_counts": {
+    "dancetrack0012": {
+      "official_idsw": 185,
+      "extracted_idsw": 185,
+      "sampled_count": 2,
+      "nframes": 1203
+    },
+    "dancetrack0020": {
+      "official_idsw": 411,
+      "extracted_idsw": 411,
+      "sampled_count": 2,
+      "nframes": 583
+    },
+    "dancetrack0024": {
+      "official_idsw": 10,
+      "extracted_idsw": 10,
+      "sampled_count": 2,
+      "nframes": 763
+    },
+    "dancetrack0033": {
+      "official_idsw": 128,
+      "extracted_idsw": 128,
+      "sampled_count": 2,
+      "nframes": 803
+    },
+    "dancetrack0037": {
+      "official_idsw": 45,
+      "extracted_idsw": 45,
+      "sampled_count": 2,
+      "nframes": 1203
+    },
+    "dancetrack0044": {
+      "official_idsw": 563,
+      "extracted_idsw": 563,
+      "sampled_count": 2,
+      "nframes": 1203
+    },
+    "dancetrack0053": {
+      "official_idsw": 14,
+      "extracted_idsw": 14,
+      "sampled_count": 2,
+      "nframes": 1204
+    },
+    "dancetrack0086": {
+      "official_idsw": 95,
+      "extracted_idsw": 95,
+      "sampled_count": 2,
+      "nframes": 603
+    }
+  }
+}

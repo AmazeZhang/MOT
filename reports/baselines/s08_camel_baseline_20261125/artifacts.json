@@ -1,0 +1,331 @@
+{
+  "schema_version": "mot-report-v1",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-25T15:38:49.646788+08:00",
+  "git_paths_relative_to": "report_directory",
+  "server_root": "/media/imc/data/mot-data",
+  "self_hash_excluded": true,
+  "files": [
+    {
+      "artifact_id": "git_README_md",
+      "location": "git",
+      "path": "README.md",
+      "bytes": 5187,
+      "sha256": "c7b81e2025f182774bbfc14c0f0a705a7d9152dcf281cb221f1a12d58f5f4e8d",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_aggregate_metrics_csv",
+      "location": "git",
+      "path": "aggregate_metrics.csv",
+      "bytes": 678,
+      "sha256": "864a1a8e4ecd8acd0fd747567988c6d9a31ae2c79d533cd03c5b3cf2e522dab7",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_cases_jsonl",
+      "location": "git",
+      "path": "cases.jsonl",
+      "bytes": 17317,
+      "sha256": "ef30e5427c3750d2209e1e3b008b3acaf2473a85f05a7b78ccb348693b34e6c6",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_checks_json",
+      "location": "git",
+      "path": "checks.json",
+      "bytes": 5086,
+      "sha256": "5f8557752daf846a6c3c2fa68f137f6347c2001edaffb3062070fe95e2323451",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_commands_sh",
+      "location": "git",
+      "path": "commands.sh",
+      "bytes": 1673,
+      "sha256": "7f40bc86e5b3ea924f1c70c379978bb23021d6e0312e3a545328f3f47a5012f8",
+      "role": "resolved_commands"
+    },
+    {
+      "artifact_id": "git_diagnostics_json",
+      "location": "git",
+      "path": "diagnostics.json",
+      "bytes": 4221,
+      "sha256": "82f4ad72520650a08b61b1f280fe0633609623f33378daa8b093c3e5675c50fa",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0012_f1184_gt6_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0012_f1184_gt6.json",
+      "bytes": 20428,
+      "sha256": "8d681aaeb83069b7020da24804f13c1c91948b00aff9ee93c73446920d06680a",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0012_f501_gt10_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0012_f501_gt10.json",
+      "bytes": 18197,
+      "sha256": "5050687e8c718a5327f25be379e8205337d42b122730c60fbb0ae837c552b0dd",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0020_f358_gt32_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0020_f358_gt32.json",
+      "bytes": 56901,
+      "sha256": "2d277e2b2ec6ea5a4541f46c343997e8305876f9c179cd1775dba2aa2c6c2499",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0020_f433_gt32_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0020_f433_gt32.json",
+      "bytes": 53714,
+      "sha256": "772e9bc9778fefc4b41942e1da50127dd0e49c90f48447c6af98f8430f8612b3",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0024_f576_gt1_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0024_f576_gt1.json",
+      "bytes": 10764,
+      "sha256": "43665cf430e953baa22cda2c6310c526b72eb8e3cb7d30c46a150b5d43207a63",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0024_f61_gt4_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0024_f61_gt4.json",
+      "bytes": 10419,
+      "sha256": "64d91d6a535b56c83218db91d1ce9c0cbe0bd99380f4245e4d1eb50833c4026f",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0033_f72_gt0_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0033_f72_gt0.json",
+      "bytes": 13954,
+      "sha256": "c30aa360c1f5f46adfe41b9dcf98e171c9a29e008089ad3e37a89619234dd474",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0033_f801_gt1_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0033_f801_gt1.json",
+      "bytes": 13835,
+      "sha256": "8ccd12c83dd008aa2b9a21b64b299ab966a803af41755bd2f824525f0550075b",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0037_f145_gt0_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0037_f145_gt0.json",
+      "bytes": 12133,
+      "sha256": "26bdb52c8a9bd8dd7add1cde26d783f662e743f8c1156e6b4eb0aecaa836c506",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0037_f904_gt3_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0037_f904_gt3.json",
+      "bytes": 12281,
+      "sha256": "6a7f35bd6ef1c231d4d85c1203e89a843215c830768a4ce61334705ea06f7805",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0044_f1191_gt8_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0044_f1191_gt8.json",
+      "bytes": 14382,
+      "sha256": "1383d7fc6d306363d80f6bdd6ce6d9800da0d6865c2be7465ae32298d8f5a169",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0044_f742_gt1_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0044_f742_gt1.json",
+      "bytes": 17733,
+      "sha256": "ec3467fcaca9b158e2fe4cd68e1b49430106292890f07624212668ecc3262723",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0053_f1078_gt4_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0053_f1078_gt4.json",
+      "bytes": 7726,
+      "sha256": "fbb3ee83e5954ae989285e04aafca768560d22a52335bbbb79ebd5a386ae3264",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0053_f1105_gt3_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0053_f1105_gt3.json",
+      "bytes": 8333,
+      "sha256": "75530123022187afe97c26396ed129297c51ca60ffaf2a2c9595d923c9bc8bab",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0086_f474_gt7_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0086_f474_gt7.json",
+      "bytes": 26785,
+      "sha256": "da1ab691ad4f91866c44620527529607dfaa1848a2474e72fd72f991935da56a",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_evidence_s08_idsw_dancetrack0086_f556_gt8_json",
+      "location": "git",
+      "path": "evidence/s08_idsw_dancetrack0086_f556_gt8.json",
+      "bytes": 27433,
+      "sha256": "f611cf657dfe66278143d51557e62cc0f27dc5e58e135adc470c193fc5c80da2",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_failure_inventory_csv",
+      "location": "git",
+      "path": "failure_inventory.csv",
+      "bytes": 6117,
+      "sha256": "a5018909cd90b94aaf3bca507379c3a58dfd88a93c1424cefca6a33d537ef76b",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_learning_curves_csv",
+      "location": "git",
+      "path": "learning_curves.csv",
+      "bytes": 11886,
+      "sha256": "47a535fe515c979802afa54f3d4eaa0c5a5d1a696ee673d31e530d6f79c022a7",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_per_sequence_metrics_csv",
+      "location": "git",
+      "path": "per_sequence_metrics.csv",
+      "bytes": 4433,
+      "sha256": "d29d3b1ed0b722b12384d409848a804939f7800b535548a578a5a41d41fce86a",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_resolved_configs_stage_b_p_official_infer_yaml",
+      "location": "git",
+      "path": "resolved_configs/stage_b_p_official_infer.yaml",
+      "bytes": 10916,
+      "sha256": "24d09f7eda695b47a0264191aee88e4aaca94ab2e34137431a573e5222643647",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_resolved_configs_stage_c_t_scratch_smoke_yaml",
+      "location": "git",
+      "path": "resolved_configs/stage_c_t_scratch_smoke.yaml",
+      "bytes": 10455,
+      "sha256": "230a3107a68c0fceb0e4042794f47941da5697335ef4e76cef90fdba627f00e0",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_resolved_configs_stage_d_t_scratch_train_yaml",
+      "location": "git",
+      "path": "resolved_configs/stage_d_t_scratch_train.yaml",
+      "bytes": 11242,
+      "sha256": "83ead5289f929c730cfcee5811625d386688d4a14c38ea84e7b8b0dcc77d03ef",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_resolved_cfg_e_p_official",
+      "location": "git",
+      "path": "resolved_configs/stage_e_p_official_dev8.yaml",
+      "bytes": 11052,
+      "sha256": "a860d80fdd6e63514ff9cf9c3729bf51f450d7ceb9d3e98a854c81a1200835d5",
+      "role": "resolved_config"
+    },
+    {
+      "artifact_id": "git_resolved_cfg_e_t_scratch",
+      "location": "git",
+      "path": "resolved_configs/stage_e_t_scratch_dev8.yaml",
+      "bytes": 11075,
+      "sha256": "b12b534bf32f88b9ea58c44904131d8f0d67280c448d09081af8fe402f7f5fde",
+      "role": "resolved_config"
+    },
+    {
+      "artifact_id": "git_run_manifest_json",
+      "location": "git",
+      "path": "run_manifest.json",
+      "bytes": 21357,
+      "sha256": "d77ffba43224c55f224aa9a703773de9c45b3c1c86d64e9eca66570ccac57d63",
+      "role": "report_bundle_evidence"
+    },
+    {
+      "artifact_id": "git_runtime_lock_json",
+      "location": "git",
+      "path": "runtime_lock.json",
+      "bytes": 8193,
+      "sha256": "5372c264b4fd48797b4a7de236ed1956016d04a28834d81903491fd319d7891c",
+      "role": "runtime_lock"
+    },
+    {
+      "artifact_id": "git_source_audit_json",
+      "location": "git",
+      "path": "source_audit.json",
+      "bytes": 3178,
+      "sha256": "9003c265ef7e49545def693527800cf1150af178ece932be95e813823f7d49c6",
+      "role": "source_audit"
+    },
+    {
+      "artifact_id": "git_split_audit_json",
+      "location": "git",
+      "path": "split_audit.json",
+      "bytes": 28694,
+      "sha256": "7aaf13f0bba3a5e532fdafd21cc51cc316304a45605c869a84883aae023a6b9e",
+      "role": "split_audit"
+    },
+    {
+      "artifact_id": "server_p_official_ckpt",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/weights/camel/camel_bbox_app_kps_dancetrack.ckpt",
+      "bytes": 525750074,
+      "sha256": "cecce022fb51aa58e149ebb3f3cd408c6e4086266d7b126576f99bdc1b3f9075",
+      "role": "pretrained_checkpoint"
+    },
+    {
+      "artifact_id": "server_raw_dancetrack_train_pklz",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/downloads/cameltrack/dancetrack-train.pklz",
+      "bytes": 1299071021,
+      "sha256": "3c6f7ba85c2a5dff6441310a2b6eb2c50b2fdb0abfa295afd74704f6d2ca3ed1",
+      "role": "upstream_precomputed_states"
+    },
+    {
+      "artifact_id": "server_t_scratch_epoch2_ckpt",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/epoch2_engineering.ckpt",
+      "bytes": 525395938,
+      "sha256": "d50f53a79bf47d4f341c04b5a13433506c2a1f38b1ed0e65e306919db9005b0f",
+      "role": "stage_d_engineering_checkpoint"
+    },
+    {
+      "artifact_id": "server_t_scratch_epoch20_ckpt",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 525395874,
+      "sha256": "fb86a65eab1d72c271c73b27e8155dae5f162545d5c14f0e1b61daad2aed7808",
+      "role": "stage_d_official_checkpoint"
+    },
+    {
+      "artifact_id": "server_e_p_official_detailed_csv",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/e_p_official_dev8_v2/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 40985,
+      "sha256": "e4756d2955f57326ce16b78ecff4ab2fda85cf2ceb3b13b695624e94137855b5",
+      "role": "official_trackeval_detailed_csv"
+    },
+    {
+      "artifact_id": "server_e_t_scratch_detailed_csv",
+      "location": "server",
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/e_t_scratch_dev8_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41199,
+      "sha256": "ebfd873583748a02819b97cb06c31c7ef5f5ef6fefe98046c639a4da22e4329a",
+      "role": "official_trackeval_detailed_csv"
+    }
+  ],
+  "missing_artifacts": []
+}
