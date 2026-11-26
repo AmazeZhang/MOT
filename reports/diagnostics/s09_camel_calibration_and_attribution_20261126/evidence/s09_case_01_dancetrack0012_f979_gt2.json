@@ -1,0 +1,71 @@
+{
+  "case_id": "s09_case_01_dancetrack0012_f979_gt2",
+  "source_condition": "T_TWOSTAGE_TH050",
+  "d1_run_id": "d1_t_twostage_th050_trace_v1",
+  "d2_comparison_run_id": "d2_t_twostage_th050_clean_history_v3",
+  "sequence": "dancetrack0012",
+  "frame": 979,
+  "gt_id": 2,
+  "sort_key_sha256": "013580cf85eb3c0a01f3abbbd5c0f73dfda231a3d4e6ab33747b7cc03f5872fb",
+  "d1_trace": {
+    "prev_pred_id": 19,
+    "new_pred_id": 11,
+    "prev_matched_frame": 978,
+    "gap_since_prev_match_frames": 1,
+    "has_competing_gt_iou_ge_0_3": true,
+    "prev_tracklet_active": true,
+    "prev_tracklet_history_len": 19,
+    "new_tracklet_history_len": 50,
+    "spawned_new_track": false,
+    "sim_threshold": 0.5,
+    "s_pos": 0.6493231058120728,
+    "s_assigned": 0.5712890028953552,
+    "s_best_competing": 0.5712890028953552,
+    "margin_pos_minus_best_competing": 0.07803410291671753,
+    "bucket": "pos_higher_lost_in_hungarian"
+  },
+  "c3_online_gt_best_pred_window": {
+    "978": {
+      "matched_pred_id": 19,
+      "iou_to_gt": 0.626663
+    },
+    "979": {
+      "matched_pred_id": 11,
+      "iou_to_gt": 0.557017
+    },
+    "980": {
+      "matched_pred_id": 19,
+      "iou_to_gt": 0.914881
+    },
+    "981": {
+      "matched_pred_id": 19,
+      "iou_to_gt": 0.922728
+    },
+    "984": {
+      "matched_pred_id": 19,
+      "iou_to_gt": 0.965324
+    }
+  },
+  "d2_clean_history_gt_best_pred_window": {
+    "978": {
+      "matched_pred_id": 12,
+      "iou_to_gt": 0.626663
+    },
+    "979": {
+      "matched_pred_id": 5,
+      "iou_to_gt": 0.557017
+    },
+    "980": {
+      "matched_pred_id": 5,
+      "iou_to_gt": 0.914881
+    },
+    "981": {
+      "matched_pred_id": 5,
+      "iou_to_gt": 0.922728
+    },
+    "984": {
+      "matched_pred_id": 5,
+      "iou_to_gt": 0.965324
+    }
+  }
+}

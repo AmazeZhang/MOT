@@ -1,0 +1,93 @@
+{
+  "schema_version": "s09-source-audit-v1",
+  "generated_at": "2026-11-26T20:17:01.889380+08:00",
+  "upstream_cameltrack": {
+    "repository": "https://github.com/TrackingLaboratory/CAMELTrack",
+    "commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+    "stage1_te_pretraining_resolution": "No separate Stage 1 YAML exists in upstream CAMELTrack; README 'Reproducing the paper results' specifies keeping camel.yaml defaults with max_epochs=20, gaffe._target_=cameltrack.architecture.Identity, and a single encoder under temporal_encoders (train_add_val=false for S09 motion_train32).",
+    "partial_te_loading_resolution": "Upstream cameltrack/architecture/base_module.py:22 calls torch.load(checkpoint_path) without weights_only=False, which fails under PyTorch 2.6.0. S09 patches Module.init_weights at runtime with weights_only=False and strict missing==[] & unexpected==[] key verification without editing upstream repo files.",
+    "dataloader_cache_resolution": "Upstream CAMELDataset._load_pickle uses lru_cache(maxsize=1), thrashing zip decompression across 32 videos. S09 patches _load_pickle to cache per-video DataFrames on the dataset instance (zero sampling/math/RNG change)."
+  },
+  "reused_s08_assets_verified": {
+    "p_official_ckpt": {
+      "path": "/media/imc/data/mot-data/weights/camel/camel_bbox_app_kps_dancetrack.ckpt",
+      "sha256": "cecce022fb51aa58e149ebb3f3cd408c6e4086266d7b126576f99bdc1b3f9075",
+      "bytes": 525750074,
+      "verified": true
+    },
+    "t_scratch_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s08_camel_baseline_20261125/d_t_scratch_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "fb86a65eab1d72c271c73b27e8155dae5f162545d5c14f0e1b61daad2aed7808",
+      "bytes": 525395874,
+      "verified": true
+    },
+    "split_manifest": {
+      "path": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+      "sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+      "bytes": 2786,
+      "verified": true
+    },
+    "states_train32": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_train32.pklz",
+      "sha256": "dc7de2cd48da21cc56005159c004123fc0573260fbf69d0b3fa9d572ac8a0f2a",
+      "bytes": 571004601,
+      "verified": true
+    },
+    "states_dev8_train_ref": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_train_ref.pklz",
+      "sha256": "ba6e88b5da10c5e9f9db43f580289f8344cd1750270cf255dea4998df213cacd",
+      "bytes": 186129629,
+      "verified": true
+    },
+    "states_dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "bytes": 184579566,
+      "verified": true
+    }
+  },
+  "c1_model_parameters": {
+    "app_encoder": {
+      "total": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "gaffe": {
+        "total_params": 0,
+        "trainable_params": 0
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      }
+    },
+    "kp_encoder": {
+      "total": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "gaffe": {
+        "total_params": 0,
+        "trainable_params": 0
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      }
+    },
+    "bbox_encoder": {
+      "total": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "gaffe": {
+        "total_params": 0,
+        "trainable_params": 0
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      }
+    }
+  }
+}

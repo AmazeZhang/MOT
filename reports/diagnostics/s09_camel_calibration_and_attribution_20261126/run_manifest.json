@@ -1,0 +1,79 @@
+{
+  "schema_version": "s09-manifest-v1",
+  "protocol_id": "s09_camel_calibration_and_attribution_20261126",
+  "protocol_version": 1,
+  "protocol_sha256": "b586284b396cf9f7322f2481a4175a3997168f4f0098287297b16458d04d1358",
+  "split_manifest": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-26T20:17:57.253556+08:00",
+  "code_provenance": {
+    "head_commit": "4f7956b33ec18b741e2b509823fb28018e485dbb",
+    "working_tree_dirty": true,
+    "dirty_or_untracked_files": {
+      "scripts/export_s09_report.py": "8641b4640db9f0ce4c16ae1453f9a643c1097d183080687e8080932590542d2b",
+      "scripts/run_s09_camel.py": "792227e3c810cf08b625e8f57dc51b4d5853d869d5c59b5ab2c1d508d011cfd9",
+      "tests/test_s09_camel.py": "e0117f60103261bbdb8d05387ee193b14300092f970a392b3b0605aeb42a1596"
+    }
+  },
+  "upstream_cameltrack_commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+  "stage_outcomes": {
+    "A": "COMPLETED",
+    "B": "COMPLETED (4/4 online closed-loop runs)",
+    "C1": "COMPLETED (3/3 single-cue TE pretrains, 20 epochs each)",
+    "C2": "COMPLETED (20 epochs joint GAFFE + 3 C1 TEs, epoch 20 last.ckpt)",
+    "C3": "COMPLETED (2/2 online closed-loop runs)",
+    "D1": "COMPLETED (2/2 traces, 100% IDSW coverage)",
+    "D2": "COMPLETED (authoritative v3 after preserving v1 multi-clone/age-alias artifact and v2 TypeError attempt)",
+    "E": "COMPLETED"
+  },
+  "gpu_allocation": {
+    "physical_gpu_used": [
+      1
+    ],
+    "physical_gpu_forbidden": [
+      0
+    ],
+    "cuda_visible_devices": "1"
+  },
+  "eval_runs": {
+    "b_t_scratch_th046_v1": {
+      "condition": "T_SCRATCH_TH046",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_t_scratch_th050_v1": {
+      "condition": "T_SCRATCH_TH050",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_t_scratch_th_comp_v1": {
+      "condition": "T_SCRATCH_TH_COMP",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_p_official_th050_v1": {
+      "condition": "P_OFFICIAL_TH050",
+      "inference_mode": "online_closed_loop"
+    },
+    "c3_t_twostage_th050_v1": {
+      "condition": "T_TWOSTAGE_TH050",
+      "inference_mode": "online_closed_loop"
+    },
+    "c3_t_twostage_th_comp_v1": {
+      "condition": "T_TWOSTAGE_TH_COMP",
+      "inference_mode": "online_closed_loop"
+    },
+    "d2_t_twostage_th050_clean_history_v3": {
+      "condition": "T_TWOSTAGE_TH050_PRIVILEGED_CLEAN_HISTORY",
+      "inference_mode": "privileged_clean_history_probe"
+    }
+  },
+  "train_runs": {
+    "c1_app_encoder_seed13_e20_v1": "C1_app_encoder",
+    "c1_kp_encoder_seed13_e20_v1": "C1_kp_encoder",
+    "c1_bbox_encoder_seed13_e20_v1": "C1_bbox_encoder",
+    "c2_twostage_joint_seed13_e20_v1": "C2_joint"
+  },
+  "preserved_non_authoritative_attempts": [
+    "d2_t_twostage_th050_clean_history_v1",
+    "d2_t_twostage_th050_clean_history_v2"
+  ]
+}

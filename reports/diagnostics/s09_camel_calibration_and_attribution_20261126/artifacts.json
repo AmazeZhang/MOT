@@ -1,0 +1,496 @@
+{
+  "schema_version": "s09-artifacts-v1",
+  "generated_at": "2026-11-26T20:17:58.038603+08:00",
+  "self_hash_excluded": true,
+  "artifact_count": 61,
+  "artifacts": [
+    {
+      "artifact_id": "report_readme",
+      "kind": "markdown",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/README.md",
+      "bytes": 5634,
+      "sha256": "76297c319d02ca503be179658fde3d60783b66ae32d39d0b4a811ea62b17a4ac"
+    },
+    {
+      "artifact_id": "report_manifest",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/run_manifest.json",
+      "bytes": 2993,
+      "sha256": "c8f9cb546a5f2cddd4299134525339eb624c8483235232796cce84ca3695e8bd"
+    },
+    {
+      "artifact_id": "report_checks",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/checks.json",
+      "bytes": 1561,
+      "sha256": "917a9de43d015aab7686c04ca0ee306d3befa177846ee48410554d3b8a08f72c"
+    },
+    {
+      "artifact_id": "report_aggregate_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/aggregate_metrics.csv",
+      "bytes": 3122,
+      "sha256": "2cd940fe5588719bba9b4b5a36b0ab4cb3d493181e64b5d7711cb7ea8a61ccff"
+    },
+    {
+      "artifact_id": "report_per_sequence_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/per_sequence_metrics.csv",
+      "bytes": 23558,
+      "sha256": "bf8fd2f66bc27194695f22340970a0f644cb290b2286222c5164391934bfb3ab"
+    },
+    {
+      "artifact_id": "report_s08_ref_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/s08_reference_comparison.csv",
+      "bytes": 3797,
+      "sha256": "7fa944ffde9202a37beede2c83442a8ce4dc554238a829140bc30cc1b5e4dc35"
+    },
+    {
+      "artifact_id": "report_learning_curves_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/learning_curves.csv",
+      "bytes": 55240,
+      "sha256": "829ec713e8b377abf35a6dd1288855b4c61e0dca827ff9feeee5c4c7c2de7a65"
+    },
+    {
+      "artifact_id": "report_diagnostics_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/diagnostics.json",
+      "bytes": 27166,
+      "sha256": "cdc4065c9c9eab0ace3a2a2842d2be37e3f80beaa085c6964cff0e95c12364a6"
+    },
+    {
+      "artifact_id": "report_d1_margins_summary_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/d1_idsw_margins_summary.json",
+      "bytes": 10532,
+      "sha256": "42832bbd0b763c0410abd4e38bd1d4a64241227f1c530815b0e44da5b5ed5880"
+    },
+    {
+      "artifact_id": "report_cases_jsonl",
+      "kind": "jsonl",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/cases.jsonl",
+      "bytes": 11159,
+      "sha256": "7705588643093bdd1949b331b405c7e697a5a99ad59d4f6a7e81b480f3a1ea7e"
+    },
+    {
+      "artifact_id": "report_source_audit_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/source_audit.json",
+      "bytes": 3773,
+      "sha256": "c8818139ba6892d795e84566fb442f0dc10c3f6bf7b18b28857f5a77956e6b13"
+    },
+    {
+      "artifact_id": "report_runtime_lock_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/runtime_lock.json",
+      "bytes": 6368,
+      "sha256": "6f0022fcdfc9d7ee8804cebcaf25e503a530ca9901f505bdd1ed91972d31eb06"
+    },
+    {
+      "artifact_id": "report_commands_sh",
+      "kind": "sh",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/commands.sh",
+      "bytes": 4190,
+      "sha256": "f84b12f847c8d9a5a53cb090b0926198466611d5753327d3687aa2591966464e"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_b_t_scratch_th050",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_b_t_scratch_th050.yaml",
+      "bytes": 11173,
+      "sha256": "0fad833e886924e44005fbe05cdaf3a92e5e4cfb5e071547cf9b57f2b5a39316"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c1_app_encoder",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_c1_app_encoder.yaml",
+      "bytes": 10352,
+      "sha256": "d722a482334fcb78306541a10a58cc2ad392d581cee966947d418c6aae2fe64f"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c1_bbox_encoder",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_c1_bbox_encoder.yaml",
+      "bytes": 10340,
+      "sha256": "8194f81dd9d3f4bbfc471cd28e2285fc833dab2c052c80f379b543d54ddd3d8e"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c1_kp_encoder",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_c1_kp_encoder.yaml",
+      "bytes": 10343,
+      "sha256": "e03029d49612c8a0c272dffe5939ff0618677191b56b63cb62b96bf6a87770c3"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c2_twostage_joint",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_c2_twostage_joint.yaml",
+      "bytes": 11345,
+      "sha256": "d083313d9b52c5148ac0a4353fc5d682a41c9458cfc4eb3570c0eebb162ac95b"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c3_twostage_th050",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/resolved_configs/stage_c3_twostage_th050.yaml",
+      "bytes": 11198,
+      "sha256": "29c923fc4318d7067b74d8abf5d397415836974464835db693d4c22f3458e41e"
+    },
+    {
+      "artifact_id": "evidence_s09_case_01_dancetrack0012_f979_gt2",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_01_dancetrack0012_f979_gt2.json",
+      "bytes": 1779,
+      "sha256": "6529e68ea3eb047cc6eee1b71293479170e4f33dc4166e6d03a223cd3f175a65"
+    },
+    {
+      "artifact_id": "evidence_s09_case_02_dancetrack0012_f1042_gt11",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_02_dancetrack0012_f1042_gt11.json",
+      "bytes": 1962,
+      "sha256": "0edf27e67e69eb79cd799c9e9521f7e33a32a71ca5ebc6bf83b831eca2338e02"
+    },
+    {
+      "artifact_id": "evidence_s09_case_03_dancetrack0020_f169_gt4",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_03_dancetrack0020_f169_gt4.json",
+      "bytes": 1783,
+      "sha256": "fdeb783b086bc430545c3412011f6ca9112f16398af81c6c7c484c774591dff6"
+    },
+    {
+      "artifact_id": "evidence_s09_case_04_dancetrack0020_f183_gt7",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_04_dancetrack0020_f183_gt7.json",
+      "bytes": 1799,
+      "sha256": "f2d6b43d4219315f6e2c002feb52dbf03f7b61bd66e6367f48384aaec97a160d"
+    },
+    {
+      "artifact_id": "evidence_s09_case_05_dancetrack0024_f21_gt2",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_05_dancetrack0024_f21_gt2.json",
+      "bytes": 1785,
+      "sha256": "aedcbb64d312afc80f9e11aad907ac074c1d92d841a5fc3f8a23e582ce001d19"
+    },
+    {
+      "artifact_id": "evidence_s09_case_06_dancetrack0024_f576_gt1",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_06_dancetrack0024_f576_gt1.json",
+      "bytes": 1940,
+      "sha256": "99137aad4a792b2c13e14841b639fb7a37862e7ecfa327be1c63182e924e94b5"
+    },
+    {
+      "artifact_id": "evidence_s09_case_07_dancetrack0033_f646_gt6",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_07_dancetrack0033_f646_gt6.json",
+      "bytes": 1950,
+      "sha256": "173ba1b0f21b5bf99b90d6b49259eb41736b1df7b038f7043a5f59273599cc9d"
+    },
+    {
+      "artifact_id": "evidence_s09_case_08_dancetrack0033_f755_gt5",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_08_dancetrack0033_f755_gt5.json",
+      "bytes": 1806,
+      "sha256": "faa13b146dafd72fb6c86598419fffb6bf470e9e7524e45606bf8d276eb1f529"
+    },
+    {
+      "artifact_id": "evidence_s09_case_09_dancetrack0037_f144_gt3",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_09_dancetrack0037_f144_gt3.json",
+      "bytes": 1804,
+      "sha256": "f24334bb866eb8a771207ebd3179022e1b6a7b61d546d02703b26a6a32300a76"
+    },
+    {
+      "artifact_id": "evidence_s09_case_10_dancetrack0037_f251_gt4",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_10_dancetrack0037_f251_gt4.json",
+      "bytes": 1925,
+      "sha256": "1dcc37ef5da50d3ddcb28ea1e6cf819dcbcf701909ad92e83178b4b449d86df9"
+    },
+    {
+      "artifact_id": "evidence_s09_case_11_dancetrack0044_f769_gt8",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_11_dancetrack0044_f769_gt8.json",
+      "bytes": 1948,
+      "sha256": "a127f4d0f8ce06e5b38504f643260d4e9009f9ef9e6792624ccb7aed3e6e6248"
+    },
+    {
+      "artifact_id": "evidence_s09_case_12_dancetrack0044_f987_gt6",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_12_dancetrack0044_f987_gt6.json",
+      "bytes": 1809,
+      "sha256": "9bc631be05f7faff471a02bc502676e8775dfad6b0974839756d51dbf40e2442"
+    },
+    {
+      "artifact_id": "evidence_s09_case_13_dancetrack0053_f806_gt4",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_13_dancetrack0053_f806_gt4.json",
+      "bytes": 1782,
+      "sha256": "ddaf1dcbdb9ec20b9902976a6a61b58b9cca3303b79717b8f8d8a65c8ca806a0"
+    },
+    {
+      "artifact_id": "evidence_s09_case_14_dancetrack0053_f1026_gt4",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_14_dancetrack0053_f1026_gt4.json",
+      "bytes": 1790,
+      "sha256": "0b06c76d2a41475f8a276f195499128f9f0e817e6e10ff845c7a1d65db8f14f8"
+    },
+    {
+      "artifact_id": "evidence_s09_case_15_dancetrack0086_f240_gt7",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_15_dancetrack0086_f240_gt7.json",
+      "bytes": 1812,
+      "sha256": "b3530bdc08f592f86abab0e9c5bce4d87650efe485e855fe94235e6e8f128e1f"
+    },
+    {
+      "artifact_id": "evidence_s09_case_16_dancetrack0086_f578_gt2",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/diagnostics/s09_camel_calibration_and_attribution_20261126/evidence/s09_case_16_dancetrack0086_f578_gt2.json",
+      "bytes": 1810,
+      "sha256": "3f391aacdaa9ee69b07377fc0780d3e52d18d13090da7029652f6c8785667926"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th046_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th046_v1/stage_eval_summary.json",
+      "bytes": 2726,
+      "sha256": "b732003513157c4f3c6555744f620d4907090d50c6547585a589128f647bc0c1"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th046_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th046_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41244,
+      "sha256": "5aa68799025577c92784d712591b05cdbaf01195e1e47ac46a01c8f45dfa759f"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th050_v1/stage_eval_summary.json",
+      "bytes": 2726,
+      "sha256": "19467cf79d2ea528e2c113db74a09d6826263d57e45321345e13fdc1d550e949"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41209,
+      "sha256": "a9272b405ef1e50d590df88dbb7ab2c5212df88bc171958e1d87d1306baef581"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th_comp_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th_comp_v1/stage_eval_summary.json",
+      "bytes": 2749,
+      "sha256": "0a616655c1b2fa4e8b0f42adb663f7f664866e6fa0e706203100945df70a13ac"
+    },
+    {
+      "artifact_id": "run_b_t_scratch_th_comp_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_t_scratch_th_comp_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41173,
+      "sha256": "bab935045a6131f822faea10e74ccd50954ee02b4b3ddcdccb990ee76b86f694"
+    },
+    {
+      "artifact_id": "run_b_p_official_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_p_official_th050_v1/stage_eval_summary.json",
+      "bytes": 2705,
+      "sha256": "582d1fbf40631a0521bc0628bf900a80a0972448a7c515d43ce9f332dcb3ceb6"
+    },
+    {
+      "artifact_id": "run_b_p_official_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/b_p_official_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41087,
+      "sha256": "3c7ff8cb7ab57f7c827b5170f00916a9844baa931d617615489321854fb20edd"
+    },
+    {
+      "artifact_id": "run_c3_t_twostage_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c3_t_twostage_th050_v1/stage_eval_summary.json",
+      "bytes": 2759,
+      "sha256": "81f972dc5355e4a5e7e608eed8cbb4dede9f47a674b66f9d76eeedacbbbe0ea2"
+    },
+    {
+      "artifact_id": "run_c3_t_twostage_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c3_t_twostage_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41167,
+      "sha256": "d2516a06910247afbdc907ba645e3384719b7f6795cbba21d26b6a45141a1f3e"
+    },
+    {
+      "artifact_id": "run_c3_t_twostage_th_comp_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c3_t_twostage_th_comp_v1/stage_eval_summary.json",
+      "bytes": 2788,
+      "sha256": "941bb301709a37057c1d137a1436a52e4ce4b5f19db9678b2ede5cae106b12f1"
+    },
+    {
+      "artifact_id": "run_c3_t_twostage_th_comp_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c3_t_twostage_th_comp_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41259,
+      "sha256": "4204fbb013a1724aa8fcf461ecae3d74207a18f55437f49f249df103540795cb"
+    },
+    {
+      "artifact_id": "run_d2_t_twostage_th050_clean_history_v3_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d2_t_twostage_th050_clean_history_v3/stage_d2_summary.json",
+      "bytes": 2058,
+      "sha256": "19e639807f42c783160abb63d16969de48fc7f61ac560e615f13755d7d6d146d"
+    },
+    {
+      "artifact_id": "run_d2_t_twostage_th050_clean_history_v3_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d2_t_twostage_th050_clean_history_v3/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 40895,
+      "sha256": "9f511e287c19018b71cc895980c456e584e7a6d392faecccb4d4532a59909b2f"
+    },
+    {
+      "artifact_id": "run_c1_app_encoder_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_app_encoder_seed13_e20_v1/stage_c1_summary.json",
+      "bytes": 1842,
+      "sha256": "3952034d3ff7a6f78fb00c86cbcdb0d6494e32262f255c5191dc7732217da4f5"
+    },
+    {
+      "artifact_id": "run_c1_app_encoder_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_checkpoint",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_app_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 110772786,
+      "sha256": "e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d"
+    },
+    {
+      "artifact_id": "run_c1_kp_encoder_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_kp_encoder_seed13_e20_v1/stage_c1_summary.json",
+      "bytes": 1827,
+      "sha256": "e1e38352fbe7ac2c7e2fcfaad381e24fcef2231c314b7c109720c6c02190d999"
+    },
+    {
+      "artifact_id": "run_c1_kp_encoder_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_checkpoint",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_kp_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 9191858,
+      "sha256": "d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c"
+    },
+    {
+      "artifact_id": "run_c1_bbox_encoder_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_bbox_encoder_seed13_e20_v1/stage_c1_summary.json",
+      "bytes": 1838,
+      "sha256": "e5433e5492bb2dacfde10ae2a33fa308852bc9384d39a31cb075c5dc05309d10"
+    },
+    {
+      "artifact_id": "run_c1_bbox_encoder_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_checkpoint",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_bbox_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 3348530,
+      "sha256": "fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1"
+    },
+    {
+      "artifact_id": "run_c2_twostage_joint_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/stage_c2_summary.json",
+      "bytes": 3218,
+      "sha256": "19804eb20bac2e5e4fe2e64089833b705f34001921c02f30997e18cf45ff1324"
+    },
+    {
+      "artifact_id": "run_c2_twostage_joint_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_checkpoint",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 525391138,
+      "sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7"
+    },
+    {
+      "artifact_id": "run_d1_t_twostage_th050_trace_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_twostage_th050_trace_v1/stage_d1_summary.json",
+      "bytes": 1451,
+      "sha256": "0bcd5521bed7244289f83cd5984e2d00529bf678a1f5af50ff752a4d7a68cb10"
+    },
+    {
+      "artifact_id": "run_d1_t_twostage_th050_trace_v1_margins_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_twostage_th050_trace_v1/d1_idsw_margins.csv",
+      "bytes": 223133,
+      "sha256": "5173f4db43b65a620b35e1da83885cae9ac00030b644cb5dd51f384598fe860f"
+    },
+    {
+      "artifact_id": "run_d1_t_scratch_th_comp_trace_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_scratch_th_comp_trace_v1/stage_d1_summary.json",
+      "bytes": 1473,
+      "sha256": "d22d7928646c429c72e3c9aa157668af8fd5c443038aa9fa36de3eca400c6f49"
+    },
+    {
+      "artifact_id": "run_d1_t_scratch_th_comp_trace_v1_margins_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_scratch_th_comp_trace_v1/d1_idsw_margins.csv",
+      "bytes": 427739,
+      "sha256": "0edd0d4634e1486859d17bca52eae72b2472c6048799b51f5442f8d26382a582"
+    }
+  ]
+}

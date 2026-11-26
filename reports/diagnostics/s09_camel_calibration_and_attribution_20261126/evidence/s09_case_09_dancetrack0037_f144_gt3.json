@@ -1,0 +1,71 @@
+{
+  "case_id": "s09_case_09_dancetrack0037_f144_gt3",
+  "source_condition": "T_TWOSTAGE_TH050",
+  "d1_run_id": "d1_t_twostage_th050_trace_v1",
+  "d2_comparison_run_id": "d2_t_twostage_th050_clean_history_v3",
+  "sequence": "dancetrack0037",
+  "frame": 144,
+  "gt_id": 3,
+  "sort_key_sha256": "06aa5618005bd865fe499fbd1e8fc880f7fe15d3d297d765ec2c062175971b3b",
+  "d1_trace": {
+    "prev_pred_id": 116,
+    "new_pred_id": 115,
+    "prev_matched_frame": 143,
+    "gap_since_prev_match_frames": 1,
+    "has_competing_gt_iou_ge_0_3": true,
+    "prev_tracklet_active": true,
+    "prev_tracklet_history_len": 5,
+    "new_tracklet_history_len": 50,
+    "spawned_new_track": false,
+    "sim_threshold": 0.5,
+    "s_pos": 0.4822946786880493,
+    "s_assigned": 0.6632474660873413,
+    "s_best_competing": 0.6632474660873413,
+    "margin_pos_minus_best_competing": -0.180952787399292,
+    "bucket": "misassociation_reversal_margin_lt_neg_0_05"
+  },
+  "c3_online_gt_best_pred_window": {
+    "143": {
+      "matched_pred_id": 116,
+      "iou_to_gt": 0.546953
+    },
+    "144": {
+      "matched_pred_id": 115,
+      "iou_to_gt": 0.813789
+    },
+    "145": {
+      "matched_pred_id": 115,
+      "iou_to_gt": 0.911189
+    },
+    "146": {
+      "matched_pred_id": 115,
+      "iou_to_gt": 0.946249
+    },
+    "149": {
+      "matched_pred_id": 115,
+      "iou_to_gt": 0.936203
+    }
+  },
+  "d2_clean_history_gt_best_pred_window": {
+    "143": {
+      "matched_pred_id": null,
+      "iou_to_gt": 0.194207
+    },
+    "144": {
+      "matched_pred_id": 86,
+      "iou_to_gt": 0.813789
+    },
+    "145": {
+      "matched_pred_id": 86,
+      "iou_to_gt": 0.911189
+    },
+    "146": {
+      "matched_pred_id": 86,
+      "iou_to_gt": 0.946249
+    },
+    "149": {
+      "matched_pred_id": 86,
+      "iou_to_gt": 0.936203
+    }
+  }
+}

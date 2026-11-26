@@ -1,0 +1,307 @@
+{
+  "schema_version": "s09-d1-margins-summary-v1",
+  "primary": {
+    "summary": {
+      "condition": "T_TWOSTAGE_TH050",
+      "run_id": "d1_t_twostage_th050_trace_v1",
+      "sim_threshold": 0.5,
+      "total_official_idsw": 786,
+      "bucket_counts": {
+        "unmatched_spawned_new_track": 137,
+        "misassociation_reversal_margin_lt_neg_0_05": 411,
+        "high_score_tie_abs_margin_lt_0_05": 204,
+        "pos_higher_lost_in_hungarian": 34
+      },
+      "bucket_fractions": {
+        "unmatched_spawned_new_track": 0.1743002544529262,
+        "misassociation_reversal_margin_lt_neg_0_05": 0.5229007633587787,
+        "high_score_tie_abs_margin_lt_0_05": 0.2595419847328244,
+        "pos_higher_lost_in_hungarian": 0.043256997455470736
+      },
+      "gap_gt_1_count": 472,
+      "competing_gt_count": 598,
+      "margin_stats": {
+        "count_defined": 786,
+        "median": -0.07547026872634888,
+        "mean": -0.09653425747504975,
+        "p10": -0.2521769404411316,
+        "p90": 0.038429468870162964
+      },
+      "s_pos_stats": {
+        "count_defined": 786,
+        "median": 0.5181431174278259,
+        "mean": 0.5302706812780928
+      },
+      "gpu": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "physical_gpu_ids": [
+          1
+        ],
+        "logical_to_physical": {
+          "cuda:0": "physical_gpu_1"
+        },
+        "gpu_name": "NVIDIA GeForce RTX 4090 D"
+      },
+      "wall_seconds": 446.1133714597672,
+      "peak_vram_mib": 847.13134765625,
+      "mot_sha256_exact_match_ref_run": "c3_t_twostage_th050_v1",
+      "events_csv": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_twostage_th050_trace_v1/d1_idsw_margins.csv"
+    },
+    "total_events_in_csv": 786,
+    "per_sequence": {
+      "dancetrack0012": {
+        "total_idsw": 109,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 9,
+          "misassociation_reversal_margin_lt_neg_0_05": 63,
+          "high_score_tie_abs_margin_lt_0_05": 32,
+          "pos_higher_lost_in_hungarian": 5
+        },
+        "gap_gt_1_count": 77,
+        "competing_gt_count": 88,
+        "margin_median": -0.08122563362121582,
+        "margin_mean": -0.09498625884362318
+      },
+      "dancetrack0020": {
+        "total_idsw": 229,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 28,
+          "misassociation_reversal_margin_lt_neg_0_05": 134,
+          "pos_higher_lost_in_hungarian": 18,
+          "high_score_tie_abs_margin_lt_0_05": 49
+        },
+        "gap_gt_1_count": 162,
+        "competing_gt_count": 188,
+        "margin_median": -0.12265467643737793,
+        "margin_mean": -0.13615157770798195
+      },
+      "dancetrack0024": {
+        "total_idsw": 12,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 5,
+          "misassociation_reversal_margin_lt_neg_0_05": 6,
+          "high_score_tie_abs_margin_lt_0_05": 1
+        },
+        "gap_gt_1_count": 6,
+        "competing_gt_count": 10,
+        "margin_median": -0.0601842999458313,
+        "margin_mean": -0.05553175508975983
+      },
+      "dancetrack0033": {
+        "total_idsw": 86,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 46,
+          "high_score_tie_abs_margin_lt_0_05": 29,
+          "unmatched_spawned_new_track": 9,
+          "pos_higher_lost_in_hungarian": 2
+        },
+        "gap_gt_1_count": 40,
+        "competing_gt_count": 71,
+        "margin_median": -0.06666713953018188,
+        "margin_mean": -0.08981545512066332
+      },
+      "dancetrack0037": {
+        "total_idsw": 65,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 23,
+          "misassociation_reversal_margin_lt_neg_0_05": 30,
+          "high_score_tie_abs_margin_lt_0_05": 12
+        },
+        "gap_gt_1_count": 25,
+        "competing_gt_count": 52,
+        "margin_median": -0.07409989833831787,
+        "margin_mean": -0.08988582079227155
+      },
+      "dancetrack0044": {
+        "total_idsw": 197,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 38,
+          "high_score_tie_abs_margin_lt_0_05": 60,
+          "misassociation_reversal_margin_lt_neg_0_05": 94,
+          "pos_higher_lost_in_hungarian": 5
+        },
+        "gap_gt_1_count": 123,
+        "competing_gt_count": 123,
+        "margin_median": -0.05734759569168091,
+        "margin_mean": -0.07825814376627734
+      },
+      "dancetrack0053": {
+        "total_idsw": 41,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 20,
+          "high_score_tie_abs_margin_lt_0_05": 7,
+          "misassociation_reversal_margin_lt_neg_0_05": 14
+        },
+        "gap_gt_1_count": 14,
+        "competing_gt_count": 19,
+        "margin_median": -0.019062042236328125,
+        "margin_mean": -0.03510218567964507
+      },
+      "dancetrack0086": {
+        "total_idsw": 47,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 5,
+          "misassociation_reversal_margin_lt_neg_0_05": 24,
+          "high_score_tie_abs_margin_lt_0_05": 14,
+          "pos_higher_lost_in_hungarian": 4
+        },
+        "gap_gt_1_count": 25,
+        "competing_gt_count": 47,
+        "margin_median": -0.06647127866744995,
+        "margin_mean": -0.06924639103260447
+      }
+    }
+  },
+  "supplement": {
+    "summary": {
+      "condition": "T_SCRATCH_TH_COMP",
+      "run_id": "d1_t_scratch_th_comp_trace_v1",
+      "sim_threshold": 0.5197290778160095,
+      "total_official_idsw": 1412,
+      "bucket_counts": {
+        "misassociation_reversal_margin_lt_neg_0_05": 815,
+        "high_score_tie_abs_margin_lt_0_05": 412,
+        "unmatched_spawned_new_track": 166,
+        "pos_higher_lost_in_hungarian": 19
+      },
+      "bucket_fractions": {
+        "misassociation_reversal_margin_lt_neg_0_05": 0.5771954674220963,
+        "high_score_tie_abs_margin_lt_0_05": 0.29178470254957506,
+        "unmatched_spawned_new_track": 0.11756373937677053,
+        "pos_higher_lost_in_hungarian": 0.013456090651558074
+      },
+      "gap_gt_1_count": 624,
+      "competing_gt_count": 984,
+      "margin_stats": {
+        "count_defined": 1412,
+        "median": -0.07656648755073547,
+        "mean": -0.0982679885102399,
+        "p10": -0.2450415074825287,
+        "p90": 0.007658445835113537
+      },
+      "s_pos_stats": {
+        "count_defined": 1412,
+        "median": 0.5127189755439758,
+        "mean": 0.5051828864275902
+      },
+      "gpu": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "physical_gpu_ids": [
+          1
+        ],
+        "logical_to_physical": {
+          "cuda:0": "physical_gpu_1"
+        },
+        "gpu_name": "NVIDIA GeForce RTX 4090 D"
+      },
+      "wall_seconds": 447.8021416272968,
+      "peak_vram_mib": 847.13623046875,
+      "mot_sha256_exact_match_ref_run": "b_t_scratch_th_comp_v1",
+      "events_csv": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_scratch_th_comp_trace_v1/d1_idsw_margins.csv"
+    },
+    "total_events_in_csv": 1412,
+    "per_sequence": {
+      "dancetrack0012": {
+        "total_idsw": 191,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 121,
+          "high_score_tie_abs_margin_lt_0_05": 49,
+          "unmatched_spawned_new_track": 20,
+          "pos_higher_lost_in_hungarian": 1
+        },
+        "gap_gt_1_count": 102,
+        "competing_gt_count": 160,
+        "margin_median": -0.0774085521697998,
+        "margin_mean": -0.10128058688178737
+      },
+      "dancetrack0020": {
+        "total_idsw": 290,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 32,
+          "misassociation_reversal_margin_lt_neg_0_05": 185,
+          "high_score_tie_abs_margin_lt_0_05": 62,
+          "pos_higher_lost_in_hungarian": 11
+        },
+        "gap_gt_1_count": 173,
+        "competing_gt_count": 234,
+        "margin_median": -0.11883625388145447,
+        "margin_mean": -0.1265914413435706
+      },
+      "dancetrack0024": {
+        "total_idsw": 10,
+        "bucket_counts": {
+          "high_score_tie_abs_margin_lt_0_05": 3,
+          "misassociation_reversal_margin_lt_neg_0_05": 6,
+          "unmatched_spawned_new_track": 1
+        },
+        "gap_gt_1_count": 7,
+        "competing_gt_count": 10,
+        "margin_median": -0.13685005903244019,
+        "margin_mean": -0.14875698685646058
+      },
+      "dancetrack0033": {
+        "total_idsw": 134,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 84,
+          "high_score_tie_abs_margin_lt_0_05": 42,
+          "pos_higher_lost_in_hungarian": 1,
+          "unmatched_spawned_new_track": 7
+        },
+        "gap_gt_1_count": 54,
+        "competing_gt_count": 117,
+        "margin_median": -0.1038844883441925,
+        "margin_mean": -0.11389503772579022
+      },
+      "dancetrack0037": {
+        "total_idsw": 66,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 36,
+          "high_score_tie_abs_margin_lt_0_05": 18,
+          "unmatched_spawned_new_track": 12
+        },
+        "gap_gt_1_count": 26,
+        "competing_gt_count": 59,
+        "margin_median": -0.07319727540016174,
+        "margin_mean": -0.09661920233206316
+      },
+      "dancetrack0044": {
+        "total_idsw": 603,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 74,
+          "high_score_tie_abs_margin_lt_0_05": 204,
+          "misassociation_reversal_margin_lt_neg_0_05": 323,
+          "pos_higher_lost_in_hungarian": 2
+        },
+        "gap_gt_1_count": 211,
+        "competing_gt_count": 307,
+        "margin_median": -0.06204497814178467,
+        "margin_mean": -0.08444547040347831
+      },
+      "dancetrack0053": {
+        "total_idsw": 17,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 11,
+          "high_score_tie_abs_margin_lt_0_05": 3,
+          "unmatched_spawned_new_track": 3
+        },
+        "gap_gt_1_count": 10,
+        "competing_gt_count": 10,
+        "margin_median": -0.0787203311920166,
+        "margin_mean": -0.06683282992419075
+      },
+      "dancetrack0086": {
+        "total_idsw": 101,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 49,
+          "unmatched_spawned_new_track": 17,
+          "high_score_tie_abs_margin_lt_0_05": 31,
+          "pos_higher_lost_in_hungarian": 4
+        },
+        "gap_gt_1_count": 41,
+        "competing_gt_count": 87,
+        "margin_median": -0.062040746212005615,
+        "margin_mean": -0.07440733319461935
+      }
+    }
+  }
+}

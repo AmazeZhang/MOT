@@ -1,0 +1,66 @@
+{
+  "schema_version": "s09-checks-v1",
+  "generated_at": "2026-11-26T20:17:57.253241+08:00",
+  "checks": {
+    "stage_a_s08_assets_verified": {
+      "passed": true,
+      "count": 6
+    },
+    "stage_a_unit_tests_passed": {
+      "passed": true,
+      "suite": "tests/test_s09_camel.py",
+      "count": 3
+    },
+    "gpu_0_excluded": {
+      "passed": true,
+      "physical_gpu_used": [
+        1
+      ]
+    },
+    "online_aggregate_rows_exact_6": {
+      "passed": true,
+      "count": 6
+    },
+    "privileged_d2_aggregate_rows_exact_1": {
+      "passed": true,
+      "count": 1
+    },
+    "per_sequence_rows_exact_56": {
+      "passed": true,
+      "count": 56
+    },
+    "trackeval_csv_preview_exact_match": {
+      "passed": true,
+      "max_abs_diff": 0.0
+    },
+    "c1_c2_zero_nonfinite_grads": {
+      "passed": true,
+      "total_nonfinite_grad_steps": 0
+    },
+    "c1_c2_explicit_reload_exact_match": {
+      "passed": true
+    },
+    "d1_twostage_100pct_idsw_coverage": {
+      "passed": true,
+      "events": 786,
+      "official_idsw": 786
+    },
+    "d1_scratch_100pct_idsw_coverage": {
+      "passed": true,
+      "events": 1412,
+      "official_idsw": 1412
+    },
+    "d2_v3_one_to_one_routing_invariant": {
+      "passed": true,
+      "gt_routed_gallery_updates": 76509,
+      "total_predicted_matches": 77689,
+      "v3_less_than_predicted_matches": true
+    },
+    "budgets_respected": {
+      "passed": true,
+      "gpu_hours_total": 8.486070483799816,
+      "extra_storage_total_gib": 6.29784987680614
+    }
+  },
+  "all_passed": true
+}

@@ -1,0 +1,755 @@
+{
+  "schema_version": "s09-diagnostics-v1",
+  "generated_at": "2026-11-26T20:17:57.225944+08:00",
+  "question_1_calibration_and_twostage_online": {
+    "t_scratch_s08_th010": {
+      "HOTA": "53.98059301377264",
+      "DetA": "81.01795034744723",
+      "AssA": "36.09635770445169",
+      "IDF1": "56.69498698937204",
+      "MOTA": "90.62133935067017",
+      "IDSW": "1451",
+      "FP": "1721",
+      "FN": "4434",
+      "Frag": "1428"
+    },
+    "t_scratch_calibrated_best_hota": {
+      "condition": "T_SCRATCH_TH050",
+      "sim_threshold": "0.5",
+      "HOTA": "55.21547000152501",
+      "DetA": "80.69003573393752",
+      "AssA": "37.899582774360944",
+      "IDF1": "56.203730000946706",
+      "MOTA": "90.15770847975931",
+      "IDSW": 1333,
+      "FP": 1448,
+      "FN": 5201,
+      "Frag": 1490
+    },
+    "t_scratch_th046": {
+      "HOTA": "53.348458264290876",
+      "DetA": "81.01412666824957",
+      "AssA": "35.26019363834949",
+      "IDF1": "55.16803659854712",
+      "MOTA": "90.69162381780293",
+      "IDSW": 1337
+    },
+    "t_scratch_th_comp": {
+      "sim_threshold": "0.5197290778160095",
+      "HOTA": "54.4438610767584",
+      "DetA": "80.65304849041067",
+      "AssA": "36.8752858721479",
+      "IDF1": "53.8685105332143",
+      "MOTA": "89.63612374998459",
+      "IDSW": 1412
+    },
+    "p_official_s08_th010": {
+      "HOTA": "66.99273973335293",
+      "DetA": "82.52390480711561",
+      "AssA": "54.51552276322664",
+      "IDF1": "71.76287443191805",
+      "MOTA": "91.59052516060618",
+      "IDSW": "638"
+    },
+    "p_official_th050": {
+      "HOTA": "63.87384041156764",
+      "DetA": "82.65654832420502",
+      "AssA": "49.39888300873619",
+      "IDF1": "64.33225685698515",
+      "MOTA": "90.77053971072392",
+      "IDSW": 606
+    },
+    "t_twostage_th050": {
+      "sim_threshold": "0.5",
+      "HOTA": "54.44251406854994",
+      "DetA": "80.96853032705118",
+      "AssA": "36.7043200239207",
+      "IDF1": "53.62905012374279",
+      "MOTA": "90.37349412446515",
+      "IDSW": 786,
+      "FP": 1406,
+      "FN": 5615,
+      "Frag": 1332
+    },
+    "t_twostage_th_comp": {
+      "sim_threshold": "0.545995831489563",
+      "HOTA": "51.71242834766625",
+      "DetA": "80.46245694185309",
+      "AssA": "33.318555358739026",
+      "IDF1": "49.29167599373221",
+      "MOTA": "88.89258807136956",
+      "IDSW": 889,
+      "FP": 1138,
+      "FN": 6981,
+      "Frag": 1313
+    },
+    "c1_c2_training_summary": {
+      "c1_app_encoder_seed13_e20_v1": {
+        "stage_tag": "C1_app_encoder",
+        "completed_epochs": 20,
+        "global_step": 8000,
+        "nonfinite_grad_steps": 0,
+        "wall_seconds": 6467.051584767178,
+        "gpu_device_hours": 1.7964032179908827,
+        "peak_vram_mib": 1747.2451171875,
+        "parameters": {
+          "total": {
+            "total_params": 9004544,
+            "trainable_params": 9004544
+          },
+          "gaffe": {
+            "total_params": 0,
+            "trainable_params": 0
+          },
+          "temp_encs.app_encoder": {
+            "total_params": 9004544,
+            "trainable_params": 9004544
+          }
+        },
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 0,
+            "num_changed_tensors": 0,
+            "max_abs_delta": 0.0,
+            "l2_delta": 0.0
+          },
+          "temp_encs.app_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.04593023285269737,
+            "l2_delta": 16.641494656327705
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.7089676856994629,
+        "last_checkpoint_sha256": "e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d",
+        "reload_state_dict_max_abs_diff": 0.0
+      },
+      "c1_kp_encoder_seed13_e20_v1": {
+        "stage_tag": "C1_kp_encoder",
+        "completed_epochs": 20,
+        "global_step": 8000,
+        "nonfinite_grad_steps": 0,
+        "wall_seconds": 6381.606770992279,
+        "gpu_device_hours": 1.7726685474978552,
+        "peak_vram_mib": 458.3427734375,
+        "parameters": {
+          "total": {
+            "total_params": 667008,
+            "trainable_params": 667008
+          },
+          "gaffe": {
+            "total_params": 0,
+            "trainable_params": 0
+          },
+          "temp_encs.kp_encoder": {
+            "total_params": 667008,
+            "trainable_params": 667008
+          }
+        },
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 0,
+            "num_changed_tensors": 0,
+            "max_abs_delta": 0.0,
+            "l2_delta": 0.0
+          },
+          "temp_encs.kp_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.21472585201263428,
+            "l2_delta": 11.080596544126369
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.6857188940048218,
+        "last_checkpoint_sha256": "d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c",
+        "reload_state_dict_max_abs_diff": 0.0
+      },
+      "c1_bbox_encoder_seed13_e20_v1": {
+        "stage_tag": "C1_bbox_encoder",
+        "completed_epochs": 20,
+        "global_step": 8000,
+        "nonfinite_grad_steps": 0,
+        "wall_seconds": 6691.73671018891,
+        "gpu_device_hours": 1.858815752830253,
+        "peak_vram_mib": 297.814453125,
+        "parameters": {
+          "total": {
+            "total_params": 201088,
+            "trainable_params": 201088
+          },
+          "gaffe": {
+            "total_params": 0,
+            "trainable_params": 0
+          },
+          "temp_encs.bbox_encoder": {
+            "total_params": 201088,
+            "trainable_params": 201088
+          }
+        },
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 0,
+            "num_changed_tensors": 0,
+            "max_abs_delta": 0.0,
+            "l2_delta": 0.0
+          },
+          "temp_encs.bbox_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.2763783931732178,
+            "l2_delta": 10.43845415576752
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.7014656066894531,
+        "last_checkpoint_sha256": "fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1",
+        "reload_state_dict_max_abs_diff": 0.0
+      },
+      "c2_twostage_joint_seed13_e20_v1": {
+        "stage_tag": "C2_joint",
+        "completed_epochs": 20,
+        "global_step": 8000,
+        "nonfinite_grad_steps": 0,
+        "wall_seconds": 6452.826546356082,
+        "gpu_device_hours": 1.7924518184322449,
+        "peak_vram_mib": 2797.15380859375,
+        "parameters": {
+          "total": {
+            "total_params": 43475200,
+            "trainable_params": 43475200
+          },
+          "gaffe": {
+            "total_params": 33602560,
+            "trainable_params": 33602560
+          },
+          "temp_encs.app_encoder": {
+            "total_params": 9004544,
+            "trainable_params": 9004544
+          },
+          "temp_encs.kp_encoder": {
+            "total_params": 667008,
+            "trainable_params": 667008
+          },
+          "temp_encs.bbox_encoder": {
+            "total_params": 201088,
+            "trainable_params": 201088
+          }
+        },
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 51,
+            "num_changed_tensors": 51,
+            "max_abs_delta": 0.030766315758228302,
+            "l2_delta": 27.156961256196553
+          },
+          "temp_encs.app_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.026720724999904633,
+            "l2_delta": 11.645489475717143
+          },
+          "temp_encs.kp_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.042117536067962646,
+            "l2_delta": 3.0738738444258766
+          },
+          "temp_encs.bbox_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.04161688685417175,
+            "l2_delta": 1.862147551173516
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.545995831489563,
+        "last_checkpoint_sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+        "reload_state_dict_max_abs_diff": 0.0
+      }
+    }
+  },
+  "question_2_d1_similarity_margin_attribution": {
+    "primary_t_twostage_th050": {
+      "summary": {
+        "condition": "T_TWOSTAGE_TH050",
+        "run_id": "d1_t_twostage_th050_trace_v1",
+        "sim_threshold": 0.5,
+        "total_official_idsw": 786,
+        "bucket_counts": {
+          "unmatched_spawned_new_track": 137,
+          "misassociation_reversal_margin_lt_neg_0_05": 411,
+          "high_score_tie_abs_margin_lt_0_05": 204,
+          "pos_higher_lost_in_hungarian": 34
+        },
+        "bucket_fractions": {
+          "unmatched_spawned_new_track": 0.1743002544529262,
+          "misassociation_reversal_margin_lt_neg_0_05": 0.5229007633587787,
+          "high_score_tie_abs_margin_lt_0_05": 0.2595419847328244,
+          "pos_higher_lost_in_hungarian": 0.043256997455470736
+        },
+        "gap_gt_1_count": 472,
+        "competing_gt_count": 598,
+        "margin_stats": {
+          "count_defined": 786,
+          "median": -0.07547026872634888,
+          "mean": -0.09653425747504975,
+          "p10": -0.2521769404411316,
+          "p90": 0.038429468870162964
+        },
+        "s_pos_stats": {
+          "count_defined": 786,
+          "median": 0.5181431174278259,
+          "mean": 0.5302706812780928
+        },
+        "gpu": {
+          "CUDA_VISIBLE_DEVICES": "1",
+          "physical_gpu_ids": [
+            1
+          ],
+          "logical_to_physical": {
+            "cuda:0": "physical_gpu_1"
+          },
+          "gpu_name": "NVIDIA GeForce RTX 4090 D"
+        },
+        "wall_seconds": 446.1133714597672,
+        "peak_vram_mib": 847.13134765625,
+        "mot_sha256_exact_match_ref_run": "c3_t_twostage_th050_v1",
+        "events_csv": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_twostage_th050_trace_v1/d1_idsw_margins.csv"
+      },
+      "total_events_in_csv": 786,
+      "per_sequence": {
+        "dancetrack0012": {
+          "total_idsw": 109,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 9,
+            "misassociation_reversal_margin_lt_neg_0_05": 63,
+            "high_score_tie_abs_margin_lt_0_05": 32,
+            "pos_higher_lost_in_hungarian": 5
+          },
+          "gap_gt_1_count": 77,
+          "competing_gt_count": 88,
+          "margin_median": -0.08122563362121582,
+          "margin_mean": -0.09498625884362318
+        },
+        "dancetrack0020": {
+          "total_idsw": 229,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 28,
+            "misassociation_reversal_margin_lt_neg_0_05": 134,
+            "pos_higher_lost_in_hungarian": 18,
+            "high_score_tie_abs_margin_lt_0_05": 49
+          },
+          "gap_gt_1_count": 162,
+          "competing_gt_count": 188,
+          "margin_median": -0.12265467643737793,
+          "margin_mean": -0.13615157770798195
+        },
+        "dancetrack0024": {
+          "total_idsw": 12,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 5,
+            "misassociation_reversal_margin_lt_neg_0_05": 6,
+            "high_score_tie_abs_margin_lt_0_05": 1
+          },
+          "gap_gt_1_count": 6,
+          "competing_gt_count": 10,
+          "margin_median": -0.0601842999458313,
+          "margin_mean": -0.05553175508975983
+        },
+        "dancetrack0033": {
+          "total_idsw": 86,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 46,
+            "high_score_tie_abs_margin_lt_0_05": 29,
+            "unmatched_spawned_new_track": 9,
+            "pos_higher_lost_in_hungarian": 2
+          },
+          "gap_gt_1_count": 40,
+          "competing_gt_count": 71,
+          "margin_median": -0.06666713953018188,
+          "margin_mean": -0.08981545512066332
+        },
+        "dancetrack0037": {
+          "total_idsw": 65,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 23,
+            "misassociation_reversal_margin_lt_neg_0_05": 30,
+            "high_score_tie_abs_margin_lt_0_05": 12
+          },
+          "gap_gt_1_count": 25,
+          "competing_gt_count": 52,
+          "margin_median": -0.07409989833831787,
+          "margin_mean": -0.08988582079227155
+        },
+        "dancetrack0044": {
+          "total_idsw": 197,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 38,
+            "high_score_tie_abs_margin_lt_0_05": 60,
+            "misassociation_reversal_margin_lt_neg_0_05": 94,
+            "pos_higher_lost_in_hungarian": 5
+          },
+          "gap_gt_1_count": 123,
+          "competing_gt_count": 123,
+          "margin_median": -0.05734759569168091,
+          "margin_mean": -0.07825814376627734
+        },
+        "dancetrack0053": {
+          "total_idsw": 41,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 20,
+            "high_score_tie_abs_margin_lt_0_05": 7,
+            "misassociation_reversal_margin_lt_neg_0_05": 14
+          },
+          "gap_gt_1_count": 14,
+          "competing_gt_count": 19,
+          "margin_median": -0.019062042236328125,
+          "margin_mean": -0.03510218567964507
+        },
+        "dancetrack0086": {
+          "total_idsw": 47,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 5,
+            "misassociation_reversal_margin_lt_neg_0_05": 24,
+            "high_score_tie_abs_margin_lt_0_05": 14,
+            "pos_higher_lost_in_hungarian": 4
+          },
+          "gap_gt_1_count": 25,
+          "competing_gt_count": 47,
+          "margin_median": -0.06647127866744995,
+          "margin_mean": -0.06924639103260447
+        }
+      }
+    },
+    "supplement_t_scratch_th_comp": {
+      "summary": {
+        "condition": "T_SCRATCH_TH_COMP",
+        "run_id": "d1_t_scratch_th_comp_trace_v1",
+        "sim_threshold": 0.5197290778160095,
+        "total_official_idsw": 1412,
+        "bucket_counts": {
+          "misassociation_reversal_margin_lt_neg_0_05": 815,
+          "high_score_tie_abs_margin_lt_0_05": 412,
+          "unmatched_spawned_new_track": 166,
+          "pos_higher_lost_in_hungarian": 19
+        },
+        "bucket_fractions": {
+          "misassociation_reversal_margin_lt_neg_0_05": 0.5771954674220963,
+          "high_score_tie_abs_margin_lt_0_05": 0.29178470254957506,
+          "unmatched_spawned_new_track": 0.11756373937677053,
+          "pos_higher_lost_in_hungarian": 0.013456090651558074
+        },
+        "gap_gt_1_count": 624,
+        "competing_gt_count": 984,
+        "margin_stats": {
+          "count_defined": 1412,
+          "median": -0.07656648755073547,
+          "mean": -0.0982679885102399,
+          "p10": -0.2450415074825287,
+          "p90": 0.007658445835113537
+        },
+        "s_pos_stats": {
+          "count_defined": 1412,
+          "median": 0.5127189755439758,
+          "mean": 0.5051828864275902
+        },
+        "gpu": {
+          "CUDA_VISIBLE_DEVICES": "1",
+          "physical_gpu_ids": [
+            1
+          ],
+          "logical_to_physical": {
+            "cuda:0": "physical_gpu_1"
+          },
+          "gpu_name": "NVIDIA GeForce RTX 4090 D"
+        },
+        "wall_seconds": 447.8021416272968,
+        "peak_vram_mib": 847.13623046875,
+        "mot_sha256_exact_match_ref_run": "b_t_scratch_th_comp_v1",
+        "events_csv": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/d1_t_scratch_th_comp_trace_v1/d1_idsw_margins.csv"
+      },
+      "total_events_in_csv": 1412,
+      "per_sequence": {
+        "dancetrack0012": {
+          "total_idsw": 191,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 121,
+            "high_score_tie_abs_margin_lt_0_05": 49,
+            "unmatched_spawned_new_track": 20,
+            "pos_higher_lost_in_hungarian": 1
+          },
+          "gap_gt_1_count": 102,
+          "competing_gt_count": 160,
+          "margin_median": -0.0774085521697998,
+          "margin_mean": -0.10128058688178737
+        },
+        "dancetrack0020": {
+          "total_idsw": 290,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 32,
+            "misassociation_reversal_margin_lt_neg_0_05": 185,
+            "high_score_tie_abs_margin_lt_0_05": 62,
+            "pos_higher_lost_in_hungarian": 11
+          },
+          "gap_gt_1_count": 173,
+          "competing_gt_count": 234,
+          "margin_median": -0.11883625388145447,
+          "margin_mean": -0.1265914413435706
+        },
+        "dancetrack0024": {
+          "total_idsw": 10,
+          "bucket_counts": {
+            "high_score_tie_abs_margin_lt_0_05": 3,
+            "misassociation_reversal_margin_lt_neg_0_05": 6,
+            "unmatched_spawned_new_track": 1
+          },
+          "gap_gt_1_count": 7,
+          "competing_gt_count": 10,
+          "margin_median": -0.13685005903244019,
+          "margin_mean": -0.14875698685646058
+        },
+        "dancetrack0033": {
+          "total_idsw": 134,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 84,
+            "high_score_tie_abs_margin_lt_0_05": 42,
+            "pos_higher_lost_in_hungarian": 1,
+            "unmatched_spawned_new_track": 7
+          },
+          "gap_gt_1_count": 54,
+          "competing_gt_count": 117,
+          "margin_median": -0.1038844883441925,
+          "margin_mean": -0.11389503772579022
+        },
+        "dancetrack0037": {
+          "total_idsw": 66,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 36,
+            "high_score_tie_abs_margin_lt_0_05": 18,
+            "unmatched_spawned_new_track": 12
+          },
+          "gap_gt_1_count": 26,
+          "competing_gt_count": 59,
+          "margin_median": -0.07319727540016174,
+          "margin_mean": -0.09661920233206316
+        },
+        "dancetrack0044": {
+          "total_idsw": 603,
+          "bucket_counts": {
+            "unmatched_spawned_new_track": 74,
+            "high_score_tie_abs_margin_lt_0_05": 204,
+            "misassociation_reversal_margin_lt_neg_0_05": 323,
+            "pos_higher_lost_in_hungarian": 2
+          },
+          "gap_gt_1_count": 211,
+          "competing_gt_count": 307,
+          "margin_median": -0.06204497814178467,
+          "margin_mean": -0.08444547040347831
+        },
+        "dancetrack0053": {
+          "total_idsw": 17,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 11,
+            "high_score_tie_abs_margin_lt_0_05": 3,
+            "unmatched_spawned_new_track": 3
+          },
+          "gap_gt_1_count": 10,
+          "competing_gt_count": 10,
+          "margin_median": -0.0787203311920166,
+          "margin_mean": -0.06683282992419075
+        },
+        "dancetrack0086": {
+          "total_idsw": 101,
+          "bucket_counts": {
+            "misassociation_reversal_margin_lt_neg_0_05": 49,
+            "unmatched_spawned_new_track": 17,
+            "high_score_tie_abs_margin_lt_0_05": 31,
+            "pos_higher_lost_in_hungarian": 4
+          },
+          "gap_gt_1_count": 41,
+          "competing_gt_count": 87,
+          "margin_median": -0.062040746212005615,
+          "margin_mean": -0.07440733319461935
+        }
+      }
+    }
+  },
+  "question_3_d2_privileged_clean_history_counterfactual": {
+    "gt_role": "privileged_clean_history_counterfactual_not_deployable",
+    "authoritative_run_id": "d2_t_twostage_th050_clean_history_v3",
+    "routing_stats_v3": {
+      "total_frames": 7565,
+      "total_predicted_matches": 77689,
+      "cross_id_matches_prevented_from_gallery": 1108,
+      "fp_matches_prevented_from_gallery": 1319,
+      "gt_routed_gallery_updates": 76509
+    },
+    "combined_deltas_v3_minus_online_c3": {
+      "delta_HOTA": 27.464899662331618,
+      "delta_DetA": 2.866581032160994,
+      "delta_AssA": 43.3588813653257,
+      "delta_IDF1": 38.52387750804311,
+      "delta_MOTA": 1.2996461115426854,
+      "delta_IDSW": 44,
+      "online_AssA": 36.7043200239207,
+      "d2_AssA": 80.0632013892464,
+      "online_IDF1": 53.62905012374279,
+      "d2_IDF1": 92.1529276317859,
+      "p_official_s08_AssA": 54.51552276322664,
+      "p_official_th050_AssA": 49.39888300873619
+    },
+    "per_sequence_recovery_v3": {
+      "dancetrack0012": {
+        "online_HOTA": 45.9855236284943,
+        "d2_HOTA": 83.64627282435994,
+        "delta_HOTA": 37.66074919586564,
+        "online_AssA": 25.91685925430608,
+        "d2_AssA": 83.53816708349439,
+        "delta_AssA": 57.62130782918831,
+        "online_IDF1": 45.543538327938734,
+        "d2_IDF1": 95.78559095903312,
+        "delta_IDF1": 50.24205263109438,
+        "online_IDSW": 109,
+        "d2_IDSW": 95,
+        "delta_IDSW": -14
+      },
+      "dancetrack0020": {
+        "online_HOTA": 57.055586596023666,
+        "d2_HOTA": 76.81497949613428,
+        "delta_HOTA": 19.75939290011062,
+        "online_AssA": 45.26155513786649,
+        "d2_AssA": 77.87922672358408,
+        "delta_AssA": 32.617671585717595,
+        "online_IDF1": 60.58806527051528,
+        "d2_IDF1": 91.55151483844305,
+        "delta_IDF1": 30.963449567927775,
+        "online_IDSW": 229,
+        "d2_IDSW": 287,
+        "delta_IDSW": 58
+      },
+      "dancetrack0024": {
+        "online_HOTA": 82.97477700567809,
+        "d2_HOTA": 86.27838757684565,
+        "delta_HOTA": 3.303610571167553,
+        "online_AssA": 73.30768892423403,
+        "d2_AssA": 79.09600907082348,
+        "delta_AssA": 5.788320146589456,
+        "online_IDF1": 81.00111234705228,
+        "d2_IDF1": 86.07623069229915,
+        "delta_IDF1": 5.075118345246864,
+        "online_IDSW": 12,
+        "d2_IDSW": 14,
+        "delta_IDSW": 2
+      },
+      "dancetrack0033": {
+        "online_HOTA": 46.4132139853289,
+        "d2_HOTA": 80.99095986635908,
+        "delta_HOTA": 34.577745881030175,
+        "online_AssA": 27.791003561326537,
+        "d2_AssA": 75.50105397378152,
+        "delta_AssA": 47.71005041245499,
+        "online_IDF1": 48.49377865094958,
+        "d2_IDF1": 86.39004828545708,
+        "delta_IDF1": 37.896269634507505,
+        "online_IDSW": 86,
+        "d2_IDSW": 59,
+        "delta_IDSW": -27
+      },
+      "dancetrack0037": {
+        "online_HOTA": 44.271430630588426,
+        "d2_HOTA": 87.60712186989046,
+        "delta_HOTA": 43.33569123930204,
+        "online_AssA": 21.7960677645743,
+        "d2_AssA": 84.00785441538197,
+        "delta_AssA": 62.21178665080767,
+        "online_IDF1": 37.438243366880144,
+        "d2_IDF1": 92.97389607221274,
+        "delta_IDF1": 55.535652705332595,
+        "online_IDSW": 65,
+        "d2_IDSW": 65,
+        "delta_IDSW": 0
+      },
+      "dancetrack0044": {
+        "online_HOTA": 44.31829370589986,
+        "d2_HOTA": 80.11004016706603,
+        "delta_HOTA": 35.79174646116617,
+        "online_AssA": 24.757457475369883,
+        "d2_AssA": 78.34861009117638,
+        "delta_AssA": 53.5911526158065,
+        "online_IDF1": 44.96822033898305,
+        "d2_IDF1": 94.17340605604664,
+        "delta_IDF1": 49.20518571706359,
+        "online_IDSW": 197,
+        "d2_IDSW": 224,
+        "delta_IDSW": 27
+      },
+      "dancetrack0053": {
+        "online_HOTA": 51.006889888962306,
+        "d2_HOTA": 78.67755041368999,
+        "delta_HOTA": 27.67066052472768,
+        "online_AssA": 29.170138840835165,
+        "d2_AssA": 67.63150037206866,
+        "delta_AssA": 38.46136153123349,
+        "online_IDF1": 46.3439404197698,
+        "d2_IDF1": 82.69328370834039,
+        "delta_IDF1": 36.34934328857059,
+        "online_IDSW": 41,
+        "d2_IDSW": 33,
+        "delta_IDSW": -8
+      },
+      "dancetrack0086": {
+        "online_HOTA": 68.95182195633708,
+        "d2_HOTA": 87.47130791679967,
+        "delta_HOTA": 18.51948596046259,
+        "online_AssA": 55.870566148889935,
+        "d2_AssA": 87.62045280550221,
+        "delta_AssA": 31.749886656612276,
+        "online_IDF1": 71.6091524881327,
+        "d2_IDF1": 97.51721928559988,
+        "delta_IDF1": 25.908066797467185,
+        "online_IDSW": 47,
+        "d2_IDSW": 53,
+        "delta_IDSW": 6
+      }
+    },
+    "historical_d2_attempts_preserved": {
+      "d2_t_twostage_th050_clean_history_v1": {
+        "status": "SUPERSEDED_ARTIFACT_MULTI_CLONE_AGE_ALIASING",
+        "routing_stats": {
+          "total_frames": 7565,
+          "total_predicted_matches": 77165,
+          "cross_id_matches_prevented_from_gallery": 1341,
+          "fp_matches_prevented_from_gallery": 1346,
+          "gt_routed_gallery_updates": 168380
+        },
+        "combined_metrics_preview": {
+          "HOTA": 81.28146062726437,
+          "DetA": 83.59781061280992,
+          "AssA": 79.06637773862093,
+          "IDF1": 91.60224678110238,
+          "MOTA": 89.82231593484507,
+          "IDSW": 2281,
+          "FP": 1379,
+          "FN": 4594,
+          "Frag": 1458
+        },
+        "diagnosis": "v1 appended shared `clean_det` objects without shallow copy to all sibling tracklets carrying the same `s09_gt_anchor`, causing `track.forward()` to increment `det.age` multiple times per frame and spawning 576 ping-ponging tracklets on dancetrack0037 (168,380 updates for 77,689 matches; IDSW=2281)."
+      },
+      "d2_t_twostage_th050_clean_history_v2": {
+        "status": "FAILED_COMPATIBILITY_REPAIR_1",
+        "error": "TypeError: expected Tensor as element 0 in argument 0, but got int (assigned Python int 0 to Detection.age instead of cloning Tensor)"
+      }
+    }
+  },
+  "s10_routing_interpretation": {
+    "recommended_primary_route": "B_prime_plus_single_frame_swap_rejection_awareness",
+    "rationale": "Threshold calibration alone moves T_SCRATCH AssA by at most +1.80 (36.10 -> 37.90 at 0.50). Two-stage training halves T_TWOSTAGE_TH050 IDSW (1333 -> 786 vs T_SCRATCH_TH050, or 1451 -> 786 vs S08 0.1) yet online AssA remains 36.704. When D2 prevents cross-ID/FP contamination in tracklet galleries (1,108 cross-ID + 1,319 FP matches filtered, strictly 1-to-1), AssA surges +43.359 points (36.704 -> 80.063; HOTA 54.443 -> 81.907; IDF1 53.629 -> 92.153), including +62.210 AssA on dancetrack0037 (21.796 -> 84.008) and +53.593 AssA on dancetrack0044 (24.757 -> 78.349), far surpassing even P_OFFICIAL (54.516). Meanwhile, momentary cross-ID predictions still fire from clean galleries (1,108 prevented writes -> 830 local CLEAR IDSWs), but clean galleries self-heal on subsequent frames rather than latching into catastrophic global identity collapse."
+  },
+  "compute_and_storage": {
+    "gpu_hours_stage_B": 0.4952961277164933,
+    "gpu_hours_stage_C": 7.476979101414585,
+    "gpu_hours_stage_D_including_v1_and_v3": 0.5137952546687383,
+    "gpu_hours_total": 8.486070483799816,
+    "extra_storage_runs_bytes": 1405824135,
+    "extra_storage_cache_bytes": 5356440679,
+    "extra_storage_total_gib": 6.29784987680614
+  }
+}
