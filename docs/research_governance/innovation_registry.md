@@ -1,6 +1,8 @@
 # 创新主张台账
 
-更新日期：2026-11-25。本表是主张级别的单一事实源；报告文案不得超过本表状态。
+更新日期：2026-11-26。本表是主张级别的单一事实源；报告文案不得超过本表状态。
+
+**2026-11-26 S08 复盘与 S10 候选更新：** 基于 S08 `d662023` 闭环结果与最新联网文献窄查重（见 [2026-11-26 复盘](../research_status_review_20261126.md)），整理三个待 S09 实证裁决的 S10 候选方向：`A'`（训练目标-全局二分分配边际对齐与动态拒识边界，须区分 [SLAck](https://arxiv.org/abs/2409.11235)、[HDST-GNN](https://arxiv.org/abs/2606.05587)、[MM-Tracker](https://arxiv.org/abs/2407.10485)）、`B'`（抗闭环自相关污染训练与一致性去污，受限于 [MOTIP2](https://arxiv.org/abs/2610.10391)、[MOTRv3](https://arxiv.org/abs/2305.14298)、[HMP](https://www.mdpi.com/2079-9292/15/11/2357)、[TCEI](https://arxiv.org/abs/2603.21629) 高重合，仅在 S09-D2 证实历史污染主导时启动）、`C'`（CAMELTrack GAFFE 显式成对运动学残差与方向性遮挡边偏置，桥接 [DOA-SORT](https://arxiv.org/abs/2609.22706)/[HyperSSM](https://arxiv.org/abs/2604.12665) 与多线索 Transformer）。三者当前均处于未实验、未立项状态（`NOT_SUPPORTED_BY_PROVENANCE`），待 [S09 任务](../a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md) 标定与归因后单选其一。
 
 **2026-11-25 S07 更新：** [补充体检复盘](../research_status_review_20261125.md)确认同 epoch Context 有固定样本回归优势，但开发动作一致率未超过 always-M，结果后动作类型均值对照的 MSE 更低。保留原 S06 单 seed 闭环数值，不升级 V1/V2，不把 22 个分量中的一例差异解释为显著否定所有上下文/风险方法。当前稀疏分歧双头选择器建议结束；下一研究平台优先成熟学习关联基线，具体创新主张尚待确定。C1–C5 与其他停止判定不变。
 

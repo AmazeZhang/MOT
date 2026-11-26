@@ -1,6 +1,14 @@
 # 当前 A2A 交接入口
 
-更新：2026-11-25。本文件是可更新导航；历史报告、协议和失败记录仍保留。
+更新：2026-11-26。本文件是可更新导航；历史报告、协议和失败记录仍保留。
+
+## 当前待执行：S09 CAMELTrack 阈值标定、两阶段基线与闭环归因
+
+- **任务书：** [S09 具体执行与回传要求](S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md)；[版本化协议](../../manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml)。前置研究复盘：[2026-11-26 S08 复盘与前沿查重](../research_status_review_20261126.md)。执行状态：`DESIGN_READY_RUNTIME_LOCK_PENDING` / `NOT_RUN`（尚未交给服务器执行）。
+- **核心问题：** 剥离 S08 中 `T_SCRATCH`（HOTA `53.981` / AssA `36.096` / IDSW `1451`）落后于平台参考（`66.993` / `54.516`）的来源——(1) `sim_threshold=0.1` 未校准、(2) 缺少官方 Stage 1 单线索 TE 预训练、(3) 残余失败中“高分平局互换 vs. 闭环历史污染 vs. 单步特征几何不可分辨”的占比——从而裁决 S10 主攻方向（A' / B' / C'）。
+- **执行顺序：** A 资产复核与源码锁定 → B 零重训阈值标定（`0.46 / 0.50 / 0.519729`） → C `train32` 两阶段基线 `T_TWOSTAGE` 训练与 `dev8` 闭环评测 → D 相似度边际统计（D1）与 GT 路由干净历史特权探针（D2） → E 标准报告包导出并停止。
+- **预算与边界：** 单张空闲物理 GPU 1–7（GPU 0 禁用）；总 GPU 预算 `≤ 16` 卡时、墙钟 `≤ 48` 小时。不修改 S08 已有运行目录；不运行新损失/网络头（S10 范围）、官方 `val`/`test`、MOTIP 或自动 `git commit/push`。
+- **回传目录（待生成）：** `reports/diagnostics/s09_camel_calibration_and_attribution_20261126/`；当前该目录尚未产生。
 
 ## 最新已完成：S08 CAMELTrack 有界基线闭环（`COMPLETED` / `CONTINUE`）
 

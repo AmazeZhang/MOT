@@ -1,6 +1,8 @@
 # MOT 毕业设计研究
 
-**当前待执行（2026-11-25）：** [S08 CAMELTrack 基线任务书](docs/a2a/S08_CAMEL_BASELINE_TASK.md)与[协议](manifests/protocols/s08_camel_baseline_20261125.yaml)已准备，服务器尚未执行。按来源锁定、在线验收、训练恢复、20epoch单seed训练、dev8完整评测及有界失败摘要推进；预算内通过前置门可自动继续。长期协作采用[研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从[LATEST](docs/a2a/LATEST.md)读取当前任务。
+**当前待执行（2026-11-26）：** S08 CAMELTrack 平台闭环已完成（`T_SCRATCH` dev8 HOTA `53.981` / AssA `36.096` / IDSW `1451` vs 离线 `val/sim_auroc = 0.9922`，见 [S08 权威报告](reports/baselines/s08_camel_baseline_20261125/README.md)）。研究端已完成 [2026-11-26 复盘与前沿查重](docs/research_status_review_20261126.md)，并起草 [S09 阈值标定、两阶段基线与闭环归因任务书](docs/a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md) 与 [协议](manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml)（`NOT_RUN`，待交服务器执行），以实证裁决 S10 主攻方向（A'/B'/C'）。长期协作采用 [研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从 [LATEST](docs/a2a/LATEST.md) 读取当前任务。
+
+**历史状态（2026-11-25）：** [S08 CAMELTrack 基线任务书](docs/a2a/S08_CAMEL_BASELINE_TASK.md)与[协议](manifests/protocols/s08_camel_baseline_20261125.yaml)已执行完毕。
 
 **最新阶段（2026-11-25）：S07 checkpoint 补充体检完成。** Context 后期 checkpoint 的固定样本回归误差降低，但 internal-dev6 动作决定为 13/22，未超过 always-M 的 14/22；结果后动作类型常数的 MSE 也更低。保持 S06 STOP，不再补同批小选择器诊断，优先转向成熟学习关联基线，再选择具体创新问题。见 [S07 复盘与方向决定](docs/research_status_review_20261125.md)、[权威报告](reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md)与 [A2A 当前入口](docs/a2a/LATEST.md)。以下 11 月 24 日及更早阶段保留为历史，不是新的待执行清单。
 
