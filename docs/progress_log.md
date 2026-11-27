@@ -1253,3 +1253,10 @@
   - `G4_HYBRID_GATE_EARLY_PIN5`：`43.380` HOTA / `23.918` AssA / `1,698` IDSW / `9,759` FN（跳过 `7,857` 次，分配 `2,839` 个早锚槽）。
   - 全部 `G1–G4` 仍大幅劣于 `T_TWOSTAGE_TH050` (`54.443`) 与 `T2_TH040` (`57.572`)，因密集场景约 `42%` 正常成熟匹配伴随 `IoU>=0.30` 冲突导致 `>98%` 误跳过（`4,733–7,857` 拒写 vs 仅 `~82` 捕获 onset），在遮挡区饿死运动与外观更新。
 - **阶段 E（报告交付与 S12 路由）：** 已导出 `reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`（`7` 行总体、`56` 行逐视频、`16` 例 onset 证据、`checks.json` 10/10 全通过、`artifacts.json` 47 项全校验、`tests/test_s11_camel.py` `3 passed`）。**定案进入 情况 2**：写库端启发式刹车不足以止损，S12 直接从关联打分与分配层立项 **`C'`（GAFFE 成对运动/方向遮挡边偏置）+ `A'`（边际/`2-cycle`/延迟解歧）**，并以 `T2_TH040`（`57.572`）与 `anchor_reid_dist` 漂移信号作配套参照。未执行 `git commit` / `git push`。
+
+## 2026-11-27：S11 复盘审阅与制定 S12（`C' + A'`）受控实验任务
+
+- **完成内容：** 审阅 S11 完整报告包（`reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`：`aggregate_metrics.csv`、`per_sequence_metrics.csv`、`diagnostics.json`、`cases.jsonl`）并结合 2025–2026 文献查重（DOA-SORT、HyperSSM、VLA-ReID、C-TWiX、SLAck、HDST-GNN、MM-Tracker、MOTIP2），起草 [S12 任务书](a2a/S12_CAMEL_PAIRWISE_EDGE_AND_ASSIGNMENT_TASK.md) 与 [S12 版本化协议](../manifests/protocols/s12_camel_pairwise_edge_and_assignment_20261127.yaml)，同步更新 [LATEST](a2a/LATEST.md) 与 [创新主张台账](research_governance/innovation_registry.md)。
+- **关键科学设计：** 针对 S11 揭示的 `149` 例真实 onset 主因（`74.5%` `gap==1`、`89.9%` `IoU>=0.30`、`63.1%` 真目标缺检却误抓邻框、`74.5%` 双向 `margin < 0.10`、`-margin` AUROC `0.9432`、`22.8%` `2-cycle` 互换），设计零重训分配对照（Stage B `B1` Dustbin 增广 Dual-Softmax 与 `B2` `2-cycle` 纠偏+极端歧义单帧暂缓）、同 S09 C1 TE 初始化与等参数单节点容量对照（Stage C `M0_NODE_CAP_CTRL` vs `M1_C_KIN_EDGE` vs `M2_C_KIN_DOA_EDGE` vs `M3_C_PRIME_PLUS_A_LOSS`）、以及 Stage D 协同与 S11 同口径 onset/尾段消减解剖。
+- **范围与限制：** 本轮仅做本地研究复盘、联网文献查重与 S12 任务/协议设计，未连接服务器、未执行训练/推理/TrackEval 或使用任何 GPU；S12 状态为 `DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN`），各待验机制保持 `NOT_SUPPORTED_BY_PROVENANCE`。工作树保持未提交、未推送。
+- **精确下一步：** 用户将工作树提交/交付服务器后，服务器按 [LATEST](a2a/LATEST.md) 领取 **S12 任务**从 Stage A（核验 `gaffe.py`/`losses.py`/`dataset.py` 源码接口与单测）顺序执行至 Stage E 并返回 `reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/`，随后由研究端根据结果决定是否进入 S13 多 seed 与官方 `val`/`test` 确认。

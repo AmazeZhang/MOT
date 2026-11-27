@@ -2,10 +2,26 @@
 
 更新：2026-11-27。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
+## 0. Current Active Task To Execute: S12 CAMELTrack 成对运动/方向遮挡边偏置 (`C'`) 与分配对齐解歧 (`A'`) (`NOT_RUN`)
+
+- **任务书与协议：** [S12 具体执行与回传要求](S12_CAMEL_PAIRWISE_EDGE_AND_ASSIGNMENT_TASK.md)；[版本化协议](../../manifests/protocols/s12_camel_pairwise_edge_and_assignment_20261127.yaml)。
+- **执行状态：** **`DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN`）** — 研究端已基于 S11 实证完成定案与协议起草，待用户交付服务器从 **Stage A** 启动执行；Stage A–E 在前置门通过且预算内自动顺序推进，**停在 Stage E** 并交回研究端定案 S13（严禁自动扩展 multi-seed 或官方 `val`/`test`）。
+- **核心设计要点：**
+  1. **Stage B（零重训 `A'_infer` 对照，复用 S09 `T_TWOSTAGE` @ `0.40`）**：`B1_A_DUAL_SOFTMAX_TH040`（Dustbin 增广双向 Softmax 竞争校准）与 `B2_A_MARGIN_2CYCLE_DEFER_TH040`（`2-cycle` 因果运动学纠偏 + 极端低边际冲突单帧暂缓）。
+  2. **Stage C（受控四联组 20-epoch 训练，`motion_train32`，S09 C1 TE 初始化，`seed=13`，评测 `@0.40` 主基点 & `@0.50` 参照）**：
+     - `M0_NODE_CAP_CTRL`（同初始化、新增参数量 $\ge$ `M2` 的纯单节点运动/遮挡容量对照，无成对边偏置）；
+     - `M1_C_KIN_EDGE`（`GAFFE` 成对因果运动学外推残差边偏置）；
+     - `M2_C_KIN_DOA_EDGE`（`M1` 叠加 DOA 式方向遮挡与前后序关系几何边偏置）；
+     - `M3_C_PRIME_PLUS_A_LOSS`（`M2` 叠加分配对齐的双向竞争边际与未匹配防误抓损失）。
+  3. **Stage D（协同评测与 Onset 解剖回放）**：将 `B1/B2` 叠加至 Stage C 最优模型，并按 S11 Stage C 同口径检验其对 `149` 例 onset 与 `31,791` 帧后切换污染尾段的实际消减效果。
+- **预算与安全约束：** 单张物理 GPU `1–7`（**GPU 0 永久禁用**）、总预算 **`<= 9.0 GPUh`**、墙钟 `<= 24h`、新增数据盘存储 `<= 15 GiB`；工作树不自动 `commit`/`push`。
+
+---
+
 ## 1. Latest Completed Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`COMPLETED`)
 
 - **任务书与协议：** [S11 具体执行与回传要求](S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md)；[版本化协议](../../manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml)。
-- **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成并停止在 Stage E，等待研究端定案 S12）**
+- **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成，已由研究端审阅并推进至 S12）**
 - **权威报告：** [reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md](../../reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md)
 - **资源与检查：** 0 次训练、`CUDA_VISIBLE_DEVICES=1`（`NVIDIA GeForce RTX 4090 D`），物理 GPU 0 禁用且未触碰；总耗时 **`1.008 GPUh`**（预算 `<= 2.0h`），新增存储 **`0.086 GiB`**（预算 `<= 5.0 GiB`）；`checks.json` **10/10 通过**，TrackEval 导出误差 `0.0`，Stage C MOT 与 S09 基准逐字节一致；保留 1 项预运行失败 record `c_onset_anatomy_v1`。
 
