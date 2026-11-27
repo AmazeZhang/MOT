@@ -1,0 +1,34 @@
+{
+  "case_id": "s11_onset_15_dancetrack0086_f247_trk222_gt346_to_348",
+  "sequence": "dancetrack0086",
+  "frame": 247,
+  "track_id_in_t2_th050": 222,
+  "anchor_gt": 346,
+  "switched_to_det_gt": 348,
+  "sort_key_sha256": "00cab1d5c1dea53ae9ff90e927b9a55007d9e3f70d57231835beb90e5e142fb4",
+  "onset_telemetry": {
+    "hits_before": 239,
+    "trk_gap_frames": 1,
+    "anchor_gt_gap_frames": 1,
+    "sim_val": 0.6426506638526917,
+    "assignment_margin": 0.04214590787887573,
+    "is_margin_inf": 0,
+    "det_max_other_iou": 0.4236512748092197,
+    "trk_max_other_iou": 0.5407375504669787,
+    "max_conflict_iou": 0.5407375504669787,
+    "anchor_reid_dist": 0.2005189544381636,
+    "recent_reid_dist": 0.06979616866633676,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0,
+    "true_minus_assigned_sim": null
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T_TWOSTAGE_TH050": {},
+    "T2_TH040": {},
+    "G1": {},
+    "G2": {},
+    "G3": {},
+    "G4": {},
+    "D2_SKIP_ONLY": {}
+  }
+}

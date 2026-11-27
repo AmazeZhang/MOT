@@ -1235,3 +1235,21 @@
 - **关键决策：** 维持 S10 对 `C2/C3` 合成接管与局部滑窗一致性的停止判定；针对 S10 Stage D 揭示的“`31,791` 例自洽漂移尾段由 `149` 例 onset 引爆且 `1-sim` 在 onset 达 `0.8512` AUROC、而无差别 `C0` 门控因误杀孤立快动目标致 `FN` 飙升”现象，设计纯推理零重训的 S11 任务（`<= 2.0 GPUh`、物理 GPU 1、GPU 0 禁用）：Stage B 补测 `T_TWOSTAGE` 在 `0.10/0.30/0.40` 低阈值表现，Stage C 对 `149` 例真实 onset 做 100% 病因解剖（`gap`/竞争 `IoU`/双向 `margin`/`2-cycle`）并离线测试“创生早期干净锚点 vs 近期滑窗” `anchor_reid_dist` 判别力，Stage D 固定 `@0.50` 验证 4 组冲突感知条件拒写与早锚保留闭环基线（`G1–G4`）。
 - **范围与限制：** 本轮仅做本地审阅、文档与协议起草；未连接服务器、未执行推理或 TrackEval、未修改任何模型或运行训练。S11 状态为 `DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN`），零重训启发式门控仅作可部署基线与机制桥接，不宣称为架构创新。
 - **精确下一步：** 提交并推送 S11 设计，交由服务器按 [LATEST](a2a/LATEST.md) 执行 Stage A–E 并返回 `reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`，随后进入 S12（`C'` / `A'`）路线定案。
+
+## 2026-11-27：S11 完成零重训低阈值标定、149 例 Onset 解剖与冲突感知拒写闭环（A–E 全阶段）
+
+- **阶段 A（资产核验、实现与单元测试）：** 新增 `scripts/run_s11_camel.py`、`tests/test_s11_camel.py` 与 `scripts/export_s11_report.py`。校验全部 5 项 S09/S10 资产 SHA256，确认 `states_dev8_gt_free.pklz` 内 `det.embeddings` 为 `(6, 128)` 非归一化分区特征与 `visibility_scores` `(6,)` 并锁定分区加权余弦距离。3 项单元测试全通过（竞争 `IoU` 排除自身、双向 `margin` 及 `+inf` 边界、`2-cycle` 检测、`G1–G3` 跳写保库与 `G4` 80 步 `len<=50` 前 5 槽早期锚点固定）。全流程 0 训练，仅用物理 GPU 1（`CUDA_VISIBLE_DEVICES=1`，GPU 0 禁用且未使用），总 GPU 耗时 **`1.008 GPUh`**（预算 `<= 2.0h`），新增数据盘占用 **`0.086 GiB`**（预算 `<= 5.0 GiB`）。
+- **阶段 B（`T_TWOSTAGE` 低阈值补充标定，`motion_dev8`）：**
+  - **`T2_TH040` (`0.40`)**：HOTA **`57.572`**、DetA `81.394`、AssA **`40.845`**、IDF1 **`60.117`**、MOTA `91.184`、IDSW `832`、FP `1,676`、FN **`4,642`**（相比 `@0.50` 回收 `973` 漏检 `FN` 且 HOTA `+3.129`、AssA `+4.141`、IDF1 `+6.488`）。
+  - `T2_TH030` (`0.30`)：`56.595` HOTA / `39.537` AssA / `876` IDSW / `4,659` FN；`T2_TH010` (`0.10`)：`56.594` HOTA / `39.537` AssA / `877` IDSW / `4,659` FN。
+- **阶段 C（149 例 Onset 解剖与早锚漂移离线探针，`c_onset_anatomy_v2`，保留 `c_onset_anatomy_v1` 失败记录）：**
+  - 回放 8/8 序列 MOT 输出与 S09 `T_TWOSTAGE_TH050` 逐字节一致（零 GT 泄漏），覆盖 `76,658` 次写入（`42,847` clean、`149` onset、`31,791` post_switch、`1,350` fp、`521` unanchored）。
+  - `149` 例 onset 解剖：`74.5%`（`111`）为 `gap == 1` 连续切换、`89.9%`（`134`）存在 `IoU >= 0.30` 空间竞争（中位 `0.556`）、`74.5%`（`111`）`assignment_margin < 0.10`（中位 `0.0456`）、`22.8%`（`34`）为 `2-cycle` 互换；在场的 `55` 例真目标框中 `34` 例强反转（`< -0.05`）、`16` 例平局、`5` 例匈牙利竞争落败；`94` 例真目标框缺检。
+  - 判别力比较：`onset_vs_clean` 上 **`-assignment_margin` 达 `0.9432` AUROC**（5% FPR 下召回 `73.8%`），`max_conflict_iou` `0.8666`，`1-sim` `0.8512`；`post_switch_vs_clean`（`31,791` 帧）上 **`anchor_reid_dist` 达 `0.7062` AUROC**（全量 cross-ID `0.7058`），打破近期滑窗自洽陷阱（`recent_reid_dist` `0.5251`、`1-sim` `0.5198`）。
+- **阶段 D（`G1–G4` 零重训冲突拒写与早锚固定 `@0.50` 闭环，结论命中 情况 2）：**
+  - `G1_CONFLICT_IOU030_TAU065`：`48.686` HOTA / `29.715` AssA / `45.128` IDF1 / `1,338` IDSW / `8,055` FN（跳过 `4,733` 次）；相对 S10 无条件 `C0_TAU065`（`43.509`）大幅挽回 `+5.177` HOTA（`-1,039` FN）。
+  - `G2_MARGIN_M010_TAU070`：`48.139` HOTA / `29.249` AssA / `1,480` IDSW / `8,877` FN（跳过 `5,883` 次）。
+  - `G3_HYBRID_GATE_NO_PIN`：`44.442` HOTA / `25.088` AssA / `1,734` IDSW / `9,588` FN（跳过 `7,703` 次）。
+  - `G4_HYBRID_GATE_EARLY_PIN5`：`43.380` HOTA / `23.918` AssA / `1,698` IDSW / `9,759` FN（跳过 `7,857` 次，分配 `2,839` 个早锚槽）。
+  - 全部 `G1–G4` 仍大幅劣于 `T_TWOSTAGE_TH050` (`54.443`) 与 `T2_TH040` (`57.572`)，因密集场景约 `42%` 正常成熟匹配伴随 `IoU>=0.30` 冲突导致 `>98%` 误跳过（`4,733–7,857` 拒写 vs 仅 `~82` 捕获 onset），在遮挡区饿死运动与外观更新。
+- **阶段 E（报告交付与 S12 路由）：** 已导出 `reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`（`7` 行总体、`56` 行逐视频、`16` 例 onset 证据、`checks.json` 10/10 全通过、`artifacts.json` 47 项全校验、`tests/test_s11_camel.py` `3 passed`）。**定案进入 情况 2**：写库端启发式刹车不足以止损，S12 直接从关联打分与分配层立项 **`C'`（GAFFE 成对运动/方向遮挡边偏置）+ `A'`（边际/`2-cycle`/延迟解歧）**，并以 `T2_TH040`（`57.572`）与 `anchor_reid_dist` 漂移信号作配套参照。未执行 `git commit` / `git push`。

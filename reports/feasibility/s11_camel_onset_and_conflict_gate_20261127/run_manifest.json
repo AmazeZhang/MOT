@@ -1,0 +1,92 @@
+{
+  "schema_version": "s11-manifest-v1",
+  "protocol_id": "s11_camel_onset_and_conflict_gate_20261127",
+  "protocol_version": 1,
+  "protocol_sha256": "bcf8ec627d5493a8768fb672fa15033fe4ac73a6a61a65861e43e9fa1963ce86",
+  "split_manifest": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-27T17:35:22.850578+08:00",
+  "code_provenance": {
+    "head_commit": "d7cf64aa89e066eedb59394ec20ebc8c9a20bec8",
+    "working_tree_dirty": true,
+    "dirty_or_untracked_files": {
+      "scripts/export_s11_report.py": "0cd3d0f413a401cea9bf01a6fbc11258604ce32566d3cdbbee8ec6eab30f4253",
+      "scripts/run_s11_camel.py": "354ce6919bb60e4e272eb15428fe34eb78b8083eb72f4dde5fc1c32e85cf134f",
+      "tests/test_s11_camel.py": "15c81cf43a09e3fd227e8ebd583aa2724434fefe726e023f1b15e563b8ed7271"
+    }
+  },
+  "runtime_lock": {
+    "schema_version": "s11-runtime-lock-v1",
+    "generated_at": "2026-11-27T16:27:23.396843+08:00",
+    "python_executable": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+    "pytorch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "gpu_safety_probe": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "physical_gpu_ids": [],
+      "logical_to_physical": {},
+      "gpu_name": "CPU"
+    },
+    "scripts_sha256": {
+      "scripts/run_s11_camel.py": "354ce6919bb60e4e272eb15428fe34eb78b8083eb72f4dde5fc1c32e85cf134f",
+      "scripts/run_s09_camel.py": "792227e3c810cf08b625e8f57dc51b4d5853d869d5c59b5ab2c1d508d011cfd9",
+      "tests/test_s11_camel.py": "15c81cf43a09e3fd227e8ebd583aa2724434fefe726e023f1b15e563b8ed7271"
+    }
+  },
+  "stage_outcomes": {
+    "A": "COMPLETED (5/5 assets SHA256 verified, 3/3 unit tests & Pipeline wrapper smoke passed)",
+    "B": "COMPLETED (T2_TH010, T2_TH030, T2_TH040 on motion_dev8, 0.0 export diff)",
+    "C": "COMPLETED (c_onset_anatomy_v2 bit-exact MOT match vs S09 T_TWOSTAGE_TH050; 149/149 onsets dissected; preserved failed v1)",
+    "D": "COMPLETED (G1, G2, G3, G4 zero-GT closed-loop evals on motion_dev8, 0.0 export diff)",
+    "E": "COMPLETED"
+  },
+  "gpu_allocation": {
+    "physical_gpu_used": [
+      1
+    ],
+    "physical_gpu_forbidden": [
+      0
+    ],
+    "cuda_visible_devices": "1"
+  },
+  "eval_runs": {
+    "b_t2_th010_v1": {
+      "condition": "T2_TH010",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_t2_th030_v1": {
+      "condition": "T2_TH030",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_t2_th040_v1": {
+      "condition": "T2_TH040",
+      "inference_mode": "online_closed_loop"
+    },
+    "d_g1_conflict_iou030_tau065_v1": {
+      "condition": "G1_CONFLICT_IOU030_TAU065",
+      "inference_mode": "online_closed_loop"
+    },
+    "d_g2_margin_m010_tau070_v1": {
+      "condition": "G2_MARGIN_M010_TAU070",
+      "inference_mode": "online_closed_loop"
+    },
+    "d_g3_hybrid_gate_no_pin_v1": {
+      "condition": "G3_HYBRID_GATE_NO_PIN",
+      "inference_mode": "online_closed_loop"
+    },
+    "d_g4_hybrid_gate_early_pin5_v1": {
+      "condition": "G4_HYBRID_GATE_EARLY_PIN5",
+      "inference_mode": "online_closed_loop"
+    }
+  },
+  "preserved_non_authoritative_attempts": [
+    {
+      "run_id": "c_onset_anatomy_v1",
+      "stage": "C",
+      "status": "FAILED_PRE_TRACKING",
+      "error": "AttributeError: 'OnsetAnatomyReplayCAMELTrack' object has no attribute 'name' in Pipeline.__init__",
+      "superseded_by": "c_onset_anatomy_v2"
+    }
+  ]
+}

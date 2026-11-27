@@ -2,15 +2,27 @@
 
 更新：2026-11-27。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
-## 1. Current Active Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`NOT_RUN`)
+## 1. Latest Completed Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`COMPLETED`)
 
 - **任务书与协议：** [S11 具体执行与回传要求](S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md)；[版本化协议](../../manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml)。
-- **执行状态：** `DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN` — 尚未在服务器执行；等待服务器从 Stage A 起生成运行锁并按 A–E 自动推进，停在 Stage E）。
-- **核心任务（零训练、`<= 2.0 GPUh`、物理 GPU 1、GPU 0 禁用）：**
-  1. **Stage B**：复用 S09 `T_TWOSTAGE` ckpt（`20be35af...`）补齐低阈值标定 `0.10 / 0.30 / 0.40`（`motion_dev8`, GT-free）；
-  2. **Stage C**：回放 `T_TWOSTAGE_TH050` 对 S10 暴露的 `149` 例真实闭环 onset 切换做 100% 机制解剖（`gap`、竞争 `IoU`、双向 `margin`、`2-cycle` 互换）并检验早期干净锚点 vs 近期滑窗 ReID 余弦距离 `anchor_reid_dist` 能否打破 `31,791` 例后切换自洽陷阱；
-  3. **Stage D**：在固定 `@0.50` 下评测 4 组预写零重训冲突感知拒写与早锚保留对照（`G1` 空间竞争、`G2` 分配边际、`G3` 混合条件、`G4` 混合条件 + 最早 5 槽干净锚点保护），检验是否在不触发 `C0` 式 `FN` 灾难的前提下胜过 `T_TWOSTAGE_TH050`（`54.443`），并为 S12（`C'` / `A'`）定案提供因果输入。
-- **预期权威报告目录：** `reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`（本轮不训模型、不调未预写阈值、不跑 multi-seed 37/73、不碰官方 `val`/`test`、无授权不 commit/push）。
+- **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成并停止在 Stage E，等待研究端定案 S12）**
+- **权威报告：** [reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md](../../reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md)
+- **资源与检查：** 0 次训练、`CUDA_VISIBLE_DEVICES=1`（`NVIDIA GeForce RTX 4090 D`），物理 GPU 0 禁用且未触碰；总耗时 **`1.008 GPUh`**（预算 `<= 2.0h`），新增存储 **`0.086 GiB`**（预算 `<= 5.0 GiB`）；`checks.json` **10/10 通过**，TrackEval 导出误差 `0.0`，Stage C MOT 与 S09 基准逐字节一致；保留 1 项预运行失败 record `c_onset_anatomy_v1`。
+
+### Key Authoritative Findings (`motion_dev8`, `COMBINED_SEQ`, 7,565 frames)
+
+1. **Stage B 低阈值补充标定（`T_TWOSTAGE` @ `0.10 / 0.30 / 0.40` vs S09 `0.50`）：**
+   - **`T2_TH040`** (`0.40`) 取得 **`57.572` HOTA / `40.845` AssA / `60.117` IDF1 / `91.184` MOTA / `832` IDSW / `4,642` FN** — 相对 `0.50`（`54.443 / 36.704 / 786 / 5,615`）净回收 `973` 个 FN，带来 **`+3.129` HOTA / `+4.141` AssA / `+6.488` IDF1**；继续降至 `0.30` / `0.10` 则略回落至 `56.595 / 56.594` HOTA。
+2. **Stage C `149` 例真实闭环 Onset 解剖与早期锚点信号：**
+   - **病因构成**：`74.5%`（`111/149`）为连续帧 `gap==1` 切换，`89.9%`（`134/149`）伴 `IoU >= 0.30` 空间重叠（中位 `0.556`），`74.5%`（`111/149`）`assignment_margin < 0.10`（中位 `0.0456`），`22.8%`（`34/149`）为 `2-cycle` 互换；`55` 例真目标框在场中 `34` 例强反转、`16` 例平局、`5` 例匈牙利竞争落败。
+   - **可分性**：`-assignment_margin` 在 onset 上离线 AUROC 达 **`0.9432`**（5% FPR 召回 `73.8%`）；早期无冲突锚点 `anchor_reid_dist` 打破后切换自洽陷阱，在 `31,791` 例 `post_switch` 上 AUROC 达 **`0.7062`**（全量跨 ID `0.7058` vs `recent_reid_dist` `0.5251`）。
+3. **Stage D 冲突感知拒写与早锚保留（`G1`–`G4` @ `0.50`）：**
+   - `G1_CONFLICT_IOU030_TAU065`（`48.686` HOTA / `8,055` FN / `4,733` 跳写）相对无条件 `C0_TAU065`（`43.509` HOTA / `9,094` FN）挽回 `+5.177` HOTA，但 **`G1`–`G4`（`43.380–48.686` HOTA）全数低于 `T_TWOSTAGE_TH050`（`54.443`）与 `T2_TH040`（`57.572`）**；`G4` 早锚槽固定（`43.380`）进一步低于 `G3`（`44.442`）。拥挤区约 `42%` 成熟正匹配触发 `IoU>=0.30` 导致 `>98%` 误跳过并在遮挡时饿死模板更新。
+
+### Decision, Limitations & Exact Next Action
+
+- **Decision (Case 2 Confirmed)**: 仅在写库端拒写无法弥补关联端强反转与竞争，**S12 直接立项训练端与分配端联合改进：`C'`（GAFFE 成对运动/方向遮挡边偏置）+ `A'`（双向边际/`2-cycle`/延迟解歧）**，同时纳入校准低阈基点 `0.40`（`57.572`）及 Stage C 发现的 `anchor_reid_dist`（`0.7062` 后切换可分信号）。本轮仅单 seed `13` 零重训推理、复用 `motion_dev8`，不宣称架构创新或未知集泛化。
+- **Exact Next Action**: 交由研究端审阅 [S11 报告包](../../reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md)（`aggregate_metrics.csv`、`per_sequence_metrics.csv`、`diagnostics.json`、`cases.jsonl`）并冻结 S12（`C' + A'`）协议。工作树保持未提交、未推送。
 
 ---
 

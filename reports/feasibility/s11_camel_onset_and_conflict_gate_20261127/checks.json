@@ -1,0 +1,50 @@
+{
+  "schema_version": "s11-checks-v1",
+  "generated_at": "2026-11-27T17:35:22.850297+08:00",
+  "checks": {
+    "stage_a_5_assets_verified": {
+      "passed": true,
+      "count": 5
+    },
+    "gpu_0_excluded": {
+      "passed": true,
+      "physical_gpu_used": [
+        1
+      ]
+    },
+    "online_aggregate_rows_exact_7": {
+      "passed": true,
+      "count": 7
+    },
+    "per_sequence_rows_exact_56": {
+      "passed": true,
+      "count": 56
+    },
+    "trackeval_csv_preview_exact_match": {
+      "passed": true,
+      "max_abs_diff": 0.0
+    },
+    "stage_c_zero_gt_leakage_exact_mot_sha256": {
+      "passed": true
+    },
+    "stage_c_all_149_onsets_accounted": {
+      "passed": true,
+      "onset_count": 149,
+      "total_events": 76658
+    },
+    "canonical_onset_cases_exact_16": {
+      "passed": true,
+      "count": 16
+    },
+    "zero_training_verified": {
+      "passed": true,
+      "training_runs": 0
+    },
+    "budgets_respected": {
+      "passed": true,
+      "gpu_hours_total": 1.0077245455794037,
+      "extra_storage_gib": 0.08570207562297583
+    }
+  },
+  "all_passed": true
+}

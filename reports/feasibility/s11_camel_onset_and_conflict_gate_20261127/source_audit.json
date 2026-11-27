@@ -1,0 +1,40 @@
+{
+  "schema_version": "s11-source-audit-v1",
+  "generated_at": "2026-11-27T16:27:23.396624+08:00",
+  "upstream_cameltrack_commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+  "verified_assets": {
+    "t_twostage_joint_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+      "bytes": 525391138,
+      "verified": true
+    },
+    "states_dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "bytes": 184579566,
+      "verified": true
+    },
+    "split_manifest": {
+      "path": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+      "sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+      "bytes": 2786,
+      "verified": true
+    },
+    "s09_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml",
+      "sha256": "b586284b396cf9f7322f2481a4175a3997168f4f0098287297b16458d04d1358",
+      "bytes": 7854,
+      "verified": true
+    },
+    "s10_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s10_camel_anticontamination_20261127.yaml",
+      "sha256": "d89609d243ad418e73c63daf8c68d275efe15ecccf7ed049ddfccfad969fde67",
+      "bytes": 7228,
+      "verified": true
+    }
+  },
+  "s09_c2_summary_ckpt_sha256_verified": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+  "embedding_and_anchor_dist_resolution": "states_dev8_gt_free.pklz stores per-detection `embeddings` of shape (6, 128) float32 (unnormalized; part L2 norms ~5.8..24.7) and `visibility_scores` of shape (6,) float32 in [0, 1]. `anchor_reid_dist` L2-normalizes each of the 6 part vectors, averages up to K=5 earliest unconflicted (det/trk IoU < 0.30 and margin >= 0.10) detections per tracklet, re-normalizes per part, and computes visibility-weighted part-averaged cosine distance `1 - sum(w_p * cos_p) / sum(w_p)` with w_p = sqrt(vis_a_p * vis_b_p).",
+  "trk_max_other_iou_definition": "Max LTWH IoU against `t2.last_detection.bbox_ltwh` over other `state == 'active'` tracklets in the current frame."
+}
