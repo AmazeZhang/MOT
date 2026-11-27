@@ -2,7 +2,19 @@
 
 更新：2026-11-27。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
-## 1. Latest Completed Task: S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验 (`COMPLETED`)
+## 1. Current Active Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`NOT_RUN`)
+
+- **任务书与协议：** [S11 具体执行与回传要求](S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md)；[版本化协议](../../manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml)。
+- **执行状态：** `DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN` — 尚未在服务器执行；等待服务器从 Stage A 起生成运行锁并按 A–E 自动推进，停在 Stage E）。
+- **核心任务（零训练、`<= 2.0 GPUh`、物理 GPU 1、GPU 0 禁用）：**
+  1. **Stage B**：复用 S09 `T_TWOSTAGE` ckpt（`20be35af...`）补齐低阈值标定 `0.10 / 0.30 / 0.40`（`motion_dev8`, GT-free）；
+  2. **Stage C**：回放 `T_TWOSTAGE_TH050` 对 S10 暴露的 `149` 例真实闭环 onset 切换做 100% 机制解剖（`gap`、竞争 `IoU`、双向 `margin`、`2-cycle` 互换）并检验早期干净锚点 vs 近期滑窗 ReID 余弦距离 `anchor_reid_dist` 能否打破 `31,791` 例后切换自洽陷阱；
+  3. **Stage D**：在固定 `@0.50` 下评测 4 组预写零重训冲突感知拒写与早锚保留对照（`G1` 空间竞争、`G2` 分配边际、`G3` 混合条件、`G4` 混合条件 + 最早 5 槽干净锚点保护），检验是否在不触发 `C0` 式 `FN` 灾难的前提下胜过 `T_TWOSTAGE_TH050`（`54.443`），并为 S12（`C'` / `A'`）定案提供因果输入。
+- **预期权威报告目录：** `reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/`（本轮不训模型、不调未预写阈值、不跑 multi-seed 37/73、不碰官方 `val`/`test`、无授权不 commit/push）。
+
+---
+
+## 2. Latest Completed Task: S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验 (`COMPLETED`)
 
 - **任务书与协议：** [S10 具体执行与回传要求](S10_CAMEL_ANTICONTAMINATION_TASK.md)；[版本化协议](../../manifests/protocols/s10_camel_anticontamination_20261127.yaml)。
 - **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成并停止在 Stage E，等待研究端审阅）**
@@ -29,7 +41,7 @@
 
 ---
 
-## 2. Latest Completed: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution (`COMPLETED`)
+## 3. Earlier Completed Task: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution (`COMPLETED`)
 
 - **Protocol**: `s09_camel_calibration_and_attribution_20261126` (`v1`, [protocol manifest](../../manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml))
 - **Execution Status**: **COMPLETED (Stages A–E finished on physical GPU 1; stopped at Stage E pending research review)**
@@ -54,7 +66,7 @@
 
 ---
 
-## 2. Completed / Stopped Historical Tasks
+## 4. Completed / Stopped Historical Tasks
 
 - **S08 (COMPLETED, superseded by S09 for threshold/two-stage analysis)**: [S08 Task](S08_CAMEL_BASELINE_TASK.md) | [S08 Report](../../reports/baselines/s08_camel_baseline_20261125/README.md) (`CONTINUE`, `T_SCRATCH @ 0.1` vs `P_OFFICIAL @ 0.1`).
 - **2026-11-26 Research Review & Literature Audit**: [docs/research_status_review_20261126.md](../research_status_review_20261126.md).

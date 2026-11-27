@@ -1,0 +1,124 @@
+protocol_id: s11_camel_onset_and_conflict_gate_20261127
+version: 1
+created_on: '2026-11-27'
+status: DESIGN_READY_RUNTIME_LOCK_PENDING
+execution_status: NOT_RUN
+frozen_at: null
+task_document: docs/a2a/S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md
+task_contract: docs/experiment_task_contract.md
+report_contract: docs/experiment_reporting.md
+report_directory: reports/feasibility/s11_camel_onset_and_conflict_gate_20261127
+purpose: zero_retrain_low_threshold_calibration_149_onset_anatomy_and_conflict_gated_anchor_probe
+allowed_claim: controlled_zero_retrain_development_attribution_and_heuristic_baseline_only
+not_allowed_claim:
+  - unseen_generalization_from_dev8_single_seed
+  - architectural_or_learning_novelty_from_inference_gates
+  - automatic_expansion_to_training_or_val_test
+activation: user_hands_this_task_to_server_for_execution
+automatic_progression: A_to_E_if_predecessor_gates_pass_and_budgets_remain
+stop_after: E_or_first_unresolved_gate_or_budget_limit
+prior_evidence:
+  s09_report: reports/diagnostics/s09_camel_calibration_and_attribution_20261126/README.md
+  s10_report: reports/feasibility/s10_camel_anticontamination_20261127/README.md
+  stopped_branches: [P1, R1, R2, E3, E5, S03, S04, S06_NO_SEEDS_37_73, S10_C2_C3_LOCAL_SYNTHETIC_GATE]
+upstream:
+  repository: https://github.com/TrackingLaboratory/CAMELTrack
+  commit: bc1c261075b0beacfe71c2896453be83643153c8
+  local_checkout_expected: /media/imc/data/mot-data/third_party/CAMELTrack
+  env_expected: /media/imc/data/mot-data/envs/s08-camel
+reused_assets:
+  s09_protocol_sha256: b586284b396cf9f7322f2481a4175a3997168f4f0098287297b16458d04d1358
+  s10_protocol_sha256: d89609d243ad418e73c63daf8c68d275efe15ecccf7ed049ddfccfad969fde67
+  t_twostage_joint_ckpt:
+    run_id: c2_twostage_joint_seed13_e20_v1
+    sha256: 20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7
+    expected_path: /media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/CAMEL/last.ckpt
+    resolve_against: reports/diagnostics/s09_camel_calibration_and_attribution_20261126/source_audit.json
+data:
+  dataset: DanceTrack
+  official_source_split: train
+  membership_source: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  membership_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  train32_not_trained_in_s11:
+    sequences: [dancetrack0001, dancetrack0002, dancetrack0006, dancetrack0008, dancetrack0015, dancetrack0016, dancetrack0023, dancetrack0027, dancetrack0029, dancetrack0032, dancetrack0039, dancetrack0045, dancetrack0049, dancetrack0051, dancetrack0052, dancetrack0055, dancetrack0057, dancetrack0061, dancetrack0062, dancetrack0066, dancetrack0068, dancetrack0069, dancetrack0072, dancetrack0074, dancetrack0075, dancetrack0080, dancetrack0082, dancetrack0083, dancetrack0087, dancetrack0096, dancetrack0098, dancetrack0099]
+    frame_scope: all
+    expected_frames: 34231
+  dev8:
+    sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+    frame_scope: all
+    expected_frames: 7565
+  history: reused_project_development_not_independent_confirmation
+  official_val: not_used_this_round
+  official_test: not_used_or_submitted
+  inference_policy_shared:
+    min_det_conf: 0.4
+    min_init_det_conf: 0.9
+    min_num_hits: 0
+    max_wo_hits: 150
+    max_track_gallery_size: 50
+    use_computed_sim_threshold: false
+    postprocessing_interpolation: false
+training:
+  enabled: false
+  epochs: 0
+  reason: zero_retrain_calibration_anatomy_and_inference_gate_round
+stages:
+  A:
+    action: verify_s09_s10_assets_and_implement_and_unit_test_s11_runner
+    gate: asset_hashes_verified_and_unit_tests_for_contention_margin_2cycle_skip_pin_pass
+  B:
+    purpose: lower_threshold_calibration_sweep_for_t_twostage_below_050
+    conditions:
+      - {condition: T2_TH010, inference_mode: online_closed_loop, sim_threshold: 0.10}
+      - {condition: T2_TH030, inference_mode: online_closed_loop, sim_threshold: 0.30}
+      - {condition: T2_TH040, inference_mode: online_closed_loop, sim_threshold: 0.40}
+    expected_per_sequence_rows: 24
+    expected_aggregate_rows: 3
+    gate: all_3_evals_complete_and_trackeval_verified_proceed_automatically_to_C
+  C:
+    purpose: read_only_anatomy_of_149_onset_switches_and_anchor_drift_signal_probe
+    replay_condition: T_TWOSTAGE_TH050
+    metrics:
+      - onset_anatomy_gap_iou_margin_2cycle_counts_100pct
+      - anchor_vs_recent_reid_cosine_auroc_on_onset_post_switch_and_all_cross_id
+      - offline_auroc_auprc_clean_fpr_for_1_minus_sim_margin_contention_sim_and_anchor_dist
+      - export_up_to_16_onset_case_records
+    gate: zero_gt_leakage_into_tracking_complete_dev8_coverage_proceed_automatically_to_D
+  D:
+    purpose: zero_retrain_conflict_gated_write_and_early_anchor_pinning_closed_loop
+    shared_sim_threshold: 0.50
+    min_hits_to_gate: 3
+    conditions:
+      - {condition: G1_CONFLICT_IOU030_TAU065, rule: "(det_max_other_iou >= 0.30 or trk_max_other_iou >= 0.30) and sim < 0.65"}
+      - {condition: G2_MARGIN_M010_TAU070, rule: "assignment_margin < 0.10 and sim < 0.70"}
+      - {condition: G3_HYBRID_GATE_NO_PIN, rule: "(det_max_other_iou >= 0.30 or trk_max_other_iou >= 0.30 or assignment_margin < 0.10) and sim < 0.68"}
+      - {condition: G4_HYBRID_GATE_EARLY_PIN5, rule: "G3_gate_plus_pin_earliest_5_unconflicted_mature_detections_within_gallery_50"}
+    expected_per_sequence_rows: 32
+    expected_aggregate_rows: 4
+    gate: all_4_evals_complete_and_zero_gt_verified_proceed_automatically_to_E
+  E:
+    action: export_standard_report_bundle_and_update_handoff_docs_then_stop
+    gate: checks_json_and_artifact_hashes_verified
+evaluation:
+  evaluator: official_TrackEval_sn_trackeval_0_4_0
+  primary_metrics: [HOTA, AssA, IDF1]
+  secondary_metrics: [DetA, MOTA, IDSW, FP, FN, Frag]
+  aggregation: official_COMBINED_SEQ_not_video_mean
+  analysis_unit: sequence
+budgets:
+  gpu_count_concurrent: 1
+  physical_gpu_allowed: [1, 2, 3, 4, 5, 6, 7]
+  physical_gpu_forbidden: [0]
+  gpu_hours_total_max: 2.0
+  gpu_hours_stage_max: {A: 0.2, B: 0.4, C: 0.3, D: 0.9, E: 0.2}
+  elapsed_hours_total_max: 8
+  active_engineering_workdays_max: 1
+  extra_storage_gib_max: 5
+  minimum_remaining_free_gib: 50
+  targeted_compatibility_repairs_per_blocker_max: 2
+not_in_scope:
+  - model_training_or_gradient_updates
+  - posthoc_dev8_threshold_or_hyperparameter_search
+  - multi_seed_37_73
+  - official_dancetrack_val_or_test_or_sportsmot
+  - automatic_git_commit_or_push
