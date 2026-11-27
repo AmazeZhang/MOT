@@ -1,8 +1,8 @@
 # MOT 毕业设计研究
 
-**当前待执行（2026-11-26）：** S08 CAMELTrack 平台闭环已完成（`T_SCRATCH` dev8 HOTA `53.981` / AssA `36.096` / IDSW `1451` vs 离线 `val/sim_auroc = 0.9922`，见 [S08 权威报告](reports/baselines/s08_camel_baseline_20261125/README.md)）。研究端已完成 [2026-11-26 复盘与前沿查重](docs/research_status_review_20261126.md)，并起草 [S09 阈值标定、两阶段基线与闭环归因任务书](docs/a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md) 与 [协议](manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml)（`NOT_RUN`，待交服务器执行），以实证裁决 S10 主攻方向（A'/B'/C'）。长期协作采用 [研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从 [LATEST](docs/a2a/LATEST.md) 读取当前任务。
+**当前待执行（2026-11-27）：** S09 阈值标定、Two-Stage 基线与失败归因已完成（`T_TWOSTAGE_TH050` IDSW 减半至 `786` 但 AssA `36.704`；D2 `v3` 干净历史探针 AssA 达 `80.063`，见 [S09 权威报告](reports/diagnostics/s09_camel_calibration_and_attribution_20261126/README.md)）。研究端已完成 [2026-11-27 S09 复盘与口径修正](docs/research_status_review_20261127.md)，并起草 [S10 纯拒写基准分解与抗闭环污染任务书](docs/a2a/S10_CAMEL_ANTICONTAMINATION_TASK.md) 与 [协议](manifests/protocols/s10_camel_anticontamination_20261127.yaml)（`NOT_RUN`，待交服务器执行）。长期协作采用 [研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从 [LATEST](docs/a2a/LATEST.md) 读取当前任务。
 
-**历史状态（2026-11-25）：** [S08 CAMELTrack 基线任务书](docs/a2a/S08_CAMEL_BASELINE_TASK.md)与[协议](manifests/protocols/s08_camel_baseline_20261125.yaml)已执行完毕。
+**历史状态（2026-11-25–11-26）：** [S08 CAMELTrack 基线](docs/a2a/S08_CAMEL_BASELINE_TASK.md)与 [S09 标定归因](docs/a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md)均已完成。
 
 **最新阶段（2026-11-25）：S07 checkpoint 补充体检完成。** Context 后期 checkpoint 的固定样本回归误差降低，但 internal-dev6 动作决定为 13/22，未超过 always-M 的 14/22；结果后动作类型常数的 MSE 也更低。保持 S06 STOP，不再补同批小选择器诊断，优先转向成熟学习关联基线，再选择具体创新问题。见 [S07 复盘与方向决定](docs/research_status_review_20261125.md)、[权威报告](reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md)与 [A2A 当前入口](docs/a2a/LATEST.md)。以下 11 月 24 日及更早阶段保留为历史，不是新的待执行清单。
 

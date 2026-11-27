@@ -1,6 +1,8 @@
 # 创新主张台账
 
-更新日期：2026-11-26。本表是主张级别的单一事实源；报告文案不得超过本表状态。
+更新日期：2026-11-27。本表是主张级别的单一事实源；报告文案不得超过本表状态。
+
+**2026-11-27 S09 复盘与 S10 候选登记：** 审阅 S09 (`f8c6dc3`) 后确认：① 阈值 `0.1→0.50` 仅将 `T_SCRATCH` AssA 提至 `37.900`；② 两阶段 TE 预训练将 `T_TWOSTAGE_TH050` IDSW 减半（`1333→786`）但 AssA 仍为 `36.704`；③ D2 `v3`（AssA `80.063`）同时包含“阻止 1,108 异主 + 1,319 FP 写入”与 `else:` 分支“GT 强制补写漏配帧（≥1,247 次）”。已制定 [S10 任务](../a2a/S10_CAMEL_ANTICONTAMINATION_TASK.md) 与 [2026-11-27 复盘](../research_status_review_20261127.md)，通过 `D2_SKIP_ONLY`、`C0_SIMPLE_WRITE_GATE`（`0.60/0.65`）、`C1_MATCHED_IID_SWAP`（配平交换率）严格检验 `B'_takeover`（`C2`）与 `B'_consistency_gate`（`C3`）。当前状态仍为 `NOT_SUPPORTED_BY_PROVENANCE`（未执行，不得宣称 S10 机制成立或否定）。
 
 **2026-11-26 S08 复盘与 S10 候选更新：** 基于 S08 `d662023` 闭环结果与最新联网文献窄查重（见 [2026-11-26 复盘](../research_status_review_20261126.md)），整理三个待 S09 实证裁决的 S10 候选方向：`A'`（训练目标-全局二分分配边际对齐与动态拒识边界，须区分 [SLAck](https://arxiv.org/abs/2409.11235)、[HDST-GNN](https://arxiv.org/abs/2606.05587)、[MM-Tracker](https://arxiv.org/abs/2407.10485)）、`B'`（抗闭环自相关污染训练与一致性去污，受限于 [MOTIP2](https://arxiv.org/abs/2610.10391)、[MOTRv3](https://arxiv.org/abs/2305.14298)、[HMP](https://www.mdpi.com/2079-9292/15/11/2357)、[TCEI](https://arxiv.org/abs/2603.21629) 高重合，仅在 S09-D2 证实历史污染主导时启动）、`C'`（CAMELTrack GAFFE 显式成对运动学残差与方向性遮挡边偏置，桥接 [DOA-SORT](https://arxiv.org/abs/2609.22706)/[HyperSSM](https://arxiv.org/abs/2604.12665) 与多线索 Transformer）。三者当前均处于未实验、未立项状态（`NOT_SUPPORTED_BY_PROVENANCE`），待 [S09 任务](../a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md) 标定与归因后单选其一。
 

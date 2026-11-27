@@ -1,6 +1,20 @@
 # Latest Experiment Handoff (`a2a/LATEST`)
 
-## 1. Current Task: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution
+更新：2026-11-27。本文件是可更新导航；历史报告、协议和失败记录仍保留。
+
+## 1. Current Task: S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验 (`NOT_RUN`)
+
+- **任务书：** [S10 具体执行与回传要求](S10_CAMEL_ANTICONTAMINATION_TASK.md)；[版本化协议](../../manifests/protocols/s10_camel_anticontamination_20261127.yaml)。前置复盘：[2026-11-27 S09 审阅复盘与设计说明](../research_status_review_20261127.md)。
+- **执行状态：** `DESIGN_READY_RUNTIME_LOCK_PENDING` / `NOT_RUN`（尚未交给服务器执行）。用户交给服务器后，Stage A–E 在前置门通过且预算内自动顺序执行；停在 Stage E 或阻断/预算上限处回传。
+- **核心问题：**
+  1. 先在 Stage B 用 `D2_SKIP_ONLY` 剥离 S09 D2 `v3` 中“纯拒写污染”与“GT 补写漏配帧（`else:` 分支）”各自贡献，并用零重训 `C0_SIMPLE_WRITE_GATE`（`tau_write ∈ {0.60, 0.65}`）建立强简单对照；
+  2. 在严格同 `motion_train32` / C1 TE 初始化 / 20 epochs / seed 13 / `sim_threshold=0.50` 下，对比等噪声量独立随机交换（`C1_MATCHED_IID_SWAP`）、连续异主接管污染训练（`C2_CONTIGUOUS_TAKEOVER`）与多线索历史一致性门控聚合（`C3_CONSISTENCY_GATED_TE` + 真实闭环污染检出 AUROC）。
+- **预算与硬边界：** 物理 GPU 1–7 单卡（GPU 0 禁用）；总 GPU 预算 `≤ 12.0 GPUh`、墙钟 `≤ 36h`、新增存储 `≤ 25 GiB`。不运行多 seed 37/73、官方 `val`/`test`、SportsMOT、A'/C' 模块或自动 `git commit/push`。
+- **回传目录（待生成）：** `reports/feasibility/s10_camel_anticontamination_20261127/`（当前尚未产生）。
+
+---
+
+## 2. Latest Completed: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution (`COMPLETED`)
 
 - **Protocol**: `s09_camel_calibration_and_attribution_20261126` (`v1`, [protocol manifest](../../manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml))
 - **Execution Status**: **COMPLETED (Stages A–E finished on physical GPU 1; stopped at Stage E pending research review)**
@@ -27,6 +41,6 @@
 
 ## 2. Completed / Stopped Historical Tasks
 
-- **S08 (COMPLETED, superseded by S09 for threshold/two-stage analysis)**: [S08 Task](S08_CAMEL_BASE_LOOP_TASK.md) | [S08 Report](../../reports/baselines/s08_camel_baseline_20261125/README.md) (`CONTINUE`, `T_SCRATCH @ 0.1` vs `P_OFFICIAL @ 0.1`).
+- **S08 (COMPLETED, superseded by S09 for threshold/two-stage analysis)**: [S08 Task](S08_CAMEL_BASELINE_TASK.md) | [S08 Report](../../reports/baselines/s08_camel_baseline_20261125/README.md) (`CONTINUE`, `T_SCRATCH @ 0.1` vs `P_OFFICIAL @ 0.1`).
 - **2026-11-26 Research Review & Literature Audit**: [docs/research_status_review_20261126.md](../research_status_review_20261126.md).
 - **Stopped Branches**: `P1`, `R1`, `R2`, `E3`, `E5`, `S03`, `S04`, `S06` (`STOP_S06_NO_SEEDS_37_73`; CPU postmortem in [S07 report](../../reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md)).

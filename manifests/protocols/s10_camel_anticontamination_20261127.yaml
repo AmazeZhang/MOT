@@ -1,0 +1,152 @@
+protocol_id: s10_camel_anticontamination_20261127
+version: 1
+created_on: '2026-11-27'
+status: DESIGN_READY_RUNTIME_LOCK_PENDING
+execution_status: NOT_RUN
+frozen_at: null
+task_document: docs/a2a/S10_CAMEL_ANTICONTAMINATION_TASK.md
+task_contract: docs/experiment_task_contract.md
+report_contract: docs/experiment_reporting.md
+report_directory: reports/feasibility/s10_camel_anticontamination_20261127
+purpose: d2_skip_only_decomposition_and_controlled_anticontamination_cameltrack
+allowed_claim: controlled_development_comparison_and_contamination_detection_attribution_only
+not_allowed_claim:
+  - unseen_generalization_from_dev8_single_seed
+  - deployable_performance_from_D2_SKIP_ONLY
+  - novelty_claim_if_C0_simple_write_gate_or_C1_iid_explains_gain
+activation: user_hands_this_task_to_server_for_execution
+automatic_progression: A_to_E_if_predecessor_gates_pass_and_budgets_remain
+stop_after: E_or_first_unresolved_gate_or_budget_limit
+prior_evidence:
+  s09_report: reports/diagnostics/s09_camel_calibration_and_attribution_20261126/README.md
+  review: docs/research_status_review_20261127.md
+  stopped_branches: [P1, R1, R2, E3, E5, S03, S04, S06_NO_SEEDS_37_73]
+upstream:
+  repository: https://github.com/TrackingLaboratory/CAMELTrack
+  commit: bc1c261075b0beacfe71c2896453be83643153c8
+  local_checkout_expected: /media/imc/data/mot-data/third_party/CAMELTrack
+  env_expected: /media/imc/data/mot-data/envs/s08-camel
+reused_assets:
+  s09_protocol_sha256: b586284b396cf9f7322f2481a4175a3997168f4f0098287297b16458d04d1358
+  t_twostage_joint_ckpt:
+    run_id: c2_twostage_joint_seed13_e20_v1
+    sha256: 20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7
+  c1_te_ckpts:
+    app_encoder:
+      run_id: c1_app_encoder_seed13_e20_v1
+      sha256: e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d
+    kp_encoder:
+      run_id: c1_kp_encoder_seed13_e20_v1
+      sha256: d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c
+    bbox_encoder:
+      run_id: c1_bbox_encoder_seed13_e20_v1
+      sha256: fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1
+data:
+  dataset: DanceTrack
+  official_source_split: train
+  membership_source: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  membership_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  train32:
+    sequences: [dancetrack0001, dancetrack0002, dancetrack0006, dancetrack0008, dancetrack0015, dancetrack0016, dancetrack0023, dancetrack0027, dancetrack0029, dancetrack0032, dancetrack0039, dancetrack0045, dancetrack0049, dancetrack0051, dancetrack0052, dancetrack0055, dancetrack0057, dancetrack0061, dancetrack0062, dancetrack0066, dancetrack0068, dancetrack0069, dancetrack0072, dancetrack0074, dancetrack0075, dancetrack0080, dancetrack0082, dancetrack0083, dancetrack0087, dancetrack0096, dancetrack0098, dancetrack0099]
+    frame_scope: all
+    expected_frames: 34231
+  dev8:
+    sequences: [dancetrack0012, dancetrack0020, dancetrack0024, dancetrack0033, dancetrack0037, dancetrack0044, dancetrack0053, dancetrack0086]
+    frame_scope: all
+    expected_frames: 7565
+  history: reused_project_development_not_independent_confirmation
+  official_val: not_used_this_round
+  official_test: not_used_or_submitted
+  inference_policy_shared:
+    min_det_conf: 0.4
+    min_init_det_conf: 0.9
+    min_num_hits: 0
+    max_wo_hits: 150
+    max_track_gallery_size: 50
+    sim_threshold: 0.50
+    use_computed_sim_threshold: false
+    postprocessing_interpolation: false
+shared_training_config:
+  seed: 13
+  initialization: load_s09_c1_te_checkpoints_and_random_gaffe
+  train_add_val: false
+  multi_dataset_training: false
+  max_epochs: 20
+  checkpoint_selection: last_of_completed_epoch20_only
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  precision: 32
+  batch_size: 8
+  accumulate_grad_batches: 1
+  num_samples: 32
+  samples_per_video: 100
+  max_length: 50
+  OOM_policy: no_automatic_batch_precision_or_architecture_change
+stages:
+  A:
+    action: inspect_camel_te_and_transforms_verify_assets_implement_and_test_s10_runner
+    gate: asset_hashes_verified_swap_rate_matched_within_5pct_and_causal_grad_tests_pass
+  B:
+    purpose: isolate_skip_polluted_writes_from_gt_injection_and_run_zero_retrain_confidence_gates
+    conditions:
+      - {condition: D2_SKIP_ONLY, inference_mode: privileged_skip_only_probe, ckpt_ref: t_twostage_joint_ckpt, gt_injection: false}
+      - {condition: C0_SIMPLE_WRITE_GATE_TAU060, inference_mode: online_closed_loop, ckpt_ref: t_twostage_joint_ckpt, min_hits_to_gate: 3, tau_write: 0.60}
+      - {condition: C0_SIMPLE_WRITE_GATE_TAU065, inference_mode: online_closed_loop, ckpt_ref: t_twostage_joint_ckpt, min_hits_to_gate: 3, tau_write: 0.65}
+    expected_per_sequence_rows: 24
+    expected_aggregate_rows: 3
+    gate: all_3_evals_complete_proceed_automatically_to_C
+  C:
+    purpose: controlled_training_comparison_iid_vs_contiguous_takeover_vs_consistency_gate
+    conditions:
+      - condition: C1_MATCHED_IID_SWAP
+        transform: matched_rate_iid_swap_from_same_video_neighbors
+        consistency_gate: false
+        eval_sim_threshold: 0.50
+      - condition: C2_CONTIGUOUS_TAKEOVER
+        transform: contiguous_takeover_length_2_to_12_prefix_ge_2L_tail_window_1_to_15
+        consistency_gate: false
+        eval_sim_threshold: 0.50
+      - condition: C3_CONSISTENCY_GATED_TE
+        transform: contiguous_takeover_length_2_to_12_prefix_ge_2L_tail_window_1_to_15
+        consistency_gate: true
+        aux_bce_weight: 0.2
+        attention_bias: log_clamp_w_t_1e_4_to_1
+        eval_sim_threshold: 0.50
+    expected_train_runs: 3
+    expected_online_per_sequence_rows: 24
+    expected_online_aggregate_rows: 3
+    gate: zero_nonfinite_grads_explicit_reload_diff_0_and_all_c_evals_complete
+  D:
+    purpose: mechanism_verification_and_bounded_case_evidence
+    actions:
+      - {condition: C3_WITH_SOFT_WRITE_FILTER, ckpt_from: C3_CONSISTENCY_GATED_TE, min_hits_to_gate: 3, w_write_threshold: 0.50}
+      - evaluate_c3_consistency_head_auroc_f1_on_real_closed_loop_cross_id_writes_in_dev8
+      - export_up_to_16_sampled_and_worst_cases_comparing_T_TWOSTAGE_C0_C2_C3
+    expected_online_per_sequence_rows: 8
+    expected_online_aggregate_rows: 1
+    gate: zero_gt_leakage_complete_dev8_coverage_and_real_pollution_auroc_exported
+  E:
+    action: export_standard_report_bundle_and_update_handoff_docs_then_stop
+    gate: checks_json_and_artifact_hashes_verified
+evaluation:
+  evaluator: official_TrackEval_sn_trackeval_0_4_0
+  primary_metrics: [HOTA, AssA, IDF1]
+  secondary_metrics: [DetA, MOTA, IDSW, FP, FN, Frag]
+  aggregation: official_COMBINED_SEQ_not_video_mean
+  analysis_unit: sequence
+budgets:
+  gpu_count_concurrent: 1
+  physical_gpu_allowed: [1, 2, 3, 4, 5, 6, 7]
+  physical_gpu_forbidden: [0]
+  gpu_hours_total_max: 12.0
+  gpu_hours_stage_max: {A: 0.2, B: 0.3, C: 9.0, D: 2.5}
+  elapsed_hours_total_max: 36
+  active_engineering_workdays_max: 2
+  extra_storage_gib_max: 25
+  minimum_remaining_free_gib: 50
+  targeted_compatibility_repairs_per_blocker_max: 2
+not_in_scope:
+  - multi_seed_37_73
+  - official_dancetrack_val_or_test_or_sportsmot
+  - assignment_margin_loss_dustbin_or_edge_bias_modules
+  - automatic_git_commit_or_push
