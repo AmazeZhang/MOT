@@ -1212,3 +1212,19 @@
 - **关键核查发现：** S09 Stage D2 `v3`（AssA `80.063`）除跳过 `1,108` 异主与 `1,319` FP 写入外，在 `CleanHistoryCAMELTrack.process` 第 1215–1224 行 `else:` 分支还对漏配/错配帧强制注入了 GT 正检测（至少 `1,247+` 次）。故 S10 Stage B 先用 `D2_SKIP_ONLY` 剥离“纯拒写”上限，并在 Stage C/D 以 `C0` 零重训简单写入门控与 `C1` 等交换比例 i.i.d. 对照严格评估 `C2`（连续接管训练）及 `C3`（多线索一致性门控聚合 + 真实污染判别 AUROC）。
 - **范围与限制：** 本轮仅做本地复盘与 S10 实验任务设计，未连接服务器、未执行训练/推理/TrackEval 或使用任何 GPU。S10 状态为 `DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN`），各新机制维持 `NOT_SUPPORTED_BY_PROVENANCE`。
 - **精确下一步：** 提交并推送本次 S10 设计，由服务器按 [LATEST](a2a/LATEST.md) 领取 **S10 任务**从 Stage A 开始执行并返回 `reports/feasibility/s10_camel_anticontamination_20261127/` 报告包。
+
+## 2026-11-27：S10 完成 CAMELTrack 纯拒写分解与抗污染训练闭环（A–E 全阶段）
+
+- **阶段 A（环境锁、等噪标定与单元测试）：** 新增 `scripts/run_s10_camel.py`、`tests/test_s10_camel.py` 与 `scripts/export_s10_report.py`。核验全部 8 项 S08/S09 复用资产 SHA256 与隔离拷贝共享数据缓存；以向量化 `ContiguousTakeoverTransform`（`p_takeover=0.55`, `L∈[2,12]`）和 `MatchedIidSwapTransform` 在 200 batches 标定得 `p_iid = 0.076880`（`C2` 替换率 `0.071268` vs `C1` `0.071080`，相对偏差 `0.26% <= 5%`）。`C3` 因果 `ConsistencyGateHead` 参数量 `382,785`（占全模型 `0.83% < 2%`）。3 项单元测试全通过（D2 零补写不变量、`corrupted_mask` 连续范围、全 1 权重等价与零因果泄漏/有限梯度）。全阶段仅使用物理 GPU 1（`CUDA_VISIBLE_DEVICES=1`），物理 GPU 0 禁用且未使用；总 GPU 耗时 **`4.072 GPUh`**（预算 `<= 12.0h`），新增数据盘存储 **`4.27 GiB`**（预算 `<= 25.0 GiB`）。
+- **阶段 B（纯拒写上限分解与 `C0` 零重训基线，`motion_dev8`）：**
+  - **`D2_SKIP_ONLY`（`b_d2_skip_only_v2`，隔离探针，`gt_injected_on_miss = 0`）：** 阻止 `2,170` 次跨 ID 与 `1,136` 次 FP 入库后获得 HOTA **`63.781`**、DetA `81.568`、AssA **`49.940`**、IDF1 **`63.186`**、MOTA `88.958`、IDSW `936`。相比 S09 `T_TWOSTAGE_TH050`（`54.443 / 36.704`）纯停写即可恢复 **`+9.338` HOTA（`+13.236` AssA）**；并与含 miss GT 注入的 S09 `D2 v3`（`81.907`）清晰分离出 `+18.126` HOTA 的漏配重构部分。
+  - **`C0_SIMPLE_WRITE_GATE`（零重训标量相似度门控）：** `tau=0.60` 掉至 `48.838` HOTA / `29.847` AssA / `1,225` IDSW（跳过 `3,208` 次更新）；`tau=0.65` 掉至 `43.509` HOTA / `23.925` AssA / `1,666` IDSW（跳过 `7,475` 次更新），表明静态标量门控误伤正常高速运动目标的模板刷新。
+- **阶段 C（严格受控 `train32` 训练 + `dev8` `@0.50` 闭环评测）：** 3 组训练均完成 20 epochs（各约 `0.98 GPUh`，`0` 非有限梯度，新进程重载 diff `0.0`）：
+  - `C1_MATCHED_IID_SWAP`（`c1_matched_iid_seed13_e20_v2` → `c_eval_c1_th050_v1`）：HOTA `51.780`、AssA `33.256`、IDF1 `49.964`、MOTA `89.796`、IDSW `888`。
+  - `C2_CONTIGUOUS_TAKEOVER`（`c2_contiguous_takeover_seed13_e20_v1` → `c_eval_c2_th050_v1`）：HOTA `48.210`、AssA `28.936`、IDF1 `45.176`、MOTA `89.025`、IDSW `1228`。
+  - `C3_CONSISTENCY_GATED_TE`（`c3_consistency_gated_seed13_e20_v1` → `c_eval_c3_th050_v1`）：HOTA `49.781`、AssA `30.765`、IDF1 `46.604`、MOTA `89.507`、IDSW `1110`。虽在同分布接管训练下相比 `C2` 回升 `+1.570` HOTA / `+1.829` AssA，但所有合成污染训练均劣于无污染 S09 `T_TWOSTAGE_TH050`（`54.443`）。
+- **阶段 D（软拒写滤网与真实闭环污染检出 AUROC）：**
+  - `C3_WITH_SOFT_WRITE_FILTER`（`d_c3_soft_write_filter_w050_v2`，`w_last < 0.50`）：跳过 `750/74,826` 次写入，得 HOTA `49.313`、AssA `30.201`、IDF1 `45.506`、IDSW `1,106`（无增益）。
+  - `d_real_pollution_auroc_v1`：重放 `T_TWOSTAGE_TH050` 在 `dev8` 的 `76,658` 次写入（`42,847` clean、`31,940` cross-ID、`1,350` FP、`521` unanchored）：虽然 `C3` 在合成接管验证集上 `val/cons_acc = 0.9896`，但真实跨 ID 写入全局判别 `AUROC = 0.5002`（`F1 = 0.0259`，成熟轨 `hits>=3` 为 `0.5032`）。描述性拆解发现 `31,791/31,940` 次跨 ID 帧属于切主后的漂移自洽尾段（`AUROC = 0.4997`）；即便是 **`149` 例首次切换 onset** 帧，`C3` 仅得 `AUROC = 0.6220`（`>=0.5` 检出率 `4.70%`），明显弱于原始相似度 `1 - sim`（`AUROC = 0.8512`），暴露合成邻域借框接管与真实闭环切换间的显著 sim-to-real 鸿沟。
+- **失败保留与报告交付（Stage E）：** 保留 3 次工程失败前驱目录（`b_d2_skip_only_v1`、`c1_matched_iid_seed13_e20_v1`、`d_c3_soft_write_filter_w050_v1`），不影响权威结果。已导出完整报告包 `reports/feasibility/s10_camel_anticontamination_20261127/`（`aggregate_metrics.csv` 7 行、`per_sequence_metrics.csv` 56 行、`learning_curves.csv` 474 行、`cases.jsonl` & `evidence/` 16 例、`checks.json` 14/14 全通过、TrackEval 导出差 `0.0`、`artifacts.json` 54 项）。
+- **精确下一步：** 停止在 Stage E，不扩展 multi-seed 37/73 或继续当前 `C2/C3` 合成交换路线；交由研究端审阅 S10 完整报告包并决定后续真实错配采样（来自自然轨迹而非合成同帧替框）或关联机制方向。未执行 `git commit` / `git push`。

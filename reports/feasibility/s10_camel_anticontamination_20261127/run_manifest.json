@@ -1,0 +1,112 @@
+{
+  "schema_version": "s10-manifest-v1",
+  "protocol_id": "s10_camel_anticontamination_20261127",
+  "protocol_version": 1,
+  "protocol_sha256": "d89609d243ad418e73c63daf8c68d275efe15ecccf7ed049ddfccfad969fde67",
+  "split_manifest": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-27T15:16:49.164489+08:00",
+  "code_provenance": {
+    "head_commit": "d22dc1dff75428a92890a100c6d5c8dd7482848d",
+    "working_tree_dirty": true,
+    "dirty_or_untracked_files": {
+      "scripts/export_s10_report.py": "79f4fe6655fd23a567b6494ea0df0265dfed28603ca5fed8660015bf75c6e967",
+      "scripts/run_s10_camel.py": "d2af8be3a6895925fc403b60e208b24299559ba8e1c02f1ad476abf68464eb09",
+      "tests/test_s10_camel.py": "c669bcf35eaca5df6f1450f2ca1282d1e630b88e33da12f3c4fcfdf6b5189b78"
+    }
+  },
+  "runtime_lock": {
+    "schema_version": "s10-runtime-lock-v1",
+    "generated_at": "2026-11-27T10:58:31.619443+08:00",
+    "python_executable": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+    "pytorch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "calibrated_c1_p_iid": 0.07688032935262179,
+    "gpu_safety_probe": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "physical_gpu_ids": [],
+      "logical_to_physical": {},
+      "gpu_name": "CPU"
+    },
+    "scripts_sha256": {
+      "scripts/run_s10_camel.py": "d2af8be3a6895925fc403b60e208b24299559ba8e1c02f1ad476abf68464eb09",
+      "scripts/run_s09_camel.py": "792227e3c810cf08b625e8f57dc51b4d5853d869d5c59b5ab2c1d508d011cfd9",
+      "tests/test_s10_camel.py": "c669bcf35eaca5df6f1450f2ca1282d1e630b88e33da12f3c4fcfdf6b5189b78"
+    }
+  },
+  "stage_outcomes": {
+    "A": "COMPLETED (8/8 assets SHA256 verified, p_iid=0.076880 calibrated at 0.26% rel diff, C3 overhead 0.83% < 2%, 3/3 unit tests passed)",
+    "B": "COMPLETED (b_d2_skip_only_v2 with gt_injected_on_miss=0 + b_c0_tau060_v1 + b_c0_tau065_v1; preserved failed b_d2_skip_only_v1)",
+    "C": "COMPLETED (C1 v2, C2 v1, C3 v1 20ep seed13 trained + online eval th=0.50; preserved failed c1 v1)",
+    "D": "COMPLETED (d_c3_soft_write_filter_w050_v2 + d_real_pollution_auroc_v1; preserved failed w050_v1)",
+    "E": "COMPLETED"
+  },
+  "gpu_allocation": {
+    "physical_gpu_used": [
+      1
+    ],
+    "physical_gpu_forbidden": [
+      0
+    ],
+    "cuda_visible_devices": "1"
+  },
+  "eval_runs": {
+    "b_c0_tau060_v1": {
+      "condition": "C0_SIMPLE_WRITE_GATE_TAU060",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_c0_tau065_v1": {
+      "condition": "C0_SIMPLE_WRITE_GATE_TAU065",
+      "inference_mode": "online_closed_loop"
+    },
+    "c_eval_c1_th050_v1": {
+      "condition": "C1_MATCHED_IID_SWAP",
+      "inference_mode": "online_closed_loop"
+    },
+    "c_eval_c2_th050_v1": {
+      "condition": "C2_CONTIGUOUS_TAKEOVER",
+      "inference_mode": "online_closed_loop"
+    },
+    "c_eval_c3_th050_v1": {
+      "condition": "C3_CONSISTENCY_GATED_TE",
+      "inference_mode": "online_closed_loop"
+    },
+    "d_c3_soft_write_filter_w050_v2": {
+      "condition": "C3_WITH_SOFT_WRITE_FILTER",
+      "inference_mode": "online_closed_loop"
+    },
+    "b_d2_skip_only_v2": {
+      "condition": "D2_SKIP_ONLY",
+      "inference_mode": "privileged_skip_only_probe"
+    }
+  },
+  "train_runs": {
+    "c1_matched_iid_seed13_e20_v2": "C1_MATCHED_IID_SWAP",
+    "c2_contiguous_takeover_seed13_e20_v1": "C2_CONTIGUOUS_TAKEOVER",
+    "c3_consistency_gated_seed13_e20_v1": "C3_CONSISTENCY_GATED_TE"
+  },
+  "preserved_non_authoritative_attempts": [
+    {
+      "run_id": "b_d2_skip_only_v1",
+      "stage": "B",
+      "status": "FAILED_PRE_TRACKING",
+      "error": "AttributeError: module 'run_s09_camel' has no attribute 'load_dev8_gt_boxes'",
+      "superseded_by": "b_d2_skip_only_v2"
+    },
+    {
+      "run_id": "c1_matched_iid_seed13_e20_v1",
+      "stage": "C",
+      "status": "FAILED_EPOCH_1_CALLBACK",
+      "error": "AttributeError: 'S10EpochLogger' object has no attribute 't0'",
+      "superseded_by": "c1_matched_iid_seed13_e20_v2"
+    },
+    {
+      "run_id": "d_c3_soft_write_filter_w050_v1",
+      "stage": "D",
+      "status": "FAILED_FRAME_12_PAD_DTYPE",
+      "error": "RuntimeError: value cannot be converted to type int64_t without overflow (NaN pad on int64 index column)",
+      "superseded_by": "d_c3_soft_write_filter_w050_v2"
+    }
+  ]
+}

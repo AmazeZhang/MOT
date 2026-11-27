@@ -6,12 +6,13 @@
 
 每个快照必须注明数据划分、运行范围、原始文件 SHA256 和限制；train 诊断不得写成 val 或新方法结果。
 
-2026-11-25 起，研究端下发遵循 [任务规范](../docs/experiment_task_contract.md)，服务器按任务逐阶段回传。S08 CAMELTrack 有界基线闭环已于 2026-11-25 在物理 GPU 1 上完成 A–F 全阶段，权威报告见 [S08报告](baselines/s08_camel_baseline_20261125/README.md)（决定：`CONTINUE`，仅授权进入研究端下一轮单问题设计）。S09 阈值标定、Two-Stage 基线与失败归因已于 2026-11-26 在物理 GPU 1 上完成 A–E 全阶段并停止在 Stage E，权威报告见 [S09报告](diagnostics/s09_camel_calibration_and_attribution_20261126/README.md)。
+2026-11-25 起，研究端下发遵循 [任务规范](../docs/experiment_task_contract.md)，服务器按任务逐阶段回传。S08 CAMELTrack 有界基线闭环已于 2026-11-25 在物理 GPU 1 上完成 A–F 全阶段，权威报告见 [S08报告](baselines/s08_camel_baseline_20261125/README.md)（决定：`CONTINUE`，仅授权进入研究端下一轮单问题设计）。S09 阈值标定、Two-Stage 基线与失败归因已于 2026-11-26 在物理 GPU 1 上完成 A–E 全阶段并停止在 Stage E，权威报告见 [S09报告](diagnostics/s09_camel_calibration_and_attribution_20261126/README.md)。S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验已于 2026-11-27 在物理 GPU 1 上完成 A–E 全阶段并停止在 Stage E，权威报告见 [S10报告](feasibility/s10_camel_anticontamination_20261127/README.md)。
 
 2026-11-23 起新增报告遵循 [报告规范 v1](../docs/experiment_reporting.md) 和 [报告包模板](../docs/templates/report_bundle/README.md)：完整精度汇总/逐视频指标随 Git 回传，负结果与未完成组也保留。历史 S01/S04 机器可读补齐尚待服务器执行，不代表本地已有原始数值。[当前交接与下一步](../docs/a2a/LATEST.md)。
 
 当前快照：
 
+- `feasibility/s10_camel_anticontamination_20261127/`：S10 CAMELTrack 纯拒写分解与抗污染训练闭环（物理 GPU 1，总计 `4.072 GPUh`、`4.27 GiB`）：Stage B `D2_SKIP_ONLY`（`gt_injected_on_miss=0`）达 `63.781` HOTA / `49.940` AssA（相对 S09 `T_TWOSTAGE_TH050` `+9.338` HOTA / `+13.236` AssA），明确剥离纯拒写上限与 S09 `D2 v3` GT 漏配注入增益（`81.907`）；零重训 `C0` 标量门控严重掉点（`48.838`/`43.509`）；Stage C 等噪 `C1` (`51.780`) > `C3` (`49.781`) > `C2` (`48.210`)，三者均低于 S09 无污染基线 `54.443`；Stage D 软拒写 `49.313`，真实闭环跨 ID 写入一致性判别 AUROC `0.5002`（149 例首次切换 `0.6220` vs `1-sim` `0.8512`，而 `31,791` 例为漂移后自洽尾段）。包含 `7` 行总体、`56` 行逐视频、`474` 行曲线、`16` 例因果证据与 `54` 项产物哈希。
 - `diagnostics/s09_camel_calibration_and_attribution_20261126/`：S09 CAMELTrack（commit `bc1c2610`）在物理 GPU 1 上完成 A–E 全阶段闭环：Stage B 零重训阈值标定（`T_SCRATCH` @ `0.46/0.50/0.519729` 与 `P_OFFICIAL` @ `0.50`）、Stage C `train32` 两阶段训练（3 个单 cue TE 20ep + 联合 GAFFE 20ep -> `T_TWOSTAGE` @ `0.50` 与 `0.5460`）、Stage D1 100% 官方 IDSW 相似度边际回放（`786` / `1,412` 例）及隔离单列的 Stage D2 1-to-1 GT 路由干净历史反事实探针（权威 `v3`，`AssA 36.704 -> 80.063`，`IDF1 53.629 -> 92.153`；保留 `v1`/`v2` 工程记录）；结论指向 S10 主线优先立项 `B'` 抗闭环历史污染（兼顾单帧反转抑制）。
 - `baselines/s08_camel_baseline_20261125/`：S08 CAMELTrack（commit `bc1c2610`）有界基线训练与评测闭环；包含 A–F 全阶段证据、20 epoch `T_SCRATCH`（seed 13，train32）与 `P_OFFICIAL` 在 `motion_dev8` 的全精度 TrackEval 对比及 16 例抽样官方 IDSW 失败清单。
 - `baselines/g1_ocsort_train_20261110/`：完整 DanceTrack train 诊断基线。

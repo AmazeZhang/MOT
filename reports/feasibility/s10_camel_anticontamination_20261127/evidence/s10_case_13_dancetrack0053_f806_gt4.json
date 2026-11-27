@@ -1,0 +1,172 @@
+{
+  "case_id": "s10_case_13_dancetrack0053_f806_gt4",
+  "canonical_s09_case_id": "s09_case_13_dancetrack0053_f806_gt4",
+  "sequence": "dancetrack0053",
+  "frame": 806,
+  "gt_id": 4,
+  "sort_key_sha256": "01a5708008c99fbb68b6b202da9ea06d02ea878a13a5db7c462d840da623847c",
+  "s09_context": {
+    "bucket": "unmatched_spawned_new_track",
+    "gap_since_prev_match_frames": 1,
+    "has_competing_gt_iou_ge_0_3": false,
+    "s09_c3_pred_id_at_frame": 204,
+    "s09_d2_pred_id_at_frame": 140
+  },
+  "windows": {
+    "T_TWOSTAGE_S09_REF": {
+      "805": {
+        "matched_pred_id": 199,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 204,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 204,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 204,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 204,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "D2_SKIP_ONLY": {
+      "805": {
+        "matched_pred_id": 293,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 305,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 305,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 305,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 305,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "C0_TAU060": {
+      "805": {
+        "matched_pred_id": 453,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 461,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 461,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 461,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 461,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "C1_MATCHED_IID": {
+      "805": {
+        "matched_pred_id": 295,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 295,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 295,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 295,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 295,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "C2_TAKEOVER": {
+      "805": {
+        "matched_pred_id": 388,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 388,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 388,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 388,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 388,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "C3_GATED": {
+      "805": {
+        "matched_pred_id": 330,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 335,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 335,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 335,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 335,
+        "iou_to_gt": 0.971457
+      }
+    },
+    "C3_SOFT_FILTER": {
+      "805": {
+        "matched_pred_id": 333,
+        "iou_to_gt": 0.982042
+      },
+      "806": {
+        "matched_pred_id": 338,
+        "iou_to_gt": 0.918354
+      },
+      "807": {
+        "matched_pred_id": 338,
+        "iou_to_gt": 0.843849
+      },
+      "808": {
+        "matched_pred_id": 338,
+        "iou_to_gt": 0.962613
+      },
+      "811": {
+        "matched_pred_id": 338,
+        "iou_to_gt": 0.971457
+      }
+    }
+  },
+  "stage_d_t_twostage_frame_scores": []
+}

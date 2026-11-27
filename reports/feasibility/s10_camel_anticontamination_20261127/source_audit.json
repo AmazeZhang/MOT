@@ -1,0 +1,155 @@
+{
+  "schema_version": "s10-source-audit-v1",
+  "generated_at": "2026-11-27T10:58:31.618934+08:00",
+  "upstream_cameltrack_commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+  "temporal_encoder_pooling_note": "Upstream cameltrack/architecture/temporal_encoder.py:93 calls nn.TransformerEncoder(src, src_key_padding_mask=~src_mask) on [S+1, B*N, E] where index S is the cls token and 0..S-1 are historical observations ordered age-ascending (0 newest). S10 C3 keeps all upstream temp_encs.{cue}.* parameter names untouched for exact S09 C1 loading, computes causal w_t in ConsistencyGateHead over concatenated det_tokenizer tokens (704 -> 128 -> 2-layer causal Transformer -> 1), and applies unified float attn_mask with log(clamp(w_t, 1e-4, 1.0)) key bias in TemporalEncoder (preserving diagonal 0.0 to avoid empty-row NaN).",
+  "verified_assets": {
+    "t_twostage_joint_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+      "bytes": 525391138,
+      "verified": true
+    },
+    "c1_app_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_app_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d",
+      "bytes": 110772786,
+      "verified": true
+    },
+    "c1_kp_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_kp_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c",
+      "bytes": 9191858,
+      "verified": true
+    },
+    "c1_bbox_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_bbox_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1",
+      "bytes": 3348530,
+      "verified": true
+    },
+    "split_manifest": {
+      "path": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+      "sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+      "bytes": 2786,
+      "verified": true
+    },
+    "states_train32": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_train32.pklz",
+      "sha256": "dc7de2cd48da21cc56005159c004123fc0573260fbf69d0b3fa9d572ac8a0f2a",
+      "bytes": 571004601,
+      "verified": true
+    },
+    "states_dev8_train_ref": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_train_ref.pklz",
+      "sha256": "ba6e88b5da10c5e9f9db43f580289f8344cd1750270cf255dea4998df213cacd",
+      "bytes": 186129629,
+      "verified": true
+    },
+    "states_dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "bytes": 184579566,
+      "verified": true
+    }
+  },
+  "shared_datamodule_cache": "/media/imc/data/mot-data/cache/s10_camel/dm_s10_train32_dev8_shared",
+  "swap_rate_calibration_200_batches": {
+    "p_iid": 0.07688032935262179,
+    "rates": {
+      "C2_CONTIGUOUS_TAKEOVER": {
+        "num_batches": 200,
+        "total_valid_obs": 2411323,
+        "swapped_obs": 171849,
+        "swap_frame_rate": 0.071267515799418,
+        "total_valid_tracklets": 49895,
+        "swapped_tracklets": 27053,
+        "swapped_tracklet_frac": 0.5421986170959014
+      },
+      "C1_MATCHED_IID_SWAP": {
+        "num_batches": 200,
+        "total_valid_obs": 2403987,
+        "swapped_obs": 170876,
+        "swap_frame_rate": 0.07108025126591783,
+        "total_valid_tracklets": 49880,
+        "swapped_tracklets": 47271,
+        "swapped_tracklet_frac": 0.9476944667201284
+      }
+    },
+    "relative_diff_c1_vs_c2": 0.0026276281893594,
+    "within_5pct": true
+  },
+  "model_parameters": {
+    "C1_MATCHED_IID_SWAP": {
+      "total": {
+        "total_params": 43475200,
+        "trainable_params": 43475200
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      }
+    },
+    "C2_CONTIGUOUS_TAKEOVER": {
+      "total": {
+        "total_params": 43475200,
+        "trainable_params": 43475200
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      }
+    },
+    "C3_CONSISTENCY_GATED_TE": {
+      "total": {
+        "total_params": 43838977,
+        "trainable_params": 43838977
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "consistency_head": {
+        "total_params": 363777,
+        "trainable_params": 363777,
+        "fraction_of_total": 0.008298026662437858
+      }
+    }
+  }
+}

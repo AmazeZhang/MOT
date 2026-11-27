@@ -1,0 +1,628 @@
+{
+  "schema_version": "s10-diagnostics-v1",
+  "generated_at": "2026-11-27T15:16:49.163275+08:00",
+  "question_1_d2_skip_only_vs_s09": {
+    "t_twostage_th050_s09_ref": {
+      "HOTA": "54.44251406854994",
+      "DetA": "80.96853032705118",
+      "AssA": "36.7043200239207",
+      "IDF1": "53.62905012374279",
+      "MOTA": "90.37349412446515",
+      "IDSW": "786"
+    },
+    "d2_skip_only_s10": {
+      "HOTA": "63.78112988618798",
+      "DetA": "81.56779587822807",
+      "AssA": "49.939998178861714",
+      "IDF1": "63.18642334366711",
+      "MOTA": "88.95794029519476",
+      "IDSW": 936
+    },
+    "d2_v3_with_gt_miss_injection_s09_ref": {
+      "HOTA": "81.90741373088156",
+      "DetA": "83.83511135921218",
+      "AssA": "80.0632013892464",
+      "IDF1": "92.1529276317859",
+      "MOTA": "91.67314023600784",
+      "IDSW": "830"
+    },
+    "pure_skip_gain_over_t_twostage": {
+      "delta_HOTA": 9.338615817638043,
+      "delta_AssA": 13.235678154941013,
+      "delta_IDF1": 9.557373219924315,
+      "delta_IDSW": 150
+    },
+    "miss_injection_gap_d2_v3_minus_d2_skip": {
+      "delta_HOTA": 18.126283844693575,
+      "delta_AssA": 30.123203210384688,
+      "delta_IDF1": 28.96650428811879
+    },
+    "routing_stats": {
+      "total_frames": 7565,
+      "total_predicted_matches": 75012,
+      "clean_matched_gallery_updates": 71681,
+      "cross_id_matches_skipped": 2170,
+      "fp_matches_skipped": 1136,
+      "unanchored_gallery_updates": 25,
+      "gt_injected_on_miss": 0
+    }
+  },
+  "question_2_zero_retrain_c0_and_stage_c_controlled": {
+    "swap_rate_calibration_200_batches": {
+      "p_iid": 0.07688032935262179,
+      "rates": {
+        "C2_CONTIGUOUS_TAKEOVER": {
+          "num_batches": 200,
+          "total_valid_obs": 2411323,
+          "swapped_obs": 171849,
+          "swap_frame_rate": 0.071267515799418,
+          "total_valid_tracklets": 49895,
+          "swapped_tracklets": 27053,
+          "swapped_tracklet_frac": 0.5421986170959014
+        },
+        "C1_MATCHED_IID_SWAP": {
+          "num_batches": 200,
+          "total_valid_obs": 2403987,
+          "swapped_obs": 170876,
+          "swap_frame_rate": 0.07108025126591783,
+          "total_valid_tracklets": 49880,
+          "swapped_tracklets": 47271,
+          "swapped_tracklet_frac": 0.9476944667201284
+        }
+      },
+      "relative_diff_c1_vs_c2": 0.0026276281893594,
+      "within_5pct": true
+    },
+    "c3_parameter_overhead": {
+      "total_params": 363777,
+      "trainable_params": 363777,
+      "fraction_of_total": 0.008298026662437858
+    },
+    "online_results_combined": {
+      "C0_SIMPLE_WRITE_GATE_TAU060": {
+        "HOTA": "48.83798837348319",
+        "DetA": "80.08951086458544",
+        "AssA": "29.84712756527199",
+        "IDF1": "44.47428442931029",
+        "MOTA": "87.602806446442",
+        "IDSW": 1225,
+        "FP": 1138,
+        "FN": 7691,
+        "Frag": 1534
+      },
+      "C0_SIMPLE_WRITE_GATE_TAU065": {
+        "HOTA": "43.509074364084526",
+        "DetA": "79.28899045805665",
+        "AssA": "23.925255180213142",
+        "IDF1": "36.9037884982284",
+        "MOTA": "85.506603040728",
+        "IDSW": 1666,
+        "FP": 994,
+        "FN": 9094,
+        "Frag": 1622
+      },
+      "C1_MATCHED_IID_SWAP": {
+        "HOTA": "51.78025809713852",
+        "DetA": "80.82239799052725",
+        "AssA": "33.2563532852301",
+        "IDF1": "49.96408434140853",
+        "MOTA": "89.79642165748037",
+        "IDSW": 888,
+        "FP": 1251,
+        "FN": 6136,
+        "Frag": 1395
+      },
+      "C2_CONTIGUOUS_TAKEOVER": {
+        "HOTA": "48.210420342401086",
+        "DetA": "80.52797094371442",
+        "AssA": "28.93586428529444",
+        "IDF1": "45.17615607396328",
+        "MOTA": "89.02452557984685",
+        "IDSW": 1228,
+        "FP": 1290,
+        "FN": 6383,
+        "Frag": 1445
+      },
+      "C3_CONSISTENCY_GATED_TE": {
+        "HOTA": "49.780691266711315",
+        "DetA": "80.75228335872488",
+        "AssA": "30.765340398062136",
+        "IDF1": "46.6035818620602",
+        "MOTA": "89.50665236316108",
+        "IDSW": 1110,
+        "FP": 1331,
+        "FN": 6069,
+        "Frag": 1445
+      },
+      "C3_WITH_SOFT_WRITE_FILTER": {
+        "HOTA": "49.313151672281315",
+        "DetA": "80.73870442304593",
+        "AssA": "30.200858620782554",
+        "IDF1": "45.505892817433846",
+        "MOTA": "89.38211321964512",
+        "IDSW": 1106,
+        "FP": 1351,
+        "FN": 6154,
+        "Frag": 1462
+      }
+    },
+    "c3_minus_c2_controlled": {
+      "delta_HOTA": 1.570270924310229,
+      "delta_AssA": 1.829476112767697,
+      "delta_IDF1": 1.4274257880969259,
+      "delta_IDSW": -118
+    },
+    "c3_minus_c1_matched_iid": {
+      "delta_HOTA": -1.9995668304272058,
+      "delta_AssA": -2.4910128871679618,
+      "delta_IDF1": -3.3605024793483267,
+      "delta_IDSW": 222
+    },
+    "c3_minus_clean_t_twostage_th050": {
+      "delta_HOTA": -4.661822801838625,
+      "delta_AssA": -5.938979625858565,
+      "delta_IDF1": -7.02546826168259,
+      "delta_IDSW": 324
+    },
+    "training_summaries": {
+      "c1_matched_iid_seed13_e20_v2": {
+        "condition": "C1_MATCHED_IID_SWAP",
+        "completed_epochs": 20,
+        "nonfinite_grad_steps": 0,
+        "gpu_device_hours": 0.9891751496141984,
+        "peak_vram_mib": 2801.81396484375,
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 51,
+            "num_changed_tensors": 51,
+            "max_abs_delta": 0.03527915105223656,
+            "l2_delta": 27.15119082710929
+          },
+          "temp_encs.app_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.024245737120509148,
+            "l2_delta": 11.5150396584071
+          },
+          "temp_encs.kp_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.0468672551214695,
+            "l2_delta": 3.0529050158775437
+          },
+          "temp_encs.bbox_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.047267794609069824,
+            "l2_delta": 1.918525530192385
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.513076663017273,
+        "reload_state_dict_max_abs_diff": 0.0
+      },
+      "c2_contiguous_takeover_seed13_e20_v1": {
+        "condition": "C2_CONTIGUOUS_TAKEOVER",
+        "completed_epochs": 20,
+        "nonfinite_grad_steps": 0,
+        "gpu_device_hours": 0.9734094013925642,
+        "peak_vram_mib": 2801.75634765625,
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 51,
+            "num_changed_tensors": 51,
+            "max_abs_delta": 0.028812630102038383,
+            "l2_delta": 26.459763252391536
+          },
+          "temp_encs.app_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.06696292757987976,
+            "l2_delta": 12.548565804952052
+          },
+          "temp_encs.kp_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.045661184936761856,
+            "l2_delta": 3.805926942118063
+          },
+          "temp_encs.bbox_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.0480014830827713,
+            "l2_delta": 2.0046490283883514
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.485642671585083,
+        "reload_state_dict_max_abs_diff": 0.0
+      },
+      "c3_consistency_gated_seed13_e20_v1": {
+        "condition": "C3_CONSISTENCY_GATED_TE",
+        "completed_epochs": 20,
+        "nonfinite_grad_steps": 0,
+        "gpu_device_hours": 0.9750283336996411,
+        "peak_vram_mib": 3287.78515625,
+        "module_deltas_init_to_end": {
+          "gaffe": {
+            "num_tensors": 51,
+            "num_changed_tensors": 51,
+            "max_abs_delta": 0.030087800696492195,
+            "l2_delta": 26.39420285197121
+          },
+          "temp_encs.app_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.05000685900449753,
+            "l2_delta": 12.237521260123263
+          },
+          "temp_encs.kp_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.04997539520263672,
+            "l2_delta": 3.8560330517877093
+          },
+          "temp_encs.bbox_encoder": {
+            "num_tensors": 56,
+            "num_changed_tensors": 55,
+            "max_abs_delta": 0.0525243878364563,
+            "l2_delta": 1.965149279642137
+          },
+          "consistency_head": {
+            "num_tensors": 32,
+            "num_changed_tensors": 32,
+            "max_abs_delta": 0.1383085697889328,
+            "l2_delta": 7.330245223725247
+          }
+        },
+        "epoch20_val_computed_sim_threshold": 0.4942840337753296,
+        "reload_state_dict_max_abs_diff": 0.0
+      }
+    }
+  },
+  "question_3_stage_d_soft_filter_and_real_pollution_auroc": {
+    "soft_write_filter_gate_stats": {
+      "total_frames": 7565,
+      "total_predicted_matches": 75918,
+      "mature_matches": 74826,
+      "write_skipped": 750,
+      "write_accepted": 75168
+    },
+    "real_pollution_auroc_summary": {
+      "schema_version": "s10-real-pollution-auroc-v1",
+      "status": "COMPLETED",
+      "run_id": "d_real_pollution_auroc_v1",
+      "t2_ckpt_sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+      "c3_ckpt_sha256": "9074d57d471805e9f99fbeeb7a9dace6d6043a85aedb7f4fcd5611afe56639cc",
+      "gpu": {
+        "CUDA_VISIBLE_DEVICES": "1",
+        "physical_gpu_ids": [
+          1
+        ],
+        "logical_to_physical": {
+          "cuda:0": "physical_gpu_1"
+        },
+        "gpu_name": "NVIDIA GeForce RTX 4090 D"
+      },
+      "wall_seconds": 535.3680862002075,
+      "peak_vram_mib": 1024.291015625,
+      "label_counts_all": {
+        "clean_match": 42847,
+        "cross_id_pollution": 31940,
+        "fp_pollution": 1350,
+        "unanchored": 521
+      },
+      "label_counts_mature_hits_ge_3": {
+        "clean_match": 42190,
+        "cross_id_pollution": 31935,
+        "fp_pollution": 1347,
+        "unanchored": 518
+      },
+      "cross_id_vs_clean_all": {
+        "c3_consistency_head_at_0_50": {
+          "count": 74787,
+          "pos": 31940,
+          "neg": 42847,
+          "auroc": 0.500235663632211,
+          "auprc": 0.42098853032816286,
+          "threshold": 0.5,
+          "tp": 427,
+          "fp": 657,
+          "fn": 31513,
+          "tn": 42190,
+          "precision": 0.39391143911439114,
+          "recall_detection_rate": 0.013368816530995618,
+          "fpr_clean_false_alarm": 0.015333628958853596,
+          "f1": 0.02585998062015504
+        },
+        "scalar_sim_baseline_at_tau060": {
+          "count": 74787,
+          "pos": 31940,
+          "neg": 42847,
+          "auroc": 0.5197960720981569,
+          "auprc": 0.4447920892129683,
+          "threshold": 0.4,
+          "tp": 916,
+          "fp": 908,
+          "fn": 31024,
+          "tn": 41939,
+          "precision": 0.5021929824561403,
+          "recall_detection_rate": 0.02867877269881027,
+          "fpr_clean_false_alarm": 0.0211916820314141,
+          "f1": 0.05425897405520673
+        },
+        "scalar_sim_baseline_at_tau065": {
+          "count": 74787,
+          "pos": 31940,
+          "neg": 42847,
+          "auroc": 0.5197960720981569,
+          "auprc": 0.4447920892129683,
+          "threshold": 0.35,
+          "tp": 2109,
+          "fp": 2403,
+          "fn": 29831,
+          "tn": 40444,
+          "precision": 0.46742021276595747,
+          "recall_detection_rate": 0.06603005635566687,
+          "fpr_clean_false_alarm": 0.056083273041286436,
+          "f1": 0.11571381542850873
+        }
+      },
+      "cross_id_vs_clean_mature": {
+        "c3_consistency_head_at_0_50": {
+          "count": 74125,
+          "pos": 31935,
+          "neg": 42190,
+          "auroc": 0.5032450421763245,
+          "auprc": 0.4264199880379015,
+          "threshold": 0.5,
+          "tp": 427,
+          "fp": 652,
+          "fn": 31508,
+          "tn": 41538,
+          "precision": 0.3957367933271548,
+          "recall_detection_rate": 0.013370909660247378,
+          "fpr_clean_false_alarm": 0.015453899028205736,
+          "f1": 0.025867813654813106
+        },
+        "scalar_sim_baseline_at_tau060": {
+          "count": 74125,
+          "pos": 31935,
+          "neg": 42190,
+          "auroc": 0.5243765306343217,
+          "auprc": 0.45307692489328383,
+          "threshold": 0.4,
+          "tp": 915,
+          "fp": 846,
+          "fn": 31020,
+          "tn": 41344,
+          "precision": 0.5195911413969335,
+          "recall_detection_rate": 0.028651949271958667,
+          "fpr_clean_false_alarm": 0.020052145058070632,
+          "f1": 0.054309116809116806
+        },
+        "scalar_sim_baseline_at_tau065": {
+          "count": 74125,
+          "pos": 31935,
+          "neg": 42190,
+          "auroc": 0.5243765306343217,
+          "auprc": 0.45307692489328383,
+          "threshold": 0.35,
+          "tp": 2106,
+          "fp": 2254,
+          "fn": 29829,
+          "tn": 39936,
+          "precision": 0.48302752293577983,
+          "recall_detection_rate": 0.06594645373414748,
+          "fpr_clean_false_alarm": 0.05342498222327566,
+          "f1": 0.11604904256784679
+        }
+      },
+      "any_pollution_vs_clean_all": {
+        "c3_consistency_head_at_0_50": {
+          "count": 76137,
+          "pos": 33290,
+          "neg": 42847,
+          "auroc": 0.5054646787083157,
+          "auprc": 0.4352880810897898,
+          "threshold": 0.5,
+          "tp": 468,
+          "fp": 657,
+          "fn": 32822,
+          "tn": 42190,
+          "precision": 0.416,
+          "recall_detection_rate": 0.014058275758486031,
+          "fpr_clean_false_alarm": 0.015333628958853596,
+          "f1": 0.027197442975446753
+        },
+        "scalar_sim_baseline_at_tau060": {
+          "count": 76137,
+          "pos": 33290,
+          "neg": 42847,
+          "auroc": 0.5303516323034541,
+          "auprc": 0.468485491813043,
+          "threshold": 0.4,
+          "tp": 1175,
+          "fp": 908,
+          "fn": 32115,
+          "tn": 41939,
+          "precision": 0.5640902544407105,
+          "recall_detection_rate": 0.03529588465004506,
+          "fpr_clean_false_alarm": 0.0211916820314141,
+          "f1": 0.06643485144036412
+        },
+        "scalar_sim_baseline_at_tau065": {
+          "count": 76137,
+          "pos": 33290,
+          "neg": 42847,
+          "auroc": 0.5303516323034541,
+          "auprc": 0.468485491813043,
+          "threshold": 0.35,
+          "tp": 2562,
+          "fp": 2403,
+          "fn": 30728,
+          "tn": 40444,
+          "precision": 0.516012084592145,
+          "recall_detection_rate": 0.07696004806248123,
+          "fpr_clean_false_alarm": 0.056083273041286436,
+          "f1": 0.13394327538883807
+        }
+      },
+      "any_pollution_vs_clean_mature": {
+        "c3_consistency_head_at_0_50": {
+          "count": 75472,
+          "pos": 33282,
+          "neg": 42190,
+          "auroc": 0.5084266259729483,
+          "auprc": 0.4407081754716975,
+          "threshold": 0.5,
+          "tp": 468,
+          "fp": 652,
+          "fn": 32814,
+          "tn": 41538,
+          "precision": 0.41785714285714287,
+          "recall_detection_rate": 0.014061654948620876,
+          "fpr_clean_false_alarm": 0.015453899028205736,
+          "f1": 0.02720772048136736
+        },
+        "scalar_sim_baseline_at_tau060": {
+          "count": 75472,
+          "pos": 33282,
+          "neg": 42190,
+          "auroc": 0.5348717480003349,
+          "auprc": 0.47684870664682355,
+          "threshold": 0.4,
+          "tp": 1172,
+          "fp": 846,
+          "fn": 32110,
+          "tn": 41344,
+          "precision": 0.5807730426164519,
+          "recall_detection_rate": 0.03521422991406766,
+          "fpr_clean_false_alarm": 0.020052145058070632,
+          "f1": 0.06640226628895185
+        },
+        "scalar_sim_baseline_at_tau065": {
+          "count": 75472,
+          "pos": 33282,
+          "neg": 42190,
+          "auroc": 0.5348717480003349,
+          "auprc": 0.47684870664682355,
+          "threshold": 0.35,
+          "tp": 2557,
+          "fp": 2254,
+          "fn": 30725,
+          "tn": 39936,
+          "precision": 0.5314903346497609,
+          "recall_detection_rate": 0.07682831560603329,
+          "fpr_clean_false_alarm": 0.05342498222327566,
+          "f1": 0.1342503872102486
+        }
+      },
+      "events_csv": "/media/imc/data/mot-data/runs/s10_camel_anticontamination_20261127/d_real_pollution_auroc_v1/d_real_pollution_scores.csv"
+    },
+    "descriptive_onset_vs_post_switch_decomposition": {
+      "total_events_csv": 76658,
+      "counts": {
+        "clean_match": 42847,
+        "cross_id_pollution_total": 31940,
+        "cross_id_onset_first_switch_per_track": 149,
+        "cross_id_post_switch_persisting": 31791,
+        "fp_pollution": 1350
+      },
+      "recomputed_cross_id_vs_clean_all": {
+        "num_pos": 31940,
+        "num_neg": 42847,
+        "c3_auroc": 0.500235663632211,
+        "c3_auprc": 0.42098853032816286,
+        "c3_pos_mean_pollution_score": 0.047317184090880246,
+        "c3_neg_mean_pollution_score": 0.0507406240116264,
+        "c3_at_0_50_trigger_rate_pos": 0.013368816530995618,
+        "c3_at_0_50_trigger_rate_neg": 0.015333628958853596,
+        "c3_at_0_50_f1": 0.02585998062015504,
+        "scalar_sim_auroc": 0.5197960720981569,
+        "scalar_sim_auprc": 0.4447920892129683,
+        "pos_mean_sim": 0.7861428517547338,
+        "neg_mean_sim": 0.7918888621812473
+      },
+      "descriptive_onset_cross_vs_clean": {
+        "num_pos": 149,
+        "num_neg": 42847,
+        "c3_auroc": 0.6219856260836317,
+        "c3_auprc": 0.012296932023584985,
+        "c3_pos_mean_pollution_score": 0.08708259240792901,
+        "c3_neg_mean_pollution_score": 0.0507406240116264,
+        "c3_at_0_50_trigger_rate_pos": 0.04697986577181208,
+        "c3_at_0_50_trigger_rate_neg": 0.015333628958853596,
+        "c3_at_0_50_f1": 0.017220172201722016,
+        "scalar_sim_auroc": 0.8512306861169672,
+        "scalar_sim_auprc": 0.03647425906154146,
+        "pos_mean_sim": 0.6620219801896371,
+        "neg_mean_sim": 0.7918888621812473
+      },
+      "descriptive_post_switch_vs_clean": {
+        "num_pos": 31791,
+        "num_neg": 42847,
+        "c3_auroc": 0.49966503847398186,
+        "c3_auprc": 0.41930254291314356,
+        "c3_pos_mean_pollution_score": 0.04713080914705211,
+        "c3_neg_mean_pollution_score": 0.0507406240116264,
+        "c3_at_0_50_trigger_rate_pos": 0.013211286213079173,
+        "c3_at_0_50_trigger_rate_neg": 0.015333628958853596,
+        "c3_at_0_50_f1": 0.025556772544724354,
+        "scalar_sim_auroc": 0.518242684111343,
+        "scalar_sim_auprc": 0.44140606260793547,
+        "pos_mean_sim": 0.7867245890345677,
+        "neg_mean_sim": 0.7918888621812473
+      },
+      "descriptive_fp_vs_clean": {
+        "num_pos": 1350,
+        "num_neg": 42847,
+        "c3_auroc": 0.6291793020644516,
+        "c3_auprc": 0.04602249412784766,
+        "c3_pos_mean_pollution_score": 0.07930711025441134,
+        "c3_neg_mean_pollution_score": 0.0507406240116264,
+        "c3_at_0_50_trigger_rate_pos": 0.03037037037037037,
+        "c3_at_0_50_trigger_rate_neg": 0.015333628958853596,
+        "c3_at_0_50_f1": 0.0400390625,
+        "scalar_sim_auroc": 0.7800883678272993,
+        "scalar_sim_auprc": 0.14079904917319946,
+        "pos_mean_sim": 0.6956280293288054,
+        "neg_mean_sim": 0.7918888621812473
+      }
+    }
+  },
+  "s11_routing_interpretation": {
+    "decision": "NEGATIVE_FOR_CURRENT_C2_C3_HYPOTHESIS_STOP_EXPANDING_SYNTHETIC_SWAP_TRAINING",
+    "rationale": "Stage B D2_SKIP_ONLY (gt_injected_on_miss=0) cleanly raises T_TWOSTAGE_TH050 HOTA +9.338 (54.443 -> 63.781) and AssA +13.236 (36.704 -> 49.940), confirming that pure write-rejection without GT miss injection has large headroom (+9.34 HOTA), while separating it from S09 D2 v3's +18.126 HOTA miss-injection contribution (63.781 -> 81.907). Simple zero-retrain scalar gating C0 degrades strongly (HOTA 48.838 @ tau=0.60, 43.509 @ tau=0.65) by stalling clean fast-motion updates. In Stage C, synthetic corruption training degrades overall online performance relative to clean-trained T_TWOSTAGE_TH050 (54.443): C1=51.780 HOTA, C2=48.210 HOTA, C3=49.781 HOTA. While C3 recovers +1.570 HOTA / +1.829 AssA over C2 under identical takeover training, C3 trails both C1 (-2.000 HOTA) and clean T_TWOSTAGE_TH050 (-4.662 HOTA), and soft write filtering adds nothing (49.313 HOTA). Stage D reveals why: although C3 reaches val/cons_acc=0.9896 on synthetic same-frame donor takeovers, on real closed-loop T_TWOSTAGE_TH050 writes it scores AUROC=0.5002 globally (0.6220 on the 149 onset switch frames vs 0.8512 for raw 1-sim) and triggers on only 4.70% of onsets, while 31,791/31,940 cross-ID frames are post-switch drifted tails whose recent windows are internally self-consistent with the wrong identity."
+  },
+  "preserved_failed_attempts": [
+    {
+      "run_id": "b_d2_skip_only_v1",
+      "stage": "B",
+      "status": "FAILED_PRE_TRACKING",
+      "error": "AttributeError: module 'run_s09_camel' has no attribute 'load_dev8_gt_boxes'",
+      "superseded_by": "b_d2_skip_only_v2"
+    },
+    {
+      "run_id": "c1_matched_iid_seed13_e20_v1",
+      "stage": "C",
+      "status": "FAILED_EPOCH_1_CALLBACK",
+      "error": "AttributeError: 'S10EpochLogger' object has no attribute 't0'",
+      "superseded_by": "c1_matched_iid_seed13_e20_v2"
+    },
+    {
+      "run_id": "d_c3_soft_write_filter_w050_v1",
+      "stage": "D",
+      "status": "FAILED_FRAME_12_PAD_DTYPE",
+      "error": "RuntimeError: value cannot be converted to type int64_t without overflow (NaN pad on int64 index column)",
+      "superseded_by": "d_c3_soft_write_filter_w050_v2"
+    }
+  ],
+  "compute_and_storage": {
+    "gpu_hours_stage_B": 0.39083153601321907,
+    "gpu_hours_stage_C_including_failed_v1": 3.3844444904026263,
+    "gpu_hours_stage_D_including_failed_v1": 0.296745769699725,
+    "gpu_hours_total": 4.07202179611557,
+    "extra_storage_runs_bytes": 3245786376,
+    "extra_storage_cache_bytes": 1338593989,
+    "extra_storage_total_gib": 4.269536924548447
+  }
+}
