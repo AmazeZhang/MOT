@@ -1,0 +1,19 @@
+{
+  "schema_version": "s12-runtime-lock-v1",
+  "generated_at": "2026-11-27T23:19:04.068327+08:00",
+  "python_executable": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+  "pytorch_version": "2.6.0+cu124",
+  "cuda_version": "12.4",
+  "gpu_safety_probe": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "physical_gpu_ids": [],
+    "logical_to_physical": {},
+    "gpu_name": "CPU"
+  },
+  "scripts_sha256": {
+    "scripts/run_s12_camel.py": "4525fbeb2b7df7485949cbafb0168936075f2e38d8e560dbd88c364e641aa1f8",
+    "scripts/run_s11_camel.py": "354ce6919bb60e4e272eb15428fe34eb78b8083eb72f4dde5fc1c32e85cf134f",
+    "scripts/run_s09_camel.py": "792227e3c810cf08b625e8f57dc51b4d5853d869d5c59b5ab2c1d508d011cfd9",
+    "tests/test_s12_camel.py": "bbb8b01f61ad952a057640d81c003dd1c0c92cd31d11ccc24c07fdd946a251e9"
+  }
+}

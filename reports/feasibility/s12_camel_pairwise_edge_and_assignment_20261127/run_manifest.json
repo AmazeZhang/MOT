@@ -1,0 +1,156 @@
+{
+  "schema_version": "s12-manifest-v1",
+  "protocol_id": "s12_camel_pairwise_edge_and_assignment_20261127",
+  "protocol_version": 1,
+  "protocol_sha256": "8095ff00d557541d7a36e0a0a9ebf554a071a743594d254eb3a995a891ac571a",
+  "split_manifest": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-28T08:24:59.591636+08:00",
+  "code_provenance": {
+    "head_commit": "e2927ce3e9469c955a282e59e8c442afbdc0b540",
+    "working_tree_dirty": true,
+    "dirty_or_untracked_files": {
+      "docs/progress_log.md": "718340c68b5661d6d86a8f33b525ff421017fad494ca17c06c2d74a48492a20e",
+      "reports/README.md": "209cab591735b63c18ce58dc3e2876c65948150cd63dffc6c89e1af6cd0e9e09",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md": "373108b0ffc4a5efbd89778296fcd4e7959c4bd3d43fc0d6c68891c676393430",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/aggregate_metrics.csv": "65bfce371dd400bcd83fff2b571ac63edb77ff91619f537c200bf667866b475d",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/artifacts.json": "07c2b7c9fbb302f7d0a4fe6be3bf183c18b5051263bffaeeb3dc18762435088e",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/cases.jsonl": "75fc92de22a2500980e6c6a95dd36be22b211961a51ef5fec0aa66fedace019c",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/checks.json": "4f288bb87cc409e5364a3a06683c63b7ceee0657220eae3543b13b8511af3806",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/commands.sh": "7f92821db09df30f4490b55114107150877a6fd0792fdca9269f8ae98ecc1bf8",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/diagnostics.json": "90f3d8b776fe4b77507aee2419d5f498b84817b18ffd74924bb3e3e2c08f7d16",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_01_dancetrack0012_f59_gt41_to_32.json": "6c482bd14bfaa1ba65e7906da556da8a2beccf5f99bd8cbf13b590961696494e",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_02_dancetrack0012_f805_gt35_to_43.json": "69b7b1122ef9dee2c8e74fc08fc4436a94fc41c2561b69b6e810fbcb99f319bf",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_03_dancetrack0020_f61_gt71_to_97.json": "2f81b6c1806f5b7e98495cd4ffed9cc4aec6a8d702f0f9c67002f9f8a29984b6",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_04_dancetrack0020_f385_gt60_to_63.json": "40af715d435a186a6deee38be59ff9f0ac9284cf0f770b9f55de4b107a5ab38e",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_05_dancetrack0024_f20_gt112_to_110.json": "85599065cf3900a86d0ce3f0f595569218fe1cc66c57ed3c969c96cc1a5f46b2",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_06_dancetrack0024_f543_gt109_to_108.json": "042ed1e3d8f13b1a26b030f4eb200ba3bd74687176e5918f6a8564dde6a347e0",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_07_dancetrack0033_f67_gt140_to_141.json": "75efe163a0022615b20c7b68b2ff4c450320264722ad6064a1a5fa995f74baf8",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_08_dancetrack0033_f604_gt146_to_145.json": "6f0c363ca40987143324a8d3708002809b7a7543a4ada9b1349e769930d23dfb",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_09_dancetrack0037_f438_gt148_to_152.json": "ebe7e3ac04b4de17632121275aa396024c4122e18063e485f60e7d582b95d23c",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_10_dancetrack0037_f875_gt153_to_152.json": "2b101d285361e7227c050f5aaab008da41bd9243a68ceb2031a16eb39a58bd00",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_11_dancetrack0044_f942_gt164_to_163.json": "440733ef99f23a1e1d3989d854786ea51d8f472d0e4e7a73a0292eb0d85a180c",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_12_dancetrack0044_f1095_gt169_to_165.json": "216b465ace1b4bf6cc3ee263acbddafd6f69ce3c0bb5781f5b16ce94d4a4f153",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_13_dancetrack0053_f143_gt211_to_208.json": "395ab8edd8f638e917cc8fde62166efb0fb19bd7cc7d4dd29f791d315aeb48bb",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_14_dancetrack0053_f948_gt209_to_211.json": "3bad17a82b97f43dc37b2d9df6ecba847ad7d4922704d08444c54ffb1e18d7da",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_15_dancetrack0086_f247_gt346_to_348.json": "b19936c77a2c004bad5193b0c9060fcf4a69feac0661a123d8c716be99ac80be",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_16_dancetrack0086_f266_gt344_to_341.json": "c53e095b8c19b29f1564d2718f30e585d2e95d56e5082ff251228c37a4c5c3f8",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/learning_curves.csv": "71fc21b71fb0d864cb060b9b35c5977f890a41b31ba56c0ac217d83912086198",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/per_sequence_metrics.csv": "fce44521d185f84bbde11c6e88b76d717e31938fc020ce4d4dc49b908e892006",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_b_infer_th040.yaml": "65ef72d0e44d8e2358a0001c2e49cd0e82ecfadce233bc70cd8106cddf08f9d2",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m0_node_cap_ctrl.yaml": "6001aed643c72e6da0981933a5e59332b3b31c2a900f95bf2b055e9824841a91",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m1_c_kin_edge.yaml": "47f12cd86bd4984ef0ded03c5846d4812a58177fd2d45ecef1a681aa21aa0e41",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m2_c_kin_doa_edge.yaml": "e123c6a9b1d456a5b2d6f5d78146e07a2badf9faaf58fd641eaf82e3638a3879",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m3_c_prime_plus_a_loss.yaml": "8b1143efdce30e435fb676d4876c4705cc4728cf8c16c35fade54c99c518a85c",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/run_manifest.json": "88c2232867306f08832d7d473fa08821c59df63c09dc8d6b9587b409d7ff1f57",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/runtime_lock.json": "fc985ad5e0c7da99d7795ad583c8472e21657ec5b59bd7a2e708631235f5c0c3",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/s11_reference_comparison.csv": "505a6d530dc027259184f43d8ec4c77b5fa1ae2bd6d0e869f797727056ce1d32",
+      "reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/source_audit.json": "e133494f4997ba92af784d4afbcf165bd60474aac1babb5fa4ce1afbdaf108d8",
+      "scripts/export_s12_report.py": "68dbd5ddc6c8e23af6ec71d4a537e6b1ebed1b42c76f1d54d50613c2dd2c58ab",
+      "scripts/run_s12_camel.py": "4525fbeb2b7df7485949cbafb0168936075f2e38d8e560dbd88c364e641aa1f8",
+      "tests/test_s12_camel.py": "bbb8b01f61ad952a057640d81c003dd1c0c92cd31d11ccc24c07fdd946a251e9"
+    }
+  },
+  "runtime_lock": {
+    "schema_version": "s12-runtime-lock-v1",
+    "generated_at": "2026-11-27T23:19:04.068327+08:00",
+    "python_executable": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+    "pytorch_version": "2.6.0+cu124",
+    "cuda_version": "12.4",
+    "gpu_safety_probe": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "physical_gpu_ids": [],
+      "logical_to_physical": {},
+      "gpu_name": "CPU"
+    },
+    "scripts_sha256": {
+      "scripts/run_s12_camel.py": "4525fbeb2b7df7485949cbafb0168936075f2e38d8e560dbd88c364e641aa1f8",
+      "scripts/run_s11_camel.py": "354ce6919bb60e4e272eb15428fe34eb78b8083eb72f4dde5fc1c32e85cf134f",
+      "scripts/run_s09_camel.py": "792227e3c810cf08b625e8f57dc51b4d5853d869d5c59b5ab2c1d508d011cfd9",
+      "tests/test_s12_camel.py": "bbb8b01f61ad952a057640d81c003dd1c0c92cd31d11ccc24c07fdd946a251e9"
+    }
+  },
+  "stage_outcomes": {
+    "A": "COMPLETED (CAMEL@bc1c2610 audited, 200-batch train32 stats locked, 3/3 unit tests pass)",
+    "B": "COMPLETED (B1_A_DUAL_SOFTMAX_TH040 and B2_A_MARGIN_2CYCLE_DEFER_TH040 on motion_dev8, 0.0 export diff)",
+    "C": "COMPLETED (M0/M1/M2/M3 20-epoch seed=13 training & @0.40/@0.50 dev8 evals; 0 nonfinite grad steps; 0.0 reload diff; winner = M1_C_KIN_EDGE)",
+    "D": "COMPLETED (M1+B1 & M1+B2 @0.40 evals + M1 @0.50/@0.40 bit-exact onset anatomy replays + 16 canonical paired cases)",
+    "E": "COMPLETED"
+  },
+  "gpu_allocation": {
+    "physical_gpu_used": [
+      1
+    ],
+    "physical_gpu_forbidden": [
+      0
+    ],
+    "cuda_visible_devices": "1"
+  },
+  "train_runs": {
+    "c_m0_node_cap_ctrl_seed13_e20_v1": "M0_NODE_CAP_CTRL",
+    "c_m1_kin_edge_seed13_e20_v1": "M1_C_KIN_EDGE",
+    "c_m2_kin_doa_edge_seed13_e20_v1": "M2_C_KIN_DOA_EDGE",
+    "c_m3_c_prime_a_loss_seed13_e20_v1": "M3_C_PRIME_PLUS_A_LOSS"
+  },
+  "eval_runs": {
+    "b1_dual_softmax_th040_v1": {
+      "condition": "B1_A_DUAL_SOFTMAX_TH040",
+      "stage_group": "Stage B (A'_infer)"
+    },
+    "b2_margin_2cycle_defer_th040_v1": {
+      "condition": "B2_A_MARGIN_2CYCLE_DEFER_TH040",
+      "stage_group": "Stage B (A'_infer)"
+    },
+    "c_eval_m0_th040_v1": {
+      "condition": "M0_NODE_CAP_CTRL_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_m0_th050_v1": {
+      "condition": "M0_NODE_CAP_CTRL_TH050",
+      "stage_group": "Stage C (@0.50)"
+    },
+    "c_eval_m1_th040_v1": {
+      "condition": "M1_C_KIN_EDGE_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_m1_th050_v1": {
+      "condition": "M1_C_KIN_EDGE_TH050",
+      "stage_group": "Stage C (@0.50)"
+    },
+    "c_eval_m2_th040_v1": {
+      "condition": "M2_C_KIN_DOA_EDGE_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_m2_th050_v1": {
+      "condition": "M2_C_KIN_DOA_EDGE_TH050",
+      "stage_group": "Stage C (@0.50)"
+    },
+    "c_eval_m3_th040_v1": {
+      "condition": "M3_C_PRIME_PLUS_A_LOSS_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_m3_th050_v1": {
+      "condition": "M3_C_PRIME_PLUS_A_LOSS_TH050",
+      "stage_group": "Stage C (@0.50)"
+    },
+    "d_best_plus_b1_th040_v1": {
+      "condition": "D_M1_PLUS_B1_TH040",
+      "stage_group": "Stage D (Best+A'_infer)"
+    },
+    "d_best_plus_b2_th040_v1": {
+      "condition": "D_M1_PLUS_B2_TH040",
+      "stage_group": "Stage D (Best+A'_infer)"
+    }
+  },
+  "anatomy_replays": {
+    "d_best_anatomy_th050_v1": {
+      "condition": "M1_C_KIN_EDGE",
+      "sim_threshold": 0.5
+    },
+    "d_best_anatomy_th040_v1": {
+      "condition": "M1_C_KIN_EDGE",
+      "sim_threshold": 0.4
+    }
+  }
+}

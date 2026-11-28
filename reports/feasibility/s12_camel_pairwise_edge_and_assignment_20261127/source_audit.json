@@ -1,0 +1,203 @@
+{
+  "schema_version": "s12-source-audit-v1",
+  "generated_at": "2026-11-27T23:19:04.067429+08:00",
+  "upstream_cameltrack_commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+  "gaffe_attention_interface": "Upstream cameltrack/architecture/gaffe.py uses 4-layer nn.TransformerEncoder(batch_first=True, emb_dim=1024, n_heads=8) over [dets.tokens (0..D-1), tracks.tokens (D..D+T-1), cls (D+T)]. S12 injects per-layer head biases B^(l,h) into each TransformerEncoderLayer via unified float mask [B*n_heads, L, L] (setting padded keys to -1e9 and preserving diagonal 0.0).",
+  "sim_loss_exact_spec": {
+    "class": "pytorch_metric_learning.losses.NTXentLoss",
+    "temperature": 0.07,
+    "distance": "CosineSimilarity",
+    "reducer": "AvgNonZeroReducer",
+    "similarity_metric": "norm_euclidean_sim_matrix (1 - ||u_hat - v_hat||_2 / 2 in [0, 1])"
+  },
+  "bbox_dropout_and_coords_resolution": "DropoutFeatures sets drop_bbox=1 while preserving numeric bbox_ltwh; compute_causal_extrapolation masks drop_bbox==1 as invalid alongside NaNs and non-positive w/h. norm_coords='positive' scales both det and tracklet bbox_ltwh to [0,1] relative to im_width/im_height before CAMEL.forward during both training and inference.",
+  "train32_200_batch_audit": {
+    "num_batches": 200,
+    "total_tracklets": 49986,
+    "unmatched_tracklets": 3794,
+    "unmatched_tracklet_frac": 0.07590125235065819,
+    "total_dets": 46277,
+    "unmatched_dets": 85,
+    "unmatched_det_frac": 0.0018367655638870282,
+    "total_pairs": 1448924,
+    "iou_ge_030_pairs": 104284,
+    "iou_ge_030_pair_frac": 0.07197340923333453,
+    "drop_bbox_tracklets": 4793,
+    "drop_bbox_frac": 0.0958868483175289
+  },
+  "verified_assets": {
+    "t_twostage_joint_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c2_twostage_joint_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "20be35af16e8a67f53b384daf901169e880e75bb1551e43ba28175b520a6e8c7",
+      "bytes": 525391138,
+      "verified": true
+    },
+    "c1_app_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_app_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d",
+      "bytes": 110772786,
+      "verified": true
+    },
+    "c1_kp_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_kp_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c",
+      "bytes": 9191858,
+      "verified": true
+    },
+    "c1_bbox_encoder_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_bbox_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1",
+      "bytes": 3348530,
+      "verified": true
+    },
+    "split_manifest": {
+      "path": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+      "sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+      "bytes": 2786,
+      "verified": true
+    },
+    "states_train32": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_train32.pklz",
+      "sha256": "dc7de2cd48da21cc56005159c004123fc0573260fbf69d0b3fa9d572ac8a0f2a",
+      "bytes": 571004601,
+      "verified": true
+    },
+    "states_dev8_train_ref": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_train_ref.pklz",
+      "sha256": "ba6e88b5da10c5e9f9db43f580289f8344cd1750270cf255dea4998df213cacd",
+      "bytes": 186129629,
+      "verified": true
+    },
+    "states_dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "bytes": 184579566,
+      "verified": true
+    },
+    "s09_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml",
+      "sha256": "b586284b396cf9f7322f2481a4175a3997168f4f0098287297b16458d04d1358",
+      "bytes": 7854,
+      "verified": true
+    },
+    "s10_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s10_camel_anticontamination_20261127.yaml",
+      "sha256": "d89609d243ad418e73c63daf8c68d275efe15ecccf7ed049ddfccfad969fde67",
+      "bytes": 7228,
+      "verified": true
+    },
+    "s11_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml",
+      "sha256": "bcf8ec627d5493a8768fb672fa15033fe4ac73a6a61a65861e43e9fa1963ce86",
+      "bytes": 6552,
+      "verified": true
+    }
+  },
+  "shared_datamodule_cache": "/media/imc/data/mot-data/cache/s12_camel/dm_s12_train32_dev8_shared",
+  "model_parameters": {
+    "M0_NODE_CAP_CTRL": {
+      "total": {
+        "total_params": 43741440,
+        "trainable_params": 43741440
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "s12_extra_params": {
+        "total_params": 266240,
+        "fraction_of_total": 0.006086676616041904
+      }
+    },
+    "M1_C_KIN_EDGE": {
+      "total": {
+        "total_params": 43621505,
+        "trainable_params": 43621505
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "s12_extra_params": {
+        "total_params": 146305,
+        "fraction_of_total": 0.0033539649766783607
+      }
+    },
+    "M2_C_KIN_DOA_EDGE": {
+      "total": {
+        "total_params": 43626305,
+        "trainable_params": 43626305
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "s12_extra_params": {
+        "total_params": 151105,
+        "fraction_of_total": 0.00346362131745973
+      }
+    },
+    "M3_C_PRIME_PLUS_A_LOSS": {
+      "total": {
+        "total_params": 43626305,
+        "trainable_params": 43626305
+      },
+      "gaffe": {
+        "total_params": 33602560,
+        "trainable_params": 33602560
+      },
+      "temp_encs.app_encoder": {
+        "total_params": 9004544,
+        "trainable_params": 9004544
+      },
+      "temp_encs.kp_encoder": {
+        "total_params": 667008,
+        "trainable_params": 667008
+      },
+      "temp_encs.bbox_encoder": {
+        "total_params": 201088,
+        "trainable_params": 201088
+      },
+      "s12_extra_params": {
+        "total_params": 151105,
+        "fraction_of_total": 0.00346362131745973
+      }
+    }
+  }
+}

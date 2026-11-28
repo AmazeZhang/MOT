@@ -1,0 +1,182 @@
+{
+  "case_id": "s12_case_14_dancetrack0053_f948_gt209_to_211",
+  "sequence": "dancetrack0053",
+  "frame": 948,
+  "s11_t2_th050_track_id": 198,
+  "anchor_gt": 209,
+  "s11_switched_to_det_gt": 211,
+  "sort_key_sha256": "129b16ea6aec9583ee865da1188307aaa46f6ca310c6006420bec860015788da",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.6891103386878967,
+    "assignment_margin": 0.08271503448486328,
+    "max_conflict_iou": 0.6889986129966303,
+    "is_2cycle_swap": 1,
+    "true_det_present_in_frame": 1
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": true,
+    "M0_TH040": true,
+    "M1_TH040": true,
+    "M2_TH040": true,
+    "M3_TH040": true,
+    "M1_PLUS_B1": true,
+    "M1_PLUS_B2": true
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "947": {
+        "matched_pred_id": 97,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 100,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 100,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 100,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M0_TH040": {
+      "947": {
+        "matched_pred_id": 102,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 103,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 103,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 103,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M1_TH040": {
+      "947": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 93,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 93,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 93,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M2_TH040": {
+      "947": {
+        "matched_pred_id": 88,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 91,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 91,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 91,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M3_TH040": {
+      "947": {
+        "matched_pred_id": 113,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 115,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 115,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 115,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M1_PLUS_B1": {
+      "947": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    },
+    "M1_PLUS_B2": {
+      "947": {
+        "matched_pred_id": 95,
+        "iou_to_gt": 0.843197
+      },
+      "948": {
+        "matched_pred_id": 92,
+        "iou_to_gt": 0.835258
+      },
+      "949": {
+        "matched_pred_id": 92,
+        "iou_to_gt": 0.800317
+      },
+      "950": {
+        "matched_pred_id": 92,
+        "iou_to_gt": 0.761051
+      },
+      "953": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.429627
+      }
+    }
+  }
+}

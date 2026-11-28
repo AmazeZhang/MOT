@@ -1,0 +1,98 @@
+{
+  "case_id": "s12_case_02_dancetrack0012_f805_gt35_to_43",
+  "sequence": "dancetrack0012",
+  "frame": 805,
+  "s11_t2_th050_track_id": 18,
+  "anchor_gt": 35,
+  "s11_switched_to_det_gt": 43,
+  "sort_key_sha256": "0a000e546f706a1737765222e1f0b9da5c4646c32864f842fbc46035eefed5d3",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.5236132144927979,
+    "assignment_margin": 0.020993709564208984,
+    "max_conflict_iou": 0.6286917420864837,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": null,
+    "M0_TH040": null,
+    "M1_TH040": null,
+    "M2_TH040": null,
+    "M3_TH040": null,
+    "M1_PLUS_B1": null,
+    "M1_PLUS_B2": null
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "804": {
+        "matched_pred_id": 6,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 7,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M0_TH040": {
+      "804": {
+        "matched_pred_id": 8,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 4,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M1_TH040": {
+      "804": {
+        "matched_pred_id": 12,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 1,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M2_TH040": {
+      "804": {
+        "matched_pred_id": 1,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 2,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M3_TH040": {
+      "804": {
+        "matched_pred_id": 15,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 16,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M1_PLUS_B1": {
+      "804": {
+        "matched_pred_id": 12,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 3,
+        "iou_to_gt": 0.589492
+      }
+    },
+    "M1_PLUS_B2": {
+      "804": {
+        "matched_pred_id": 12,
+        "iou_to_gt": 0.821279
+      },
+      "810": {
+        "matched_pred_id": 5,
+        "iou_to_gt": 0.589492
+      }
+    }
+  }
+}

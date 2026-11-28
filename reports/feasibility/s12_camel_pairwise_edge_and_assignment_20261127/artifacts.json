@@ -1,0 +1,544 @@
+{
+  "schema_version": "s12-artifacts-v1",
+  "generated_at": "2026-11-28T08:25:02.084798+08:00",
+  "self_hash_excluded": true,
+  "artifact_count": 67,
+  "artifacts": [
+    {
+      "artifact_id": "report_readme",
+      "kind": "markdown",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md",
+      "bytes": 5804,
+      "sha256": "373108b0ffc4a5efbd89778296fcd4e7959c4bd3d43fc0d6c68891c676393430"
+    },
+    {
+      "artifact_id": "report_manifest",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/run_manifest.json",
+      "bytes": 11044,
+      "sha256": "a73e476a95c9509c40e4cd39c69276953a05f0b53172214214511a4f895eaf83"
+    },
+    {
+      "artifact_id": "report_checks",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/checks.json",
+      "bytes": 1249,
+      "sha256": "4f288bb87cc409e5364a3a06683c63b7ceee0657220eae3543b13b8511af3806"
+    },
+    {
+      "artifact_id": "report_aggregate_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/aggregate_metrics.csv",
+      "bytes": 5550,
+      "sha256": "65bfce371dd400bcd83fff2b571ac63edb77ff91619f537c200bf667866b475d"
+    },
+    {
+      "artifact_id": "report_per_sequence_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/per_sequence_metrics.csv",
+      "bytes": 42627,
+      "sha256": "fce44521d185f84bbde11c6e88b76d717e31938fc020ce4d4dc49b908e892006"
+    },
+    {
+      "artifact_id": "report_s11_ref_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/s11_reference_comparison.csv",
+      "bytes": 6626,
+      "sha256": "505a6d530dc027259184f43d8ec4c77b5fa1ae2bd6d0e869f797727056ce1d32"
+    },
+    {
+      "artifact_id": "report_learning_curves_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/learning_curves.csv",
+      "bytes": 76678,
+      "sha256": "71fc21b71fb0d864cb060b9b35c5977f890a41b31ba56c0ac217d83912086198"
+    },
+    {
+      "artifact_id": "report_diagnostics_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/diagnostics.json",
+      "bytes": 26261,
+      "sha256": "90f3d8b776fe4b77507aee2419d5f498b84817b18ffd74924bb3e3e2c08f7d16"
+    },
+    {
+      "artifact_id": "report_cases_jsonl",
+      "kind": "jsonl",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/cases.jsonl",
+      "bytes": 9367,
+      "sha256": "75fc92de22a2500980e6c6a95dd36be22b211961a51ef5fec0aa66fedace019c"
+    },
+    {
+      "artifact_id": "report_source_audit_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/source_audit.json",
+      "bytes": 7569,
+      "sha256": "e133494f4997ba92af784d4afbcf165bd60474aac1babb5fa4ce1afbdaf108d8"
+    },
+    {
+      "artifact_id": "report_runtime_lock_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/runtime_lock.json",
+      "bytes": 806,
+      "sha256": "fc985ad5e0c7da99d7795ad583c8472e21657ec5b59bd7a2e708631235f5c0c3"
+    },
+    {
+      "artifact_id": "report_commands_sh",
+      "kind": "sh",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/commands.sh",
+      "bytes": 7489,
+      "sha256": "7f92821db09df30f4490b55114107150877a6fd0792fdca9269f8ae98ecc1bf8"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_b_infer_th040",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_b_infer_th040.yaml",
+      "bytes": 11153,
+      "sha256": "65ef72d0e44d8e2358a0001c2e49cd0e82ecfadce233bc70cd8106cddf08f9d2"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_m0_node_cap_ctrl",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m0_node_cap_ctrl.yaml",
+      "bytes": 11549,
+      "sha256": "6001aed643c72e6da0981933a5e59332b3b31c2a900f95bf2b055e9824841a91"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_m1_c_kin_edge",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m1_c_kin_edge.yaml",
+      "bytes": 11529,
+      "sha256": "47f12cd86bd4984ef0ded03c5846d4812a58177fd2d45ecef1a681aa21aa0e41"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_m2_c_kin_doa_edge",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m2_c_kin_doa_edge.yaml",
+      "bytes": 11553,
+      "sha256": "e123c6a9b1d456a5b2d6f5d78146e07a2badf9faaf58fd641eaf82e3638a3879"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_m3_c_prime_plus_a_loss",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/resolved_configs/stage_c_m3_c_prime_plus_a_loss.yaml",
+      "bytes": 11585,
+      "sha256": "8b1143efdce30e435fb676d4876c4705cc4728cf8c16c35fade54c99c518a85c"
+    },
+    {
+      "artifact_id": "evidence_s12_case_01_dancetrack0012_f59_gt41_to_32",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_01_dancetrack0012_f59_gt41_to_32.json",
+      "bytes": 3863,
+      "sha256": "6c482bd14bfaa1ba65e7906da556da8a2beccf5f99bd8cbf13b590961696494e"
+    },
+    {
+      "artifact_id": "evidence_s12_case_02_dancetrack0012_f805_gt35_to_43",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_02_dancetrack0012_f805_gt35_to_43.json",
+      "bytes": 2110,
+      "sha256": "69b7b1122ef9dee2c8e74fc08fc4436a94fc41c2561b69b6e810fbcb99f319bf"
+    },
+    {
+      "artifact_id": "evidence_s12_case_03_dancetrack0020_f61_gt71_to_97",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_03_dancetrack0020_f61_gt71_to_97.json",
+      "bytes": 3901,
+      "sha256": "2f81b6c1806f5b7e98495cd4ffed9cc4aec6a8d702f0f9c67002f9f8a29984b6"
+    },
+    {
+      "artifact_id": "evidence_s12_case_04_dancetrack0020_f385_gt60_to_63",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_04_dancetrack0020_f385_gt60_to_63.json",
+      "bytes": 3902,
+      "sha256": "40af715d435a186a6deee38be59ff9f0ac9284cf0f770b9f55de4b107a5ab38e"
+    },
+    {
+      "artifact_id": "evidence_s12_case_05_dancetrack0024_f20_gt112_to_110",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_05_dancetrack0024_f20_gt112_to_110.json",
+      "bytes": 3878,
+      "sha256": "85599065cf3900a86d0ce3f0f595569218fe1cc66c57ed3c969c96cc1a5f46b2"
+    },
+    {
+      "artifact_id": "evidence_s12_case_06_dancetrack0024_f543_gt109_to_108",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_06_dancetrack0024_f543_gt109_to_108.json",
+      "bytes": 3899,
+      "sha256": "042ed1e3d8f13b1a26b030f4eb200ba3bd74687176e5918f6a8564dde6a347e0"
+    },
+    {
+      "artifact_id": "evidence_s12_case_07_dancetrack0033_f67_gt140_to_141",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_07_dancetrack0033_f67_gt140_to_141.json",
+      "bytes": 3863,
+      "sha256": "75efe163a0022615b20c7b68b2ff4c450320264722ad6064a1a5fa995f74baf8"
+    },
+    {
+      "artifact_id": "evidence_s12_case_08_dancetrack0033_f604_gt146_to_145",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_08_dancetrack0033_f604_gt146_to_145.json",
+      "bytes": 3907,
+      "sha256": "6f0c363ca40987143324a8d3708002809b7a7543a4ada9b1349e769930d23dfb"
+    },
+    {
+      "artifact_id": "evidence_s12_case_09_dancetrack0037_f438_gt148_to_152",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_09_dancetrack0037_f438_gt148_to_152.json",
+      "bytes": 3915,
+      "sha256": "ebe7e3ac04b4de17632121275aa396024c4122e18063e485f60e7d582b95d23c"
+    },
+    {
+      "artifact_id": "evidence_s12_case_10_dancetrack0037_f875_gt153_to_152",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_10_dancetrack0037_f875_gt153_to_152.json",
+      "bytes": 2122,
+      "sha256": "2b101d285361e7227c050f5aaab008da41bd9243a68ceb2031a16eb39a58bd00"
+    },
+    {
+      "artifact_id": "evidence_s12_case_11_dancetrack0044_f942_gt164_to_163",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_11_dancetrack0044_f942_gt164_to_163.json",
+      "bytes": 3915,
+      "sha256": "440733ef99f23a1e1d3989d854786ea51d8f472d0e4e7a73a0292eb0d85a180c"
+    },
+    {
+      "artifact_id": "evidence_s12_case_12_dancetrack0044_f1095_gt169_to_165",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_12_dancetrack0044_f1095_gt169_to_165.json",
+      "bytes": 3957,
+      "sha256": "216b465ace1b4bf6cc3ee263acbddafd6f69ce3c0bb5781f5b16ce94d4a4f153"
+    },
+    {
+      "artifact_id": "evidence_s12_case_13_dancetrack0053_f143_gt211_to_208",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_13_dancetrack0053_f143_gt211_to_208.json",
+      "bytes": 3919,
+      "sha256": "395ab8edd8f638e917cc8fde62166efb0fb19bd7cc7d4dd29f791d315aeb48bb"
+    },
+    {
+      "artifact_id": "evidence_s12_case_14_dancetrack0053_f948_gt209_to_211",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_14_dancetrack0053_f948_gt209_to_211.json",
+      "bytes": 3933,
+      "sha256": "3bad17a82b97f43dc37b2d9df6ecba847ad7d4922704d08444c54ffb1e18d7da"
+    },
+    {
+      "artifact_id": "evidence_s12_case_15_dancetrack0086_f247_gt346_to_348",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_15_dancetrack0086_f247_gt346_to_348.json",
+      "bytes": 3347,
+      "sha256": "b19936c77a2c004bad5193b0c9060fcf4a69feac0661a123d8c716be99ac80be"
+    },
+    {
+      "artifact_id": "evidence_s12_case_16_dancetrack0086_f266_gt344_to_341",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/evidence/s12_case_16_dancetrack0086_f266_gt344_to_341.json",
+      "bytes": 2137,
+      "sha256": "c53e095b8c19b29f1564d2718f30e585d2e95d56e5082ff251228c37a4c5c3f8"
+    },
+    {
+      "artifact_id": "train_c_m0_node_cap_ctrl_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m0_node_cap_ctrl_seed13_e20_v1/stage_c_train_summary.json",
+      "bytes": 2887,
+      "sha256": "200bfab2107930be4564ba74ab85d238d399b82f8a5d533f6cbf2a6baa62f516"
+    },
+    {
+      "artifact_id": "train_c_m0_node_cap_ctrl_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m0_node_cap_ctrl_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 528606818,
+      "sha256": "3ffb05eb4ebebea6cf71d3c8204f03e428839db3e9f367f9bb4727ca3e57dfa8"
+    },
+    {
+      "artifact_id": "train_c_m1_kin_edge_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m1_kin_edge_seed13_e20_v1/stage_c_train_summary.json",
+      "bytes": 3376,
+      "sha256": "bf8be52904585dcdb87c69d0bd824c16225e6ffe0f6791e5a8269858c21b2a99"
+    },
+    {
+      "artifact_id": "train_c_m1_kin_edge_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m1_kin_edge_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 527138210,
+      "sha256": "b3ca74bf5426729736cf641770f7f372ae4903a54b1a1485f778309a8ae94314"
+    },
+    {
+      "artifact_id": "train_c_m2_kin_doa_edge_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m2_kin_doa_edge_seed13_e20_v1/stage_c_train_summary.json",
+      "bytes": 3718,
+      "sha256": "8f7de6a09350db9a94e106f7dc7ae9ea758ae2956c5605fe81b2905d9ed21166"
+    },
+    {
+      "artifact_id": "train_c_m2_kin_doa_edge_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m2_kin_doa_edge_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 527206754,
+      "sha256": "1b3acf60fe588983db67cdc7aed6137a32b8a61c5fc62ab4cf6797ab834849cb"
+    },
+    {
+      "artifact_id": "train_c_m3_c_prime_a_loss_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m3_c_prime_a_loss_seed13_e20_v1/stage_c_train_summary.json",
+      "bytes": 3735,
+      "sha256": "572ffb243e68464062280a2bd187d4927e285dd8178f32e696faf3e5e7809489"
+    },
+    {
+      "artifact_id": "train_c_m3_c_prime_a_loss_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m3_c_prime_a_loss_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 527212258,
+      "sha256": "df6badcda140a9bbb6ce23488f38ae7347c0f5177d51fc5a1dd439de0d69ee48"
+    },
+    {
+      "artifact_id": "run_b1_dual_softmax_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/b1_dual_softmax_th040_v1/stage_eval_summary.json",
+      "bytes": 3139,
+      "sha256": "ffb0ab2d8cd15f41de1a7552db2cd62f1d1c8bfe61d137690972682cb03d3dd7"
+    },
+    {
+      "artifact_id": "run_b1_dual_softmax_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/b1_dual_softmax_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41159,
+      "sha256": "e42040a16a42ac215fad7762328ebfd388047d464900774fc26550542240311d"
+    },
+    {
+      "artifact_id": "run_b2_margin_2cycle_defer_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/b2_margin_2cycle_defer_th040_v1/stage_eval_summary.json",
+      "bytes": 3196,
+      "sha256": "8fca67d4babf7d1bcdeb5107ee74cc2127d61bf1da6bb50c284f23ede5cdb52e"
+    },
+    {
+      "artifact_id": "run_b2_margin_2cycle_defer_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/b2_margin_2cycle_defer_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41208,
+      "sha256": "a51cdc5d01d3a69ea27a9609efebbc285b45dbfa8ef9c06ec03cb70bf0ae412c"
+    },
+    {
+      "artifact_id": "run_c_eval_m0_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m0_th040_v1/stage_eval_summary.json",
+      "bytes": 2909,
+      "sha256": "9c6683c2b4fa69852d48643c3b11be2a982a21005edcd76b783f724cf50ff970"
+    },
+    {
+      "artifact_id": "run_c_eval_m0_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m0_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41190,
+      "sha256": "0f532c64a382e55dbb529fdf12a0a40beae02a27a1ca0dadc7c38266334579e8"
+    },
+    {
+      "artifact_id": "run_c_eval_m0_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m0_th050_v1/stage_eval_summary.json",
+      "bytes": 2905,
+      "sha256": "ee6203e7f20c53dfba4c1177d107f79c61550cb122177e5f74a16d8ba2a51587"
+    },
+    {
+      "artifact_id": "run_c_eval_m0_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m0_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41189,
+      "sha256": "b5e22de4b38286b2e24dd9dc39f653452563eb6cfaa3a0d73ca79c28605ca5fb"
+    },
+    {
+      "artifact_id": "run_c_eval_m1_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m1_th040_v1/stage_eval_summary.json",
+      "bytes": 2901,
+      "sha256": "ea8c8902bb73b2741cc7567a91baa4a7d8e4807088f68def6ac67cc9c7156e25"
+    },
+    {
+      "artifact_id": "run_c_eval_m1_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m1_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41156,
+      "sha256": "dc95ca0314b403d984be7cdb8218efefc7ef2711d54f25d468c8cc74c4b73afa"
+    },
+    {
+      "artifact_id": "run_c_eval_m1_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m1_th050_v1/stage_eval_summary.json",
+      "bytes": 2901,
+      "sha256": "ea817ee30a16a77efca148326ce6b1f69300ecaf2f994bcbe8807fc3dd343d4e"
+    },
+    {
+      "artifact_id": "run_c_eval_m1_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m1_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41160,
+      "sha256": "b3a99a4f7b2fb437a0005b3c625abf4a50441af7b6be15c6ebca5ee46c05420b"
+    },
+    {
+      "artifact_id": "run_c_eval_m2_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m2_th040_v1/stage_eval_summary.json",
+      "bytes": 2904,
+      "sha256": "0b899b649e90df6ea6e8447a588d326cbe444309de2d074013529e88dbd6fb9b"
+    },
+    {
+      "artifact_id": "run_c_eval_m2_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m2_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41109,
+      "sha256": "8de6ad2611b9e92b36f5cd52230ee4254677d42e617fcd9e0491d8265ac91d16"
+    },
+    {
+      "artifact_id": "run_c_eval_m2_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m2_th050_v1/stage_eval_summary.json",
+      "bytes": 2905,
+      "sha256": "35ea34b538656e4a4c63cb243b7f44345470ce3a5bc081a6383e420ae8eef6de"
+    },
+    {
+      "artifact_id": "run_c_eval_m2_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m2_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41109,
+      "sha256": "8de6ad2611b9e92b36f5cd52230ee4254677d42e617fcd9e0491d8265ac91d16"
+    },
+    {
+      "artifact_id": "run_c_eval_m3_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m3_th040_v1/stage_eval_summary.json",
+      "bytes": 2915,
+      "sha256": "baba8246ffdd54428afd53b2097706e14b93ec839c5256a2377816e394ce5736"
+    },
+    {
+      "artifact_id": "run_c_eval_m3_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m3_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41242,
+      "sha256": "9ab1e37dd4ff0e23b6360583490dca9c26969248466ff37b7175607ca0efead1"
+    },
+    {
+      "artifact_id": "run_c_eval_m3_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m3_th050_v1/stage_eval_summary.json",
+      "bytes": 2918,
+      "sha256": "87c4f3846b16acfedf57d369acf37eaa3e0a6c459d3dfac9f344bf8cd064ce2d"
+    },
+    {
+      "artifact_id": "run_c_eval_m3_th050_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_eval_m3_th050_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41208,
+      "sha256": "f269226f201e66f9106b1d2cbcf84477ec84bc8035062c6408e1ecfbbdc267b9"
+    },
+    {
+      "artifact_id": "run_d_best_plus_b1_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_plus_b1_th040_v1/stage_eval_summary.json",
+      "bytes": 3117,
+      "sha256": "ab88e174468c7056808d98f113884490a9b3ede09336c6c204c2d0d9de56caaf"
+    },
+    {
+      "artifact_id": "run_d_best_plus_b1_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_plus_b1_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41189,
+      "sha256": "c24644e811b8790d38790ad5572df823160fe5f957cd98ccfaf42e0aefc37689"
+    },
+    {
+      "artifact_id": "run_d_best_plus_b2_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_plus_b2_th040_v1/stage_eval_summary.json",
+      "bytes": 3132,
+      "sha256": "9e1102d201fe3ff2e88417a9deb4eeeebc8047d0271accb1319f0f346b55e570"
+    },
+    {
+      "artifact_id": "run_d_best_plus_b2_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_plus_b2_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41297,
+      "sha256": "f83f59f8cad8c2895690da194728463053aad59894a31a9d08133cbea4fa9397"
+    },
+    {
+      "artifact_id": "anatomy_d_best_anatomy_th050_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_anatomy_th050_v1/stage_d_anatomy_summary.json",
+      "bytes": 1241,
+      "sha256": "6a0b8c6aad7add3c367bdf9d8eca58a232f82f41434ec9c827f3fa09a83ded02"
+    },
+    {
+      "artifact_id": "anatomy_d_best_anatomy_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/d_best_anatomy_th040_v1/stage_d_anatomy_summary.json",
+      "bytes": 1241,
+      "sha256": "361ab8d17d7f09155f0652d0d24084f43bceea3c44bec7dfe01c6711763992ca"
+    }
+  ]
+}

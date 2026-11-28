@@ -1,24 +1,42 @@
 # Latest Experiment Handoff (`a2a/LATEST`)
 
-更新：2026-11-27。本文件是可更新导航；历史报告、协议和失败记录仍保留。
+更新：2026-11-28。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
-## 0. Current Active Task To Execute: S12 CAMELTrack 成对运动/方向遮挡边偏置 (`C'`) 与分配对齐解歧 (`A'`) (`NOT_RUN`)
+## 0. Current Active Task To Execute: None (`STOPPED_AT_S12_STAGE_E_AWAITING_RESEARCH_REVIEW`)
 
-- **任务书与协议：** [S12 具体执行与回传要求](S12_CAMEL_PAIRWISE_EDGE_AND_ASSIGNMENT_TASK.md)；[版本化协议](../../manifests/protocols/s12_camel_pairwise_edge_and_assignment_20261127.yaml)。
-- **执行状态：** **`DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN`）** — 研究端已基于 S11 实证完成定案与协议起草，待用户交付服务器从 **Stage A** 启动执行；Stage A–E 在前置门通过且预算内自动顺序推进，**停在 Stage E** 并交回研究端定案 S13（严禁自动扩展 multi-seed 或官方 `val`/`test`）。
-- **核心设计要点：**
-  1. **Stage B（零重训 `A'_infer` 对照，复用 S09 `T_TWOSTAGE` @ `0.40`）**：`B1_A_DUAL_SOFTMAX_TH040`（Dustbin 增广双向 Softmax 竞争校准）与 `B2_A_MARGIN_2CYCLE_DEFER_TH040`（`2-cycle` 因果运动学纠偏 + 极端低边际冲突单帧暂缓）。
-  2. **Stage C（受控四联组 20-epoch 训练，`motion_train32`，S09 C1 TE 初始化，`seed=13`，评测 `@0.40` 主基点 & `@0.50` 参照）**：
-     - `M0_NODE_CAP_CTRL`（同初始化、新增参数量 $\ge$ `M2` 的纯单节点运动/遮挡容量对照，无成对边偏置）；
-     - `M1_C_KIN_EDGE`（`GAFFE` 成对因果运动学外推残差边偏置）；
-     - `M2_C_KIN_DOA_EDGE`（`M1` 叠加 DOA 式方向遮挡与前后序关系几何边偏置）；
-     - `M3_C_PRIME_PLUS_A_LOSS`（`M2` 叠加分配对齐的双向竞争边际与未匹配防误抓损失）。
-  3. **Stage D（协同评测与 Onset 解剖回放）**：将 `B1/B2` 叠加至 Stage C 最优模型，并按 S11 Stage C 同口径检验其对 `149` 例 onset 与 `31,791` 帧后切换污染尾段的实际消减效果。
-- **预算与安全约束：** 单张物理 GPU `1–7`（**GPU 0 永久禁用**）、总预算 **`<= 9.0 GPUh`**、墙钟 `<= 24h`、新增数据盘存储 `<= 15 GiB`；工作树不自动 `commit`/`push`。
+- 本轮 **S12** 已完成 Stage A–E 全流程并按任务书停止在 Stage E；在研究端审阅 S12 报告并下发 S13 新协议前，**无待执行 GPU/训练/评测任务**（不自动运行 multi-seed 37/73 或官方 `val`/`test`）。
 
 ---
 
-## 1. Latest Completed Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`COMPLETED`)
+## 1. Latest Completed Task: S12 CAMELTrack 成对运动/方向遮挡边偏置 (`C'`) 与分配对齐 (`A'`) (`COMPLETED`)
+
+- **任务书与协议：** [S12 具体执行与回传要求](S12_CAMEL_PAIRWISE_EDGE_AND_ASSIGNMENT_TASK.md)；[版本化协议](../../manifests/protocols/s12_camel_pairwise_edge_and_assignment_20261127.yaml)。
+- **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上顺序完成并停止在 Stage E，等待研究端审阅与 S13 裁决）**
+- **权威报告：** [reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md](../../reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md)
+- **资源与检查：** `CUDA_VISIBLE_DEVICES=1`（`NVIDIA GeForce RTX 4090 D`），物理 GPU 0 禁用且未触碰；总耗时 **`8.871 GPUh`**（预算上限 `<= 9.0h`；B `0.313h`、C `7.936h` [20ep 四臂训练 `6.810h` + 8 次评测 `1.126h`；高于阶段子估计 `6.5h`]、D `0.623h`），新增数据盘存储 **`4.097 GiB`**（预算 `<= 15.0 GiB`）；`checks.json` **10/10 全通过**（`nonfinite_grad_steps=0`、`reload_diff=0.0`、TrackEval 导出差 `0.0`、Stage D MOT 逐字节一致、`16` 例配对证据、[`test_s12_camel.py`](../../tests/test_s12_camel.py) `3 passed`）。
+
+### Key Authoritative Findings (`motion_dev8`, `COMBINED_SEQ`, 7,565 frames)
+
+1. **Stage B（零重训 `A'_infer` 复用 S09 `T_TWOSTAGE` @ `0.40` vs S11 `T2_TH040` = `57.572` HOTA / `40.845` AssA / `60.117` IDF1 / `832` IDSW）：**
+   - `B1_A_DUAL_SOFTMAX_TH040`：`55.919` HOTA / `38.718` AssA / `58.154` IDF1 / `931` IDSW / `4,713` FN（`10` dustbin 拒识，`-1.653` HOTA）；
+   - `B2_A_MARGIN_2CYCLE_DEFER_TH040`：`54.356` HOTA / `36.173` AssA / `52.843` IDF1 / `1,218` IDSW / `5,239` FN（`220` 次 `2-cycle` 互换、`1,244` 次暂缓，`-3.215` HOTA）。纯推理分配改法未改善、反而损伤基线。
+2. **Stage C（同 S09 C1 TE 初始化、20ep `motion_train32` 受控四联组，`seed=13`、`last.ckpt` @ `0.40` 主基点 / `0.50` 参照）：**
+   - `M0_NODE_CAP_CTRL`（`266,240` 新增参数）：`@0.40` `54.179` HOTA / `36.244` AssA / `55.354` IDF1 / `879` IDSW / `4,733` FN（`@0.50` `53.577`）。
+   - **`M1_C_KIN_EDGE`（`146,305` 新增参数，Stage C 获胜组）**：`@0.40` **`57.033`** HOTA / **`40.275`** AssA / **`60.417`** IDF1 / `957` IDSW / `4,555` FN（`@0.50` `57.033` HOTA / `40.276` AssA / `956` IDSW）。相对同初始化容量对照组 `M0` 净增 **`+2.854` HOTA / `+4.031` AssA / `+5.063` IDF1**，显著优于 `T_TWOSTAGE_TH050`（`54.443`, `+2.590`）；但在 `motion_dev8` 上总体仍落后无新增边头的 `T2_TH040`（`57.572`）`-0.539` HOTA（`+125` IDSW，逐视频胜平负 `3/0/5`）。
+   - `M2_C_KIN_DOA_EDGE`（`151,105` 新增参数）：`@0.40` `56.670` HOTA / `39.762` AssA / `59.318` IDF1 / `903` IDSW / `4,529` FN（`@0.50` 相同）；DOA 略降 IDSW（`-54`）与 FN（`-26`），总体 `-0.363` HOTA vs `M1`。
+   - `M3_C_PRIME_PLUS_A_LOSS`（`151,105` 新增参数）：`@0.40` `52.025` HOTA / `33.586` AssA / `54.434` IDF1 / `954` IDSW / `4,744` FN（`@0.50` `52.545`），较 `M2` 退化 `-4.645` HOTA（`train/*` 全有限，仅个别 val epoch `val/unmatched_rej_loss=nan`）。
+3. **Stage D（`M1_C_KIN_EDGE` 协同与 S11 同口径 Onset 解剖回放）：**
+   - `D_M1_PLUS_B1_TH040`：`57.009` HOTA (`-0.024` vs `M1`)；`D_M1_PLUS_B2_TH040`：`52.627` HOTA (`-4.406` vs `M1`，`257` 次 `2-cycle` 互换严重损伤精度)。
+   - Onset 解剖（`@0.50` 与 `@0.40` 均与在线 MOT 逐字节一致）：`onset_cross` 相比 S11 `149` 例降低 **`-36.2%` 至 `95` 例**（`gap==1`: `111->82`、`IoU>=0.30`: `134->83`、真目标缺检误抓: `94->57`、`2-cycle`: `34->20`），但同时 `post_switch_cross` 从 `31,791` 增至 `40,568/40,570`（`clean_match` `42,847->35,844`），残余切换形成更长持续污染段，未收敛至 `D2_SKIP_ONLY`（`63.781` HOTA）。
+
+### Decision, Limitations & Exact Next Action
+
+- **Decision & Limitations**: `C'` 成对因果运动偏置相对同容量节点对照 `M0` 成效明确（`+2.854` HOTA），并真实压降 `36.2%` onset 切换；但整体闭环暂未能超越未加边头基线 `T2_TH040`（`57.033` vs `57.572`），且 `A'_infer`（`B1/B2`）与当前 `A'_train`（`M3`）均呈负面或无协同增益。仅单 seed (`13`)、复用 `motion_dev8`；不扩 multi-seed 37/73 或官方 `val`/`test`。
+- **Exact Next Action**: 交由研究端审阅 [S12 报告包](../../reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md)（`aggregate_metrics.csv`、`per_sequence_metrics.csv`、`learning_curves.csv`、`diagnostics.json`、`cases.jsonl`）并决定 S13 研究方向。工作树保持未提交、未推送。
+
+---
+
+## 2. Earlier Completed Task: S11 CAMELTrack 低阈值标定、149 例 Onset 解剖与冲突感知拒写无重训验证 (`COMPLETED`)
 
 - **任务书与协议：** [S11 具体执行与回传要求](S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md)；[版本化协议](../../manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml)。
 - **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成，已由研究端审阅并推进至 S12）**
@@ -42,7 +60,7 @@
 
 ---
 
-## 2. Latest Completed Task: S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验 (`COMPLETED`)
+## 3. Earlier Completed Task: S10 CAMELTrack 纯拒写基准分解与抗闭环污染实验 (`COMPLETED`)
 
 - **任务书与协议：** [S10 具体执行与回传要求](S10_CAMEL_ANTICONTAMINATION_TASK.md)；[版本化协议](../../manifests/protocols/s10_camel_anticontamination_20261127.yaml)。
 - **执行状态：** **COMPLETED（Stages A–E 在物理 GPU 1 上完成并停止在 Stage E，等待研究端审阅）**
@@ -69,7 +87,7 @@
 
 ---
 
-## 3. Earlier Completed Task: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution (`COMPLETED`)
+## 4. Earlier Completed Task: S09 CAMELTrack Threshold Calibration, Two-Stage Baseline & Failure Attribution (`COMPLETED`)
 
 - **Protocol**: `s09_camel_calibration_and_attribution_20261126` (`v1`, [protocol manifest](../../manifests/protocols/s09_camel_calibration_and_attribution_20261126.yaml))
 - **Execution Status**: **COMPLETED (Stages A–E finished on physical GPU 1; stopped at Stage E pending research review)**
@@ -94,7 +112,7 @@
 
 ---
 
-## 4. Completed / Stopped Historical Tasks
+## 5. Completed / Stopped Historical Tasks
 
 - **S08 (COMPLETED, superseded by S09 for threshold/two-stage analysis)**: [S08 Task](S08_CAMEL_BASELINE_TASK.md) | [S08 Report](../../reports/baselines/s08_camel_baseline_20261125/README.md) (`CONTINUE`, `T_SCRATCH @ 0.1` vs `P_OFFICIAL @ 0.1`).
 - **2026-11-26 Research Review & Literature Audit**: [docs/research_status_review_20261126.md](../research_status_review_20261126.md).

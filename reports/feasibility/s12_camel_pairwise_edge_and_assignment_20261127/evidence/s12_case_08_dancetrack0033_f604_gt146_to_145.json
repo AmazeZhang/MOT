@@ -1,0 +1,182 @@
+{
+  "case_id": "s12_case_08_dancetrack0033_f604_gt146_to_145",
+  "sequence": "dancetrack0033",
+  "frame": 604,
+  "s11_t2_th050_track_id": 104,
+  "anchor_gt": 146,
+  "s11_switched_to_det_gt": 145,
+  "sort_key_sha256": "644cf5816be548dc2f438a81454858cd9da66768e1ad92f7a94f116dfacff70f",
+  "s11_onset_context": {
+    "trk_gap_frames": 9,
+    "sim_val": 0.6847805976867676,
+    "assignment_margin": 0.0726923942565918,
+    "max_conflict_iou": 0.6306748545572413,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 1
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": false,
+    "M0_TH040": false,
+    "M1_TH040": false,
+    "M2_TH040": false,
+    "M3_TH040": false,
+    "M1_PLUS_B1": false,
+    "M1_PLUS_B2": false
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "603": {
+        "matched_pred_id": 62,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 62,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M0_TH040": {
+      "603": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M1_TH040": {
+      "603": {
+        "matched_pred_id": 65,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 65,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 66,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 66,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 66,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M2_TH040": {
+      "603": {
+        "matched_pred_id": 60,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 60,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 59,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 59,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 59,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M3_TH040": {
+      "603": {
+        "matched_pred_id": 74,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 74,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 77,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 77,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 77,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M1_PLUS_B1": {
+      "603": {
+        "matched_pred_id": 60,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 60,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.94929
+      }
+    },
+    "M1_PLUS_B2": {
+      "603": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.966897
+      },
+      "604": {
+        "matched_pred_id": 64,
+        "iou_to_gt": 0.794621
+      },
+      "605": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.602109
+      },
+      "606": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.924131
+      },
+      "609": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.94929
+      }
+    }
+  }
+}
