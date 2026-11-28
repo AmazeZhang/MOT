@@ -1,0 +1,182 @@
+{
+  "case_id": "s13_case_09_dancetrack0037_f438_gt148_to_152",
+  "sequence": "dancetrack0037",
+  "frame": 438,
+  "s11_t2_th050_track_id": 125,
+  "anchor_gt": 148,
+  "s11_switched_to_det_gt": 152,
+  "sort_key_sha256": "3e181a34002fa6d2033558775d69d453b1389aeaba38844c62cb2afc32808994",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.771845817565918,
+    "assignment_margin": 0.19136106967926025,
+    "max_conflict_iou": 0.06748459027001681,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": false,
+    "M1_TH040": false,
+    "B_M1_CAL_068": false,
+    "N1_TH040": false,
+    "N2_TH040": false,
+    "N3_TH040": false,
+    "N3_PLUS_B1_THCAL": false
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "437": {
+        "matched_pred_id": 76,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 76,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 76,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 76,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 76,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "M1_TH040": {
+      "437": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "B_M1_CAL_068": {
+      "437": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "N1_TH040": {
+      "437": {
+        "matched_pred_id": 69,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 69,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 69,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 69,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 69,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "N2_TH040": {
+      "437": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "N3_TH040": {
+      "437": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.994489
+      }
+    },
+    "N3_PLUS_B1_THCAL": {
+      "437": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.959453
+      },
+      "438": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.769444
+      },
+      "439": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.977141
+      },
+      "440": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.986715
+      },
+      "443": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.994489
+      }
+    }
+  }
+}

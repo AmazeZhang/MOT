@@ -1,0 +1,76 @@
+{
+  "schema_version": "s13-source-audit-v1",
+  "generated_at": "2026-11-28T11:33:21.615367+08:00",
+  "upstream_cameltrack_commit": "bc1c261075b0beacfe71c2896453be83643153c8",
+  "tracklet_gallery_audit": "Tracklet.detections appends chronologically and slices [-max_gallery_size:] (FIFO evicts index 0). Tracklet.padded_features stacks reversed(self.detections), so index 0 is newest (smallest age) and last valid slot is oldest (largest age).",
+  "dataset_age_audit": "CAMELDataset assigns age = img_id - image_id and calls sort_values(by='age', ascending=True). Empirical 100-batch check on train32 DM: monotone_violations=0 across all tracklets, matching online padded_features.",
+  "train32_100_batch_probe": {
+    "total_valid_tracklets": 24957,
+    "ge6_slots_tracklets": 24754,
+    "ge6_slots_frac": 0.9918660095364026,
+    "occ_iou_ge_025_eligible_tracklets": 10866,
+    "occ_eligible_frac": 0.4353888688544296
+  },
+  "verified_assets": {
+    "s12_m1_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m1_kin_edge_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "b3ca74bf5426729736cf641770f7f372ae4903a54b1a1485f778309a8ae94314",
+      "verified": true
+    },
+    "s12_protocol": {
+      "path": "/home/imc/yzy/MOT/manifests/protocols/s12_camel_pairwise_edge_and_assignment_20261127.yaml",
+      "sha256": "8095ff00d557541d7a36e0a0a9ebf554a071a743594d254eb3a995a891ac571a",
+      "verified": true
+    },
+    "c1_app_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_app_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d",
+      "verified": true
+    },
+    "c1_kp_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_kp_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c",
+      "verified": true
+    },
+    "c1_bbox_ckpt": {
+      "path": "/media/imc/data/mot-data/runs/s09_camel_calibration_and_attribution_20261126/c1_bbox_encoder_seed13_e20_v1/CAMEL/last.ckpt",
+      "sha256": "fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de1",
+      "verified": true
+    },
+    "states_train32": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_train32.pklz",
+      "sha256": "dc7de2cd48da21cc56005159c004123fc0573260fbf69d0b3fa9d572ac8a0f2a",
+      "verified": true
+    },
+    "states_dev8_train_ref": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_train_ref.pklz",
+      "sha256": "ba6e88b5da10c5e9f9db43f580289f8344cd1750270cf255dea4998df213cacd",
+      "verified": true
+    },
+    "states_dev8_gt_free": {
+      "path": "/media/imc/data/mot-data/cache/s08_camel/states/states_dev8_gt_free.pklz",
+      "sha256": "d135ea1627552e64138477cbdcdfb3ff78552ceac5b78862a75479b770398533",
+      "verified": true
+    }
+  },
+  "model_parameters": {
+    "N1_KIN_SCALE_ANCHORED": {
+      "total_params": 43621505,
+      "base_params": 43475200,
+      "s13_extra_params": 146305,
+      "fraction_of_total": 0.0033539649766783607
+    },
+    "N2_KIN_OCC_DROP_SUP": {
+      "total_params": 43621505,
+      "base_params": 43475200,
+      "s13_extra_params": 146305,
+      "fraction_of_total": 0.0033539649766783607
+    },
+    "N3_DUAL_ANCHOR_CAMEL": {
+      "total_params": 43622273,
+      "base_params": 43475200,
+      "s13_extra_params": 147073,
+      "fraction_of_total": 0.0033715116128863803
+    }
+  }
+}

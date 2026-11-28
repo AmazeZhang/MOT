@@ -1,0 +1,536 @@
+{
+  "schema_version": "s13-artifacts-v1",
+  "generated_at": "2026-11-28T21:58:34.601218+08:00",
+  "self_hash_excluded": true,
+  "artifact_count": 66,
+  "artifacts": [
+    {
+      "artifact_id": "report_readme",
+      "kind": "markdown",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/README.md",
+      "bytes": 6003,
+      "sha256": "1af67ae133ca228d10bc09537d17d7d30dcf4716d9facee1c6fa5c5478599ada"
+    },
+    {
+      "artifact_id": "report_manifest",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/run_manifest.json",
+      "bytes": 13347,
+      "sha256": "2500b158095c7f559de62c4b2b6e21291426d859e1c45d2906f905f095c48e9b"
+    },
+    {
+      "artifact_id": "report_checks",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/checks.json",
+      "bytes": 1528,
+      "sha256": "19d1e988b2bb7874910776210d2507f8ff6f0f0ae297e9251e1514bffe5f2bd7"
+    },
+    {
+      "artifact_id": "report_aggregate_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/aggregate_metrics.csv",
+      "bytes": 5909,
+      "sha256": "f0ffc3f73492059f6bf45d910bc8452d2277655fe864e2e509200f26bedbf70f"
+    },
+    {
+      "artifact_id": "report_per_sequence_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/per_sequence_metrics.csv",
+      "bytes": 45519,
+      "sha256": "709e0f9c1807061e8f3c1782a19679d828526e339189b489b2fd71eb58e2958d"
+    },
+    {
+      "artifact_id": "report_s12_ref_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/s12_reference_comparison.csv",
+      "bytes": 7767,
+      "sha256": "93bf9b07ec4699cc4bd3a9161d83c9ee6d80edd8482c438687a909a34210a647"
+    },
+    {
+      "artifact_id": "report_learning_curves_csv",
+      "kind": "csv",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/learning_curves.csv",
+      "bytes": 119342,
+      "sha256": "b9a5872944a97ea3edc69c1d5709e4289a1274601dbd749747a346fe3201c533"
+    },
+    {
+      "artifact_id": "report_diagnostics_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/diagnostics.json",
+      "bytes": 47420,
+      "sha256": "70e46dbb451f5fc2115dfa45afa2bd654682d758309e418aad716d82ec3b9cf5"
+    },
+    {
+      "artifact_id": "report_cases_jsonl",
+      "kind": "jsonl",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/cases.jsonl",
+      "bytes": 9879,
+      "sha256": "2640ccede5c9468d7fafb0db8a79a67f04c8d3c93c7ee6be8fce1617b41ce2d1"
+    },
+    {
+      "artifact_id": "report_source_audit_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/source_audit.json",
+      "bytes": 3561,
+      "sha256": "82f4d2a42d4fee47179ff08c5bd00dfdf08ccdadad5d1cc6160ce48fd02dcfcc"
+    },
+    {
+      "artifact_id": "report_runtime_lock_json",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/runtime_lock.json",
+      "bytes": 345,
+      "sha256": "ab76c523551013ceab728687bda0d1c42c97e23d2375b8060a7079f6f360e132"
+    },
+    {
+      "artifact_id": "report_commands_sh",
+      "kind": "sh",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/commands.sh",
+      "bytes": 8474,
+      "sha256": "8e6e979172ec9e245f4edb8d749cd901e2c0a5d13325dfbfe08875bdd891c9bf"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_n1_kin_scale_anchored",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n1_kin_scale_anchored.yaml",
+      "bytes": 10342,
+      "sha256": "4bafe1ca7dc8c81ed3b3177d667b6d3e83569119187b90ceaf62972c62573451"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_n2_kin_occ_drop_sup",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n2_kin_occ_drop_sup.yaml",
+      "bytes": 10340,
+      "sha256": "ff7f9d0e5beee3b1e2da08770116a2022f97c6b2635e6e3eb10fe93a6914e96d"
+    },
+    {
+      "artifact_id": "resolved_cfg_stage_c_n3_dual_anchor_camel",
+      "kind": "yaml",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n3_dual_anchor_camel.yaml",
+      "bytes": 10375,
+      "sha256": "583e38f709c80ae6494e03990317ecac9f7b4b677aaac8a5e7b5a27b830b5eac"
+    },
+    {
+      "artifact_id": "evidence_s13_case_01_dancetrack0012_f59_gt41_to_32",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_01_dancetrack0012_f59_gt41_to_32.json",
+      "bytes": 3884,
+      "sha256": "c8cc010cfd02c5856358edf5015824a32ab6be3bfc8ebedf860fea0e25b452fb"
+    },
+    {
+      "artifact_id": "evidence_s13_case_02_dancetrack0012_f805_gt35_to_43",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_02_dancetrack0012_f805_gt35_to_43.json",
+      "bytes": 2125,
+      "sha256": "c62d16921da8744a620204c7b7f5b503607bbc9905301f6853fdf5c6abcba3ab"
+    },
+    {
+      "artifact_id": "evidence_s13_case_03_dancetrack0020_f61_gt71_to_97",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_03_dancetrack0020_f61_gt71_to_97.json",
+      "bytes": 3917,
+      "sha256": "6a9190c33ce24d685737002325e01e13d44ab65d7643eb9f46925140411a095a"
+    },
+    {
+      "artifact_id": "evidence_s13_case_04_dancetrack0020_f385_gt60_to_63",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_04_dancetrack0020_f385_gt60_to_63.json",
+      "bytes": 3918,
+      "sha256": "3be96a85c691aeb3e65db1367fead0d7d2a4b6a5295160bdad2ce0f8125680c4"
+    },
+    {
+      "artifact_id": "evidence_s13_case_05_dancetrack0024_f20_gt112_to_110",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_05_dancetrack0024_f20_gt112_to_110.json",
+      "bytes": 3894,
+      "sha256": "a8a61a696e770b2840f99332afe44173da3debabfcf355e7319b0e939162e42a"
+    },
+    {
+      "artifact_id": "evidence_s13_case_06_dancetrack0024_f543_gt109_to_108",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_06_dancetrack0024_f543_gt109_to_108.json",
+      "bytes": 3915,
+      "sha256": "d8049c2d6d933072a3978ea974a4287c0e94b3439a9a41a18d777dd4b4f347b5"
+    },
+    {
+      "artifact_id": "evidence_s13_case_07_dancetrack0033_f67_gt140_to_141",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_07_dancetrack0033_f67_gt140_to_141.json",
+      "bytes": 3879,
+      "sha256": "05ca2cfc53dc78630433cd761c20cb1c228ac632df223005c1304f0f3d7dcaa2"
+    },
+    {
+      "artifact_id": "evidence_s13_case_08_dancetrack0033_f604_gt146_to_145",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_08_dancetrack0033_f604_gt146_to_145.json",
+      "bytes": 3923,
+      "sha256": "b81c42993e7e775e543446d60488bf46c9ad5a84b26013b272de25c766574dcc"
+    },
+    {
+      "artifact_id": "evidence_s13_case_09_dancetrack0037_f438_gt148_to_152",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_09_dancetrack0037_f438_gt148_to_152.json",
+      "bytes": 3931,
+      "sha256": "4fb985f84ad3af72821177f42a738247ef212d93729b08d66c7ce00d8d568595"
+    },
+    {
+      "artifact_id": "evidence_s13_case_10_dancetrack0037_f875_gt153_to_152",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_10_dancetrack0037_f875_gt153_to_152.json",
+      "bytes": 2138,
+      "sha256": "26926aad1372189c44bda403e49cd4926e4f35d34b3598d4aca2e18743509daa"
+    },
+    {
+      "artifact_id": "evidence_s13_case_11_dancetrack0044_f942_gt164_to_163",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_11_dancetrack0044_f942_gt164_to_163.json",
+      "bytes": 3930,
+      "sha256": "0d5d7a38de7aa860b2e82e3c0cbd77d266e36dbb8139a42abd5c2632ee394d9b"
+    },
+    {
+      "artifact_id": "evidence_s13_case_12_dancetrack0044_f1095_gt169_to_165",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_12_dancetrack0044_f1095_gt169_to_165.json",
+      "bytes": 3968,
+      "sha256": "52ce4f5ca81cf00a3ca432624cdc20f9edaa40202f7179c3af61978c53f91b8a"
+    },
+    {
+      "artifact_id": "evidence_s13_case_13_dancetrack0053_f143_gt211_to_208",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_13_dancetrack0053_f143_gt211_to_208.json",
+      "bytes": 3930,
+      "sha256": "ce7e165416523ed324c011ae2d9896e6edc1355246e1f2de6c59593c86860807"
+    },
+    {
+      "artifact_id": "evidence_s13_case_14_dancetrack0053_f948_gt209_to_211",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_14_dancetrack0053_f948_gt209_to_211.json",
+      "bytes": 3946,
+      "sha256": "05bd3b74ab985f62cfd491aac97977d3072dfe4fd3dcf8c5642866c5d3df0544"
+    },
+    {
+      "artifact_id": "evidence_s13_case_15_dancetrack0086_f247_gt346_to_348",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_15_dancetrack0086_f247_gt346_to_348.json",
+      "bytes": 3364,
+      "sha256": "31fc780fdaf45b541be779979b6698a9567c136493b15dd1a15b97aeb568cef7"
+    },
+    {
+      "artifact_id": "evidence_s13_case_16_dancetrack0086_f266_gt344_to_341",
+      "kind": "json",
+      "scope": "git_report_bundle",
+      "path": "/home/imc/yzy/MOT/reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_16_dancetrack0086_f266_gt344_to_341.json",
+      "bytes": 2153,
+      "sha256": "c56e416289beffa824faf5ce91f20b9ded9953de3a5dd0f9e0acd32195e268fe"
+    },
+    {
+      "artifact_id": "train_c_n1_scale_anchored_seed13_e20_v3_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n1_scale_anchored_seed13_e20_v3/stage_c_train_summary.json",
+      "bytes": 2896,
+      "sha256": "84e7e93f9aa9525d68dfa83669b69b12e094dfc30011d73e2040312e09918464"
+    },
+    {
+      "artifact_id": "train_c_n1_scale_anchored_seed13_e20_v3_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n1_scale_anchored_seed13_e20_v3/CAMEL/last.ckpt",
+      "bytes": 527132450,
+      "sha256": "c023433cf247ad8166c120cdd9b11f1ddc22372f8467084dc1386a76f8e1a8cb"
+    },
+    {
+      "artifact_id": "train_c_n2_occ_drop_seed13_e20_v2_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n2_occ_drop_seed13_e20_v2/stage_c_train_summary.json",
+      "bytes": 2870,
+      "sha256": "57bcaca59ca733759af08b024bd7c4c854dc0b72c399522d6c4039c7cd7b26f9"
+    },
+    {
+      "artifact_id": "train_c_n2_occ_drop_seed13_e20_v2_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n2_occ_drop_seed13_e20_v2/CAMEL/last.ckpt",
+      "bytes": 527183586,
+      "sha256": "858a7d5d1d372c428166ad6d1b573b876dfb81cf59a7fa8a69ba4e0bf626f650"
+    },
+    {
+      "artifact_id": "train_c_n3_dual_anchor_seed13_e20_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n3_dual_anchor_seed13_e20_v1/stage_c_train_summary.json",
+      "bytes": 2880,
+      "sha256": "705cd8aed5e6257a4692d67d44001ef15777d600eab6232f3f5fb436980b77c7"
+    },
+    {
+      "artifact_id": "train_c_n3_dual_anchor_seed13_e20_v1_last_ckpt",
+      "kind": "ckpt",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n3_dual_anchor_seed13_e20_v1/CAMEL/last.ckpt",
+      "bytes": 527191202,
+      "sha256": "8c82e12eba94acd2ef2f39e13a2fca7939f973bca708727c77e16ca9b2e3459e"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th055_v2_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th055_v2/stage_eval_summary.json",
+      "bytes": 2448,
+      "sha256": "83f1a71160ec0d00fd3adfe6ba3a92a32d19e7cd257eae784859ad3c94a96253"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th055_v2_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th055_v2/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41161,
+      "sha256": "5daf5fcec3b718766a48a44debc0fd572178c562ec585acb902badaa8fa7492d"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th060_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th060_v1/stage_eval_summary.json",
+      "bytes": 2448,
+      "sha256": "429c159f17f75459f353606698b4ca8d6191b4fb4fb301c42cc50e9d0be25884"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th060_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th060_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41105,
+      "sha256": "b30e65bec2cf54f38db31b87df997dd0e7106932919d1a5b3b2a9bdb703b8612"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th064_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th064_v1/stage_eval_summary.json",
+      "bytes": 2445,
+      "sha256": "34b0133d7a6522d33e1f63dd887e07ba9108a2c1c726ee3799a17ca46c79509a"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th064_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th064_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41098,
+      "sha256": "f515c21ca87145116817da075bcd78d5c5ab517093a26b9f57774a9799ba76b3"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th068_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th068_v1/stage_eval_summary.json",
+      "bytes": 2448,
+      "sha256": "33d01c007f323db81ef170395404b23a16dd0201764f219ace7ff236ee5a2a99"
+    },
+    {
+      "artifact_id": "run_b_m1_cal_th068_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_cal_th068_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41118,
+      "sha256": "7f580e34f04bb3cd0a4994c356bfbacd4a5b10a866512155d0c752eb3f0bda19"
+    },
+    {
+      "artifact_id": "run_b_m1_b1_cal_th058_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_b1_cal_th058_v1/stage_eval_summary.json",
+      "bytes": 2628,
+      "sha256": "7302afa0f51323345dda3341e107654d95f6efcfa30859f11e2b0d2e16178ee7"
+    },
+    {
+      "artifact_id": "run_b_m1_b1_cal_th058_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_b1_cal_th058_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41164,
+      "sha256": "cc09ef978c89288b40e9f00c6cb6197056e5d52aa0da1326dc3fb69145ee39e2"
+    },
+    {
+      "artifact_id": "run_b_m1_b1_cal_th062_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_b1_cal_th062_v1/stage_eval_summary.json",
+      "bytes": 2633,
+      "sha256": "c6c145de8223a123a5fde731451a9f094a64a23743f18bcf79dabcc926155553"
+    },
+    {
+      "artifact_id": "run_b_m1_b1_cal_th062_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_m1_b1_cal_th062_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41209,
+      "sha256": "74dee0b9697e3cb87739e46e3eca97c953a9f312ec1e462d139ff5c144310800"
+    },
+    {
+      "artifact_id": "run_c_eval_n1_th040_v3_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n1_th040_v3/stage_eval_summary.json",
+      "bytes": 2472,
+      "sha256": "07f62f7448620373380d5dcdc667fa0e46c9c7084f0210ca57166db73b7de402"
+    },
+    {
+      "artifact_id": "run_c_eval_n1_th040_v3_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n1_th040_v3/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41198,
+      "sha256": "d8cf0b25a0a5a2760b2fbaad8ac78dbf250ee1c2dab4215ca3f5216b423641af"
+    },
+    {
+      "artifact_id": "run_c_eval_n1_thcal_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n1_thcal_v1/stage_eval_summary.json",
+      "bytes": 2471,
+      "sha256": "a01de628f47a1a4ef379fb3184821964af52dc5894b50ae21370abf157b06772"
+    },
+    {
+      "artifact_id": "run_c_eval_n1_thcal_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n1_thcal_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41184,
+      "sha256": "23d65c5fa80d64b2c18063c014b6593a9ccc8878c56bf3c3a256198699df9580"
+    },
+    {
+      "artifact_id": "run_c_eval_n2_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n2_th040_v1/stage_eval_summary.json",
+      "bytes": 2464,
+      "sha256": "ad2b61e82b4ec1a0771d792c1df9f3b1ad5147a28b8ed8b754d3911c9562b607"
+    },
+    {
+      "artifact_id": "run_c_eval_n2_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n2_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41088,
+      "sha256": "a447fb0ecadfcb678db2f8050e70b749ebd8085a2eec662bcf87fa9c991a0fa6"
+    },
+    {
+      "artifact_id": "run_c_eval_n2_thcal_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n2_thcal_v1/stage_eval_summary.json",
+      "bytes": 2466,
+      "sha256": "b0952b9c02e0c161a61200ccfbcc909577148bef0c5425f22b14df7ad38a45f7"
+    },
+    {
+      "artifact_id": "run_c_eval_n2_thcal_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n2_thcal_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41075,
+      "sha256": "42b5339b7f52cc8da4defb725e1c4b137dde772c92ab422724a9e3f7a7d68d5f"
+    },
+    {
+      "artifact_id": "run_c_eval_n3_th040_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n3_th040_v1/stage_eval_summary.json",
+      "bytes": 2627,
+      "sha256": "b64ed4d78f5ab76c15ec60cba5f848b452dcfc02b7dc1a11e1f9ee129c2805eb"
+    },
+    {
+      "artifact_id": "run_c_eval_n3_th040_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n3_th040_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41168,
+      "sha256": "e2aebff65ec443a528f8fb847c62a55bacee8b4d4f3a60062a953a6494c1d3e3"
+    },
+    {
+      "artifact_id": "run_c_eval_n3_thcal_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n3_thcal_v1/stage_eval_summary.json",
+      "bytes": 2627,
+      "sha256": "b24bbd14e6b73f1e23117b64a0b06f8ff59789534806e2c86d4f79918cbf5038"
+    },
+    {
+      "artifact_id": "run_c_eval_n3_thcal_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n3_thcal_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41144,
+      "sha256": "d37d75d2ba1e084d72be8e14e590cf5a457b01a5228686415517fe531524643e"
+    },
+    {
+      "artifact_id": "run_d_winner_plus_b1_thcal_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/d_winner_plus_b1_thcal_v1/stage_eval_summary.json",
+      "bytes": 2657,
+      "sha256": "0c679d93d8b4d5513f35a87537a591a1e250993cebec495e9f3f2f80b60c08bb"
+    },
+    {
+      "artifact_id": "run_d_winner_plus_b1_thcal_v1_trackeval_detailed_csv",
+      "kind": "csv",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/d_winner_plus_b1_thcal_v1/eval/results/tracklab/pedestrian_detailed.csv",
+      "bytes": 41090,
+      "sha256": "42d319b6e008b2e503dc5ecf724c9ca15127e36755e449dcc4113b94facc0c5f"
+    },
+    {
+      "artifact_id": "anatomy_b_audit_0024_0053_m1_th068_v2_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_audit_0024_0053_m1_th068_v2/stage_anatomy_summary.json",
+      "bytes": 1225,
+      "sha256": "07e03b1389c94d9af2d139a15786b644717823d79b0b6049d407c633a6b94efb"
+    },
+    {
+      "artifact_id": "anatomy_b_audit_0024_0053_b1_th062_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/b_audit_0024_0053_b1_th062_v1/stage_anatomy_summary.json",
+      "bytes": 1228,
+      "sha256": "1ed932e85c6501eb2af7cf64a106d5d9feab8cf630bad2002e35f625d3c00aac"
+    },
+    {
+      "artifact_id": "anatomy_d_winner_anatomy_dev8_v1_summary_json",
+      "kind": "json",
+      "scope": "data_disk_run",
+      "path": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/d_winner_anatomy_dev8_v1/stage_anatomy_summary.json",
+      "bytes": 1510,
+      "sha256": "274ffd3088a6d321ca7380d39ea064f9f5199e6fdb3e4337bd78ab25ac4120ad"
+    }
+  ]
+}

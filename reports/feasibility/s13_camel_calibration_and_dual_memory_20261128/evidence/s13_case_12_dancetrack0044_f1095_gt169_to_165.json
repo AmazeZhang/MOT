@@ -1,0 +1,182 @@
+{
+  "case_id": "s13_case_12_dancetrack0044_f1095_gt169_to_165",
+  "sequence": "dancetrack0044",
+  "frame": 1095,
+  "s11_t2_th050_track_id": 181,
+  "anchor_gt": 169,
+  "s11_switched_to_det_gt": 165,
+  "sort_key_sha256": "0ed010d075c0f137a5c6836b63329e6cc1a3bc51ff2274456deabb7982088b83",
+  "s11_onset_context": {
+    "trk_gap_frames": 5,
+    "sim_val": 0.6111974716186523,
+    "assignment_margin": 0.10868674516677856,
+    "max_conflict_iou": 0.4312641373300149,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 1
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": false,
+    "M1_TH040": false,
+    "B_M1_CAL_068": false,
+    "N1_TH040": false,
+    "N2_TH040": false,
+    "N3_TH040": false,
+    "N3_PLUS_B1_THCAL": false
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "1094": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 89,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "M1_TH040": {
+      "1094": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "B_M1_CAL_068": {
+      "1094": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 90,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "N1_TH040": {
+      "1094": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 86,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 88,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 88,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 88,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "N2_TH040": {
+      "1094": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 87,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "N3_TH040": {
+      "1094": {
+        "matched_pred_id": 85,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 85,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 85,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 85,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 85,
+        "iou_to_gt": 0.867908
+      }
+    },
+    "N3_PLUS_B1_THCAL": {
+      "1094": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.949586
+      },
+      "1095": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.947795
+      },
+      "1096": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.805228
+      },
+      "1097": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.787756
+      },
+      "1100": {
+        "matched_pred_id": 80,
+        "iou_to_gt": 0.867908
+      }
+    }
+  }
+}

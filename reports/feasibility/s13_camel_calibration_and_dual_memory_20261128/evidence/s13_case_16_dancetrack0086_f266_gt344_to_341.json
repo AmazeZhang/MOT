@@ -1,0 +1,98 @@
+{
+  "case_id": "s13_case_16_dancetrack0086_f266_gt344_to_341",
+  "sequence": "dancetrack0086",
+  "frame": 266,
+  "s11_t2_th050_track_id": 223,
+  "anchor_gt": 344,
+  "s11_switched_to_det_gt": 341,
+  "sort_key_sha256": "1462637136dd18f8f1c6a6ccafb3aea58782d5429c205b90fd0c7de464666989",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.6457319855690002,
+    "assignment_margin": 0.07440423965454102,
+    "max_conflict_iou": 0.5942018986798401,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": null,
+    "M1_TH040": null,
+    "B_M1_CAL_068": null,
+    "N1_TH040": null,
+    "N2_TH040": null,
+    "N3_TH040": null,
+    "N3_PLUS_B1_THCAL": null
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "268": {
+        "matched_pred_id": 111,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 111,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "M1_TH040": {
+      "268": {
+        "matched_pred_id": 104,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 104,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "B_M1_CAL_068": {
+      "268": {
+        "matched_pred_id": 116,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 116,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "N1_TH040": {
+      "268": {
+        "matched_pred_id": 105,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 105,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "N2_TH040": {
+      "268": {
+        "matched_pred_id": 106,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 106,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "N3_TH040": {
+      "268": {
+        "matched_pred_id": 107,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 107,
+        "iou_to_gt": 0.969478
+      }
+    },
+    "N3_PLUS_B1_THCAL": {
+      "268": {
+        "matched_pred_id": 108,
+        "iou_to_gt": 0.904747
+      },
+      "271": {
+        "matched_pred_id": 108,
+        "iou_to_gt": 0.969478
+      }
+    }
+  }
+}

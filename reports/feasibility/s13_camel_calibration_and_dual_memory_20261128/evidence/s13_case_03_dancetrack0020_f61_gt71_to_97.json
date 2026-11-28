@@ -1,0 +1,182 @@
+{
+  "case_id": "s13_case_03_dancetrack0020_f61_gt71_to_97",
+  "sequence": "dancetrack0020",
+  "frame": 61,
+  "s11_t2_th050_track_id": 52,
+  "anchor_gt": 71,
+  "s11_switched_to_det_gt": 97,
+  "sort_key_sha256": "0ce600c068aa5ff60a8215f07ce22692ea0621382412f90bd119f33c2f3c44e5",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.5914762020111084,
+    "assignment_margin": -0.03034186363220215,
+    "max_conflict_iou": 0.3784983702291935,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": false,
+    "M1_TH040": false,
+    "B_M1_CAL_068": true,
+    "N1_TH040": false,
+    "N2_TH040": false,
+    "N3_TH040": false,
+    "N3_PLUS_B1_THCAL": false
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "60": {
+        "matched_pred_id": 30,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 30,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "M1_TH040": {
+      "60": {
+        "matched_pred_id": 43,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 43,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "B_M1_CAL_068": {
+      "60": {
+        "matched_pred_id": 45,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 20,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "N1_TH040": {
+      "60": {
+        "matched_pred_id": 41,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 41,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "N2_TH040": {
+      "60": {
+        "matched_pred_id": 41,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 41,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "N3_TH040": {
+      "60": {
+        "matched_pred_id": 33,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 33,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    },
+    "N3_PLUS_B1_THCAL": {
+      "60": {
+        "matched_pred_id": 43,
+        "iou_to_gt": 0.637296
+      },
+      "61": {
+        "matched_pred_id": 43,
+        "iou_to_gt": 0.50069
+      },
+      "62": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.48583
+      },
+      "63": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.463547
+      },
+      "66": {
+        "matched_pred_id": null,
+        "iou_to_gt": 0.476846
+      }
+    }
+  }
+}

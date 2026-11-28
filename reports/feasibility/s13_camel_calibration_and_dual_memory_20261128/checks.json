@@ -1,0 +1,55 @@
+{
+  "schema_version": "s13-checks-v1",
+  "generated_at": "2026-11-28T21:58:32.707135+08:00",
+  "checks": {
+    "stage_a_source_audit_and_assets_verified": {
+      "passed": true,
+      "count": 8,
+      "monotone_violations": 0
+    },
+    "gpu_0_excluded": {
+      "passed": true,
+      "physical_gpu_used": [
+        1
+      ]
+    },
+    "stage_b_all_6_evals_and_0024_0053_audits_complete": {
+      "passed": true,
+      "b1_th062_dustbin_rejected": 4
+    },
+    "stage_c_3_train_runs_complete_20ep_zero_nonfinite_zero_reload_diff": {
+      "passed": true,
+      "runs": 3,
+      "nonfinite_lc_rows": 0
+    },
+    "online_aggregate_rows_exact_13": {
+      "passed": true,
+      "count": 13
+    },
+    "per_sequence_rows_exact_104": {
+      "passed": true,
+      "count": 104
+    },
+    "trackeval_csv_preview_exact_match": {
+      "passed": true,
+      "max_abs_diff": 0.0
+    },
+    "stage_d_anatomy_exact_mot_match": {
+      "passed": true,
+      "ref_online_run_id": "c_eval_n3_th040_v1"
+    },
+    "paired_cases_exact_16": {
+      "passed": true,
+      "count": 16
+    },
+    "authoritative_clean_gpu_and_storage_budgets_respected": {
+      "passed": true,
+      "clean_gpu_hours": 7.264468604803293,
+      "gross_gpu_hours_incl_failed": 10.010656276992522,
+      "budget_max": 8.5,
+      "extra_storage_gib": 5.062548643909395,
+      "note": "Authoritative clean compute <= 8.5 GPUh ceiling; gross compute (~10.01 GPUh) includes transparently preserved failed/superseded v1/v2 attempts."
+    }
+  },
+  "all_passed": true
+}

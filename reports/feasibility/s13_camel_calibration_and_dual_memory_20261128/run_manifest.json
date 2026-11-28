@@ -1,0 +1,214 @@
+{
+  "schema_version": "s13-manifest-v1",
+  "protocol_id": "s13_camel_calibration_and_dual_memory_20261128",
+  "protocol_version": 1,
+  "protocol_sha256": "7c1a9f344d3934b6b11490f0636355bf3053f35a05cb0327c46970a9f3add82a",
+  "split_manifest": "/home/imc/yzy/MOT/manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml",
+  "split_manifest_sha256": "dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff",
+  "status": "COMPLETED",
+  "generated_at": "2026-11-28T21:58:32.707633+08:00",
+  "code_provenance": {
+    "head_commit": "ee499bb699c7bfcc2470a00ec7cbcd9776b92ff7",
+    "working_tree_dirty": true,
+    "dirty_or_untracked_files": {
+      "docs/progress_log.md": "b78445ddcaec8ba028d65ea03ab710f63af20d5079c02ff9368438e981e22c07",
+      "reports/README.md": "f07b460a9d373b8e9ba696739eb18875437bd3736e44aec4803f04a5a6ea045c",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/README.md": "1af67ae133ca228d10bc09537d17d7d30dcf4716d9facee1c6fa5c5478599ada",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/aggregate_metrics.csv": "f0ffc3f73492059f6bf45d910bc8452d2277655fe864e2e509200f26bedbf70f",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/artifacts.json": "d76b8e609928092c41d3782192872436f4a32b4d93fd397d09c69d4fc388a5ba",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/cases.jsonl": "2640ccede5c9468d7fafb0db8a79a67f04c8d3c93c7ee6be8fce1617b41ce2d1",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/checks.json": "19d1e988b2bb7874910776210d2507f8ff6f0f0ae297e9251e1514bffe5f2bd7",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/commands.sh": "8e6e979172ec9e245f4edb8d749cd901e2c0a5d13325dfbfe08875bdd891c9bf",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/diagnostics.json": "70e46dbb451f5fc2115dfa45afa2bd654682d758309e418aad716d82ec3b9cf5",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_01_dancetrack0012_f59_gt41_to_32.json": "c8cc010cfd02c5856358edf5015824a32ab6be3bfc8ebedf860fea0e25b452fb",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_02_dancetrack0012_f805_gt35_to_43.json": "c62d16921da8744a620204c7b7f5b503607bbc9905301f6853fdf5c6abcba3ab",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_03_dancetrack0020_f61_gt71_to_97.json": "6a9190c33ce24d685737002325e01e13d44ab65d7643eb9f46925140411a095a",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_04_dancetrack0020_f385_gt60_to_63.json": "3be96a85c691aeb3e65db1367fead0d7d2a4b6a5295160bdad2ce0f8125680c4",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_05_dancetrack0024_f20_gt112_to_110.json": "a8a61a696e770b2840f99332afe44173da3debabfcf355e7319b0e939162e42a",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_06_dancetrack0024_f543_gt109_to_108.json": "d8049c2d6d933072a3978ea974a4287c0e94b3439a9a41a18d777dd4b4f347b5",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_07_dancetrack0033_f67_gt140_to_141.json": "05ca2cfc53dc78630433cd761c20cb1c228ac632df223005c1304f0f3d7dcaa2",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_08_dancetrack0033_f604_gt146_to_145.json": "b81c42993e7e775e543446d60488bf46c9ad5a84b26013b272de25c766574dcc",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_09_dancetrack0037_f438_gt148_to_152.json": "4fb985f84ad3af72821177f42a738247ef212d93729b08d66c7ce00d8d568595",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_10_dancetrack0037_f875_gt153_to_152.json": "26926aad1372189c44bda403e49cd4926e4f35d34b3598d4aca2e18743509daa",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_11_dancetrack0044_f942_gt164_to_163.json": "0d5d7a38de7aa860b2e82e3c0cbd77d266e36dbb8139a42abd5c2632ee394d9b",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_12_dancetrack0044_f1095_gt169_to_165.json": "52ce4f5ca81cf00a3ca432624cdc20f9edaa40202f7179c3af61978c53f91b8a",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_13_dancetrack0053_f143_gt211_to_208.json": "ce7e165416523ed324c011ae2d9896e6edc1355246e1f2de6c59593c86860807",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_14_dancetrack0053_f948_gt209_to_211.json": "05bd3b74ab985f62cfd491aac97977d3072dfe4fd3dcf8c5642866c5d3df0544",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_15_dancetrack0086_f247_gt346_to_348.json": "31fc780fdaf45b541be779979b6698a9567c136493b15dd1a15b97aeb568cef7",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/evidence/s13_case_16_dancetrack0086_f266_gt344_to_341.json": "c56e416289beffa824faf5ce91f20b9ded9953de3a5dd0f9e0acd32195e268fe",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/learning_curves.csv": "b9a5872944a97ea3edc69c1d5709e4289a1274601dbd749747a346fe3201c533",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/per_sequence_metrics.csv": "709e0f9c1807061e8f3c1782a19679d828526e339189b489b2fd71eb58e2958d",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n1_kin_scale_anchored.yaml": "4bafe1ca7dc8c81ed3b3177d667b6d3e83569119187b90ceaf62972c62573451",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n2_kin_occ_drop_sup.yaml": "ff7f9d0e5beee3b1e2da08770116a2022f97c6b2635e6e3eb10fe93a6914e96d",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/resolved_configs/stage_c_n3_dual_anchor_camel.yaml": "583e38f709c80ae6494e03990317ecac9f7b4b677aaac8a5e7b5a27b830b5eac",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/run_manifest.json": "45de21a90f616c79306013d50efd477c79ea1d78142133c9bed32dbb0e4bb95e",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/runtime_lock.json": "ab76c523551013ceab728687bda0d1c42c97e23d2375b8060a7079f6f360e132",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/s12_reference_comparison.csv": "93bf9b07ec4699cc4bd3a9161d83c9ee6d80edd8482c438687a909a34210a647",
+      "reports/feasibility/s13_camel_calibration_and_dual_memory_20261128/source_audit.json": "82f4d2a42d4fee47179ff08c5bd00dfdf08ccdadad5d1cc6160ce48fd02dcfcc",
+      "scripts/export_s13_report.py": "f8cf85e8d88fd2cb104962dba2dc27c815a145eede574ba2d16d7fe14d495ca1",
+      "scripts/run_s13_camel.py": "cd34901e8daa092fa892e667c20f0eaae8b9630357d78c7a569ed6ed991fe1f9",
+      "tests/test_s13_camel.py": "87bbd1c33bc1504066cad42d84f5260d9a7bc088e4ffaf1c672b26730ccb4e7e"
+    }
+  },
+  "runtime_lock": {
+    "schema_version": "s13-runtime-lock-v1",
+    "generated_at": "2026-11-28T11:33:22.843921+08:00",
+    "python": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+    "torch": "2.6.0+cu124",
+    "cuda": "12.4",
+    "gpu_probe": {
+      "CUDA_VISIBLE_DEVICES": "",
+      "physical_gpu_ids": [],
+      "logical_to_physical": {},
+      "gpu_name": "CPU"
+    }
+  },
+  "stage_outcomes": {
+    "A": "COMPLETED (CAMEL@bc1c2610 Tracklet FIFO vs CAMELDataset age ordering verified: 0 monotone violations across 24,957 tracklets; 3/3 unit tests pass; 5+5 real batches strictly finite)",
+    "B": "COMPLETED (6 calibrated M1/M1+B1 dev8 evals + 0024/0053 exact-equivalence audits; H_cal falsified; 8/10 onsets occur with true_det absent)",
+    "C": "COMPLETED (N1/N2/N3 20-epoch seed=13 training & @0.40/@th_cal dev8 evals; 0 nonfinite grads; 0.0 reload diff; winner=N3_DUAL_ANCHOR_CAMEL_TH040 HOTA=57.519)",
+    "D": "COMPLETED (Winner+B1 @th_cal + full-dev8 bit-exact onset/tail anatomy replay + 16 canonical paired cases)",
+    "E": "COMPLETED (Thesis gate verdict: CASE_3_STOP_CAMEL_LOCAL_PATCH_AND_PIVOT)"
+  },
+  "gpu_allocation": {
+    "physical_gpu_used": [
+      1
+    ],
+    "physical_gpu_forbidden": [
+      0
+    ],
+    "cuda_visible_devices": "1"
+  },
+  "train_runs": {
+    "c_n1_scale_anchored_seed13_e20_v3": "N1_KIN_SCALE_ANCHORED",
+    "c_n2_occ_drop_seed13_e20_v2": "N2_KIN_OCC_DROP_SUP",
+    "c_n3_dual_anchor_seed13_e20_v1": "N3_DUAL_ANCHOR_CAMEL"
+  },
+  "eval_runs": {
+    "b_m1_cal_th055_v2": {
+      "condition": "B_M1_CAL_055",
+      "stage_group": "Stage B (M1 cal sweep)"
+    },
+    "b_m1_cal_th060_v1": {
+      "condition": "B_M1_CAL_060",
+      "stage_group": "Stage B (M1 cal sweep)"
+    },
+    "b_m1_cal_th064_v1": {
+      "condition": "B_M1_CAL_064",
+      "stage_group": "Stage B (M1 cal sweep)"
+    },
+    "b_m1_cal_th068_v1": {
+      "condition": "B_M1_CAL_068",
+      "stage_group": "Stage B (M1 cal sweep)"
+    },
+    "b_m1_b1_cal_th058_v1": {
+      "condition": "B_M1_B1_CAL_058",
+      "stage_group": "Stage B (M1+B1 cal)"
+    },
+    "b_m1_b1_cal_th062_v1": {
+      "condition": "B_M1_B1_CAL_062",
+      "stage_group": "Stage B (M1+B1 cal)"
+    },
+    "c_eval_n1_th040_v3": {
+      "condition": "N1_KIN_SCALE_ANCHORED_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_n1_thcal_v1": {
+      "condition": "N1_KIN_SCALE_ANCHORED_THCAL",
+      "stage_group": "Stage C (@th_cal=0.54)"
+    },
+    "c_eval_n2_th040_v1": {
+      "condition": "N2_KIN_OCC_DROP_SUP_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_n2_thcal_v1": {
+      "condition": "N2_KIN_OCC_DROP_SUP_THCAL",
+      "stage_group": "Stage C (@th_cal=0.50)"
+    },
+    "c_eval_n3_th040_v1": {
+      "condition": "N3_DUAL_ANCHOR_CAMEL_TH040",
+      "stage_group": "Stage C (@0.40)"
+    },
+    "c_eval_n3_thcal_v1": {
+      "condition": "N3_DUAL_ANCHOR_CAMEL_THCAL",
+      "stage_group": "Stage C (@th_cal=0.48)"
+    },
+    "d_winner_plus_b1_thcal_v1": {
+      "condition": "N3_PLUS_B1_THCAL",
+      "stage_group": "Stage D (Winner+B1 @th_cal)"
+    }
+  },
+  "anatomy_replays": {
+    "b_audit_0024_0053_m1_th068_v2": {
+      "seqs": [
+        "dancetrack0024",
+        "dancetrack0053"
+      ],
+      "sim_threshold": 0.68
+    },
+    "b_audit_0024_0053_b1_th062_v1": {
+      "seqs": [
+        "dancetrack0024",
+        "dancetrack0053"
+      ],
+      "sim_threshold": 0.62,
+      "disambig": "B1_DUAL_SOFTMAX"
+    },
+    "d_winner_anatomy_dev8_v1": {
+      "condition": "N3_DUAL_ANCHOR_CAMEL_TH040",
+      "ref_online_run_id": "c_eval_n3_th040_v1"
+    }
+  },
+  "preserved_failed_or_superseded": [
+    {
+      "run_id": "b_m1_cal_th055_v1",
+      "stage": "B",
+      "status": "FAILED_PRE_TRACKING",
+      "superseded_by": "b_m1_cal_th055_v2",
+      "reason": "AttributeError: run_s12_camel.compose_s12_eval_config missing; switched to s09.compose_s09_infer_config.",
+      "wall_seconds": 3.0
+    },
+    {
+      "run_id": "b_audit_0024_0053_m1_th068_v1",
+      "stage": "B",
+      "status": "FAILED_ASSERTION_AFTER_TRACKING",
+      "superseded_by": "b_audit_0024_0053_m1_th068_v2",
+      "reason": "Subset Tracklet.count offset shifted sequential IDs vs full dev8 MOT; replaced exact hash check with ID-bijection + exact frame/bbox/conf equality on subset.",
+      "wall_seconds": 95.0
+    },
+    {
+      "run_id": "c_n1_scale_anchored_seed13_e20_v1",
+      "stage": "C",
+      "status": "SUPERSEDED_INVALID_ZERO_OCC_LOSS_NAN",
+      "superseded_by": "c_n1_scale_anchored_seed13_e20_v3",
+      "reason": "When occ_loss_terms was empty, td_sim.sum()*0.0 produced NaN because td_sim holds -inf at padded entries; fixed to td_sim.new_zeros(()) and verified on 5 train + 5 val real batches.",
+      "summary_json": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_n1_scale_anchored_seed13_e20_v1/stage_c_train_summary.json",
+      "wall_seconds": 6107.276790807024
+    },
+    {
+      "run_id": "c_eval_n1_th040_v1",
+      "stage": "C",
+      "status": "SUPERSEDED_EVAL_OF_N1_V1",
+      "superseded_by": "c_eval_n1_th040_v3",
+      "reason": "Evaluated c_n1_scale_anchored_seed13_e20_v1 before replacing td_sim.sum()*0.0; preserved transparently.",
+      "summary_json": "/media/imc/data/mot-data/runs/s13_camel_calibration_and_dual_memory_20261128/c_eval_n1_th040_v1/stage_eval_summary.json",
+      "wall_seconds": 507.99882907420397
+    },
+    {
+      "run_id": "c_n1_scale_anchored_seed13_e20_v2",
+      "stage": "C",
+      "status": "FAILED_EPOCH1_CALLBACK_ATTR_ERROR",
+      "superseded_by": "c_n1_scale_anchored_seed13_e20_v3",
+      "reason": "AttributeError: S13EpochLogger used self.csv_path instead of self.run_dir / 'learning_curves.csv' at epoch 1 val end; fixed immediately.",
+      "wall_seconds": 313.0
+    },
+    {
+      "run_id": "c_n2_occ_drop_seed13_e20_v1",
+      "stage": "C",
+      "status": "FAILED_SIGILL_TKAGG_AT_EPOCH10",
+      "superseded_by": "c_n2_occ_drop_seed13_e20_v2",
+      "reason": "Crashed at epoch 10 (exit 132 SIGILL / Tcl_AsyncDelete: async handler deleted by the wrong thread) because matplotlib defaulted to TkAgg under DISPLAY=:1 in SimMetrics; fixed with MPLBACKEND=Agg before imports and verified backend==Agg.",
+      "wall_seconds": 2860.0
+    }
+  ]
+}

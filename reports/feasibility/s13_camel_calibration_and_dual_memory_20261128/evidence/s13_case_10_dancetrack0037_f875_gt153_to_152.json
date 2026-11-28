@@ -1,0 +1,98 @@
+{
+  "case_id": "s13_case_10_dancetrack0037_f875_gt153_to_152",
+  "sequence": "dancetrack0037",
+  "frame": 875,
+  "s11_t2_th050_track_id": 133,
+  "anchor_gt": 153,
+  "s11_switched_to_det_gt": 152,
+  "sort_key_sha256": "36b9b6dbede4c1b978665aa0a7c0e44068d4cb78d95daaad546bab92721c0d00",
+  "s11_onset_context": {
+    "trk_gap_frames": 1,
+    "sim_val": 0.698440670967102,
+    "assignment_margin": 0.03421950340270996,
+    "max_conflict_iou": 0.5638162334247881,
+    "is_2cycle_swap": 0,
+    "true_det_present_in_frame": 0
+  },
+  "switched_at_onset_frame": {
+    "T2_TH040": null,
+    "M1_TH040": null,
+    "B_M1_CAL_068": null,
+    "N1_TH040": null,
+    "N2_TH040": null,
+    "N3_TH040": null,
+    "N3_PLUS_B1_THCAL": null
+  },
+  "anchor_gt_matched_pred_windows": {
+    "T2_TH040": {
+      "874": {
+        "matched_pred_id": 74,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "M1_TH040": {
+      "874": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "B_M1_CAL_068": {
+      "874": {
+        "matched_pred_id": 75,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 79,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "N1_TH040": {
+      "874": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 68,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "N2_TH040": {
+      "874": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 74,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "N3_TH040": {
+      "874": {
+        "matched_pred_id": 73,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 70,
+        "iou_to_gt": 0.970509
+      }
+    },
+    "N3_PLUS_B1_THCAL": {
+      "874": {
+        "matched_pred_id": 72,
+        "iou_to_gt": 0.922197
+      },
+      "880": {
+        "matched_pred_id": 67,
+        "iou_to_gt": 0.970509
+      }
+    }
+  }
+}

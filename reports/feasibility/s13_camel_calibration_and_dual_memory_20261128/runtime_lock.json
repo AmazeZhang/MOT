@@ -1,0 +1,13 @@
+{
+  "schema_version": "s13-runtime-lock-v1",
+  "generated_at": "2026-11-28T11:33:22.843921+08:00",
+  "python": "/media/imc/data/mot-data/envs/s08-camel/bin/python",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu_probe": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "physical_gpu_ids": [],
+    "logical_to_physical": {},
+    "gpu_name": "CPU"
+  }
+}
