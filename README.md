@@ -1,8 +1,14 @@
 # MOT 毕业设计研究
 
-**当前待执行（2026-11-27）：** S10 抗闭环污染实验已完成（`D2_SKIP_ONLY` 纯拒写达 `63.781` HOTA / `49.940` AssA；`C0` `48.838/43.509`；`C1` `51.780` > `C3` `49.781` > `C2` `48.210`，全低于 S09 无污染基线 `54.443`；Stage D 发现 `31,791/31,940` 跨 ID 写入由 `149` 例首次切换引爆，且 `1-sim` 在 onset 上 `AUROC=0.8512`，见 [S10 权威报告](reports/feasibility/s10_camel_anticontamination_20261127/README.md)）。研究端已按 S10 负结果停止 `C2/C3` 合成接管分支，并起草零重训 [S11 低阈值标定、149 例 Onset 解剖与冲突感知拒写任务书](docs/a2a/S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md) 与 [协议](manifests/protocols/s11_camel_onset_and_conflict_gate_20261127.yaml)（`NOT_RUN`，`<= 2.0 GPUh`）。长期协作采用 [研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从 [LATEST](docs/a2a/LATEST.md) 读取当前任务。
+## 核心科研目标与防陷入总纲（所有协作者与 AI 必读）
 
-**历史状态（2026-11-25–11-27）：** [S08 CAMELTrack 基线](docs/a2a/S08_CAMEL_BASELINE_TASK.md)、[S09 标定归因](docs/a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md) 与 [S10 抗污染实验](docs/a2a/S10_CAMEL_ANTICONTAMINATION_TASK.md) 均已完成。
+- **最终目标：** 完成具备**研究生毕业论文工作量与发表级水准**的多目标追踪（MOT）科研成果——既有站得住脚的**方法创新**，又有在权威基准（**DanceTrack 完整 `val`/`test`**，并向 **SportsMOT / MOT17** 拓展）上**稳定、可复现的实质提点（HOTA / AssA / IDF1）**，以及完整消融、多 seed 验证与机理剖析。
+- **防陷入约束：** 不在 `motion_dev8`（8 段视频、单 seed `13`）上陷入“微调阈值/改小损失/无限诊断”的死循环。每条技术路线设置 **1–2 轮硬止损门槛**：过门立即升级至多 seed（`13/37/73`）与官方完整 `val`/`test`；未过门则果断切换更高天花板思路（如轨迹级在线自纠偏或端到端 ID 预测/可见性遮挡新范式）。
+- **已排雷共识（不重复踩坑）：** 纯写库端静止门控（S11 `G1–G4`）、未校准纯推理后处理（S12 `B1/B2`）、同帧合成整换（S10 `C2/C3`）与无区分硬压未匹配分数（S12 `M3`）均已否定；同时训练端引入评分残差前必须检验相似度标尺漂移（S12 `M1` 阈值从 `0.546` 漂移至 `0.687` 导致 `0.40/0.50` 失效）。
+
+**当前待执行（2026-11-28）：** **S12**（`C'` 成对运动/方向遮挡边偏置 + `A'`）已完成（[S12 权威报告](reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md)）：`M1_C_KIN_EDGE`（`57.033`）大幅优于容量对照 `M0`（`54.179`, `+2.854` HOTA）并压降首次切换 `onset_cross` `-36.2%`（`149 -> 95`），但因 `delta_s` 导致阈值标尺上移至 `0.687`（使 `@0.40/@0.50` 处于盲区）且残余切换引发更长尾段（`31,791 -> 40,570`），暂落后 `T2_TH040`（`57.572`）。研究端已起草承上启下的 **[S13 标尺校准、缺检拒识与早锚双尺度抗污染任务书](docs/a2a/S13_CAMEL_CALIBRATION_AND_DUAL_MEMORY_TASK.md)** 与 [协议](manifests/protocols/s13_camel_calibration_and_dual_memory_20261128.yaml)（`NOT_RUN`，设硬晋级/止损门）。长期协作采用 [研究端任务规范](docs/experiment_task_contract.md)＋[服务器报告规范](docs/experiment_reporting.md)，统一从 [LATEST](docs/a2a/LATEST.md) 读取当前任务。
+
+**历史状态（2026-11-25–11-28）：** [S08 CAMELTrack 基线](docs/a2a/S08_CAMEL_BASELINE_TASK.md)、[S09 标定归因](docs/a2a/S09_CAMEL_CALIBRATION_AND_ATTRIBUTION_TASK.md)、[S10 抗污染实验](docs/a2a/S10_CAMEL_ANTICONTAMINATION_TASK.md)、[S11 低阈值与 Onset 解剖](docs/a2a/S11_CAMEL_ONSET_AND_CONFLICT_GATE_TASK.md) 与 [S12 成对边偏置](docs/a2a/S12_CAMEL_PAIRWISE_EDGE_AND_ASSIGNMENT_TASK.md) 均已完成。
 
 **最新阶段（2026-11-25）：S07 checkpoint 补充体检完成。** Context 后期 checkpoint 的固定样本回归误差降低，但 internal-dev6 动作决定为 13/22，未超过 always-M 的 14/22；结果后动作类型常数的 MSE 也更低。保持 S06 STOP，不再补同批小选择器诊断，优先转向成熟学习关联基线，再选择具体创新问题。见 [S07 复盘与方向决定](docs/research_status_review_20261125.md)、[权威报告](reports/diagnostics/s07_s06_checkpoint_postmortem_20261124/README.md)与 [A2A 当前入口](docs/a2a/LATEST.md)。以下 11 月 24 日及更早阶段保留为历史，不是新的待执行清单。
 

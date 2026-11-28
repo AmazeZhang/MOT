@@ -2,9 +2,14 @@
 
 更新：2026-11-28。本文件是可更新导航；历史报告、协议和失败记录仍保留。
 
-## 0. Current Active Task To Execute: None (`STOPPED_AT_S12_STAGE_E_AWAITING_RESEARCH_REVIEW`)
+## 0. Current Active Task To Execute: **S13 标尺校准、缺检拒识与早锚双时间尺度抗污染记忆（`NOT_RUN`）**
 
-- 本轮 **S12** 已完成 Stage A–E 全流程并按任务书停止在 Stage E；在研究端审阅 S12 报告并下发 S13 新协议前，**无待执行 GPU/训练/评测任务**（不自动运行 multi-seed 37/73 或官方 `val`/`test`）。
+- **任务书与协议：** [S13 任务书](S13_CAMEL_CALIBRATION_AND_DUAL_MEMORY_TASK.md)；[版本化协议](../../manifests/protocols/s13_camel_calibration_and_dual_memory_20261128.yaml)。
+- **执行状态：** **`DESIGN_READY_RUNTIME_LOCK_PENDING`（`NOT_RUN` — 已审阅 S12、补充硕士论文核心目标与防陷入边界至 [AGENTS.md](../../AGENTS.md) / [README.md](../../README.md) / [任务规范](../experiment_task_contract.md)，待用户交付服务器从 Stage A 执行至 Stage E 后停止）**
+- **核心内容与止损门槛：**
+  - **Stage B（零重训 S12 矫正，`<= 0.7 GPUh`）：** 扫现有 `M1`（`b3ca74bf...`）对齐 `0.6869` 标尺的阈值 `{0.55, 0.60, 0.64, 0.68}` 及同步校准 `dustbin` 的 `M1+B1 @ {0.58, 0.62}`，并定向解剖 `dancetrack0024`/`0053` 掉分 onset。
+  - **Stage C/D（收敛三联组 + 尾段解剖，`<= 7.3 GPUh`）：** `N1`（零均值中心化 `C'`）→ `N2`（`p_occ_drop=0.25` 遮挡删帧抗误抓监督，仅作用于 `IoU>=0.25` 冲突轨迹）→ `N3`（永不被 FIFO 淘汰的 `K=4` 早锚一致性特征 + 近期槽可控污染注入 `K-AnchorCAMEL`），全部在固定 `0.40` 与零泄漏 `val` 派生阈值 `th_cal` 上闭环评测并回放 `onset_cross` 与 `post_switch_cross`。
+  - **Stage E 硕士论文硬晋级门槛：** 若最优组达 `HOTA >= 59.1`（`>= +1.5` vs `T2_TH040 57.572`）且 `AssA >= 42.85`、`>= 5/8` 胜率并压低 `post_switch_cross`，则 S14 直接升级至多 seed（`13/37/73`）＋ **完整 DanceTrack `val`/`test`**；否则止损并果断切换至 Route B（在线交叉后轨迹自纠偏）或 Route C（更高天花板范式），严防局部微调死循环。
 
 ---
 

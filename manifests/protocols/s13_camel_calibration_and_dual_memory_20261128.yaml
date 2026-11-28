@@ -1,0 +1,171 @@
+protocol_id: s13_camel_calibration_and_dual_memory_20261128
+version: 1
+created_on: '2026-11-28'
+status: DESIGN_READY_RUNTIME_LOCK_PENDING
+execution_status: NOT_RUN
+frozen_at: null
+task_document: docs/a2a/S13_CAMEL_CALIBRATION_AND_DUAL_MEMORY_TASK.md
+task_contract: docs/experiment_task_contract.md
+report_contract: docs/experiment_reporting.md
+report_directory: reports/feasibility/s13_camel_calibration_and_dual_memory_20261128
+purpose: fix_s12_threshold_drift_test_occlusion_drop_rejection_and_validate_early_anchor_dual_timescale_memory
+thesis_gate:
+  escalate_to_s14_multiseed_and_full_val_if:
+    hota_min: 59.1
+    assa_min: 42.85
+    baseline_hota_ref: 57.572
+    baseline_assa_ref: 40.845
+    per_sequence_wins_min: 5
+    post_switch_cross_must_decrease_vs_s11_31791: true
+  pivot_to_route_b_or_c_if_below_gate: true
+allowed_claim: controlled_scale_calibration_and_dual_timescale_anchor_ablation_on_dev8_for_s14_promotion_decision
+not_allowed_claim:
+  - unseen_generalization_from_dev8_single_seed
+  - direct_method_claim_against_p_official_train_plus_val_ckpt
+  - incremental_tuning_beyond_two_rounds_without_crossing_thesis_gate
+activation: user_hands_this_task_to_server_for_execution
+automatic_progression: A_to_E_if_predecessor_gates_pass_and_budgets_remain
+stop_after: E_or_first_unresolved_gate_or_budget_limit
+prior_evidence:
+  s10_report: reports/feasibility/s10_camel_anticontamination_20261127/README.md
+  s11_report: reports/feasibility/s11_camel_onset_and_conflict_gate_20261127/README.md
+  s12_report: reports/feasibility/s12_camel_pairwise_edge_and_assignment_20261127/README.md
+  stopped_branches: [P1, R1, R2, E3, E5, S03, S04, S06_NO_SEEDS_37_73, S10_C2_C3_LOCAL_SYNTHETIC_GATE, S11_G1_G4_WRITE_ONLY_GATE, S12_M2_DOA_SELF_BIAS, S12_M3_TAU_NEG_DISTORTION, S12_B2_MARGIN_2CYCLE_DEFER]
+upstream:
+  repository: https://github.com/TrackingLaboratory/CAMELTrack
+  commit: bc1c261075b0beacfe71c2896453be83643153c8
+  local_checkout_expected: /media/imc/data/mot-data/third_party/CAMELTrack
+  env_expected: /media/imc/data/mot-data/envs/s08-camel
+reused_assets:
+  s12_protocol_sha256: 8095ff00d557541d7a36e0a0a9ebf554a071a743594d254eb3a995a891ac571a
+  s12_m1_kin_edge_ckpt:
+    run_id: c_m1_kin_edge_seed13_e20_v1
+    sha256: b3ca74bf5426729736cf641770f7f372ae4903a54b1a1485f778309a8ae94314
+    expected_path: /media/imc/data/mot-data/runs/s12_camel_pairwise_edge_and_assignment_20261127/c_m1_kin_edge_seed13_e20_v1/CAMEL/last.ckpt
+  c1_te_ckpts:
+    app_encoder:
+      run_id: c1_app_encoder_seed13_e20_v1
+      sha256: e5d25a8a260103885c4b960251bf38b67603102297f133cce6826c52366af10d
+    kp_encoder:
+      run_id: c1_kp_encoder_seed13_e20_v1
+      sha256: d33e84bbfe9aa4ed843bf77986b495df37005a81ab7942a1e69267f993d1618c
+    bbox_encoder:
+      run_id: c1_bbox_encoder_seed13_e20_v1
+      sha256: fc3b50d830995b03c66393d9a516ad227c9963a7aceb84a2976bbf5936757de
+data:
+  dataset: DanceTrack
+  official_source_split: train
+  membership_source: manifests/splits/dancetrack_motion_train_dev_v1_20261112.yaml
+  membership_sha256: dd0b7fefd353532e04fb36206c7a1cf624cc661054b198653173f23e320926ff
+  train32_frames: 34231
+  dev8_frames: 7565
+  official_val: reserved_for_s14_after_passing_thesis_gate
+  official_test: reserved_for_s14_after_passing_thesis_gate
+  inference_policy_shared:
+    min_det_conf: 0.4
+    min_init_det_conf: 0.9
+    min_num_hits: 0
+    max_wo_hits: 150
+    max_track_gallery_size: 50
+    use_computed_sim_threshold: false
+    postprocessing_interpolation: false
+shared_training_config:
+  seed: 13
+  initialization: load_s09_c1_te_checkpoints_and_random_gaffe_with_zero_init_new_heads
+  max_epochs: 20
+  checkpoint_selection: last_of_completed_epoch20_only
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  precision: 32
+  batch_size: 8
+stages:
+  A:
+    action: audit_tracklet_gallery_age_order_implement_s13_runner_and_unit_test
+    required_audits:
+      - tracklet_gallery_fifo_eviction_and_slot_order
+      - camel_dataset_track_age_ordering_match_to_online
+      - early_anchor_persistence_over_50_frames_and_step0_equivalence
+    gate: asset_hashes_verified_and_all_s13_unit_tests_pass
+  B:
+    purpose: zero_retrain_m1_scale_calibration_sweep_and_targeted_0024_0053_attribution
+    ckpt_ref: s12_m1_kin_edge_ckpt
+    m1_threshold_sweep: [0.55, 0.60, 0.64, 0.68]
+    m1_plus_b1_calibrated:
+      tau_ds: 0.10
+      thresholds_with_matched_dustbin: [0.58, 0.62]
+    targeted_sequence_audit: [dancetrack0024, dancetrack0053]
+    expected_online_evals: 6
+    gate: all_6_evals_complete_and_b1_rejections_nonzero
+  C:
+    purpose: converged_three_arm_ablation_for_scale_occ_drop_and_dual_anchor_memory
+    eval_thresholds_rule:
+      fixed_ref: 0.40
+      zero_leakage_val_calibrated: clip_round_val_th_minus_014_between_035_065
+    conditions:
+      - condition: N1_KIN_SCALE_ANCHORED
+        edge_features: kinematic_13d
+        lambda_center: 0.50
+        p_occ_drop: 0.0
+        early_anchor_k: 0
+        p_hist_pollute: 0.0
+      - condition: N2_KIN_OCC_DROP_SUP
+        edge_features: kinematic_13d
+        lambda_center: 0.50
+        p_occ_drop: 0.25
+        occ_conflict_iou: 0.25
+        tau_occ: 0.35
+        beta: 10.0
+        lambda_occ: 0.15
+        early_anchor_k: 0
+        p_hist_pollute: 0.0
+      - condition: N3_DUAL_ANCHOR_CAMEL
+        edge_features: kinematic_13d_plus_early_anchor_consistency_4d
+        lambda_center: 0.50
+        p_occ_drop: 0.25
+        occ_conflict_iou: 0.25
+        tau_occ: 0.35
+        beta: 10.0
+        lambda_occ: 0.15
+        early_anchor_k: 4
+        early_anchor_conf_min: 0.70
+        early_anchor_conflict_iou_lt: 0.30
+        recent_slots_for_proto: 8
+        p_hist_pollute: 0.25
+        pollute_recent_slots_range: [2, 4]
+        pollute_min_valid_slots: 6
+    expected_train_runs: 3
+    expected_online_evals_max: 6
+    gate: zero_nonfinite_grads_reload_diff_0_and_all_evals_complete
+  D:
+    purpose: winner_b1_check_onset_and_cascade_replay_anatomy_and_paired_cases
+    select_winner_rule: highest_COMBINED_HOTA_on_dev8_tiebreak_AssA
+    actions:
+      - evaluate_winner_plus_b1_with_matched_dustbin
+      - run_s11_s12_compatible_onset_and_post_switch_replay_on_winner
+      - export_up_to_16_paired_cases
+    gate: exact_mot_match_on_replay_zero_gt_leakage
+  E:
+    action: export_report_apply_thesis_escalation_or_pivot_gate_and_stop
+    gate: checks_json_and_artifact_hashes_verified
+evaluation:
+  evaluator: official_TrackEval_sn_trackeval_0_4_0
+  primary_metrics: [HOTA, AssA, IDF1]
+  secondary_metrics: [DetA, MOTA, IDSW, FP, FN, Frag, ms_per_frame, extra_params]
+  aggregation: official_COMBINED_SEQ_not_video_mean
+  analysis_unit: sequence
+budgets:
+  gpu_count_concurrent: 1
+  physical_gpu_allowed: [1, 2, 3, 4, 5, 6, 7]
+  physical_gpu_forbidden: [0]
+  gpu_hours_total_max: 8.5
+  gpu_hours_stage_max: {A: 0.3, B: 0.7, C: 6.0, D: 1.3, E: 0.2}
+  elapsed_hours_total_max: 24
+  extra_storage_gib_max: 15
+  minimum_remaining_free_gib: 50
+  targeted_compatibility_repairs_per_blocker_max: 2
+not_in_scope:
+  - multi_seed_37_73
+  - official_dancetrack_val_or_test_or_sportsmot
+  - s11_write_only_gates_or_s12_m2_doa_or_m3_tau_neg
+  - post_hoc_threshold_tuning_beyond_stage_b_sweep_and_val_rule
+  - automatic_git_commit_or_push

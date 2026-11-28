@@ -1,5 +1,11 @@
 # MOT Workspace Rules
 
+## Thesis research objective and anti-rabbit-hole policy
+
+- **Primary Goal:** Deliver a **Master's-thesis-grade MOT research contribution** combining genuine methodological novelty with clear, reproducible closed-loop HOTA/AssA/IDF1 gains over the strongest calibrated baselines—moving from bounded development (`motion_dev8`) to multi-seed confirmation (`13, 37, 73`) and authoritative full benchmarks (DanceTrack `val`/`test`, plus a second benchmark such as SportsMOT or MOT17 when justified), backed by clean ablations and mechanism evidence.
+- **Anti-Rabbit-Hole Discipline:** Do not let the project drift into endless incremental micro-tuning or multi-round diagnostic rabbit holes on small subsets (`motion_dev8`, single seed) without a thesis-level hypothesis. Every new experiment must state upfront: (1) which thesis-level innovation/chapter claim it tests, (2) a concrete closed-loop promotion gate over the strongest calibrated baseline (`T2_TH040 = 57.572` on `dev8` unless superseded) required before multi-seed/full-`val` escalation, and (3) a strict **1–2 round stop/pivot boundary** per route so dead ends or plateaus are terminated cleanly.
+- **Guardrails Against Refuted Loops:** Do not re-run already-refuted micro-variants (`G1–G4` write-only gates, naive uncalibrated `B1/B2`, synthetic whole-frame swaps `C2/C3`, or `M3` `tau_neg=0.35` margin distortion) without a substantially distinct mechanism; always inspect score-scale / `val/computed_sim_threshold` calibration before assuming a model failed on merit.
+
 ## GPU safety policy
 
 - Physical GPU 0 is reserved for the Ubuntu graphical desktop. Never use GPU 0 for this project's training, evaluation, inference, smoke tests, or other CUDA workloads.
